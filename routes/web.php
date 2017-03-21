@@ -16,6 +16,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::resource('login', 'LoginController');
-Route::resource('admin', 'AdminController');
-Route::resource('user', 'UserController');
+Route::resource('home', 'HomeController');
+Route::resource('admins', 'AdminController');
+Route::resource('users', 'UserController');

@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
 <head>
+    <style>
+    .button {
+        background-color: #2697D1;
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        text-align: center;
+        width: 150px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+    }
+    </style>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,14 +64,8 @@
 
                     <center>
                     <h4>Choose Log In As</h4>
-                    <!-- <select>
-                      <option value="admin" href="login2">Administrator</option>
-                      <option value="user" href="login2">User</option>
-                    </select>
-                    </center>  -->  
-                    <br>
-                    <a href="login2"><h4>Administrator</h4></a>
-                    <a href="login2"><h4>User</h4></a>
+                    <button class="button"><h4>Administrator</h4></button>
+                    <button class="button"><h4>User</h4></button>
                     </center>
                 </div>
             </div>
