@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class LoginController extends Controller
 {
 //    public function __construct() 
 //    { 
@@ -16,14 +16,14 @@ class AdminController extends Controller
         return view('login');
     }
 
-    public function store()
+    public function login_admin()
     {
-
+        return view('login2');
     }
 
-    public function create()
+    public function login_user()
     {
-
+        return view('login2');
     }
 
     public function update()
