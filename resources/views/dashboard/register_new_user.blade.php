@@ -93,4 +93,4 @@
 <!-- AdminLTE App -->
 <script src="adminlte/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="admin/dist/js/demo.js"></script>
+<script src="adminlte/dist/js/demo.js"></script>

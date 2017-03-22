@@ -29,6 +29,8 @@
   <link rel="stylesheet" href="adminlte/plugins/daterangepicker/daterangepicker.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="adminlte/plugins/datatables/dataTables.bootstrap.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -107,7 +109,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href=""><i class="fa fa-circle-o"></i> Register New User</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Recapitulation User</a></li>
+            <li><a href="{{ route('user_recap')}}"><i class="fa fa-circle-o"></i> Recapitulation User</a></li>
           </ul>
         </li>
 
@@ -175,9 +177,7 @@
 </div>
 <!-- ./wrapper -->
 
-    
-<!-- jQuery 2.2.3 -->
-<script src="adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+
 <!-- jQuery UI 1.11.4 -->
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

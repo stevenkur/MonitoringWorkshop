@@ -19,3 +19,4 @@ Auth::routes();
 Route::resource('home', 'HomeController');
 Route::resource('admins', 'AdminController');
 Route::resource('users', 'UserController');
+Route::get('user_recap', ['as'=>'user_recap', 'uses'=>'UserController@recap']);

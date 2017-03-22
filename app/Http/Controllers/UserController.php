@@ -16,6 +16,11 @@ class UserController extends Controller
         return view('dashboard/index');
     }
 
+    public function recap()
+    {
+        return view('dashboard/recapitulation_user');
+    }
+    
     public function store()
     {
 

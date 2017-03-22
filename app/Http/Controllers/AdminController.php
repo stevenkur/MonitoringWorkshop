@@ -13,7 +13,7 @@ class AdminController extends Controller
         
     public function index()
     {
-        return view('dashboard/recapitulation_user');
+        return view('dashboard/index');
     }
 
     public function store()

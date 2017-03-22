@@ -92,14 +92,17 @@
 <script src="adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="adminlte/bootstrap/js/bootstrap.min.js"></script>
-<!-- ChartJS 1.0.1 -->
-<script src="adminlte/plugins/chartjs/Chart.min.js"></script>
+<!-- DataTables -->
+<script src="adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="adminlte/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="adminlte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="adminlte/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="adminlte/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="admin/dist/js/demo.js"></script>
+<script src="adminlte/dist/js/demo.js"></script>
 <!-- page script -->
 <script>
 $(function() {
@@ -110,6 +113,6 @@ $(function() {
           "ordering": true,
           "info": true,
           "autoWidth": false
-});
+    });
   });
 </script>
