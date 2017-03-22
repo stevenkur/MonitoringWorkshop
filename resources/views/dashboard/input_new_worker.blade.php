@@ -6,12 +6,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Register New User
+        Input New Worker in Workshop
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
-        <li>Register Application User</li>
-        <li class="active">Register New User</li>
+        <li>Input Worker</li>
+        <li class="active">Input New Worker in Workshop</li>
       </ol>
     </section>
 
@@ -27,32 +27,19 @@
             <form role="form">
               <div class="box-body">
                 <div class="form-group">
-                  <label for="inputUsername">Username:</label>
-                  <input type="text" class="form-control" id="username" placeholder="Enter username">
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword">Password:</label>
-                  <input type="password" class="form-control" id="password" placeholder="Enter password">
-                </div>
-                <div class="form-group">
-                  <label for="inputFullName">Full Name:</label>
-                  <input type="text" class="form-control" id="fullname" placeholder="Enter full name">
-                </div>
-                <div class="form-group">
-                  <label for="inputPhoneNumber">Phone Number:</label>
-                  <input type="text" class="form-control" id="phonenumber" placeholder="Enter phone number">
+                  <label for="inputWorker">Name of Worker:</label>
+                  <input type="text" class="form-control" id="worker" placeholder="Enter worker">
                 </div>
                 <div class="form-group">
                   <label for="inputDivision">Division:</label>
                   <select class="form-control">
                     <option id="#">--Select Division--</option>
-                    <option id="1">PPC/Admin</option>
-                    <option id="2">Steel Stock House</option>
-                    <option id="3">Fabrication</option>
-                    <option id="4">Sub Assembly</option>
-                    <option id="5">Assembly</option>
-                    <option id="6">Block Blasting Structure</option>
-                    <option id="7">Erection</option>
+                    <option id="1">SSH</option>
+                    <option id="2">Fabrication</option>
+                    <option id="3">Sub Assembly</option>
+                    <option id="4">Assembly</option>
+                    <option id="5">BBS</option>
+                    <option id="6">Erection Process</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -69,7 +56,7 @@
 
               <div class="box-footer">
                 <button type="reset" class="btn btn-default">Reset</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Input</button>
               </div>
             </form>
           </div>
@@ -93,4 +80,4 @@
 <!-- AdminLTE App -->
 <script src="adminlte/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="adminlte/dist/js/demo.js"></script>
+<script src="admin/dist/js/demo.js"></script>

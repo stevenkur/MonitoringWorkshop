@@ -6,12 +6,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Recapitulation User
+        Recap Machine
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
-        <li>Register Application User</li>
-        <li class="active">Recapitulation User</li>
+        <li>Input Machine</li>
+        <li class="active">Recap Machine</li>
       </ol>
     </section>
 
@@ -23,56 +23,45 @@
         <div class="box">
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="user" class="table table-bordered table-striped">
+              <table id="machine" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Username</th>
-                  <th>Password</th>
-                  <th>Full Name</th>
-                  <th>Phone Number</th>
-                  <th>Division</th>
-                  <th>Position</th>
-                  <th>NIK</th>
+                  <th>Name of Machine</th>
+                  <th>Activity</th>
+                  <th>Workshop</th>
+                  <th>Target/Day</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td>Username</td>
-                  <td>Password</td>
-                  <td>Full Name</td>
-                  <td>Phone Number</td>
-                  <td>Division</td>
-                  <td>Position</td>
-                  <td>NIK</td>
+                  <td>Name of Machine</td>
+                  <td>Activity</td>
+                  <td>Workshop</td>
+                  <td>Target/Day</td>
                 </tr>
                 <tr>
-                  <td>Username</td>
-                  <td>Password</td>
-                  <td>Full Name</td>
-                  <td>Phone Number</td>
-                  <td>Division</td>
-                  <td>Position</td>
-                  <td>NIK</td>
-                </tr>
-                <tr>
-                  <td>Username</td>
-                  <td>Password</td>
-                  <td>Full Name</td>
-                  <td>Phone Number</td>
-                  <td>Division</td>
-                  <td>Position</td>
-                  <td>NIK</td>
+                  <td>Name of Machine</td>
+                  <td>Activity</td>
+                  <td>Workshop</td>
+                  <td>Target/Day</td>
+                </tr><tr>
+                  <td>Name of Machine</td>
+                  <td>Activity</td>
+                  <td>Workshop</td>
+                  <td>Target/Day</td>
+                </tr><tr>
+                  <td>Name of Machine</td>
+                  <td>Activity</td>
+                  <td>Workshop</td>
+                  <td>Target/Day</td>
                 </tr>
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Username</th>
-                  <th>Password</th>
-                  <th>Full Name</th>
-                  <th>Phone Number</th>
-                  <th>Division</th>
-                  <th>Position</th>
-                  <th>NIK</th>
+                  <th>Name of Machine</th>
+                  <th>Activity</th>
+                  <th>Workshop</th>
+                  <th>Target/Day</th>
                 </tr>
                 </tfoot>
               </table>
@@ -105,7 +94,7 @@
 <!-- page script -->
 <script>
 $(function() {
-    $('#user').DataTable({
+    $('#machine').DataTable({
           "paging": true,
           "lengthChange": true,
           "searching": true,

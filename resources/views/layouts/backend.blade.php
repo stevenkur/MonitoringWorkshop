@@ -108,8 +108,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> Register New User</a></li>
-            <li><a href="{{ route('user_recap')}}"><i class="fa fa-circle-o"></i> Recapitulation User</a></li>
+            <li><a href="{{ route('register_user')}}"><i class="fa fa-circle-o"></i> Register New User</a></li>
+            <li><a href="{{ route('recap_user')}}"><i class="fa fa-circle-o"></i> Recapitulation User</a></li>
           </ul>
         </li>
 
@@ -122,8 +122,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> Input New Machine</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Recap Machine</a></li>
+            <li><a href="{{ route('input_machine')}}"><i class="fa fa-circle-o"></i> Input New Machine</a></li>
+            <li><a href="{{ route('recap_machine')}}"><i class="fa fa-circle-o"></i> Recap Machine</a></li>
           </ul>
         </li>
 
@@ -136,8 +136,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> Input New Worker in Workshop</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Recap Worker</a></li>
+            <li><a href="{{ route('input_worker')}}"><i class="fa fa-circle-o"></i> Input New Worker in Workshop</a></li>
+            <li><a href="{{ route('recap_worker')}}"><i class="fa fa-circle-o"></i> Recap Worker</a></li>
           </ul>
         </li>
 
@@ -150,12 +150,12 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> SSH</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Fabrication</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Sub Assembly</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Assembly</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> BBS</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Erection Process</a></li>
+            <li><a href="{{ route('ssh_menu')}}"><i class="fa fa-circle-o"></i> SSH</a></li>
+            <li><a href="{{ route('fabrication_menu')}}"><i class="fa fa-circle-o"></i> Fabrication</a></li>
+            <li><a href="{{ route('subassembly_menu')}}"><i class="fa fa-circle-o"></i> Sub Assembly</a></li>
+            <li><a href="{{ route('assembly_menu')}}"><i class="fa fa-circle-o"></i> Assembly</a></li>
+            <li><a href="{{ route('bbs_menu')}}"><i class="fa fa-circle-o"></i> BBS</a></li>
+            <li><a href="{{ route('erection_menu')}}"><i class="fa fa-circle-o"></i> Erection Process</a></li>
           </ul>
         </li>
 
