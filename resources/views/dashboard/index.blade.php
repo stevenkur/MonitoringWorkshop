@@ -23,7 +23,7 @@
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>XXX</h3>
-              <p>TRANSACTION</p>
+              <p>Unfinished Project</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
@@ -35,8 +35,8 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>12</h3>
-              <p>Doctor</p>
+              <h3>50 ton</h3>
+              <p>Daily Productivity</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
@@ -48,8 +48,8 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>12</h3>
-              <p>Pharmacy</p>
+              <h3>1500 ton</h3>
+              <p>Monthly Productivity</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
@@ -71,6 +71,26 @@
           </div>
         </div>
         
+        <div class="col-md-12">
+          <!-- LINE CHART -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Line Chart</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="chart">
+                <canvas id="lineChart" style="height:250px"></canvas>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </div>
       </div>
     </section>
   </div>
@@ -90,3 +110,127 @@
 <!-- AdminLTE for demo purposes -->
 <script src="adminlte/dist/js/demo.js"></script>
 <!-- page script -->
+<script>
+  $(function () {
+    /* ChartJS
+     * -------
+     * Here we will create a few charts using ChartJS
+     */
+
+    //--------------
+    //- AREA CHART -
+    //--------------
+    var areaChartData = {
+      labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"],
+      datasets: [
+        {
+          label: "SSH",
+          fillColor: "rgba(210, 214, 222, 1)",
+          strokeColor: "rgba(210, 214, 222, 1)",
+          pointColor: "rgba(210, 214, 222, 1)",
+          pointStrokeColor: "#c1c7d1",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(220,220,220,1)",
+          data: [65, 59, 80, 81, 56, 55, 40]
+        },
+        {
+          label: "Fabrication",
+          fillColor: "rgba(60,141,188,0.9)",
+          strokeColor: "rgba(60,141,188,0.8)",
+          pointColor: "#3b8bba",
+          pointStrokeColor: "rgba(60,141,188,1)",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(60,141,188,1)",
+          data: [28, 48, 40, 19, 86, 27, 90]
+        },
+        {
+          label: "Sub Assembly",
+          fillColor: "rgba(255,141,188,0.9)",
+          strokeColor: "rgba(255,141,188,0.8)",
+          pointColor: "#ff8bba",
+          pointStrokeColor: "rgba(255,141,188,1)",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(255,141,188,1)",
+          data: [48, 40, 19, 86, 27, 28, 90]
+        },
+        {
+          label: "Assembly",
+          fillColor: "rgba(255,0,0,0.9)",
+          strokeColor: "rgba(255,0,0,0.8)",
+          pointColor: "#ff0000",
+          pointStrokeColor: "rgba(255,0,0,1)",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(255,0,0,1)",
+          data: [40, 27, 28, 19, 86, 48, 90]
+        },
+        {
+          label: "BBS",
+          fillColor: "rgba(60,255,0,0.9)",
+          strokeColor: "rgba(60,255, 0,0.8)",
+          pointColor: "#3bff00",
+          pointStrokeColor: "rgba(60,255,0,1)",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(60,255,0,1)",
+          data: [19, 86, 27, 90, 28, 48, 40]
+        },
+        {
+          label: "Erection Process",
+          fillColor: "rgba(60,255,188,0.9)",
+          strokeColor: "rgba(60,255,188,0.8)",
+          pointColor: "#3bffba",
+          pointStrokeColor: "rgba(60,255,188,1)",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(60,255,188,1)",
+          data: [19, 28, 48, 40, 86, 27, 90]
+        }
+      ]
+    };
+var areaChartOptions = {
+      //Boolean - If we should show the scale at all
+      showScale: true,
+      //Boolean - Whether grid lines are shown across the chart
+      scaleShowGridLines: false,
+      //String - Colour of the grid lines
+      scaleGridLineColor: "rgba(0,0,0,.05)",
+      //Number - Width of the grid lines
+      scaleGridLineWidth: 1,
+      //Boolean - Whether to show horizontal lines (except X axis)
+      scaleShowHorizontalLines: true,
+      //Boolean - Whether to show vertical lines (except Y axis)
+      scaleShowVerticalLines: true,
+      //Boolean - Whether the line is curved between points
+      bezierCurve: true,
+      //Number - Tension of the bezier curve between points
+      bezierCurveTension: 0.3,
+      //Boolean - Whether to show a dot for each point
+      pointDot: false,
+      //Number - Radius of each point dot in pixels
+      pointDotRadius: 4,
+      //Number - Pixel width of point dot stroke
+      pointDotStrokeWidth: 1,
+      //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
+      pointHitDetectionRadius: 20,
+      //Boolean - Whether to show a stroke for datasets
+      datasetStroke: true,
+      //Number - Pixel width of dataset stroke
+      datasetStrokeWidth: 2,
+      //Boolean - Whether to fill the dataset with a color
+      datasetFill: true,
+      //String - A legend template
+      legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>",
+      //Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+      maintainAspectRatio: true,
+      //Boolean - whether to make the chart responsive to window resizing
+      responsive: true
+    };
+      
+    //-------------
+    //- LINE CHART -
+    //--------------
+    var lineChartCanvas = $("#lineChart").get(0).getContext("2d");
+    var lineChart = new Chart(lineChartCanvas);
+    var lineChartOptions = areaChartOptions;
+    lineChartOptions.datasetFill = false;
+    lineChart.Line(areaChartData, lineChartOptions);
+  });
+</script>

@@ -43,21 +43,20 @@
 
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-
   <header class="main-header">
     <!-- Logo -->
     <a href="{{ route('admins.index') }}" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>MWS</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Administrator </b></span>
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>MWS</b></span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>Administrator </b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-        <span class="sr-only">Toggle navigation</span>
-      </a>
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
@@ -87,15 +86,15 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-ship"></i>
-            <span>Create Ship Data</span>
+            <span>Create Ship Project Data</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> Register Project of Ship</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Input Material List</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Input Assembly Part List</a></li>
+            <li><a href="{{ route('ship_project')}}"><i class="fa fa-circle-o"></i> Ship Project</a></li>
+            <li><a href="{{ route('material_list')}}"><i class="fa fa-circle-o"></i> Material List</a></li>
+            <li><a href="{{ route('assembly_part')}}"><i class="fa fa-circle-o"></i> Assembly Part List</a></li>
           </ul>
         </li>
          
@@ -144,7 +143,7 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-ship"></i> 
-            <span>Monitoring Production Workshop</span>
+            <span>Monitoring Prod. Wshop</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
             </span>

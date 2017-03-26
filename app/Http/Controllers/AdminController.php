@@ -25,6 +25,21 @@ class AdminController extends Controller
     {
         return view('dashboard/recapitulation_user');
     }
+    
+    public function ship_project()
+    {
+        return view('dashboard/ship_project');
+    }
+    
+    public function material_list()
+    {
+        return view('dashboard/material_list');
+    }
+    
+    public function assembly_part()
+    {
+        return view('dashboard/assembly_part');
+    }
 
     public function input_machine()
     {
