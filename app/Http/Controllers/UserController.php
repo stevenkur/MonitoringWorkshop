@@ -11,9 +11,14 @@ class UserController extends Controller
 //        $this->middleware('auth'); 
 //    } 
         
-    public function index()
+    public function index(Request $request)
     {
-        return view('dashboard/index');
+        return view('dashboard/register_new_user');
+    }
+
+    public function recap_user(Request $request)
+    {
+        return view('dashboard/recap_user');
     }
     
     public function store()

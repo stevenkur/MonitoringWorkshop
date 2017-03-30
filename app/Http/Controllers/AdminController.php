@@ -14,58 +14,7 @@ class AdminController extends Controller
     public function index()
     {
         return view('dashboard/index');
-    }
-
-    public function register_user()
-    {
-        return view('dashboard/register_new_user');
-    }
-
-    public function recap_user()
-    {
-        return view('dashboard/recapitulation_user');
-    }
-    
-    public function ship_project(Request $request)
-    {
-        if($request->isMethod('get')) {
-            return view('dashboard/ship_project')->with('id', 0);
-        }
-        else if($request->isMethod('post')) {
-            $input = Input::all();
-            return view('dashboard/ship_project')->with('id', $input['id']);
-        }
-    }
-    
-    public function material_list()
-    {
-        return view('dashboard/material_list');
-    }
-    
-    public function assembly_part()
-    {
-        return view('dashboard/assembly_part');
-    }
-
-    public function input_machine()
-    {
-        return view('dashboard/input_new_machine');
-    }
-
-    public function recap_machine()
-    {
-        return view('dashboard/recap_machine');
-    }
-
-    public function input_worker()
-    {
-        return view('dashboard/input_new_worker');
-    }
-
-    public function recap_worker()
-    {
-        return view('dashboard/recap_worker');
-    }
+    }   
 
     public function ssh_menu()
     {

@@ -11,9 +11,15 @@ class AssemblyPartListController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if($request->isMethod('get')) {
+            return view('dashboard/assembly_part')->with('id', 0);
+        }
+        else if($request->isMethod('post')) {
+            $input = Input::all();
+            return view('dashboard/assembly_part')->with('id', $input['id']);
+        }
     }
 
     /**

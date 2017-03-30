@@ -11,9 +11,14 @@ class WorkerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return view('dashboard/input_new_worker');
+    }
+
+    public function recap_worker(Request $request)
+    {
+        return view('dashboard/recap_worker');
     }
 
     /**

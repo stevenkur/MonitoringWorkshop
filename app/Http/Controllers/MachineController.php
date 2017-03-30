@@ -11,9 +11,14 @@ class MachineController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return view('dashboard/input_new_machine');
+    }
+
+    public function recap_machine(Request $request)
+    {
+        return view('dashboard/recap_machine');
     }
 
     /**

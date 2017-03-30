@@ -11,9 +11,15 @@ class AssemblyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if($request->isMethod('get')) {
+            return view('dashboard/assembly_menu')->with('id', 0);
+        }
+        else if($request->isMethod('post')) {
+            $input = Input::all();
+            return view('dashboard/assembly_menu')->with('id', $input['id']);
+        }
     }
 
     /**

@@ -11,9 +11,15 @@ class ShipProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if($request->isMethod('get')) {
+            return view('dashboard/ship_project')->with('id', 0);
+        }
+        else if($request->isMethod('post')) {
+            $input = Input::all();
+            return view('dashboard/ship_project')->with('id', $input['id']);
+        }
     }
 
     /**
