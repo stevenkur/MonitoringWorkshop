@@ -21,7 +21,7 @@
 
         <div class="col-md-12">
         <div class="box box-primary">
-            
+            {{ Form::open(array('url' => '/ssh_menu', 'class="form"' => 'form-horizontal')) }}
             <!-- /.box-header -->
             <!-- form start -->
             <form role="form">
@@ -42,6 +42,7 @@
                 <button type="submit" class="btn btn-primary">Choose</button>
               </div>
             </form>
+            {{ form::close() }}
           </div>
           </div>
 
@@ -49,6 +50,7 @@
           <div class="box box-primary">
             
           <div class="box-body">
+              <h1>Detail Material Coming</h1>
               <table id="material" class="table table-bordered table-striped">
                 <thead>
                 <tr>

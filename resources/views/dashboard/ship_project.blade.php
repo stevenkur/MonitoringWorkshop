@@ -46,7 +46,7 @@
                 <button type="submit" class="btn btn-primary">Choose</button>
               </div>
 <!--            </form>-->
-            {{ Form::close()}}
+            {{ Form::close() }}
             </div>
           </div>
             
