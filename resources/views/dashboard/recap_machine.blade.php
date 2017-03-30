@@ -44,12 +44,14 @@
                   <td>Activity</td>
                   <td>Workshop</td>
                   <td>Target/Day</td>
-                </tr><tr>
+                </tr>
+                <tr>
                   <td>Name of Machine</td>
                   <td>Activity</td>
                   <td>Workshop</td>
                   <td>Target/Day</td>
-                </tr><tr>
+                </tr>
+                <tr>
                   <td>Name of Machine</td>
                   <td>Activity</td>
                   <td>Workshop</td>
