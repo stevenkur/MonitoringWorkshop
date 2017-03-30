@@ -19,16 +19,18 @@
     <section class="content">
       <div class="row">
 
-        <div class="col-md-12">
+        <div class="col-md-6">
         <div class="box box-primary">
             
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            
+            {{ Form::open(array('url' => '/ship_project', 'class="form"' => 'form-horizontal')) }}
+<!--            <form role="form" method="get">-->
               <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="id">
                     <option id="#">-- Ship Project List --</option>
                     <option id="1">Project 1</option>
                     <option id="2">Project 2</option>
@@ -43,18 +45,21 @@
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Choose</button>
               </div>
-            </form>
+<!--            </form>-->
+            {{ Form::close()}}
             </div>
           </div>
             
             <!-- /.box-header -->
             <!-- form start -->  
             <div class="col-md-6">
-            <div class="box box-primary">
+            <div class="box box-primary">  
+                
             
+                
             <form role="form">
               <div class="box-body">
-                  <h4> New Ship's Project Detail</h4>
+                  <h4> <?php if($id!='0' && $id!='-- Ship Project List --') echo $id; else echo 'New Ship Project Detail';?></h4>
                 <div class="form-group">
                   <label for="inputProject">Name of Project Ship:</label>
                   <input type="text" class="form-control" id="project_name" placeholder="Enter name of  project">
@@ -100,7 +105,7 @@
 
               <div class="box-footer">
                 <button type="reset" class="btn btn-default">Reset</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary"><?php if($id!='0') echo 'Update'; else echo 'Create';?></button>
               </div>
             </form>
           </div>

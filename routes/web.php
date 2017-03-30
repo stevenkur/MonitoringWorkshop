@@ -22,6 +22,7 @@ Route::resource('users', 'UserController');
 Route::get('register_user', ['as'=>'register_user', 'uses'=>'AdminController@register_user']);
 Route::get('recap_user', ['as'=>'recap_user', 'uses'=>'AdminController@recap_user']);
 Route::get('ship_project', ['as'=>'ship_project', 'uses'=>'AdminController@ship_project']);
+Route::post('ship_project', ['as'=>'ship_project', 'uses'=>'AdminController@ship_project']);
 Route::get('material_list', ['as'=>'material_list', 'uses'=>'AdminController@material_list']);
 Route::get('assembly_part', ['as'=>'assembly_part', 'uses'=>'AdminController@assembly_part']);
 Route::get('input_machine', ['as'=>'input_machine', 'uses'=>'AdminController@input_machine']);

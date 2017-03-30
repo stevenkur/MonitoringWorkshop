@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -26,9 +26,15 @@ class AdminController extends Controller
         return view('dashboard/recapitulation_user');
     }
     
-    public function ship_project()
+    public function ship_project(Request $request)
     {
-        return view('dashboard/ship_project');
+        if($request->isMethod('get')) {
+            return view('dashboard/ship_project')->with('id', 0);
+        }
+        else if($request->isMethod('post')) {
+            $input = Input::all();
+            return view('dashboard/ship_project')->with('id', $input['id']);
+        }
     }
     
     public function material_list()
