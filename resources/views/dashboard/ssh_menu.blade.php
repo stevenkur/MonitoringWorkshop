@@ -47,7 +47,7 @@
           </div>
 
         <div class="col-md-12">
-          <div class="box box-primary">
+        <div class="box box-primary">
             
           <div class="box-body">
               <h1>Detail Material Coming</h1>
@@ -105,6 +105,7 @@
            </div>
         </div>
 
+        <h1><center>-----BATAS-----</center></h1>
 
         <div class="col-md-12">
         <div class="box box-primary">
@@ -134,10 +135,65 @@
             </div>
           </div>
 
+        <div class="col-md-12">
+        <div class="box box-primary">
+            
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body">
+              <label for="inputBlck">Select Block of [Ship_Name]:</label>
+                <div class="form-group">
+                  <select class="form-control">
+                    <option id="#">-- Block List --</option>
+                    <option id="1">Block 1</option>
+                    <option id="2">Block 2</option>
+                    <option id="3">Block 3</option>
+                    <option id="4">Block 4</option>
+                  </select>
+                </div>
+               
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Choose</button>
+              </div>
+            </form>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+        <div class="box box-primary">
+            
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body">
+              <label for="inputStatus">Select Status of Material:</label>
+                <div class="form-group">
+                  <select class="form-control">
+                    <option id="#">-- Status List --</option>
+                    <option id="1">Received</option>
+                    <option id="2">Pending</option>
+                  </select>
+                </div>
+               
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Choose</button>
+              </div>
+            </form>
+            </div>
+          </div>
+
           <div class="col-md-12">
           <div class="box box-primary">
-          <h1>Plate</h1>  
-          <div class="box-body">
+  
+              <div class="box-body">
+              <h1>Plate</h1>  
               <table id="plate" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -188,9 +244,16 @@
                 </tr>
                 </tfoot>
               </table>
-             </div>
-             <h1>Profil</h1>  
+             </div>  
+              
+           </div>
+        </div>
+
+          <div class="col-md-12">
+          <div class="box box-primary">
+  
               <div class="box-body">
+              <h1>Profil</h1>
               <table id="profil" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -242,6 +305,7 @@
                 </tfoot>
               </table>
              </div>
+              
            </div>
         </div>
 
