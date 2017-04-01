@@ -15,12 +15,10 @@
       </ol>
     </section>
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-
-        <div class="col-md-12">
-        <div class="box box-primary">
+ <section class="content">
+        <div class="row">
+            <section class="col-lg-6">
+            <div class="box box-primary">
             
             <!-- /.box-header -->
             <!-- form start -->
@@ -45,16 +43,88 @@
               </div>
             </form>
             </div>
-          </div>
+                <div class="box box-primary">
             
             <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body">
+              <label for="inputActivity">Select Block:</label>
+                <div class="form-group">
+                  <select class="form-control">
+                    <option id="#">-- Block List --</option>
+                    <option id="1">Block 1</option>
+                    <option id="2">Block 2</option>
+                    <option id="3">Block 3</option>
+                    <option id="4">Block 4</option>
+                  </select>
+                </div>
+               
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Choose</button>
+              </div>
+            </form>
+            </div>
+                <div class="box box-primary">
+                <div class="box-body">
+              <table id="assemblypart" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Dimension</th>
+                  <th>Quantity</th>
+                  <th>Weight</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>ID</td>
+                  <td>Dimension</td>
+                  <td>Quantity</td>
+                  <td>Weight</td>
+                </tr>
+                <tr>
+                  <td>ID</td>
+                  <td>Dimension</td>
+                  <td>Quantity</td>
+                  <td>Weight</td>
+                </tr>
+                <tr>
+                  <td>ID</td>
+                  <td>Dimension</td>
+                  <td>Quantity</td>
+                  <td>Weight</td>
+                </tr>
+                <tr>
+                  <td>ID</td>
+                  <td>Dimension</td>
+                  <td>Quantity</td>
+                  <td>Weight</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>Dimension</th>
+                  <th>Quantity</th>
+                  <th>Weight</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            </div>
+      </section>
+        <section class="col-lg-6">
+            <!-- /.box-header -->
             <!-- form start -->  
-            <div class="col-md-6">
             <div class="box box-primary">
             
             <form role="form">
               <div class="box-body">
-                  <h4> Input Assembly Part List for [Ship_Name]</h4>
+                  <h4> Input Assembly Part List for [Ship_Name] [Block_Name]</h4>
                 <div class="form-group">
                   <label for="inputID">ID:</label>
                   <input type="text" class="form-control" id="part_id" placeholder="Enter id of part">
@@ -90,77 +160,10 @@
               </div>
             </form>
           </div>
-          </div>
-
-          <div class="col-md-6">
-          <div class="box box-primary">
-            
-          <div class="box-body">
-              <table id="assemblypart" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Dimension</th>
-                  <th>Quantity</th>
-                  <th>Weight</th>
-                  <th>Stage</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>ID</td>
-                  <td>Name</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Stage</td>
-                </tr>
-                <tr>
-                  <td>ID</td>
-                  <td>Name</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Stage</td>
-                </tr>
-                <tr>
-                  <td>ID</td>
-                  <td>Name</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Stage</td>
-                </tr>
-                <tr>
-                  <td>ID</td>
-                  <td>Name</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Stage</td>
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Dimension</th>
-                  <th>Quantity</th>
-                  <th>Weight</th>
-                  <th>Stage</th>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-
-          </div>
-          </div>
-
-          </div>
+        </section>
+        </div>
     </section>
-  </div>
-
+</div>   
 @stop
 <!-- jQuery 2.2.3 -->
 <script src="adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>

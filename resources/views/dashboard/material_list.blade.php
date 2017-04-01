@@ -17,10 +17,9 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-
-        <div class="col-md-12">
-        <div class="box box-primary">
+        <div class="row">
+            <section class="col-lg-6">
+            <div class="box box-primary">
             
             <!-- /.box-header -->
             <!-- form start -->
@@ -45,50 +44,32 @@
               </div>
             </form>
             </div>
-          </div>
+                <div class="box box-primary">
             
             <!-- /.box-header -->
-            <!-- form start -->  
-            <div class="col-md-6">
-            <div class="box box-primary">
-            
+            <!-- form start -->
             <form role="form">
               <div class="box-body">
-                  <h4> Input Material List for [Ship_Name]</h4>
+              <label for="inputActivity">Select Block:</label>
                 <div class="form-group">
-                  <label for="inputID">ID:</label>
-                  <input type="text" class="form-control" id="material_id" placeholder="Enter id of material">
+                  <select class="form-control">
+                    <option id="#">-- Block List --</option>
+                    <option id="1">Block 1</option>
+                    <option id="2">Block 2</option>
+                    <option id="3">Block 3</option>
+                    <option id="4">Block 4</option>
+                  </select>
                 </div>
-                <div class="form-group">
-                  <label for="inputDimension">Dimension:</label>
-                  <input type="text" class="form-control" id="material_length" placeholder="Enter length of material"><br>
-                  <input type="text" class="form-control" id="material_breadth" placeholder="Enter breadth of material"><br>
-                  <input type="text" class="form-control" id="material_thickness" placeholder="Enter thickness of material">
-                </div>
-                <div class="form-group">
-                  <label for="inputQuantity">Quantity:</label>
-                  <input type="text" class="form-control" id="material_quantityp" placeholder="Enter quantity of material (p)"><br>
-                  <input type="text" class="form-control" id="material_quantityc" placeholder="Enter quantity of material (c)"><br>
-                  <input type="text" class="form-control" id="material_quantitys" placeholder="Enter quantity of material (s)">
-                </div>
-                <div class="form-group">
-                  <label for="inputWeight">Weight:</label>
-                  <input type="text" class="form-control" id="part_weight" placeholder="Enter weight">
-                </div>
+               
               </div>
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <button type="reset" class="btn btn-default">Reset</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Choose</button>
               </div>
             </form>
-          </div>
-          </div>
-
-          <div class="col-md-6">
-          <div class="box box-primary">
-            
+            </div>
+                <div class="box box-primary">
           <div class="box-body">
               <table id="material" class="table table-bordered table-striped">
                 <thead>
@@ -135,14 +116,53 @@
                 </tfoot>
               </table>
             </div>
+            </div>
+      </section>
+        <section class="col-lg-6">
+            <!-- /.box-header -->
+            <!-- form start -->  
+            <div class="box box-primary">
+            
+            <form role="form">
+              <div class="box-body">
+                  <h4> Input Material List for [Ship_Name] [Block_Name]</h4>
+                <div class="form-group">
+                  <label for="inputID">ID:</label>
+                  <input type="text" class="form-control" id="material_id" placeholder="Enter id of material">
+                </div>
+                <div class="form-group">
+                  <label for="inputBlockName">Block Name:</label>
+                  <input type="text" class="form-control" id="block_name" placeholder="Enter block name">
+                </div>
+                <div class="form-group">
+                  <label for="inputDimension">Dimension:</label>
+                  <input type="text" class="form-control" id="material_length" placeholder="Enter length of material"><br>
+                  <input type="text" class="form-control" id="material_breadth" placeholder="Enter breadth of material"><br>
+                  <input type="text" class="form-control" id="material_thickness" placeholder="Enter thickness of material">
+                </div>
+                <div class="form-group">
+                  <label for="inputQuantity">Quantity:</label>
+                  <input type="text" class="form-control" id="material_quantityp" placeholder="Enter quantity of material (p)"><br>
+                  <input type="text" class="form-control" id="material_quantityc" placeholder="Enter quantity of material (c)"><br>
+                  <input type="text" class="form-control" id="material_quantitys" placeholder="Enter quantity of material (s)">
+                </div>
+                <div class="form-group">
+                  <label for="inputWeight">Weight:</label>
+                  <input type="text" class="form-control" id="part_weight" placeholder="Enter weight">
+                </div>
+              </div>
+              <!-- /.box-body -->
 
+              <div class="box-footer">
+                <button type="reset" class="btn btn-default">Reset</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
           </div>
-          </div>
-
-          </div>
+        </section>
+        </div>
     </section>
-  </div>
-
+</div>
 @stop
 <!-- jQuery 2.2.3 -->
 <script src="adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
