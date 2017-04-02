@@ -44,10 +44,9 @@
               </div>
             </form>
             </div>
-                <div class="box box-primary">
-            
-            <!-- /.box-header -->
+                <!-- /.box-header -->
             <!-- form start -->
+            <div class="box box-primary">
             <form role="form">
               <div class="box-body">
               <label for="inputActivity">Select Block:</label>
@@ -60,7 +59,6 @@
                     <option id="4">Block 4</option>
                   </select>
                 </div>
-               
               </div>
               <!-- /.box-body -->
 
@@ -69,63 +67,15 @@
               </div>
             </form>
             </div>
-                <div class="box box-primary">
-          <div class="box-body">
-              <table id="material" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Dimension</th>
-                  <th>Quantity</th>
-                  <th>Weight</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>ID</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                </tr>
-                <tr>
-                  <td>ID</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                </tr>
-                <tr>
-                  <td>ID</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                </tr>
-                <tr>
-                  <td>ID</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>ID</th>
-                  <th>Dimension</th>
-                  <th>Quantity</th>
-                  <th>Weight</th>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-            </div>
-      </section>
-        <section class="col-lg-6">
+
+            
             <!-- /.box-header -->
             <!-- form start -->  
             <div class="box box-primary">
             
             <form role="form">
               <div class="box-body">
-                  <h4> Input Material List for [Ship_Name] [Block_Name]</h4>
+                  <h4> Input Material List for [Ship_Name]</h4>
                 <div class="form-group">
                   <label for="inputID">ID:</label>
                   <input type="text" class="form-control" id="material_id" placeholder="Enter id of material">
@@ -133,6 +83,14 @@
                 <div class="form-group">
                   <label for="inputBlockName">Block Name:</label>
                   <input type="text" class="form-control" id="block_name" placeholder="Enter block name">
+                </div>
+                <label for="inputType">Select Type of Material:</label>
+                <div class="form-group">
+                  <select class="form-control">
+                    <option id="#">-- Type of Material --</option>
+                    <option id="1">Plate</option>
+                    <option id="2">Profile</option>
+                  </select>
                 </div>
                 <div class="form-group">
                   <label for="inputDimension">Dimension:</label>
@@ -159,6 +117,73 @@
               </div>
             </form>
           </div>
+      </section>
+        <section class="col-lg-6">
+            <div class="box box-primary">
+          <div class="box-body">
+              <label for="viewPlate">Plate</label>
+              <table id="materialPlate" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Dimension</th>
+                  <th>Quantity</th>
+                  <th>Weight</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php for($i=0; $i<10; $i++) echo '
+                <tr>
+                  <td>ID</td>
+                  <td>Dimension</td>
+                  <td>Quantity</td>
+                  <td>Weight</td>
+                </tr>';?>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>Dimension</th>
+                  <th>Quantity</th>
+                  <th>Weight</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            </div>
+                
+                <div class="box box-primary">
+          <div class="box-body">
+              <label for="viewProfile">Profile</label>
+              <table id="materialProfile" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Dimension</th>
+                  <th>Quantity</th>
+                  <th>Weight</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php for($i=0; $i<10; $i++) echo '
+                <tr>
+                  <td>ID</td>
+                  <td>Dimension</td>
+                  <td>Quantity</td>
+                  <td>Weight</td>
+                </tr>';?>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>Dimension</th>
+                  <th>Quantity</th>
+                  <th>Weight</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            </div>
         </section>
         </div>
     </section>
@@ -182,7 +207,15 @@
 <!-- page script -->
 <script>
 $(function() {
-    $('#material').DataTable({
+    $('#materialProfile').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    });
+    $('#materialPlate').DataTable({
           "paging": true,
           "lengthChange": true,
           "searching": true,
