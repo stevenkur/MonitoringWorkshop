@@ -25,9 +25,8 @@
             <!-- /.box-header -->
             <!-- form start -->
             
-            {{ Form::open(array('url' => '/ship_project', 'class="form"' => 'form-horizontal')) }}
-<!--            <form role="form" method="get">-->
-              <div class="box-body">
+            <form class="form">
+            <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
                   <select class="form-control" name="id">
@@ -41,12 +40,10 @@
                
               </div>
               <!-- /.box-body -->
-
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Choose</button>
+                <button method="post" class="btn btn-primary">Choose</button>
               </div>
-<!--            </form>-->
-            {{ Form::close() }}
+            </form>
             </div>
           </div>
             
@@ -55,57 +52,56 @@
             <div class="col-md-6">
             <div class="box box-primary">  
                 
-            
-                
-            <form role="form">
+            <form action="{{route('ship_project.store')}}"role="form" method="post">
+                {{csrf_field()}}
               <div class="box-body">
-                  <h4> <?php if($id!='0' && $id!='-- Ship Project List --') echo $id; else echo 'New Ship Project Detail';?></h4>
+                  <h4> <?php if($_GET['id']!='0' && $_GET['id']!='-- Ship Project List --') echo $_GET['id']; else echo 'New Ship Project Detail';?></h4>
                 <div class="form-group">
                   <label for="inputProject">Name of Project Ship:</label>
-                  <input type="text" class="form-control" id="project_name" placeholder="Enter name of  project">
+                  <input type="text" class="form-control" id="project_name" name="project_name" placeholder="Enter name of  project">
                 </div>
                 <div class="form-group">
                   <label for="inputOwner">Owner:</label>
-                  <input type="text" class="form-control" id="owner" placeholder="Enter name of owner">
+                  <input type="text" class="form-control" id="owner" name="owner" placeholder="Enter name of owner">
                 </div>
                 <div class="form-group">
                   <label for="inputType">Type of Ship:</label>
-                  <input type="text" class="form-control" id="ship_type" placeholder="Enter type of ship">
+                  <input type="text" class="form-control" id="ship_type" name="ship_type" placeholder="Enter type of ship">
                 </div>
                 <div class="form-group">
                   <label for="inputLWL">Length of Water Line:</label>
-                  <input type="text" class="form-control" id="lwl" placeholder="Enter length of water line (m)">
+                  <input type="text" class="form-control" id="lwl" name="lwl" placeholder="Enter length of water line (m)">
                 </div>
                 <div class="form-group">
                   <label for="inputLPP">Length between Perpendicular:</label>
-                  <input type="text" class="form-control" id="lpp" placeholder="Enter length between perpendicular (m)">
+                  <input type="text" class="form-control" id="lpp" name="lpp" placeholder="Enter length between perpendicular (m)">
                 </div>
                 <div class="form-group">
                   <label for="inputBreadth">Breadth (B):</label>
-                  <input type="text" class="form-control" id="breadth" placeholder="Enter breadth (m)">
+                  <input type="text" class="form-control" id="breadth" name="breadth" placeholder="Enter breadth (m)">
                 </div>
                 <div class="form-group">
                   <label for="inputDepth">Depth (D):</label>
-                  <input type="text" class="form-control" id="depth" placeholder="Enter depth (m)">
+                  <input type="text" class="form-control" id="depth" name="depth" placeholder="Enter depth (m)">
                 </div>
                 <div class="form-group">
                   <label for="inputDraft">Draft (T):</label>
-                  <input type="text" class="form-control" id="draft" placeholder="Enter draft (m)">
+                  <input type="text" class="form-control" id="draft" name="draft" placeholder="Enter draft (m)">
                 </div>
                 <div class="form-group">
                   <label for="inputDisplacement">Displacement:</label>
-                  <input type="text" class="form-control" id="displacement" placeholder="Enter displacement (ton)">
+                  <input type="text" class="form-control" id="displacement" name="displacement" placeholder="Enter displacement (ton)">
                 </div>
                 <div class="form-group">
                   <label for="inputSeaSpeed">Designed Sea Speed:</label>
-                  <input type="text" class="form-control" id="sea_speed" placeholder="Enter designed sea speed (knot)">
+                  <input type="text" class="form-control" id="sea_speed" name="sea_speed" placeholder="Enter designed sea speed (knot)">
                 </div>
               </div>
               <!-- /.box-body -->
 
               <div class="box-footer">
                 <button type="reset" class="btn btn-default">Reset</button>
-                <button type="submit" class="btn btn-primary"><?php if($id!='0') echo 'Update'; else echo 'Create';?></button>
+                <button type="submit" class="btn btn-primary"><?php if($_GET['id']!='0' && $_GET['id']!='-- Ship Project List --') echo 'Update'; else echo 'Create';?></button>
               </div>
             </form>
           </div>

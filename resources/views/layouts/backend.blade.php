@@ -92,7 +92,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('ship_project')}}"><i class="fa fa-circle-o"></i> Ship Project</a></li>
+            <li><a href="{{ route('ship_project.index')}}"><i class="fa fa-circle-o"></i> Ship Project</a></li>
             <li><a href="{{ route('material_list')}}"><i class="fa fa-circle-o"></i> Material List</a></li>
             <li><a href="{{ route('assembly_part')}}"><i class="fa fa-circle-o"></i> Assembly Part List</a></li>
           </ul>

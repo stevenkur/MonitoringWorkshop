@@ -141,7 +141,9 @@
                 </div>
                 <div class="form-group">
                   <label for="inputQuantity">Quantity:</label>
-                  <input type="text" class="form-control" id="part_quantity" placeholder="Enter quantity">
+                  <input type="text" class="form-control" id="material_quantityp" placeholder="Enter quantity of material (p)"><br>
+                  <input type="text" class="form-control" id="material_quantityc" placeholder="Enter quantity of material (c)"><br>
+                  <input type="text" class="form-control" id="material_quantitys" placeholder="Enter quantity of material (s)">
                 </div>
                 <div class="form-group">
                   <label for="inputWeight">Weight:</label>

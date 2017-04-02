@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+use App\ShipProject;
 
 class ShipProjectController extends Controller
 {
@@ -13,15 +14,10 @@ class ShipProjectController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->isMethod('get')) {
-            return view('dashboard/ship_project')->with('id', 0);
-        }
-        else if($request->isMethod('post')) {
-            $input = Input::all();
-            return view('dashboard/ship_project')->with('id', $input['id']);
-        }
+        //
+        return view('dashboard/ship_project');
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -30,6 +26,7 @@ class ShipProjectController extends Controller
     public function create()
     {
         //
+        
     }
 
     /**
@@ -41,6 +38,20 @@ class ShipProjectController extends Controller
     public function store(Request $request)
     {
         //
+        $ship = new ShipProject();        
+        $ship->PROJECT_NAME = $request->project_name;        
+        $ship->OWNER = $request->owner;		
+        $ship->SHIP_TYPE = $request->ship_type;  
+        $ship->LWL = $request->lwl; 
+        $ship->LPP = $request->lpp; 
+        $ship->BREADTH = $request->breadth; 
+        $ship->DEPTH = $request->depth;     
+        $ship->DRAFT = $request->draft;     
+        $ship->DISPLACEMENT = $request->displacement;     
+        $ship->DESIGNED_SPEED = $request->sea_speed;       
+        $ship->save();        
+        return redirect()->route('ship_project.index')
+            ->with('alert-success', 'Data Berhasil Disimpan.');
     }
 
     /**
@@ -52,6 +63,7 @@ class ShipProjectController extends Controller
     public function show($id)
     {
         //
+        
     }
 
     /**

@@ -75,7 +75,7 @@
             
             <form role="form">
               <div class="box-body">
-                  <h4> Input Material List for [Ship_Name]</h4>
+                  <h4> Input Material List for [Ship_Name] [Block_Name]</h4>
                 <div class="form-group">
                   <label for="inputID">ID:</label>
                   <input type="text" class="form-control" id="material_id" placeholder="Enter id of material">
@@ -107,6 +107,10 @@
                 <div class="form-group">
                   <label for="inputWeight">Weight:</label>
                   <input type="text" class="form-control" id="part_weight" placeholder="Enter weight">
+                </div>
+                <div class="form-group">
+                  <label for="inputForm">Profile form:</label>
+                  <input type="text" class="form-control" id="form" placeholder="Enter form of profile">
                 </div>
               </div>
               <!-- /.box-body -->
@@ -162,6 +166,7 @@
                   <th>Dimension</th>
                   <th>Quantity</th>
                   <th>Weight</th>
+                  <th>Form</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -171,6 +176,7 @@
                   <td>Dimension</td>
                   <td>Quantity</td>
                   <td>Weight</td>
+                  <td>Form</td>
                 </tr>';?>
                 </tbody>
                 <tfoot>
@@ -179,6 +185,7 @@
                   <th>Dimension</th>
                   <th>Quantity</th>
                   <th>Weight</th>
+                  <th>Form</th>
                 </tr>
                 </tfoot>
               </table>
