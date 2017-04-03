@@ -31,10 +31,11 @@
                 <div class="form-group">
                   <select class="form-control" name="id">
                     <option id="#">-- Ship Project List --</option>
-                    <option id="1">Project 1</option>
-                    <option id="2">Project 2</option>
-                    <option id="3">Project 3</option>
-                    <option id="4">Project 4</option>
+                    <?php $i=1;?>
+                    @foreach($ship as $data)
+                        <?php $datas[$i] = $data; $i++;?>
+                        <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
+                    @endforeach
                   </select>
                 </div>
                
@@ -51,57 +52,118 @@
             <!-- form start -->  
             <div class="col-md-6">
             <div class="box box-primary">  
-                
+            
+            <?php 
+                if(isset($_GET['id']) && $_GET['id']!='0' && $_GET['id']!='-- Ship Project List --'){
+                    $flag = true;
+                    for($j=1; $j<$i; $j++){
+                        if($datas[$j]->ID == $_GET['id']){
+                            $ship = $datas[$j];
+                            break;
+                        }
+                    }?>
+                    @if($data->where('id','=',$_GET['id']))
+                        <?php $flag2=true;?>
+                    @else 
+                        <?php $flag2=false;?>
+                    @endif
+                <?php }
+                else $flag = false;
+            ?>
+        
             <form action="{{route('ship_project.store')}}"role="form" method="post">
                 {{csrf_field()}}
               <div class="box-body">
-                  <h4> <?php if(isset($_GET['id']) && $_GET['id']!='0' && $_GET['id']!='-- Ship Project List --') echo $_GET['id']; else echo 'New Ship Project Detail';?></h4>
+                  <h4> @if(isset($flag2) && isset($flag) && $flag2 && $flag) 
+                      {{$ship->PROJECT_NAME }}
+                      @else {{'New Ship Project Detail'}}
+                        @endif</h4>
                 <div class="form-group">
                   <label for="inputProject">Name of Project Ship:</label>
-                  <input type="text" class="form-control" id="project_name" name="project_name" placeholder="Enter name of  project">
+                    @if($flag && $flag2)
+                    <input type="text" class="form-control" id="project_name" name="project_name" value="{{$ship->PROJECT_NAME}}">
+                    @else    
+                    <input type="text" class="form-control" id="project_name" name="project_name" placeholder="Enter name of  project">              
+                    @endif
                 </div>
                 <div class="form-group">
                   <label for="inputOwner">Owner:</label>
-                  <input type="text" class="form-control" id="owner" name="owner" placeholder="Enter name of owner">
+                    @if($flag && $flag2)
+                    <input type="text" class="form-control" id="owner" name="owner" value="{{$ship->OWNER}}">
+                    @else    
+                    <input type="text" class="form-control" id="owner" name="owner" placeholder="Enter name of owner">            
+                    @endif
                 </div>
                 <div class="form-group">
                   <label for="inputType">Type of Ship:</label>
-                  <input type="text" class="form-control" id="ship_type" name="ship_type" placeholder="Enter type of ship">
+                    @if($flag && $flag2)
+                    <input type="text" class="form-control" id="ship_type" name="ship_type" value="{{$ship->SHIP_TYPE}}">
+                    @else       
+                    <input type="text" class="form-control" id="ship_type" name="ship_type" placeholder="Enter type of ship">         
+                    @endif
                 </div>
                 <div class="form-group">
                   <label for="inputLWL">Length of Water Line:</label>
-                  <input type="text" class="form-control" id="lwl" name="lwl" placeholder="Enter length of water line (m)">
+                    @if($flag && $flag2)
+                    <input type="text" class="form-control" id="lwl" name="lwl" value="{{$ship->LWL}}">
+                    @else      
+                    <input type="text" class="form-control" id="lwl" name="lwl" placeholder="Enter length of water line (m)">          
+                    @endif
                 </div>
                 <div class="form-group">
                   <label for="inputLPP">Length between Perpendicular:</label>
-                  <input type="text" class="form-control" id="lpp" name="lpp" placeholder="Enter length between perpendicular (m)">
+                    @if($flag && $flag2)
+                    <input type="text" class="form-control" id="lpp" name="lpp" value="{{$ship->LPP}}">
+                    @else      
+                    <input type="text" class="form-control" id="lpp" name="lpp" placeholder="Enter length between perpendicular (m)">          
+                    @endif
                 </div>
                 <div class="form-group">
                   <label for="inputBreadth">Breadth (B):</label>
-                  <input type="text" class="form-control" id="breadth" name="breadth" placeholder="Enter breadth (m)">
+                    @if($flag && $flag2)
+                    <input type="text" class="form-control" id="breadth" name="breadth" value="{{$ship->BREADTH}}">
+                    @else     
+                    <input type="text" class="form-control" id="breadth" name="breadth" placeholder="Enter breadth (m)">           
+                    @endif
                 </div>
                 <div class="form-group">
                   <label for="inputDepth">Depth (D):</label>
-                  <input type="text" class="form-control" id="depth" name="depth" placeholder="Enter depth (m)">
+                    @if($flag && $flag2)
+                    <input type="text" class="form-control" id="depth" name="depth" value="{{$ship->DEPTH}}">
+                    @else       
+                    <input type="text" class="form-control" id="depth" name="depth" placeholder="Enter depth (m)">         
+                    @endif
                 </div>
                 <div class="form-group">
                   <label for="inputDraft">Draft (T):</label>
-                  <input type="text" class="form-control" id="draft" name="draft" placeholder="Enter draft (m)">
+                    @if($flag && $flag2)
+                    <input type="text" class="form-control" id="draft" name="draft" value="{{$ship->DRAFT}}">
+                    @else      
+                    <input type="text" class="form-control" id="draft" name="draft" placeholder="Enter draft (m)">          
+                    @endif
                 </div>
                 <div class="form-group">
                   <label for="inputDisplacement">Displacement:</label>
-                  <input type="text" class="form-control" id="displacement" name="displacement" placeholder="Enter displacement (ton)">
+                    @if($flag && $flag2)
+                    <input type="text" class="form-control" id="displacement" name="displacement" value="{{$ship->DISPLACEMENT}}">
+                    @else       
+                    <input type="text" class="form-control" id="displacement" name="displacement" placeholder="Enter displacement (ton)">         
+                    @endif
                 </div>
                 <div class="form-group">
                   <label for="inputSeaSpeed">Designed Sea Speed:</label>
-                  <input type="text" class="form-control" id="sea_speed" name="sea_speed" placeholder="Enter designed sea speed (knot)">
+                    @if($flag && $flag2)
+                    <input type="text" class="form-control" id="sea_speed" name="sea_speed" value="{{$ship->DESIGNED_SPEED}}">  
+                    @else 
+                    <input type="text" class="form-control" id="sea_speed" name="sea_speed"       placeholder="Enter designed sea speed (knot)">               
+                    @endif
                 </div>
               </div>
               <!-- /.box-body -->
 
               <div class="box-footer">
                 <button type="reset" class="btn btn-default">Reset</button>
-                <button type="submit" class="btn btn-primary"><?php if(isset($_GET['id']) && $_GET['id']!='0' && $_GET['id']!='-- Ship Project List --') echo 'Update'; else echo 'Create';?></button>
+                <button type="submit" class="btn btn-primary"><?php if($flag && $flag2) echo 'Update'; else echo 'Create';?></button>
               </div>
             </form>
           </div>

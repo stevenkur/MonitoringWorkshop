@@ -15,7 +15,8 @@ class ShipProjectController extends Controller
     public function index(Request $request)
     {
         //
-        return view('dashboard/ship_project');
+        $ship=ShipProject::all();
+        return view('dashboard/ship_project')->with('ship', $ship);
     }
     
     /**
@@ -63,7 +64,8 @@ class ShipProjectController extends Controller
     public function show($id)
     {
         //
-        
+        $data=ShipProject::findOrFail($id);
+        return view('dashboard/ship_project',compact('data'));
     }
 
     /**

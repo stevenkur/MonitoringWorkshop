@@ -21,8 +21,6 @@ Route::resource('admins', 'AdminController');
 Route::resource('users', 'UserController');
 Route::resource('ship_project', 'ShipProjectController');
 
-Route::post('ship_project/select', ['as'=>'ship_project.select', 'uses'=>'ShipProjectController@select']);
-
 Route::any('material_list', ['as'=>'material_list', 'uses'=>'MaterialListController@index']);
 Route::any('assembly_part', ['as'=>'assembly_part', 'uses'=>'AssemblyPartListController@index']);
 
