@@ -55,7 +55,7 @@
             <form action="{{route('ship_project.store')}}"role="form" method="post">
                 {{csrf_field()}}
               <div class="box-body">
-                  <h4> <?php if($_GET['id']!='0' && $_GET['id']!='-- Ship Project List --') echo $_GET['id']; else echo 'New Ship Project Detail';?></h4>
+                  <h4> <?php if(isset($_GET['id']) && $_GET['id']!='0' && $_GET['id']!='-- Ship Project List --') echo $_GET['id']; else echo 'New Ship Project Detail';?></h4>
                 <div class="form-group">
                   <label for="inputProject">Name of Project Ship:</label>
                   <input type="text" class="form-control" id="project_name" name="project_name" placeholder="Enter name of  project">
@@ -101,7 +101,7 @@
 
               <div class="box-footer">
                 <button type="reset" class="btn btn-default">Reset</button>
-                <button type="submit" class="btn btn-primary"><?php if($_GET['id']!='0' && $_GET['id']!='-- Ship Project List --') echo 'Update'; else echo 'Create';?></button>
+                <button type="submit" class="btn btn-primary"><?php if(isset($_GET['id']) && $_GET['id']!='0' && $_GET['id']!='-- Ship Project List --') echo 'Update'; else echo 'Create';?></button>
               </div>
             </form>
           </div>
