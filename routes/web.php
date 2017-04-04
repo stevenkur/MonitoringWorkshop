@@ -24,9 +24,6 @@ Route::resource('ship_project', 'ShipProjectController');
 Route::any('material_list', ['as'=>'material_list', 'uses'=>'MaterialListController@index']);
 Route::any('assembly_part', ['as'=>'assembly_part', 'uses'=>'AssemblyPartListController@index']);
 
-Route::any('register_user', ['as'=>'register_user', 'uses'=>'UserController@index']);
-Route::any('recap_user', ['as'=>'recap_user', 'uses'=>'UserController@recap_user']);
-
 Route::any('input_machine', ['as'=>'input_machine', 'uses'=>'MachineController@index']);
 Route::any('recap_machine', ['as'=>'recap_machine', 'uses'=>'MachineController@recap_machine']);
 

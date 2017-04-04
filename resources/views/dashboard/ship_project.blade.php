@@ -70,8 +70,13 @@
                 <?php }
                 else $flag = false;
             ?>
-        
-            <form action="{{route('ship_project.store')}}"role="form" method="post">
+    
+            <form 
+                  @if($flag && $flag2) action="{{route('ship_project.update', $_GET['id'])}}" 
+                  @else action="{{route('ship_project.store')}}" 
+                  @endif                                            
+                  role="form" method="post">
+                @if($flag && $flag2) <input name="_method" type="hidden" value="PATCH"> @endif
                 {{csrf_field()}}
               <div class="box-body">
                   <h4> @if(isset($flag2) && isset($flag) && $flag2 && $flag) 

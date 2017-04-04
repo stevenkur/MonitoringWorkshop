@@ -89,6 +89,19 @@ class ShipProjectController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $ship = ShipProject::find($id);		
+        $ship->PROJECT_NAME = $request->project_name;        
+        $ship->OWNER = $request->owner;		
+        $ship->SHIP_TYPE = $request->ship_type;  
+        $ship->LWL = $request->lwl; 
+        $ship->LPP = $request->lpp; 
+        $ship->BREADTH = $request->breadth; 
+        $ship->DEPTH = $request->depth;     
+        $ship->DRAFT = $request->draft;     
+        $ship->DISPLACEMENT = $request->displacement;     
+        $ship->DESIGNED_SPEED = $request->sea_speed;      
+        $ship->save();
+        return redirect()->route('ship_project.index')->with('alert-success', 'Data Berhasil Diubah.');
     }
 
     /**

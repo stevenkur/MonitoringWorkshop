@@ -99,17 +99,10 @@
         </li>
          
         <li class="treeview">
-          <a href="#">
+          <a href="{{ route('users.index')}}">
             <i class="fa fa-ship"></i>
-            <span>Register Application User</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            <span>Application User</span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="{{ route('register_user')}}"><i class="fa fa-circle-o"></i> Register New User</a></li>
-            <li><a href="{{ route('recap_user')}}"><i class="fa fa-circle-o"></i> Recapitulation User</a></li>
-          </ul>
         </li>
 
         <li class="treeview">
