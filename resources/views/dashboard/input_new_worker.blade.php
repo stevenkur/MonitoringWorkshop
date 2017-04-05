@@ -20,46 +20,7 @@
       <div class="row">
 
         <div class="col-md-6">
-        <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form">
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="inputWorker">Name of Worker:</label>
-                  <input type="text" class="form-control" id="worker" placeholder="Enter worker">
-                </div>
-                <div class="form-group">
-                  <label for="inputDivision">Division:</label>
-                  <select class="form-control">
-                    <option id="#">--Select Division--</option>
-                    <option id="1">SSH</option>
-                    <option id="2">Fabrication</option>
-                    <option id="3">Sub Assembly</option>
-                    <option id="4">Assembly</option>
-                    <option id="5">BBS</option>
-                    <option id="6">Erection Process</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="inputPosition">Position:</label>
-                  <input type="text" class="form-control" id="position" placeholder="Enter position">
-                </div>
-                <div class="form-group">
-                  <label for="inputNIK">NIK:</label>
-                  <input type="text" class="form-control" id="nik" placeholder="Enter NIK">
-                </div>
-                
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="reset" class="btn btn-default">Reset</button>
-                <button type="submit" class="btn btn-primary">Input</button>
-              </div>
-            </form>
-          </div>
+        
 
           </div>
 

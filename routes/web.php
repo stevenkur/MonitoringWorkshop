@@ -20,12 +20,11 @@ Route::resource('home', 'HomeController');
 Route::resource('admins', 'AdminController');
 Route::resource('users', 'UserController');
 Route::resource('ship_project', 'ShipProjectController');
+Route::resource('worker', 'WorkerController');
+Route::resource('machine', 'MachineController');
 
 Route::any('material_list', ['as'=>'material_list', 'uses'=>'MaterialListController@index']);
 Route::any('assembly_part', ['as'=>'assembly_part', 'uses'=>'AssemblyPartListController@index']);
-
-Route::any('input_machine', ['as'=>'input_machine', 'uses'=>'MachineController@index']);
-Route::any('recap_machine', ['as'=>'recap_machine', 'uses'=>'MachineController@recap_machine']);
 
 Route::any('input_worker', ['as'=>'input_worker', 'uses'=>'WorkerController@index']);
 Route::any('recap_worker', ['as'=>'recap_worker', 'uses'=>'WorkerController@recap_worker']);

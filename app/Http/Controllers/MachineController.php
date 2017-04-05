@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+use App\Machine;
 
 class MachineController extends Controller
 {
@@ -13,12 +14,8 @@ class MachineController extends Controller
      */
     public function index(Request $request)
     {
-        return view('dashboard/input_new_machine');
-    }
-
-    public function recap_machine(Request $request)
-    {
-        return view('dashboard/recap_machine');
+        $machine=Machine::all();
+        return view('dashboard/machine')->with('machine', $machine);
     }
 
     /**
@@ -40,6 +37,14 @@ class MachineController extends Controller
     public function store(Request $request)
     {
         //
+        $machine = new Machine();        
+        $machine->NAME = $request->name;        
+        $machine->ACTIVITY = $request->activity;		
+        $machine->WORKSHOP = $request->workshop;  
+        $machine->OPERATIONAL_HOUR = $request->operational;    
+        $machine->save();        
+        return redirect()->route('machine.index')
+            ->with('alert-success', 'Data Berhasil Disimpan.');
     }
 
     /**

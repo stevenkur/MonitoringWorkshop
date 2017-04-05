@@ -148,11 +148,11 @@
                     @endif
                 </div>
                 <div class="form-group">
-                  <label for="inputDisplacement">Displacement:</label>
+                  <label for="inputDisplacement">Construction Weight:</label>
                     @if($flag && $flag2)
                     <input type="text" class="form-control" id="displacement" name="displacement" value="{{$ship->DISPLACEMENT}}">
                     @else       
-                    <input type="text" class="form-control" id="displacement" name="displacement" placeholder="Enter displacement (ton)">         
+                    <input type="text" class="form-control" id="displacement" name="displacement" placeholder="Enter construction weight (ton)">         
                     @endif
                 </div>
                 <div class="form-group">

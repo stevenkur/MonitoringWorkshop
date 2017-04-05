@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+use App\Worker;
 
 class WorkerController extends Controller
 {
@@ -13,12 +14,8 @@ class WorkerController extends Controller
      */
     public function index(Request $request)
     {
-        return view('dashboard/input_new_worker');
-    }
-
-    public function recap_worker(Request $request)
-    {
-        return view('dashboard/recap_worker');
+        $worker=Worker::all();
+        return view('dashboard/worker')->with('worker', $worker);
     }
 
     /**
@@ -29,6 +26,7 @@ class WorkerController extends Controller
     public function create()
     {
         //
+        
     }
 
     /**
@@ -40,6 +38,14 @@ class WorkerController extends Controller
     public function store(Request $request)
     {
         //
+        $worker = new Worker();        
+        $worker->NAME = $request->name;        
+        $worker->DIVISION = $request->division;		
+        $worker->POSITION = $request->position;  
+        $worker->NIK = $request->nik;    
+        $worker->save();        
+        return redirect()->route('worker.index')
+            ->with('alert-success', 'Data Berhasil Disimpan.');
     }
 
     /**

@@ -67,6 +67,29 @@
                 <button type="submit" class="btn btn-primary">Choose</button>
               </div>
             </form>
+                </div>
+                <div class="box box-primary">
+                    <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body">
+              <label for="inputActivity">Select Panel:</label>
+                <div class="form-group">
+                  <select class="form-control">
+                    <option id="#">-- Panel List --</option>
+                    <option id="1">Panel 1</option>
+                    <option id="2">Panel 2</option>
+                    <option id="3">Panel 3</option>
+                    <option id="4">Panel 4</option>
+                  </select>
+                </div>
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Choose</button>
+              </div>
+            </form>                    
             </div>
                 <div class="box box-primary">
                 <div class="box-body">
@@ -132,6 +155,10 @@
                 <div class="form-group">
                   <label for="inputName">Name of Part:</label>
                   <input type="text" class="form-control" id="part_name" placeholder="Enter name of part">
+                </div>
+                <div class="form-group">
+                  <label for="inputPanel">Name of Panel:</label>
+                  <input type="text" class="form-control" id="panel_name" placeholder="Enter name of panel">
                 </div>
                 <div class="form-group">
                   <label for="inputDimension">Dimension:</label>

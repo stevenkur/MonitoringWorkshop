@@ -6,59 +6,45 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Recapitulation User
+        Recap Worker
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
-        <li>Register Application User</li>
-        <li class="active">Recapitulation User</li>
+        <li>Input Worker</li>
+        <li class="active">Worker</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
       <div class="row">
-          <section class="col-lg-6">
-        <div class="box box-primary">
+        <section class="col-lg-6">
+          <div class="box box-primary">
             
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="{{route('users.store')}}" method="post">
+            <form role="form" action="{{route('worker.store')}}" method="post">
                 {{csrf_field()}}
               <div class="box-body">
-                  <h3> Register New User</h3>
                 <div class="form-group">
-                  <label for="inputUsername">Username:</label>
-                  <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+                  <label for="inputWorker">Name of Worker:</label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter worker">
                 </div>
-                <div class="form-group">
-                  <label for="inputPassword">Password:</label>
-                  <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
-                </div>
-                <div class="form-group">
-                  <label for="inputFullName">Full Name:</label>
-                  <input type="text" class="form-control" id="fullname" name="fullname"  placeholder="Enter full name">
-                </div>
-                <div class="form-group">
-                  <label for="inputPhoneNumber">Phone Number:</label>
-                  <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="Enter phone number">
-                </div>
-                <div class="form-group">
+                <div class="form-group" >
                   <label for="inputDivision">Division:</label>
-                  <select class="form-control" name="division" id="division">
+                  <select class="form-control" name="division">
                     <option id="#">--Select Division--</option>
-                    <option id="1">PPC/Admin</option>
-                    <option id="2">Steel Stock House</option>
-                    <option id="3">Fabrication</option>
-                    <option id="4">Sub Assembly</option>
-                    <option id="5">Assembly</option>
-                    <option id="6">Block Blasting Structure</option>
-                    <option id="7">Erection</option>
+                    <option id="1">SSH</option>
+                    <option id="2">Fabrication</option>
+                    <option id="3">Sub Assembly</option>
+                    <option id="4">Assembly</option>
+                    <option id="5">BBS</option>
+                    <option id="6">Erection Process</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label for="inputPosition">Position:</label>
-                  <input type="text" class="form-control" id="position" name="position"  placeholder="Enter position">
+                  <input type="text" class="form-control" id="position" name="position" placeholder="Enter position">
                 </div>
                 <div class="form-group">
                   <label for="inputNIK">NIK:</label>
@@ -70,46 +56,48 @@
 
               <div class="box-footer">
                 <button type="reset" class="btn btn-default">Reset</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Input</button>
               </div>
             </form>
           </div>
-          </section>
+            </section>
           
         <section class="col-lg-6">
         <div class="box">
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="user" class="table table-bordered table-striped">
+              <table id="workerTable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Username</th>
-                  <th>Password</th>
-                  <th>Full Name</th>
-                  <th>Phone Number</th>
+                  <th>Name of Worker</th>
                   <th>Division</th>
                   <th>Position</th>
                   <th>NIK</th>
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach($user as $users)
+                    @foreach($worker as $workers)
                 <tr>
-                    <td>{{$users->USERNAME}}</td>
-                    <td>{{$users->PASSWORD}}</td>
-                    <td>{{$users->FULL_NAME}}</td>
-                    <td>{{$users->PHONE_NUMBER}}</td>
-                    <td>{{$users->DIVISION}}</td>
-                    <td>{{$users->POSITION}}</td>
-                    <td>{{$users->NIK}}</td>
+                    <td>{{$workers->NAME}}</td>
+                    <td>{{$workers->DIVISION}}</td>
+                    <td>{{$workers->POSITION}}</td>
+                    <td>{{$workers->NIK}}</td>
                 </tr>
                     @endforeach
                 </tbody>
+                <tfoot>
+                <tr>
+                  <th>Name of Worker</th>
+                  <th>Division</th>
+                  <th>Position</th>
+                  <th>NIP</th>
+                </tr>
+                </tfoot>
               </table>
             </div>
             <!-- /.box-body -->
           </div>
-          </section>
+        </section>
 
       </div>
     </section>
@@ -135,7 +123,7 @@
 <!-- page script -->
 <script>
 $(function() {
-    $('#user').DataTable({
+    $('#workerTable').DataTable({
           "paging": true,
           "lengthChange": true,
           "searching": true,
@@ -143,5 +131,5 @@ $(function() {
           "info": true,
           "autoWidth": true
     });
-});
+  });
 </script>

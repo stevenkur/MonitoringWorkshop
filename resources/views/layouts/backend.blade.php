@@ -100,42 +100,28 @@
          
         <li class="treeview">
           <a href="{{ route('users.index')}}">
-            <i class="fa fa-ship"></i>
+            <i class="fa fa-user"></i>
             <span>Application User</span>
           </a>
         </li>
 
         <li class="treeview">
-          <a href="#">
+          <a href="{{ route('machine.index')}}">
             <i class="fa fa-ship"></i>
-            <span>Input Machine</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            <span>Machine</span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="{{ route('input_machine')}}"><i class="fa fa-circle-o"></i> Input New Machine</a></li>
-            <li><a href="{{ route('recap_machine')}}"><i class="fa fa-circle-o"></i> Recap Machine</a></li>
-          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="{{ route('worker.index')}}">
+            <i class="fa fa-users"></i>
+            <span>Worker</span>
+          </a>
         </li>
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-ship"></i>
-            <span>Input Worker</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{ route('input_worker')}}"><i class="fa fa-circle-o"></i> Input New Worker in Workshop</a></li>
-            <li><a href="{{ route('recap_worker')}}"><i class="fa fa-circle-o"></i> Recap Worker</a></li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-ship"></i> 
+            <i class="fa fa-industry"></i> 
             <span>Monitoring Prod. Wshop</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
