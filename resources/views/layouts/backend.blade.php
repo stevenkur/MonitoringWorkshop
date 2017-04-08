@@ -97,7 +97,7 @@
             <li><a href="{{ route('assembly_part')}}"><i class="fa fa-circle-o"></i> Assembly Part List</a></li>
           </ul>
         </li>
-         
+          
         <li class="treeview">
           <a href="{{ route('users.index')}}">
             <i class="fa fa-user"></i>
