@@ -6,11 +6,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Erection
+        Input Activities & Worker
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
-        <li>Erection</li>
+        <li>SSH</li>
         <li class="active">Input Activities & Worker</li>
       </ol>
     </section>

@@ -93,11 +93,11 @@
           </a>
           
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> Input Material Coming</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Input Activities and Worker</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Recap Material Coming</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Recap Material Process</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Recap Progress & Activity</a></li>
+            <li><a href="{{ route('input_material_ssh')}}"><i class="fa fa-circle-o"></i> Input Material Coming</a></li>
+            <li><a href="{{ route('input_act_ssh')}}"><i class="fa fa-circle-o"></i> Input Activities and Worker</a></li>
+            <li><a href="{{ route('ssh_recap_material_coming')}}"><i class="fa fa-circle-o"></i> Recap Material Coming</a></li>
+            <li><a href="{{ route('ssh_recap_material_process')}}"><i class="fa fa-circle-o"></i> Recap Material Process</a></li>
+            <li><a href="{{ route('ssh_recap_progress_activity')}}"><i class="fa fa-circle-o"></i> Recap Progress & Activity</a></li>
           </ul>
         </li>
 
