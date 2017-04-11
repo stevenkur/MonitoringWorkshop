@@ -43,3 +43,7 @@ Route::any('ssh_recap_material_coming', ['as'=>'ssh_recap_material_coming', 'use
 Route::any('ssh_recap_material_process', ['as'=>'ssh_recap_material_process', 'uses'=>'UserMainController@ssh_recap_material_process']);
 Route::any('input_act_ssh', ['as'=>'input_act_ssh', 'uses'=>'UserMainController@input_act_ssh']);
 Route::any('ssh_recap_progress_activity', ['as'=>'ssh_recap_progress_activity', 'uses'=>'UserMainController@ssh_recap_progress_activity']);
+
+Route::any('input_act_erection', ['as'=>'input_act_erection', 'uses'=>'UserMainController@input_act_erection']);
+Route::any('erection_recap_block', ['as'=>'erection_recap_block', 'uses'=>'UserMainController@erection_recap_block']);
+Route::any('erection_recap_worker', ['as'=>'erection_recap_worker', 'uses'=>'UserMainController@erection_recap_worker']);

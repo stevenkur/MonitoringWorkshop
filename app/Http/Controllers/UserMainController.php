@@ -41,9 +41,19 @@ class UserMainController extends Controller
         return view('user/ssh_recap_progress_activity');
     }
 
-    public function destroy()
+    public function input_act_erection()
     {
+        return view('user/input_act_erection');
+    }
 
+    public function erection_recap_block()
+    {
+        return view('user/erection_recap_block');
+    }
+
+    public function erection_recap_worker()
+    {
+        return view('user/erection_recap_worker');
     }
 
     public function edit()
