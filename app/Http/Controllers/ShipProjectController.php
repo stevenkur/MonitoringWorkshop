@@ -49,7 +49,9 @@ class ShipProjectController extends Controller
         $ship->DEPTH = $request->depth;     
         $ship->DRAFT = $request->draft;     
         $ship->DISPLACEMENT = $request->displacement;     
-        $ship->DESIGNED_SPEED = $request->sea_speed;       
+        $ship->DESIGNED_SPEED = $request->sea_speed;  
+        $ship->START = $request->start;      
+        $ship->FINISH = $request->finish;       
         $ship->save();        
         return redirect()->route('ship_project.index')
             ->with('alert-success', 'Data Berhasil Disimpan.');
@@ -99,7 +101,9 @@ class ShipProjectController extends Controller
         $ship->DEPTH = $request->depth;     
         $ship->DRAFT = $request->draft;     
         $ship->DISPLACEMENT = $request->displacement;     
-        $ship->DESIGNED_SPEED = $request->sea_speed;      
+        $ship->DESIGNED_SPEED = $request->sea_speed;   
+        $ship->START = $request->start;      
+        $ship->FINISH = $request->finish;         
         $ship->save();
         return redirect()->route('ship_project.index')->with('alert-success', 'Data Berhasil Diubah.');
     }

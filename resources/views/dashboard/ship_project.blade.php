@@ -30,7 +30,7 @@
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
                   <select class="form-control" name="id">
-                    <option id="#">-- Ship Project List --</option>
+                    <option value="#">-- Ship Project List --</option>
                     <?php $i=1;?>
                     @foreach($ship as $data)
                         <?php $datas[$i] = $data; $i++;?>
@@ -54,7 +54,7 @@
             <div class="box box-primary">  
             
             <?php 
-                if(isset($_GET['id']) && $_GET['id']!='0' && $_GET['id']!='-- Ship Project List --'){
+                if(isset($_GET['id']) && $_GET['id']!='0' && $_GET['id']!='#'){
                     $flag = true;
                     for($j=1; $j<$i; $j++){
                         if($datas[$j]->ID == $_GET['id']){
@@ -161,6 +161,22 @@
                     <input type="text" class="form-control" id="sea_speed" name="sea_speed" value="{{$ship->DESIGNED_SPEED}}">  
                     @else 
                     <input type="text" class="form-control" id="sea_speed" name="sea_speed"       placeholder="Enter designed sea speed (knot)">               
+                    @endif
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputDateStart">Start:</label>
+                    @if($flag && $flag2)
+                    <input type="date" class="form-control" id="start" name="start" value="{{$ship->START}}">  
+                    @else 
+                    <input type="date" class="form-control" id="start" name="start"       placeholder="Enter when the project begin">               
+                    @endif
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputDateFinish">Finish:</label>
+                    @if($flag && $flag2)
+                    <input type="date" class="form-control" id="finish" name="finish" value="{{$ship->FINISH}}">  
+                    @else 
+                    <input type="date" class="form-control" id="finish" name="finish"       placeholder="Enter when the project must be finished">               
                     @endif
                 </div>
               </div>
