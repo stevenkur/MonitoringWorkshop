@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+use App\ShipProject;
 
 class SubAssemblyController extends Controller
 {
@@ -13,13 +14,8 @@ class SubAssemblyController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->isMethod('get')) {
-            return view('dashboard/subassembly_menu')->with('id', 0);
-        }
-        else if($request->isMethod('post')) {
-            $input = Input::all();
-            return view('dashboard/subassembly_menu')->with('id', $input['id']);
-        }
+        $ship=ShipProject::all();
+        return view('dashboard/subassembly_menu')->with('ship', $ship);
     }
 
     /**

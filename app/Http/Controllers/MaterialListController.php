@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+use App\ShipProject;
+use App\Block;
 
 class MaterialListController extends Controller
 {
@@ -13,13 +15,9 @@ class MaterialListController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->isMethod('get')) {
-            return view('dashboard/material_list')->with('id', 0);
-        }
-        else if($request->isMethod('post')) {
-            $input = Input::all();
-            return view('dashboard/material_list')->with('id', $input['id']);
-        }
+        $ship=ShipProject::all();
+        $block=Block::all();
+        return view('dashboard/material_list')->with('ship', $ship)->with('block', $block);
     }
 
     /**

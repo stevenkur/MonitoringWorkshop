@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+use App\ShipProject;
+use App\Block;
 
 class SSHController extends Controller
 {
@@ -13,13 +15,9 @@ class SSHController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->isMethod('get')) {
-            return view('dashboard/ssh_menu')->with('id', 0);
-        }
-        else if($request->isMethod('post')) {
-            $input = Input::all();
-            return view('dashboard/ssh_menu')->with('id', $input['id']);
-        }
+        $ship=ShipProject::all();
+        $block=Block::all();
+        return view('dashboard/ssh_menu')->with('ship', $ship)->with('block', $block);
     }
 
     /**

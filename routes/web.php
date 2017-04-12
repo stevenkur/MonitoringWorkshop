@@ -23,12 +23,8 @@ Route::resource('users', 'UserController');
 Route::resource('ship_project', 'ShipProjectController');
 Route::resource('worker', 'WorkerController');
 Route::resource('machine', 'MachineController');
-
-Route::any('material_list', ['as'=>'material_list', 'uses'=>'MaterialListController@index']);
-Route::any('assembly_part', ['as'=>'assembly_part', 'uses'=>'AssemblyPartListController@index']);
-
-Route::any('input_worker', ['as'=>'input_worker', 'uses'=>'WorkerController@index']);
-Route::any('recap_worker', ['as'=>'recap_worker', 'uses'=>'WorkerController@recap_worker']);
+Route::resource('material_list', 'MaterialListController');
+Route::resource('assembly_part', 'AssemblyPartListController');
 
 Route::any('ssh_menu', ['as'=>'ssh_menu', 'uses'=>'SSHController@index']);
 Route::any('fabrication_menu', ['as'=>'fabrication_menu', 'uses'=>'FabricationController@index']);

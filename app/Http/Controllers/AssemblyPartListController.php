@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+use App\ShipProject;
+use App\Block;
+use App\Panel;
 
 class AssemblyPartListController extends Controller
 {
@@ -13,13 +16,10 @@ class AssemblyPartListController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->isMethod('get')) {
-            return view('dashboard/assembly_part')->with('id', 0);
-        }
-        else if($request->isMethod('post')) {
-            $input = Input::all();
-            return view('dashboard/assembly_part')->with('id', $input['id']);
-        }
+        $ship=ShipProject::all();
+        $block=Block::all();
+        $panel=Panel::all();
+        return view('dashboard/assembly_part')->with('ship', $ship)->with('block', $block)->with('panel', $panel);
     }
 
     /**

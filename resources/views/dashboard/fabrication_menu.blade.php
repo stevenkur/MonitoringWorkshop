@@ -29,8 +29,10 @@
               <label for="inputActivity">Select Activity:</label>
                 <div class="form-group">
                   <select class="form-control">
-                    <option id="#">--Recap Activity--</option>
-                    <option id="1">Recap Material Process (Marking, Cutting, Bending)</option>
+                    <option value="#">--Select Activity--</option>
+                    <option value="1">Marking</option>
+                    <option value="2">Cutting</option>
+                    <option value="3">Bending</option>
                   </select>
                 </div>
                
@@ -54,11 +56,12 @@
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
                   <select class="form-control">
-                    <option id="#">-- Ship Project List --</option>
-                    <option id="1">Project 1</option>
-                    <option id="2">Project 2</option>
-                    <option id="3">Project 3</option>
-                    <option id="4">Project 4</option>
+                    <option value="#">-- Ship Project List --</option>
+                    <?php $i=1;?>
+                    @foreach($ship as $data)
+                        <?php $datas[$i] = $data; $i++;?>
+                        <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
+                    @endforeach
                   </select>
                 </div>
                

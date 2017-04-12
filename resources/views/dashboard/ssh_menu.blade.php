@@ -29,9 +29,9 @@
               <label for="inputActivity">Select Activity:</label>
                 <div class="form-group">
                   <select class="form-control">
-                    <option id="#">--Recap Activity--</option>
-                    <option id="1">Recap Material Coming</option>
-                    <option id="2">Recap Material Process (Blasting & Shop Primer)</option>
+                    <option value="#">--Select Activity--</option>
+                    <option value="1">Recap Material Coming</option>
+                    <option value="2">Recap Material Process (Blasting & Shop Primer)</option>
                   </select>
                 </div>
                
@@ -117,11 +117,12 @@
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
                   <select class="form-control">
-                    <option id="#">-- Ship Project List --</option>
-                    <option id="1">Project 1</option>
-                    <option id="2">Project 2</option>
-                    <option id="3">Project 3</option>
-                    <option id="4">Project 4</option>
+                    <option value="#">-- Ship Project List --</option>
+                    <?php $i=1;?>
+                    @foreach($ship as $data)
+                        <?php $datas[$i] = $data; $i++;?>
+                        <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
+                    @endforeach
                   </select>
                 </div>
                
@@ -145,11 +146,11 @@
               <label for="inputBlck">Select Block of [Ship_Name]:</label>
                 <div class="form-group">
                   <select class="form-control">
-                    <option id="#">-- Block List --</option>
-                    <option id="1">Block 1</option>
-                    <option id="2">Block 2</option>
-                    <option id="3">Block 3</option>
-                    <option id="4">Block 4</option>
+                    <option value="#">-- Block List --</option>
+                    @foreach($block as $data)
+                        <?php $blockData[$i] = $data; $i++;?>
+                        <option value="{{$data->ID}}">{{$data->NAME}}</option>
+                    @endforeach
                   </select>
                 </div>
                

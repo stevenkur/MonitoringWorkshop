@@ -27,11 +27,12 @@
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
                   <select class="form-control">
-                    <option id="#">-- Ship Project List --</option>
-                    <option id="1">Project 1</option>
-                    <option id="2">Project 2</option>
-                    <option id="3">Project 3</option>
-                    <option id="4">Project 4</option>
+                    <option value="#">-- Ship Project List --</option>
+                    <?php $i=1;?>
+                    @foreach($ship as $dataShip)
+                        <?php $shipData[$i] = $dataShip; $i++;?>
+                        <option value="{{$dataShip->ID}}">{{$dataShip->PROJECT_NAME}}</option>
+                    @endforeach
                   </select>
                 </div>
                
@@ -52,11 +53,12 @@
               <label for="inputActivity">Select Block:</label>
                 <div class="form-group">
                   <select class="form-control">
-                    <option id="#">-- Block List --</option>
-                    <option id="1">Block 1</option>
-                    <option id="2">Block 2</option>
-                    <option id="3">Block 3</option>
-                    <option id="4">Block 4</option>
+                    <option value="#">-- Block List --</option>
+                    <?php $i=1;?>
+                    @foreach($block as $dataBlock)
+                        <?php $blockData[$i] = $dataBlock; $i++;?>
+                        <option value="{{$dataBlock->ID}}">{{$dataBlock->NAME}}</option>
+                    @endforeach
                   </select>
                 </div>
                
@@ -76,11 +78,12 @@
               <label for="inputActivity">Select Panel:</label>
                 <div class="form-group">
                   <select class="form-control">
-                    <option id="#">-- Panel List --</option>
-                    <option id="1">Panel 1</option>
-                    <option id="2">Panel 2</option>
-                    <option id="3">Panel 3</option>
-                    <option id="4">Panel 4</option>
+                    <option value="#">-- Panel List --</option>
+                    <?php $i=1;?>
+                    @foreach($panel as $dataPanel)
+                        <?php $panelData[$i] = $dataPanel; $i++;?>
+                        <option value="{{$dataPanel->ID}}">{{$dataPanel->NAME}}</option>
+                    @endforeach
                   </select>
                 </div>
               </div>
