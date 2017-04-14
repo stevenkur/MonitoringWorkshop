@@ -6,12 +6,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Recap Material Coming
+        Recap Material Process
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
-        <li>SSH</li>
-        <li class="active">Recap Material Coming</li>
+        <li>Fabrication</li>
+        <li class="active">Recap Material Process</li>
       </ol>
     </section>
 
@@ -30,11 +30,10 @@
                 <div class="form-group">
                   <select class="form-control">
                     <option id="#">-- Ship Project List --</option>
-                    <?php $i=1;?>
-                    @foreach($ship as $data)
-                        <?php $shipData[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
-                    @endforeach
+                    <option id="1">Project 1</option>
+                    <option id="2">Project 2</option>
+                    <option id="3">Project 3</option>
+                    <option id="4">Project 4</option>
                   </select>
                 </div>
                
@@ -59,11 +58,10 @@
                 <div class="form-group">
                   <select class="form-control">
                     <option id="#">-- Block List --</option>
-                    <?php $i=1;?>
-                    @foreach($block as $data)
-                        <?php $blockData[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->NAME}}</option>
-                    @endforeach
+                    <option id="1">Block 1</option>
+                    <option id="2">Block 2</option>
+                    <option id="3">Block 3</option>
+                    <option id="4">Block 4</option>
                   </select>
                 </div>
                
@@ -84,12 +82,12 @@
             <!-- form start -->
             <form role="form" name="ShipBlock">
               <div class="box-body">
-              <label for="inputActivity">Status:</label>
+              <label for="inputActivity">Activity:</label>
                 <div class="form-group">
                   <select class="form-control">
                     <option id="#">-- List --</option>
-                    <option id="1">Arrived</option>
-                    <option id="2">Pending</option>
+                    <option id="1">Straightening</option>
+                    <option id="2">Blasting & Shop Primer</option>
                   </select>
                 </div>
                
@@ -97,12 +95,21 @@
               <!-- /.box-body -->
             </div>
             </section>
-     
+
+        <section class="col-md-12">
+        <div class="box box-primary">
+
+          <h3>Target Quantity per-Day: <br> [XX] Plate per Workshop</h3>
+          <br>  
+
+        </div>
+        </section>    
+
         <div class="col-md-12">
         <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
-            <h3>Plate</h3>
+            <h3>Material List Plate</h3>
               <table id="plate" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -110,7 +117,9 @@
                   <th>Dimension</th>
                   <th>Quantity</th>
                   <th>Weight</th>
-                  <th>Date of Coming</th>
+                  <th>Work Machine</th>
+                  <th>Date of Work</th>
+                  <th>Output Workshop</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -119,28 +128,42 @@
                   <td>Dimension</td>
                   <td>Quantity</td>
                   <td>Weight</td>
-                  <td>Date of Coming</td>
+                  <td>Activity</td>
+                  <td>Date of Work</td>
+                  <td>Output Workshop</td>
                 </tr>
                 <tr>
                   <td>ID Material</td>
                   <td>Dimension</td>
                   <td>Quantity</td>
                   <td>Weight</td>
-                  <td>Date of Coming</td>
-                </tr>
-                <tr>
+                  <td>Activity</td>
+                  <td>Date of Work</td>
+                  <td>Output Workshop</td>
+                </tr><tr>
                   <td>ID Material</td>
                   <td>Dimension</td>
                   <td>Quantity</td>
                   <td>Weight</td>
-                  <td>Date of Coming</td>
-                </tr>
-                <tr>
+                  <td>Activity</td>
+                  <td>Date of Work</td>
+                  <td>Output Workshop</td>
+                </tr><tr>
                   <td>ID Material</td>
                   <td>Dimension</td>
                   <td>Quantity</td>
                   <td>Weight</td>
-                  <td>Date of Coming</td>
+                  <td>Activity</td>
+                  <td>Date of Work</td>
+                  <td>Output Workshop</td>
+                </tr><tr>
+                  <td>ID Material</td>
+                  <td>Dimension</td>
+                  <td>Quantity</td>
+                  <td>Weight</td>
+                  <td>Activity</td>
+                  <td>Date of Work</td>
+                  <td>Output Workshop</td>
                 </tr>
                 </tbody>
               </table>
@@ -149,63 +172,7 @@
           </div>
         </div>
 
-        <div class="col-md-12">
-        <div class="box box-primary">
-            <!-- /.box-header -->
-            <div class="box-body">
-            <h3>Profile</h3>
-              <table id="profile" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>ID Material</th>
-                  <th>Dimension</th>
-                  <th>Quantity</th>
-                  <th>Length</th>
-                  <th>Weight</th>
-                  <th>Date of Coming</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Length</td>
-                  <td>Weight</td>
-                  <td>Date of Coming</td>
-                </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Length</td>
-                  <td>Weight</td>
-                  <td>Date of Coming</td>
-                </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Length</td>
-                  <td>Weight</td>
-                  <td>Date of Coming</td>
-                </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Length</td>
-                  <td>Weight</td>
-                  <td>Date of Coming</td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
         </div>
-
-      </div>
     </section>
   </div>
 
@@ -232,15 +199,7 @@ $(function() {
     $('#plate').DataTable({
           "paging": false,
           "lengthChange": false,
-          "searching": false,
-          "ordering": false,
-          "info": false,
-          "autoWidth": true
-    });
-    $('#profile').DataTable({
-          "paging": false,
-          "lengthChange": false,
-          "searching": false,
+          "searching": true,
           "ordering": false,
           "info": false,
           "autoWidth": true

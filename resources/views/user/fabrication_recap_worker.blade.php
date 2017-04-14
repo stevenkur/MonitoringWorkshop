@@ -10,7 +10,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
-        <li>Erection</li>
+        <li>Fabrication</li>
         <li class="active">Recap Worker & Time</li>
       </ol>
     </section>
@@ -30,11 +30,10 @@
                 <div class="form-group">
                   <select class="form-control">
                     <option id="#">-- Ship Project List --</option>
-                    <?php $i=1;?>
-                    @foreach($ship as $data)
-                        <?php $shipData[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
-                    @endforeach
+                    <option id="1">Project 1</option>
+                    <option id="2">Project 2</option>
+                    <option id="3">Project 3</option>
+                    <option id="4">Project 4</option>
                   </select>
                 </div>
                
@@ -59,11 +58,10 @@
                 <div class="form-group">
                   <select class="form-control">
                     <option id="#">-- Block List --</option>
-                    <?php $i=1;?>
-                    @foreach($block as $data)
-                        <?php $blockData[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->NAME}}</option>
-                    @endforeach
+                    <option id="1">Block 1</option>
+                    <option id="2">Block 2</option>
+                    <option id="3">Block 3</option>
+                    <option id="4">Block 4</option>
                   </select>
                 </div>
                
@@ -76,12 +74,13 @@
             </form>
             </div>
             </section>
-
+        
         <div class="col-md-12">
-        <div class="box">
+        <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="machine" class="table table-bordered table-striped">
+            <h3>List Worker</h3>
+              <table id="plate" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Name of Worker</th>
@@ -89,60 +88,61 @@
                   <th>Shift</th>
                   <th>Activity</th>
                   <th>Problem</th>
-                  <th>Many hours Realitation</th>
+                  <th>Many Hours Machine</th>
+                  <th>Many Hours Realitation</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Shift</td>
+                  <td>ID Material</td>
+                  <td>Dimension</td>
+                  <td>Quantity</td>
+                  <td>Weight</td>
                   <td>Activity</td>
-                  <td>Problem</td>
-                  <td>Many hours Realitation</td>
+                  <td>Date of Work</td>
+                  <td>Output Workshop</td>
                 </tr>
                 <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Shift</td>
+                  <td>ID Material</td>
+                  <td>Dimension</td>
+                  <td>Quantity</td>
+                  <td>Weight</td>
                   <td>Activity</td>
-                  <td>Problem</td>
-                  <td>Many hours Realitation</td>
-                </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Shift</td>
+                  <td>Date of Work</td>
+                  <td>Output Workshop</td>
+                </tr><tr>
+                  <td>ID Material</td>
+                  <td>Dimension</td>
+                  <td>Quantity</td>
+                  <td>Weight</td>
                   <td>Activity</td>
-                  <td>Problem</td>
-                  <td>Many hours Realitation</td>
-                </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Shift</td>
+                  <td>Date of Work</td>
+                  <td>Output Workshop</td>
+                </tr><tr>
+                  <td>ID Material</td>
+                  <td>Dimension</td>
+                  <td>Quantity</td>
+                  <td>Weight</td>
                   <td>Activity</td>
-                  <td>Problem</td>
-                  <td>Many hours Realitation</td>
+                  <td>Date of Work</td>
+                  <td>Output Workshop</td>
+                </tr><tr>
+                  <td>ID Material</td>
+                  <td>Dimension</td>
+                  <td>Quantity</td>
+                  <td>Weight</td>
+                  <td>Activity</td>
+                  <td>Date of Work</td>
+                  <td>Output Workshop</td>
                 </tr>
                 </tbody>
-                <tfoot>
-                <tr>
-                  <th>Name of Worker</th>
-                  <th>NIP</th>
-                  <th>Shift</th>
-                  <th>Activity</th>
-                  <th>Problem</th>
-                  <th>Many hours Realitation</th>
-                </tr>
-                </tfoot>
               </table>
             </div>
             <!-- /.box-body -->
           </div>
         </div>
 
-      </div>
+        </div>
     </section>
   </div>
 
@@ -166,12 +166,12 @@
 <!-- page script -->
 <script>
 $(function() {
-    $('#machine').DataTable({
-          "paging": true,
-          "lengthChange": true,
+    $('#plate').DataTable({
+          "paging": false,
+          "lengthChange": false,
           "searching": true,
-          "ordering": true,
-          "info": true,
+          "ordering": false,
+          "info": false,
           "autoWidth": true
     });
   });

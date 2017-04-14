@@ -10,7 +10,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
-        <li>SSH</li>
+        <li>Fabrication</li>
         <li class="active">Input Activities & Worker</li>
       </ol>
     </section>
@@ -29,11 +29,10 @@
                 <div class="form-group">
                   <select class="form-control">
                     <option id="#">-- Ship Project List --</option>
-                    <?php $i=1;?>
-                    @foreach($ship as $data)
-                        <?php $shipData[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
-                    @endforeach
+                    <option id="1">Project 1</option>
+                    <option id="2">Project 2</option>
+                    <option id="3">Project 3</option>
+                    <option id="4">Project 4</option>
                   </select>
                 </div>
                
@@ -58,11 +57,10 @@
                 <div class="form-group">
                   <select class="form-control">
                     <option id="#">-- Block List --</option>
-                    <?php $i=1;?>
-                    @foreach($block as $data)
-                        <?php $blockData[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->NAME}}</option>
-                    @endforeach
+                    <option id="1">Block 1</option>
+                    <option id="2">Block 2</option>
+                    <option id="3">Block 3</option>
+                    <option id="4">Block 4</option>
                   </select>
                 </div>
                
@@ -87,8 +85,9 @@
                 <div class="form-group">
                   <select class="form-control">
                     <option id="#">-- Material Process List --</option>
-                    <option id="1">Straightening</option>
-                    <option id="2">Blasting & Shop Primer</option>
+                    <option id="1">Marking</option>
+                    <option id="2">Cutting</option>
+                    <option id="3">Bending</option>
                   </select>
                 </div>
                
@@ -109,8 +108,11 @@
                 <div class="form-group">
                   <select class="form-control">
                     <option id="#">-- Machine Process List --</option>
-                    <option id="1">Rool Machine</option>
-                    <option id="2">Shoot Blasting & Primering Machine</option>
+                    <option id="1">CNC Plasma</option>
+                    <option id="2">NC Safro</option>
+                    <option id="3">CNC Gas Cutting</option>
+                    <option id="4">Bending Machine</option>
+                    <option id="5">Flame Planner</option>
                   </select>
                 </div>
                
@@ -223,8 +225,11 @@
                   <td>
                     <select class="form-control">
                     <option id="0">Not Operator</option>
-                    <option id="1">Operator Rool Machine</option>
-                    <option id="2">Operator Shoot Blasting & Primering Machine</option>
+                    <option id="1">CNC Plasma Operator</option>
+                    <option id="2">NC Safro Operator</option>
+                    <option id="3">CNC Gas Cutting Operator</option>
+                    <option id="4">Bending Machine Operator</option>
+                    <option id="5">Flame Planner Operator</option>
                   </select>
                   </td>
                 </tr>
@@ -238,8 +243,11 @@
                   <td>
                     <select class="form-control">
                     <option id="0">Not Operator</option>
-                    <option id="1">Operator Rool Machine</option>
-                    <option id="2">Operator Shoot Blasting & Primering Machine</option>
+                    <option id="1">CNC Plasma Operator</option>
+                    <option id="2">NC Safro Operator</option>
+                    <option id="3">CNC Gas Cutting Operator</option>
+                    <option id="4">Bending Machine Operator</option>
+                    <option id="5">Flame Planner Operator</option>
                   </select>
                   </td>
                 </tr>
@@ -253,8 +261,11 @@
                   <td>
                     <select class="form-control">
                     <option id="0">Not Operator</option>
-                    <option id="1">Operator Rool Machine</option>
-                    <option id="2">Operator Shoot Blasting & Primering Machine</option>
+                    <option id="1">CNC Plasma Operator</option>
+                    <option id="2">NC Safro Operator</option>
+                    <option id="3">CNC Gas Cutting Operator</option>
+                    <option id="4">Bending Machine Operator</option>
+                    <option id="5">Flame Planner Operator</option>
                   </select>
                   </td>
                 </tr>
@@ -268,8 +279,11 @@
                   <td>
                     <select class="form-control">
                     <option id="0">Not Operator</option>
-                    <option id="1">Operator Rool Machine</option>
-                    <option id="2">Operator Shoot Blasting & Primering Machine</option>
+                    <option id="1">CNC Plasma Operator</option>
+                    <option id="2">NC Safro Operator</option>
+                    <option id="3">CNC Gas Cutting Operator</option>
+                    <option id="4">Bending Machine Operator</option>
+                    <option id="5">Flame Planner Operator</option>
                   </select>
                   </td>
                 </tr>

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Auth::routes();
@@ -43,3 +43,8 @@ Route::any('ssh_recap_progress_activity', ['as'=>'ssh_recap_progress_activity', 
 Route::any('input_act_erection', ['as'=>'input_act_erection', 'uses'=>'UserMainController@input_act_erection']);
 Route::any('erection_recap_block', ['as'=>'erection_recap_block', 'uses'=>'UserMainController@erection_recap_block']);
 Route::any('erection_recap_worker', ['as'=>'erection_recap_worker', 'uses'=>'UserMainController@erection_recap_worker']);
+
+Route::any('input_act_fabrication', ['as'=>'input_act_fabrication', 'uses'=>'UserMainController@input_act_fabrication']);
+Route::any('fabrication_recap_material_process', ['as'=>'fabrication_recap_material_process', 'uses'=>'UserMainController@fabrication_recap_material_process']);
+Route::any('Fabrication_recap_worker', ['as'=>'Fabrication_recap_worker', 'uses'=>'UserMainController@Fabrication_recap_worker']);
+Route::any('fabrication_recap_progress_activity', ['as'=>'fabrication_recap_progress_activity', 'uses'=>'UserMainController@fabrication_recap_progress_activity']);

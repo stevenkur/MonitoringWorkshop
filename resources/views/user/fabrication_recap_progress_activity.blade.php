@@ -10,7 +10,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
-        <li>SSH</li>
+        <li>Fabrication</li>
         <li class="active">Recap Progress & Activity</li>
       </ol>
     </section>
@@ -30,11 +30,10 @@
                 <div class="form-group">
                   <select class="form-control">
                     <option id="#">-- Ship Project List --</option>
-                    <?php $i=1;?>
-                    @foreach($ship as $data)
-                        <?php $shipData[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
-                    @endforeach
+                    <option id="1">Project 1</option>
+                    <option id="2">Project 2</option>
+                    <option id="3">Project 3</option>
+                    <option id="4">Project 4</option>
                   </select>
                 </div>
                
