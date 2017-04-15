@@ -51,7 +51,7 @@ class ShipProjectController extends Controller
         $ship->DISPLACEMENT = $request->displacement;     
         $ship->DESIGNED_SPEED = $request->sea_speed;  
         $ship->START = $request->start;      
-        $ship->FINISH = $request->finish;       
+        $ship->FINISH = $request->finish;
         $ship->save();        
         return redirect()->route('ship_project.index')
             ->with('alert-success', 'Data Berhasil Disimpan.');

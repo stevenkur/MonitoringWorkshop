@@ -3,25 +3,26 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
-use App\ShipProject;
 use App\Block;
+use App\ShipProject;
 use App\Panel;
-use App\Profile;
 
-class MaterialListController extends Controller
+class PanelController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $ship=ShipProject::all();
+        //
         $block=Block::all();
-        return view('dashboard/material_list')->with('ship', $ship)->with('block', $block);
+        $ship=ShipProject::all();
+        $panel=Panel::all();
+        return view('dashboard/panel_list')->with('ship', $ship)->with('block', $block)->with('panel', $panel);
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -40,29 +41,21 @@ class MaterialListController extends Controller
      */
     public function store(Request $request)
     {
-        // create block
-        $block = new Block();
-        $block->NAME = $request->block_name;
+        //
+        $block=Block::findOrFail($request->block_id);
         
-        // create material
-        if($request->type == 'Panel'){
-            $part = new Panel();
-        } else{
-            $part = new Profile(); 
-            $part->FORM = $request->form;     
-        }
-        $part->ID = $request->id;        
-        $part->ID_BLOCK = $request->block_name;
-        $part->TYPE = $request->type;  
-        $part->LWL = $request->length; 
-        $part->BREADTH = $request->breadth; 
-        $part->DEPTH = $request->thickness;     
-        $part->PORT = $request->p;     
-        $part->CENTER = $request->c;     
-        $part->STARBOARD = $request->s;  
-        $part->WEIGHT = $request->weight;   
-        $part->save();        
-        return redirect()->route('material_list.index')
+        $panel = new Panel();        
+        $panel->NAME = $request->name;        
+        $panel->ID_PROJECT = $block->ID_PROJECT;		
+        $panel->PROJECT_NAME = $block->PROJECT_NAME;   
+        $panel->ID_BLOCK = $block->ID;		
+        $panel->BLOCK_NAME = $block->NAME;   
+        $panel->MATERIAL = 0;   
+        $panel->MATERIAL_COMING = 0;   
+        $panel->PART = 0;   
+        $panel->PART_COMING = 0;   
+        $panel->save();
+        return redirect()->route('panel.index')
             ->with('alert-success', 'Data Berhasil Disimpan.');
     }
 

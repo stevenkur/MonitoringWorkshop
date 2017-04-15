@@ -25,6 +25,8 @@ Route::resource('worker', 'WorkerController');
 Route::resource('machine', 'MachineController');
 Route::resource('material_list', 'MaterialListController');
 Route::resource('assembly_part', 'AssemblyPartListController');
+Route::resource('block', 'BlockController');
+Route::resource('panel', 'PanelController');
 
 Route::any('ssh_menu', ['as'=>'ssh_menu', 'uses'=>'SSHController@index']);
 Route::any('fabrication_menu', ['as'=>'fabrication_menu', 'uses'=>'FabricationController@index']);
@@ -32,7 +34,6 @@ Route::any('subassembly_menu', ['as'=>'subassembly_menu', 'uses'=>'SubAssemblyCo
 Route::any('assembly_menu', ['as'=>'assembly_menu', 'uses'=>'AssemblyController@index']);
 Route::any('bbs_menu', ['as'=>'bbs_menu', 'uses'=>'BBSController@index']);
 Route::any('erection_menu', ['as'=>'erection_menu', 'uses'=>'ErectionController@index']);
-
 
 Route::any('input_material_ssh', ['as'=>'input_material_ssh', 'uses'=>'UserMainController@input_material_ssh']);
 Route::any('ssh_recap_material_coming', ['as'=>'ssh_recap_material_coming', 'uses'=>'UserMainController@ssh_recap_material_coming']);
@@ -46,5 +47,5 @@ Route::any('erection_recap_worker', ['as'=>'erection_recap_worker', 'uses'=>'Use
 
 Route::any('input_act_fabrication', ['as'=>'input_act_fabrication', 'uses'=>'UserMainController@input_act_fabrication']);
 Route::any('fabrication_recap_material_process', ['as'=>'fabrication_recap_material_process', 'uses'=>'UserMainController@fabrication_recap_material_process']);
-Route::any('Fabrication_recap_worker', ['as'=>'Fabrication_recap_worker', 'uses'=>'UserMainController@Fabrication_recap_worker']);
+Route::any('fabrication_recap_worker', ['as'=>'fabrication_recap_worker', 'uses'=>'UserMainController@fabrication_recap_worker']);
 Route::any('fabrication_recap_progress_activity', ['as'=>'fabrication_recap_progress_activity', 'uses'=>'UserMainController@fabrication_recap_progress_activity']);

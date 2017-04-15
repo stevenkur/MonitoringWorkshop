@@ -80,39 +80,48 @@
                   <h4> Input Material List for [Ship_Name] [Block_Name]</h4>
                 <div class="form-group">
                   <label for="inputID">ID:</label>
-                  <input type="text" class="form-control" id="material_id" placeholder="Enter id of material">
+                  <input type="text" class="form-control" id="material_id" name="id" placeholder="Enter id of material">
                 </div>
                 <div class="form-group">
-                  <label for="inputBlockName">Block Name:</label>
-                  <input type="text" class="form-control" id="block_name" placeholder="Enter block name">
+                  <label for="inputActivity">Select Block:</label>
+                <div class="form-group">
+                  <select class="form-control" name="block_id">
+                    <option value="#">-- Block List --</option>
+                    <?php $i=1;?>
+                    @foreach($block as $data)
+                        <?php $blockData[$i] = $data; $i++;?>
+                        <option value="{{$data->ID}}">{{$data->NAME}}</option>
+                    @endforeach
+                  </select>
+                </div>
                 </div>
                 <label for="inputType">Select Type of Material:</label>
                 <div class="form-group">
-                  <select class="form-control">
-                    <option id="#">-- Type of Material --</option>
+                  <select class="form-control" name="type">
+                    <option value="#">-- Type of Material --</option>
                     <option id="1">Plate</option>
                     <option id="2">Profile</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label for="inputDimension">Dimension:</label>
-                  <input type="text" class="form-control" id="material_length" placeholder="Enter length of material"><br>
-                  <input type="text" class="form-control" id="material_breadth" placeholder="Enter breadth of material"><br>
-                  <input type="text" class="form-control" id="material_thickness" placeholder="Enter thickness of material">
+                  <input type="text" class="form-control" id="material_length" name="length" placeholder="Enter length of material"><br>
+                  <input type="text" class="form-control" id="material_breadth" name="breadth" placeholder="Enter breadth of material"><br>
+                  <input type="text" class="form-control" id="material_thickness" name="thickness" placeholder="Enter thickness of material">
                 </div>
                 <div class="form-group">
                   <label for="inputQuantity">Quantity:</label>
-                  <input type="text" class="form-control" id="material_quantityp" placeholder="Enter quantity of material (p)"><br>
-                  <input type="text" class="form-control" id="material_quantityc" placeholder="Enter quantity of material (c)"><br>
-                  <input type="text" class="form-control" id="material_quantitys" placeholder="Enter quantity of material (s)">
+                  <input type="text" class="form-control" id="material_quantityp" name="p"  placeholder="Enter quantity of material (p)"><br>
+                  <input type="text" class="form-control" id="material_quantityc" name="c"  placeholder="Enter quantity of material (c)"><br>
+                  <input type="text" class="form-control" id="material_quantitys" name="s"  placeholder="Enter quantity of material (s)">
                 </div>
                 <div class="form-group">
                   <label for="inputWeight">Weight:</label>
-                  <input type="text" class="form-control" id="part_weight" placeholder="Enter weight">
+                  <input type="text" class="form-control" id="part_weight" name="weight" placeholder="Enter weight">
                 </div>
                 <div class="form-group">
                   <label for="inputForm">Profile form:</label>
-                  <input type="text" class="form-control" id="form" placeholder="Enter form of profile">
+                  <input type="text" class="form-control" id="form" name="form" placeholder="Enter form of profile">
                 </div>
               </div>
               <!-- /.box-body -->

@@ -16,6 +16,7 @@ class CreateBlocksTable extends Migration
         Schema::create('blocks', function (Blueprint $table) {
             $table->increments('ID');
             $table->integer('ID_PROJECT');
+            $table->string('PROJECT_NAME', 55);
             $table->string('NAME', 25);
             $table->integer('MATERIAL');
             $table->integer('MATERIAL_COMING');

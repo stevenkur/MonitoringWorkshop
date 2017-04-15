@@ -113,7 +113,7 @@
           <ul class="treeview-menu">
             <li><a href="{{ route('input_act_fabrication')}}"><i class="fa fa-circle-o"></i> Input Activities and Worker</a></li>
             <li><a href="{{ route('fabrication_recap_material_process')}}"><i class="fa fa-circle-o"></i> Recap Material Process</a></li>
-            <li><a href="{{ route('Fabrication_recap_worker')}}"><i class="fa fa-circle-o"></i> Recap Worker & Time</a></li>
+            <li><a href="{{ route('fabrication_recap_worker')}}"><i class="fa fa-circle-o"></i> Recap Worker & Time</a></li>
             <li><a href="{{ route('fabrication_recap_progress_activity')}}"><i class="fa fa-circle-o"></i> Recap Progress & Activity</a></li>
           </ul>
         </li>

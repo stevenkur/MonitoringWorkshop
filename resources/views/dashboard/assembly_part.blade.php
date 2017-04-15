@@ -160,8 +160,17 @@
                   <input type="text" class="form-control" id="part_name" placeholder="Enter name of part">
                 </div>
                 <div class="form-group">
-                  <label for="inputPanel">Name of Panel:</label>
-                  <input type="text" class="form-control" id="panel_name" placeholder="Enter name of panel">
+                  <label for="inputActivity">Select Panel:</label>
+                <div class="form-group">
+                  <select class="form-control">
+                    <option value="#">-- Panel List --</option>
+                    <?php $i=1;?>
+                    @foreach($panel as $dataPanel)
+                        <?php $panelData[$i] = $dataPanel; $i++;?>
+                        <option value="{{$dataPanel->ID}}">{{$dataPanel->NAME}}</option>
+                    @endforeach
+                  </select>
+                </div>
                 </div>
                 <div class="form-group">
                   <label for="inputDimension">Dimension:</label>
