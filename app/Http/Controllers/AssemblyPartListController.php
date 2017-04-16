@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
 use App\Panel;
+use App\Part;
 
 class AssemblyPartListController extends Controller
 {
@@ -19,7 +20,8 @@ class AssemblyPartListController extends Controller
         $ship=ShipProject::all();
         $block=Block::all();
         $panel=Panel::all();
-        return view('dashboard/assembly_part')->with('ship', $ship)->with('block', $block)->with('panel', $panel);
+        $part=Part::all();
+        return view('dashboard/assembly_part')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('part', $part);
     }
 
     /**
@@ -41,6 +43,29 @@ class AssemblyPartListController extends Controller
     public function store(Request $request)
     {
         //
+        $panel= Panel::findOrFail($request->panel_id);
+        
+        $part = new Part();        
+        $part->ID = $request->id;      
+        $part->NAME = $request->name;                
+        $part->ID_PROJECT = $panel->ID_PROJECT;		
+        $part->PROJECT_NAME = $panel->PROJECT_NAME;   
+        $part->ID_BLOCK = $panel->ID_BLOCK;		
+        $part->BLOCK_NAME = $panel->BLOCK_NAME;   
+        $part->ID_PANEL = $panel->ID;		
+        $part->PANEL_NAME = $panel->NAME; 
+        $part->NAME = $request->name;
+        $part->LENGTH = $request->length; 
+        $part->BREADTH = $request->breadth; 
+        $part->THICKNESS = $request->thickness;     
+        $part->PORT = $request->p;     
+        $part->CENTER = $request->c;     
+        $part->STARBOARD = $request->s;  
+        $part->WEIGHT = $request->weight; 
+        $part->STAGE = $request->stage; 
+        $part->save();
+        return redirect()->route('assembly_part.index')
+            ->with('alert-success', 'Data Berhasil Disimpan.');
     }
 
     /**

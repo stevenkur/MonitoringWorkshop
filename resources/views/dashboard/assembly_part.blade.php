@@ -106,30 +106,14 @@
                 </tr>
                 </thead>
                 <tbody>
+                    @foreach($part as $parts)
                 <tr>
-                  <td>ID</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
+                    <td>{{$parts->ID}}</td>
+                    <td>{{$parts->LENGTH.','.$parts->BREADTH.','.$parts->THICKNESS}}</td>
+                    <td>{{$parts->PORT.','.$parts->CENTER.','.$parts->STARBOARD}}</td>
+                    <td>{{$parts->WEIGHT}}</td>
                 </tr>
-                <tr>
-                  <td>ID</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                </tr>
-                <tr>
-                  <td>ID</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                </tr>
-                <tr>
-                  <td>ID</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                </tr>
+                    @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
@@ -148,22 +132,22 @@
             <!-- form start -->  
             <div class="box box-primary">
             
-            <form role="form">
+            <form action="{{route('assembly_part.store')}}" role="form" method="post">
               <div class="box-body">
                   <h4> Input Assembly Part List for [Ship_Name] [Block_Name]</h4>
                 <div class="form-group">
                   <label for="inputID">ID:</label>
-                  <input type="text" class="form-control" id="part_id" placeholder="Enter id of part">
+                  <input type="text" class="form-control" id="part_id" name="id" placeholder="Enter id of part">
                 </div>
                 <div class="form-group">
                   <label for="inputName">Name of Part:</label>
-                  <input type="text" class="form-control" id="part_name" placeholder="Enter name of part">
+                  <input type="text" class="form-control" id="part_name" name="name" placeholder="Enter name of part">
                 </div>
                 <div class="form-group">
                   <label for="inputActivity">Select Panel:</label>
                 <div class="form-group">
                   <select class="form-control">
-                    <option value="#">-- Panel List --</option>
+                    <option value="#" name="panel_id">-- Panel List --</option>
                     <?php $i=1;?>
                     @foreach($panel as $dataPanel)
                         <?php $panelData[$i] = $dataPanel; $i++;?>
@@ -174,23 +158,23 @@
                 </div>
                 <div class="form-group">
                   <label for="inputDimension">Dimension:</label>
-                  <input type="text" class="form-control" id="part_length" placeholder="Enter length"><br>
-                  <input type="text" class="form-control" id="part_breadth" placeholder="Enter breadth"><br>
-                  <input type="text" class="form-control" id="part_thickness" placeholder="Enter thickness">
+                  <input type="text" class="form-control" id="part_length" name="length" placeholder="Enter length"><br>
+                  <input type="text" class="form-control" id="part_breadth" name="breadth" placeholder="Enter breadth"><br>
+                  <input type="text" class="form-control" id="part_thickness" name="thickness"  placeholder="Enter thickness">
                 </div>
                 <div class="form-group">
                   <label for="inputQuantity">Quantity:</label>
-                  <input type="text" class="form-control" id="material_quantityp" placeholder="Enter quantity of material (p)"><br>
-                  <input type="text" class="form-control" id="material_quantityc" placeholder="Enter quantity of material (c)"><br>
-                  <input type="text" class="form-control" id="material_quantitys" placeholder="Enter quantity of material (s)">
+                  <input type="text" class="form-control" id="material_quantityp" name="p"  placeholder="Enter quantity of material (p)"><br>
+                  <input type="text" class="form-control" id="material_quantityc" name="c"  placeholder="Enter quantity of material (c)"><br>
+                  <input type="text" class="form-control" id="material_quantitys" name="s"  placeholder="Enter quantity of material (s)">
                 </div>
                 <div class="form-group">
                   <label for="inputWeight">Weight:</label>
-                  <input type="text" class="form-control" id="part_weight" placeholder="Enter weight">
+                  <input type="text" class="form-control" id="part_weight" name="weight"  placeholder="Enter weight">
                 </div>
                 <div class="form-group">
                   <label for="inputStage">Stage:</label>
-                  <input type="text" class="form-control" id="part_stage" placeholder="Enter stage">
+                  <input type="text" class="form-control" id="part_stage" name="stage"  placeholder="Enter stage">
                 </div>
               </div>
               <!-- /.box-body -->

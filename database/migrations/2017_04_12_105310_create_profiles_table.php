@@ -16,7 +16,9 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->string('ID', 25)->index();
             $table->integer('ID_PROJECT');
+            $table->string('PROJECT_NAME', 55);
             $table->integer('ID_BLOCK');
+            $table->string('BLOCK_NAME', 25);
             $table->double('LENGTH', 6, 2);
             $table->double('BREADTH', 6, 2);
             $table->double('THICKNESS', 6, 2);
@@ -25,7 +27,7 @@ class CreateProfilesTable extends Migration
             $table->double('STARBOARD', 6, 2);
             $table->double('WEIGHT', 6, 2);
             $table->string('FORM', 25);
-            $table->date('DATE_COMING');
+            $table->date('DATE_COMING')->default(null);
             $table->timestamps();
         });
     }

@@ -94,7 +94,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($block as $blocks)
+                    @foreach($block as $blocks)
                 <tr>
                     <td>{{$blocks->ID}}</td>
                     <td>{{$blocks->NAME}}</td>

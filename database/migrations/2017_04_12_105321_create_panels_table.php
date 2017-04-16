@@ -17,13 +17,13 @@ class CreatePanelsTable extends Migration
             $table->increments('ID');
             $table->integer('ID_PROJECT');
             $table->string('PROJECT_NAME', 55);
-            $table->string('ID_BLOCK', 25);
+            $table->integer('ID_BLOCK');
             $table->string('BLOCK_NAME', 25);
             $table->string('NAME', 25);
-            $table->integer('MATERIAL');
-            $table->integer('MATERIAL_COMING');
-            $table->integer('PART');
-            $table->integer('PART_COMING');
+            $table->integer('MATERIAL')->default(0);
+            $table->integer('MATERIAL_COMING')->default(0);
+            $table->integer('PART')->default(0);
+            $table->integer('PART_COMING')->default(0);
             $table->timestamps();
         });
     }

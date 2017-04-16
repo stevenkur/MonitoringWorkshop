@@ -75,7 +75,8 @@
             <!-- form start -->  
             <div class="box box-primary">
             
-            <form role="form">
+            <form action="{{route('material_list.store')}}" role="form" method="post">
+                {{csrf_field()}}
               <div class="box-body">
                   <h4> Input Material List for [Ship_Name] [Block_Name]</h4>
                 <div class="form-group">
@@ -147,13 +148,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php for($i=0; $i<10; $i++) echo '
+                    @foreach($plate as $plates)
                 <tr>
-                  <td>ID</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                </tr>';?>
+                    <td>{{$plates->ID}}</td>
+                    <td>{{$plates->LENGTH.','.$plates->BREADTH.','.$plates->THICKNESS}}</td>
+                    <td>{{$plates->PORT.','.$plates->CENTER.','.$plates->STARBOARD}}</td>
+                    <td>{{$plates->WEIGHT}}</td>
+                </tr>
+                    @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
@@ -181,14 +183,15 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php for($i=0; $i<10; $i++) echo '
+                    @foreach($profile as $profiles)
                 <tr>
-                  <td>ID</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Form</td>
-                </tr>';?>
+                    <td>{{$profiles->ID}}</td>
+                    <td>{{$profiles->LENGTH.','.$profiles->BREADTH.','.$profiles->THICKNESS}}</td>
+                    <td>{{$profiles->PORT.','.$profiles->CENTER.','.$profiles->STARBOARD}}</td>
+                    <td>{{$profiles->WEIGHT}}</td>
+                    <td>{{$profiles->FORM}}</td>
+                </tr>
+                    @endforeach
                 </tbody>
                 <tfoot>
                 <tr>

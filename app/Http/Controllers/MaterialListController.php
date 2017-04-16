@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
-use App\Panel;
+use App\Plate;
 use App\Profile;
 
 class MaterialListController extends Controller
@@ -19,7 +19,9 @@ class MaterialListController extends Controller
     {
         $ship=ShipProject::all();
         $block=Block::all();
-        return view('dashboard/material_list')->with('ship', $ship)->with('block', $block);
+        $plate=Plate::all();
+        $profile=Profile::all();
+        return view('dashboard/material_list')->with('ship', $ship)->with('block', $block)->with('plate', $plate)->with('profile', $profile);
     }
     
     /**
@@ -39,24 +41,23 @@ class MaterialListController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        // create block
-        $block = new Block();
-        $block->NAME = $request->block_name;
-        
+    {        
+        $block= Block::findOrFail($request->block_id);
         // create material
-        if($request->type == 'Panel'){
-            $part = new Panel();
+        if($request->type == 'Plate'){
+            $part = new Plate();
         } else{
             $part = new Profile(); 
             $part->FORM = $request->form;     
         }
         $part->ID = $request->id;        
-        $part->ID_BLOCK = $request->block_name;
-        $part->TYPE = $request->type;  
-        $part->LWL = $request->length; 
+        $part->ID_PROJECT = $block->ID_PROJECT;
+        $part->PROJECT_NAME = $block->PROJECT_NAME;
+        $part->ID_BLOCK = $request->block_id;
+        $part->BLOCK_NAME = $block->NAME;
+        $part->LENGTH = $request->length; 
         $part->BREADTH = $request->breadth; 
-        $part->DEPTH = $request->thickness;     
+        $part->THICKNESS = $request->thickness;     
         $part->PORT = $request->p;     
         $part->CENTER = $request->c;     
         $part->STARBOARD = $request->s;  

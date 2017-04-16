@@ -16,7 +16,9 @@ class CreatePlatesTable extends Migration
         Schema::create('plates', function (Blueprint $table) {
             $table->string('ID', 25)->index();
             $table->integer('ID_PROJECT');
+            $table->string('PROJECT_NAME', 55);
             $table->integer('ID_BLOCK');
+            $table->string('BLOCK_NAME', 25);
             $table->double('LENGTH', 6, 2);
             $table->double('BREADTH', 6, 2);
             $table->double('THICKNESS', 6, 2);
@@ -24,12 +26,12 @@ class CreatePlatesTable extends Migration
             $table->double('CENTER', 6, 2);
             $table->double('STARBOARD', 6, 2);
             $table->double('WEIGHT', 6, 2);
-            $table->date('DATE_COMING');
-            $table->integer('STRAIGHTENING');
-            $table->integer('BLASTING');
-            $table->integer('MARKING');
-            $table->integer('CUTTING');
-            $table->integer('BLENDING');
+            $table->date('DATE_COMING')->default(null);
+            $table->integer('STRAIGHTENING')->default(0);
+            $table->integer('BLASTING')->default(0);
+            $table->integer('MARKING')->default(0);
+            $table->integer('CUTTING')->default(0);
+            $table->integer('BLENDING')->default(0);
             $table->timestamps();
         });
     }

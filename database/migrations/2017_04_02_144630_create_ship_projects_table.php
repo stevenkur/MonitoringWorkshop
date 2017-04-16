@@ -27,7 +27,7 @@ class CreateShipProjectsTable extends Migration
             $table->double('DESIGNED_SPEED', 6, 2);
             $table->date('START');
             $table->date('FINISH');
-            $table->date('FINISHED');
+            $table->date('FINISHED')->default(null);
             $table->timestamps();
         });
     }

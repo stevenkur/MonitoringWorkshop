@@ -14,10 +14,13 @@ class CreatePartsTable extends Migration
     public function up()
     {
         Schema::create('parts', function (Blueprint $table) {
-            $table->increments('ID');
+            $table->string('ID', 25);
             $table->integer('ID_PROJECT');
+            $table->string('PROJECT_NAME', 55);
             $table->integer('ID_BLOCK');
+            $table->string('BLOCK_NAME', 25);
             $table->integer('ID_PANEL');
+            $table->string('PANEL_NAME', 25);
             $table->string('NAME', 25);
             $table->double('LENGTH', 6, 2);
             $table->double('BREADTH', 6, 2);
@@ -27,15 +30,15 @@ class CreatePartsTable extends Migration
             $table->double('STARBOARD', 6, 2);
             $table->double('WEIGHT', 6, 2);
             $table->string('STAGE', 25);
-            $table->date('DATE_COMING');
-            $table->double('SA_FITTING', 6, 2);
-            $table->double('SA_WELDING', 6, 2);
-            $table->double('SA_GRINDING', 6, 2);
-            $table->double('SA_FAIRING', 6, 2);
-            $table->double('A_FITTING', 6, 2);
-            $table->double('A_WELDING', 6, 2);
-            $table->double('A_GRINDING', 6, 2);
-            $table->double('A_FAIRING', 6, 2);
+            $table->date('DATE_COMING')->default(null);
+            $table->double('SA_FITTING', 6, 2)->default(0);
+            $table->double('SA_WELDING', 6, 2)->default(0);
+            $table->double('SA_GRINDING', 6, 2)->default(0);
+            $table->double('SA_FAIRING', 6, 2)->default(0);
+            $table->double('A_FITTING', 6, 2)->default(0);
+            $table->double('A_WELDING', 6, 2)->default(0);
+            $table->double('A_GRINDING', 6, 2)->default(0);
+            $table->double('A_FAIRING', 6, 2)->default(0);
             $table->timestamps();
         });
     }
