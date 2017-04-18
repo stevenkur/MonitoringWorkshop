@@ -20,8 +20,6 @@ class CreatePanelsTable extends Migration
             $table->integer('ID_BLOCK');
             $table->string('BLOCK_NAME', 25);
             $table->string('NAME', 25);
-            $table->integer('MATERIAL')->default(0);
-            $table->integer('MATERIAL_COMING')->default(0);
             $table->integer('PART')->default(0);
             $table->integer('PART_COMING')->default(0);
             $table->timestamps();

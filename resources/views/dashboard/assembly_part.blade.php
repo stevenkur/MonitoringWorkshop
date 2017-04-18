@@ -189,6 +189,7 @@
             <div class="box box-primary">
             
             <form action="{{route('assembly_part.store')}}" role="form" method="post">
+                {{csrf_field()}}
               <div class="box-body">
                   <h4> Input Assembly Part List for [Ship_Name] [Block_Name]</h4>
                 <div class="form-group">
@@ -202,8 +203,8 @@
                 <div class="form-group">
                   <label for="inputActivity">Select Panel:</label>
                 <div class="form-group">
-                  <select class="form-control">
-                    <option value="#" name="panel_id">-- Panel List --</option>
+                  <select class="form-control" name="panel_id">
+                    <option value="#">-- Panel List --</option>
                     <?php $i=1;?>
                     @foreach($panel as $dataPanel)
                         <?php $panelData[$i] = $dataPanel; $i++;?>

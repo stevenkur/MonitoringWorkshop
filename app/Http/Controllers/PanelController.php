@@ -43,18 +43,19 @@ class PanelController extends Controller
     {
         //
         $block=Block::findOrFail($request->block_id);
+        $ship=ShipProject::findOrFail($block->ID_PROJECT);
         
         $panel = new Panel();        
         $panel->NAME = $request->name;        
         $panel->ID_PROJECT = $block->ID_PROJECT;		
         $panel->PROJECT_NAME = $block->PROJECT_NAME;   
         $panel->ID_BLOCK = $block->ID;		
-        $panel->BLOCK_NAME = $block->NAME;   
-        $panel->MATERIAL = 0;   
-        $panel->MATERIAL_COMING = 0;   
-        $panel->PART = 0;   
-        $panel->PART_COMING = 0;   
+        $panel->BLOCK_NAME = $block->NAME;
         $panel->save();
+        
+        $blocks= Block::where('ID', $request->block_id)->update(['PANEL'=>$block->PANEL+1]);
+        $ships= ShipProject::where('ID', $block->ID_PROJECT)->update(['PANEL'=>$ship->PANEL+1]);
+        
         return redirect()->route('panel.index')
             ->with('alert-success', 'Data Berhasil Disimpan.');
     }

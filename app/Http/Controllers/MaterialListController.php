@@ -43,6 +43,7 @@ class MaterialListController extends Controller
     public function store(Request $request)
     {        
         $block= Block::findOrFail($request->block_id);
+        $ship= ShipProject::findOrFail($block->ID_PROJECT);
         // create material
         if($request->type == 'Plate'){
             $part = new Plate();
@@ -63,6 +64,11 @@ class MaterialListController extends Controller
         $part->STARBOARD = $request->s;  
         $part->WEIGHT = $request->weight;   
         $part->save();        
+        
+        $blocks= Block::where('ID', $request->block_id)->update(['MATERIAL'=>$block->MATERIAL+$request->weight]);
+        $ships= ShipProject::where('ID', $block->ID_PROJECT)->update(['MATERIAL'=>$ship->MATERIAL+$request->weight]);
+        
+        
         return redirect()->route('material_list.index')
             ->with('alert-success', 'Data Berhasil Disimpan.');
     }

@@ -44,6 +44,8 @@ class AssemblyPartListController extends Controller
     {
         //
         $panel= Panel::findOrFail($request->panel_id);
+        $block= Block::findOrFail($panel->ID_BLOCK);
+        $ship= ShipProject::findOrFail($panel->ID_PROJECT);
         
         $part = new Part();        
         $part->ID = $request->id;      
@@ -64,6 +66,11 @@ class AssemblyPartListController extends Controller
         $part->WEIGHT = $request->weight; 
         $part->STAGE = $request->stage; 
         $part->save();
+        
+        $panels= Panel::where('ID', $request->panel_id)->update(['PART'=>$panel->PART+$request->weight]);
+        $blocks= Block::where('ID', $panel->ID_BLOCK)->update(['PART'=>$block->PART+$request->weight]);
+        $ships= ShipProject::where('ID', $panel->ID_PROJECT)->update(['PART'=>$ship->PART+$request->weight]);
+        
         return redirect()->route('assembly_part.index')
             ->with('alert-success', 'Data Berhasil Disimpan.');
     }

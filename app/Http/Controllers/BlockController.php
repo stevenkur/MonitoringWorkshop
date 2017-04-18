@@ -42,7 +42,7 @@ class BlockController extends Controller
     {
         //
         $ships=ShipProject::findOrFail($request->project_id);
-        
+            
         $blocks = new Block();        
         $blocks->NAME = $request->name;        
         $blocks->ID_PROJECT = $request->project_id;		
@@ -54,6 +54,8 @@ class BlockController extends Controller
         $blocks->PANEL = 0;   
         $blocks->PANEL_DONE = 0;   
         $blocks->save();
+        
+        $ships= ShipProject::where('ID', $request->project_id)->update(['BLOCK'=>$ship->BLOCK+1]);
         return redirect()->route('block.index')
             ->with('alert-success', 'Data Berhasil Disimpan.');
     }
