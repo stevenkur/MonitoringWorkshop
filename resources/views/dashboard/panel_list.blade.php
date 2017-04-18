@@ -29,7 +29,7 @@
             <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
-                  <select class="form-control" name="id_project">
+                  <select class="form-control" name="project">
                     <option value="#">-- Ship Project List --</option>
                     <?php $i=1;?>
                     @foreach($ship as $data)
@@ -52,16 +52,31 @@
             <!-- /.box-header -->
             <!-- form start -->
             
+                <?php 
+                if(isset($_GET['project']) && $_GET['project']!='#') 
+                   $flagProject=true;
+                else $flagProject=false;
+                if(isset($_GET['block']) && $_GET['block']!='#') 
+                   $flagBlock=true;
+                else $flagBlock=false;
+                ?>
+                
             <form class="form">
             <div class="box-body">
               <label for="inputActivity">Select Block:</label>
                 <div class="form-group">
-                  <select class="form-control" name="id_block">
+                  <select class="form-control" name="block">
                     <option value="#">-- Block List --</option>
                     <?php $i=1;?>
                     @foreach($block as $blocks)
-                        <?php $data_block[$i] = $blocks; $i++;?>
-                        <option value="{{$blocks->ID}}">{{$blocks->NAME}}</option>
+                      <?php 
+                        $data_block[$i] = $blocks; $i++;
+                        if($flagProject && $blocks['ID_PROJECT']==$_GET['project']){
+                            echo '<option value="'.$blocks['ID'].'">'.$blocks['NAME'].'</option>';
+                        }
+                        else if(!$flagProject){
+                            echo '<option value="'.$blocks['ID'].'">'.$blocks['NAME'].'</option>';
+                        }?>
                     @endforeach
                   </select>
                 </div>
@@ -123,12 +138,33 @@
                 </thead>
                 <tbody>
                     @foreach($panel as $panels)
-                <tr>
-                    <td>{{$panels->ID}}</td>
-                    <td>{{$panels->NAME}}</td>
-                    <td>{{$panels->PROJECT_NAME}}</td>
-                    <td>{{$panels->BLOCK_NAME}}</td>
-                </tr>
+                        <?php if($flagBlock && $panels->ID_BLOCK == $_GET['block']){
+                        echo '
+                        <tr>
+                            <td>'.$panels['ID'].'</td>
+                            <td>'.$panels['NAME'].'</td>
+                            <td>'.$panels['PROJECT_NAME'].'</td>
+                            <td>'.$panels['BLOCK_NAME'].'</td>
+                        </tr>';
+                        }
+                        else if($flagProject && $panels->ID_PROJECT == $_GET['project']){
+                        echo '
+                        <tr>
+                            <td>'.$panels['ID'].'</td>
+                            <td>'.$panels['NAME'].'</td>
+                            <td>'.$panels['PROJECT_NAME'].'</td>
+                            <td>'.$panels['BLOCK_NAME'].'</td>
+                        </tr>';
+                        }
+                        else if(!$flagBlock && !$flagProject){
+                        echo '
+                        <tr>
+                            <td>'.$panels['ID'].'</td>
+                            <td>'.$panels['NAME'].'</td>
+                            <td>'.$panels['PROJECT_NAME'].'</td>
+                            <td>'.$panels['BLOCK_NAME'].'</td>
+                        </tr>';
+                        }?>
                     @endforeach
                 </tbody>
                 <tfoot>

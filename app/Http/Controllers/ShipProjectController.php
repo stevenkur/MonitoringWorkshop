@@ -66,8 +66,7 @@ class ShipProjectController extends Controller
     public function show($id)
     {
         //
-        $data=ShipProject::findOrFail($id);
-        return view('dashboard/ship_project',compact('data'));
+        
     }
 
     /**

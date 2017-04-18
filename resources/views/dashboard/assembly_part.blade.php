@@ -26,7 +26,7 @@
               <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="project">
                     <option value="#">-- Ship Project List --</option>
                     <?php $i=1;?>
                     @foreach($ship as $dataShip)
@@ -46,18 +46,36 @@
             </div>
                 <div class="box box-primary">
             
+            <?php 
+                if(isset($_GET['project']) && $_GET['project']!='#') 
+                   $flagProject=true;
+                else $flagProject=false;
+                if(isset($_GET['block']) && $_GET['block']!='#') 
+                   $flagBlock=true;
+                else $flagBlock=false;
+                if(isset($_GET['panel']) && $_GET['panel']!='#') 
+                   $flagPanel=true;
+                else $flagPanel=false;
+            ?>
+                    
             <!-- /.box-header -->
             <!-- form start -->
             <form role="form">
               <div class="box-body">
               <label for="inputActivity">Select Block:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="block">
                     <option value="#">-- Block List --</option>
                     <?php $i=1;?>
-                    @foreach($block as $dataBlock)
-                        <?php $blockData[$i] = $dataBlock; $i++;?>
-                        <option value="{{$dataBlock->ID}}">{{$dataBlock->NAME}}</option>
+                    @foreach($block as $blocks)
+                      <?php 
+                        $data_block[$i] = $blocks; $i++;
+                        if($flagProject && $blocks['ID_PROJECT']==$_GET['project']){
+                            echo '<option value="'.$blocks['ID'].'">'.$blocks['NAME'].'</option>';
+                        }
+                        else if(!$flagProject){
+                            echo '<option value="'.$blocks['ID'].'">'.$blocks['NAME'].'</option>';
+                        }?>
                     @endforeach
                   </select>
                 </div>
@@ -77,12 +95,20 @@
               <div class="box-body">
               <label for="inputActivity">Select Panel:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="panel">
                     <option value="#">-- Panel List --</option>
                     <?php $i=1;?>
-                    @foreach($panel as $dataPanel)
-                        <?php $panelData[$i] = $dataPanel; $i++;?>
-                        <option value="{{$dataPanel->ID}}">{{$dataPanel->NAME}}</option>
+                    @foreach($panel as $panels)
+                        <?php $data_panel[$i] = $panels; $i++;
+                        if($flagProject && $panels['ID_PROJECT']==$_GET['project']){
+                            echo '<option value="'.$panels['ID'].'">'.$panels['NAME'].'</option>';
+                        }
+                        else if($flagBlock && $panels['ID_BLOCK']==$_GET['block']){
+                            echo '<option value="'.$panels['ID'].'">'.$panels['NAME'].'</option>';
+                        }
+                        else if(!$flagProject && !$flagBlock){
+                            echo '<option value="'.$panels['ID'].'">'.$panels['NAME'].'</option>';
+                        }?>
                     @endforeach
                   </select>
                 </div>
@@ -107,12 +133,42 @@
                 </thead>
                 <tbody>
                     @foreach($part as $parts)
-                <tr>
-                    <td>{{$parts->ID}}</td>
-                    <td>{{$parts->LENGTH.','.$parts->BREADTH.','.$parts->THICKNESS}}</td>
-                    <td>{{$parts->PORT.','.$parts->CENTER.','.$parts->STARBOARD}}</td>
-                    <td>{{$parts->WEIGHT}}</td>
-                </tr>
+                    <?php if($flagBlock && $parts->ID_BLOCK == $_GET['block']){
+                    echo '
+                    <tr>
+                        <td>'.$parts['ID'].'</td>
+                        <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
+                        <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
+                        <td>'.$parts['WEIGHT'].'</td>
+                    </tr>';
+                    }
+                    else if($flagProject && $parts->ID_PROJECT == $_GET['project']){
+                    echo '
+                    <tr>
+                        <td>'.$parts['ID'].'</td>
+                        <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
+                        <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
+                        <td>'.$parts['WEIGHT'].'</td>
+                    </tr>';
+                    }
+                    else if($flagPanel && $parts->ID_PANEL == $_GET['panel']){
+                    echo '
+                    <tr>
+                        <td>'.$parts['ID'].'</td>
+                        <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
+                        <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
+                        <td>'.$parts['WEIGHT'].'</td>
+                    </tr>';
+                    }
+                    else if(!$flagBlock && !$flagProject && !$flagPanel){
+                    echo '
+                    <tr>
+                        <td>'.$parts['ID'].'</td>
+                        <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
+                        <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
+                        <td>'.$parts['WEIGHT'].'</td>
+                    </tr>';
+                        }?>
                     @endforeach
                 </tbody>
                 <tfoot>

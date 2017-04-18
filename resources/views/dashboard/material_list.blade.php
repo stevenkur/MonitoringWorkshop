@@ -27,7 +27,7 @@
               <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="project">
                     <option value="#">-- Ship Project List --</option>
                     <?php $i=1;?>
                     @foreach($ship as $data)
@@ -45,6 +45,16 @@
               </div>
             </form>
             </div>
+                
+            <?php 
+                if(isset($_GET['project']) && $_GET['project']!='#') 
+                   $flagProject=true;
+                else $flagProject=false;
+                if(isset($_GET['block']) && $_GET['block']!='#') 
+                   $flagBlock=true;
+                else $flagBlock=false;
+            ?>
+                
                 <!-- /.box-header -->
             <!-- form start -->
             <div class="box box-primary">
@@ -52,12 +62,18 @@
               <div class="box-body">
               <label for="inputActivity">Select Block:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="block">
                     <option value="#">-- Block List --</option>
                     <?php $i=1;?>
-                    @foreach($block as $data)
-                        <?php $blockData[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->NAME}}</option>
+                    @foreach($block as $blocks)
+                      <?php 
+                        $data_block[$i] = $blocks; $i++;
+                        if($flagProject && $blocks['ID_PROJECT']==$_GET['project']){
+                            echo '<option value="'.$blocks['ID'].'">'.$blocks['NAME'].'</option>';
+                        }
+                        else if(!$flagProject){
+                            echo '<option value="'.$blocks['ID'].'">'.$blocks['NAME'].'</option>';
+                        }?>
                     @endforeach
                   </select>
                 </div>
@@ -133,7 +149,8 @@
               </div>
             </form>
           </div>
-      </section>
+                
+      </section>            
         <section class="col-lg-6">
             <div class="box box-primary">
           <div class="box-body">
@@ -149,12 +166,30 @@
                 </thead>
                 <tbody>
                     @foreach($plate as $plates)
-                <tr>
-                    <td>{{$plates->ID}}</td>
-                    <td>{{$plates->LENGTH.','.$plates->BREADTH.','.$plates->THICKNESS}}</td>
-                    <td>{{$plates->PORT.','.$plates->CENTER.','.$plates->STARBOARD}}</td>
-                    <td>{{$plates->WEIGHT}}</td>
-                </tr>
+                    <?php if($flagBlock && $plates->ID_BLOCK == $_GET['block']){
+                    echo '
+                    <tr>
+                        <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>
+                    </tr>';
+                    }
+                    else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
+                    echo '
+                    <tr>
+                        <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>
+                    </tr>';
+                    }
+                    else if(!$flagBlock && !$flagProject){
+                    echo '
+                    <tr>
+                        <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>
+                    </tr>';
+                        }?>
                     @endforeach
                 </tbody>
                 <tfoot>

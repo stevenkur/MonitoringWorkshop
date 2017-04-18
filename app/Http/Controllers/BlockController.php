@@ -16,9 +16,10 @@ class BlockController extends Controller
     public function index()
     {
         //
-        $block=Block::all();
-        $ship=ShipProject::all();
-        return view('dashboard/block_list')->with('ship', $ship)->with('block', $block);
+        $block= Block::all();
+        $ship= ShipProject::all();
+        
+        return view('dashboard/block_list')->with('block', $block)->with('ship', $ship);
     }
 
     /**
@@ -66,8 +67,11 @@ class BlockController extends Controller
     public function show($id)
     {
         //
+        $block=Block::findOrFail($id);
+        $ship=ShipProject::all();
+        return view('dashboard/block_list')->with('ship', $ship)->with('block', $block);
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *

@@ -25,15 +25,20 @@
             <!-- /.box-header -->
             <!-- form start -->
             
-            <form class="form">
+            <form role="form">
             <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
                   <select class="form-control" name="id">
                     <option value="#">-- Ship Project List --</option>
-                    <?php $i=1;?>
+                    <?php $i=0;?>
                     @foreach($ship as $data)
-                        <?php $datas[$i] = $data; $i++;?>
+                        <?php
+                            $dump[$i][1]=$data->ID;
+                            $dump[$i][2]=$data->NAME;
+                            $dump[$i][3]=$data->PROJECT_NAME;
+                            $i++;
+                        ?>
                         <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
                     @endforeach
                   </select>
@@ -60,9 +65,8 @@
                   <label for="projectID">Select Project:</label>
                   <select class="form-control" name="project_id">
                     <option value="#">-- Ship Project List --</option>
-                    <?php $i=1;?>
+                    <?php $i=0;?>
                     @foreach($ship as $data)
-                        <?php $datas[$i] = $data; $i++;?>
                         <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
                     @endforeach
                   </select>
@@ -77,8 +81,12 @@
               </div>
             </form>
           </div>
-          </div>
-            
+          </div>          
+          
+          <?php if(isset($_GET['id']) && $_GET['id']!='#') 
+                   $flag=true;
+                else $flag=false;?>
+          
             <!-- /.box-header -->
             <!-- form start -->  
             <div class="col-md-6">
@@ -95,11 +103,20 @@
                 </thead>
                 <tbody>
                     @foreach($block as $blocks)
-                <tr>
-                    <td>{{$blocks->ID}}</td>
-                    <td>{{$blocks->NAME}}</td>
-                    <td>{{$blocks->PROJECT_NAME}}</td>
-                </tr>
+                        <?php if($flag && $blocks->ID_PROJECT == $_GET['id']){
+                    echo '<tr>
+                        <td>'.$blocks['ID'].'</td>
+                        <td>'.$blocks['NAME'].'</td>
+                        <td>'.$blocks['PROJECT_NAME'].'</td>
+                    </tr>';
+                        }
+                        else if(!$flag)
+                        echo '
+                    <tr>
+                        <td>'.$blocks['ID'].'</td>
+                        <td>'.$blocks['NAME'].'</td>
+                        <td>'.$blocks['PROJECT_NAME'].'</td>
+                    </tr>';?>
                     @endforeach
                 </tbody>
                 <tfoot>
