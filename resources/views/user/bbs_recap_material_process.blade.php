@@ -19,7 +19,7 @@
     <section class="content">
       <div class="row">
 
-            <section class="col-lg-4">
+            <section class="col-lg-6">
             <div class="box box-primary">
             
             <!-- /.box-header -->
@@ -47,7 +47,7 @@
             </div>
             </section>
 
-            <section class="col-lg-4">
+            <section class="col-lg-6">
             <div class="box box-primary">
             
             <!-- /.box-header -->
@@ -75,31 +75,10 @@
             </div>
             </section>
 
-            <section class="col-lg-4">
-            <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" name="ShipBlock">
-              <div class="box-body">
-              <label for="inputActivity">Activity:</label>
-                <div class="form-group">
-                  <select class="form-control">
-                    <option id="#">-- List --</option>
-                    <option id="1">Straightening</option>
-                    <option id="2">Blasting & Shop Primer</option>
-                  </select>
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-            </div>
-            </section>
-
         <section class="col-md-12">
         <div class="box box-primary">
 
-          <h3>Target Quantity per-Day: <br> [XX] Plate per Workshop</h3>
+          <h3>Target Quantity per-Day: <br> [XX] m<sup>2</sup></h3>
           <br>  
 
         </div>
@@ -113,57 +92,50 @@
               <table id="plate" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>ID Material</th>
-                  <th>Dimension</th>
-                  <th>Quantity</th>
-                  <th>Weight</th>
-                  <th>Work Machine</th>
+                  <th>Room</th>
+                  <th>Side</th>
+                  <th>Frame</th>
+                  <th>Deck</th>
+                  <th>Area (m<sup>2</sup>)</th>
+                  <th>Blasting</th>
+                  <th>FInished Layer Painting</th>
                   <th>Date of Work</th>
-                  <th>Output Workshop</th>
+                  <th>Total Process</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
+                  <td>Room</td>
+                  <td>Side</td>
+                  <td>Frame</td>
+                  <td>Deck</td>
+                  <td>Area (m2)</td>
+                  <td>Blasting</td>
+                  <td>FInished Layer Painting</td>
                   <td>Date of Work</td>
-                  <td>Output Workshop</td>
+                  <td>Total Process</td>
                 </tr>
                 <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
+                  <td>Room</td>
+                  <td>Side</td>
+                  <td>Frame</td>
+                  <td>Deck</td>
+                  <td>Area (m2)</td>
+                  <td>Blasting</td>
+                  <td>FInished Layer Painting</td>
                   <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr><tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
+                  <td>Total Process</td>
+                </tr>
+                <tr>
+                  <td>Room</td>
+                  <td>Side</td>
+                  <td>Frame</td>
+                  <td>Deck</td>
+                  <td>Area (m2)</td>
+                  <td>Blasting</td>
+                  <td>FInished Layer Painting</td>
                   <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr><tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr><tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
+                  <td>Total Process</td>
                 </tr>
                 </tbody>
               </table>

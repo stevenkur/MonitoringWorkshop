@@ -86,7 +86,7 @@
                   <th>Side</th>
                   <th>Frame</th>
                   <th>Deck</th>
-                  <th>Area(m2)</th>
+                  <th>Area(m<sup>2</sup>)</th>
                 </tr>
                 </thead>
                 <tbody>
