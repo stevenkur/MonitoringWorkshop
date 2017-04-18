@@ -28,8 +28,8 @@ class UserBBSController extends Controller
         return view('user/bbs_recap_worker');
     }
 
-    public function bbs_calculation_paint()
+    public function bbs_calculate_paint_needs()
     {
-        return view('user/bbs_calculation_paint');
+        return view('user/bbs_calculate_paint_needs');
     }
 }

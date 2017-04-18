@@ -163,11 +163,10 @@
                   <label> % </label>
                 </div>
 
-            <div class="box-footer">
+            <div class="box-footer" align="right">
               <button type="reset" class="btn btn-primary">Reset</button>
               <button type="submit" class="btn btn-primary">Input</button>
             </div>
-        </div>
         </form>
         </div>
         </section>

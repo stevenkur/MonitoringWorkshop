@@ -165,7 +165,7 @@
             <li><a href="{{ route('input_act_bbs')}}"><i class="fa fa-circle-o"></i> Input Activities and Progress</a></li>
             <li><a href="{{ route('bbs_recap_material_process')}}"><i class="fa fa-circle-o"></i> Recap Material Process</a></li>
             <li><a href="{{ route('bbs_recap_worker')}}"><i class="fa fa-circle-o"></i> Recap Worker & Time</a></li>
-            <li><a href="{{ route('bbs_calculation_paint')}}"><i class="fa fa-circle-o"></i> Calculation Paint Needs</a></li>
+            <li><a href="{{ route('bbs_calculate_paint_needs')}}"><i class="fa fa-circle-o"></i> Calculation Paint Needs</a></li>
           </ul>
         </li>
         

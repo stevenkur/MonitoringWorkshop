@@ -53,4 +53,4 @@ Route::any('erection_recap_worker', ['as'=>'erection_recap_worker', 'uses'=>'Use
 Route::any('input_act_bbs', ['as'=>'input_act_bbs', 'uses'=>'UserBBSController@input_act_bbs']);
 Route::any('bbs_recap_material_process', ['as'=>'bbs_recap_material_process', 'uses'=>'UserBBSController@bbs_recap_material_process']);
 Route::any('bbs_recap_worker', ['as'=>'bbs_recap_worker', 'uses'=>'UserBBSController@bbs_recap_worker']);
-Route::any('bbs_calculation_paint', ['as'=>'bbs_calculation_paint', 'uses'=>'UserBBSController@bbs_calculation_paint']);
+Route::any('bbs_calculate_paint_needs', ['as'=>'bbs_calculate_paint_needs', 'uses'=>'UserBBSController@bbs_calculate_paint_needs']);
