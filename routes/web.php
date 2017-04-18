@@ -35,17 +35,17 @@ Route::any('assembly_menu', ['as'=>'assembly_menu', 'uses'=>'AssemblyController@
 Route::any('bbs_menu', ['as'=>'bbs_menu', 'uses'=>'BBSController@index']);
 Route::any('erection_menu', ['as'=>'erection_menu', 'uses'=>'ErectionController@index']);
 
-Route::any('input_material_ssh', ['as'=>'input_material_ssh', 'uses'=>'UserMainController@input_material_ssh']);
-Route::any('ssh_recap_material_coming', ['as'=>'ssh_recap_material_coming', 'uses'=>'UserMainController@ssh_recap_material_coming']);
-Route::any('ssh_recap_material_process', ['as'=>'ssh_recap_material_process', 'uses'=>'UserMainController@ssh_recap_material_process']);
-Route::any('input_act_ssh', ['as'=>'input_act_ssh', 'uses'=>'UserMainController@input_act_ssh']);
-Route::any('ssh_recap_progress_activity', ['as'=>'ssh_recap_progress_activity', 'uses'=>'UserMainController@ssh_recap_progress_activity']);
+Route::any('input_material_ssh', ['as'=>'input_material_ssh', 'uses'=>'UserSSHController@input_material_ssh']);
+Route::any('ssh_recap_material_coming', ['as'=>'ssh_recap_material_coming', 'uses'=>'UserSSHController@ssh_recap_material_coming']);
+Route::any('ssh_recap_material_process', ['as'=>'ssh_recap_material_process', 'uses'=>'UserSSHController@ssh_recap_material_process']);
+Route::any('input_act_ssh', ['as'=>'input_act_ssh', 'uses'=>'UserSSHController@input_act_ssh']);
+Route::any('ssh_recap_progress_activity', ['as'=>'ssh_recap_progress_activity', 'uses'=>'UserSSHController@ssh_recap_progress_activity']);
 
-Route::any('input_act_erection', ['as'=>'input_act_erection', 'uses'=>'UserMainController@input_act_erection']);
-Route::any('erection_recap_block', ['as'=>'erection_recap_block', 'uses'=>'UserMainController@erection_recap_block']);
-Route::any('erection_recap_worker', ['as'=>'erection_recap_worker', 'uses'=>'UserMainController@erection_recap_worker']);
+Route::any('input_act_fabrication', ['as'=>'input_act_fabrication', 'uses'=>'UserFabricationController@input_act_fabrication']);
+Route::any('fabrication_recap_material_process', ['as'=>'fabrication_recap_material_process', 'uses'=>'UserFabricationController@fabrication_recap_material_process']);
+Route::any('fabrication_recap_worker', ['as'=>'fabrication_recap_worker', 'uses'=>'UserFabricationController@fabrication_recap_worker']);
+Route::any('fabrication_recap_progress_activity', ['as'=>'fabrication_recap_progress_activity', 'uses'=>'UserFabricationController@fabrication_recap_progress_activity']);
 
-Route::any('input_act_fabrication', ['as'=>'input_act_fabrication', 'uses'=>'UserMainController@input_act_fabrication']);
-Route::any('fabrication_recap_material_process', ['as'=>'fabrication_recap_material_process', 'uses'=>'UserMainController@fabrication_recap_material_process']);
-Route::any('fabrication_recap_worker', ['as'=>'fabrication_recap_worker', 'uses'=>'UserMainController@fabrication_recap_worker']);
-Route::any('fabrication_recap_progress_activity', ['as'=>'fabrication_recap_progress_activity', 'uses'=>'UserMainController@fabrication_recap_progress_activity']);
+Route::any('input_act_erection', ['as'=>'input_act_erection', 'uses'=>'UserErectionController@input_act_erection']);
+Route::any('erection_recap_block', ['as'=>'erection_recap_block', 'uses'=>'UserErectionController@erection_recap_block']);
+Route::any('erection_recap_worker', ['as'=>'erection_recap_worker', 'uses'=>'UserErectionController@erection_recap_worker']);

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
 
-class UserMainController extends Controller
+class UserBBSController extends Controller
 {
 //    public function __construct() 
 //    { 

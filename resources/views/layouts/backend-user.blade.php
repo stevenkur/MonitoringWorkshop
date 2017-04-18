@@ -78,7 +78,7 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview">
-          <a href="{{ route('admins.index') }}">
+          <a href="{{ route('usermain.index') }}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
