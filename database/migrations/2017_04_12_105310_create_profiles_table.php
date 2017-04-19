@@ -27,7 +27,7 @@ class CreateProfilesTable extends Migration
             $table->double('STARBOARD', 6, 2);
             $table->double('WEIGHT', 6, 2);
             $table->string('FORM', 25);
-            $table->date('DATE_COMING')->default(null);
+            $table->date('DATE_COMING')->default('0000-00-00');
             $table->timestamps();
         });
     }
