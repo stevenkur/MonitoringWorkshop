@@ -30,7 +30,7 @@ class CreatePartsTable extends Migration
             $table->double('STARBOARD', 6, 2);
             $table->double('WEIGHT', 6, 2);
             $table->string('STAGE', 25);
-            $table->date('DATE_COMING')->default(null);
+            $table->date('DATE_COMING')->default('0000-00-00');
             $table->double('SA_FITTING', 6, 2)->default(0);
             $table->double('SA_WELDING', 6, 2)->default(0);
             $table->double('SA_GRINDING', 6, 2)->default(0);
