@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+use App\Block;
+use App\ShipProject;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -13,7 +16,10 @@ class AdminController extends Controller
         
     public function index()
     {
-        return view('dashboard/index');
+        $ship = ShipProject::where('FINISHED', null);
+        $user = User::all();
+        
+        return view('dashboard/index')->with('ship', $ship)->with('user', $user);
     }   
 
     public function store()

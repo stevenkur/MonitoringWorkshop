@@ -219,13 +219,33 @@
                 </thead>
                 <tbody>
                     @foreach($profile as $profiles)
-                <tr>
-                    <td>{{$profiles->ID}}</td>
-                    <td>{{$profiles->LENGTH.','.$profiles->BREADTH.','.$profiles->THICKNESS}}</td>
-                    <td>{{$profiles->PORT.','.$profiles->CENTER.','.$profiles->STARBOARD}}</td>
-                    <td>{{$profiles->WEIGHT}}</td>
-                    <td>{{$profiles->FORM}}</td>
-                </tr>
+                    <?php if($flagBlock && $plates->ID_BLOCK == $_GET['block']){
+                    echo '
+                    <tr>
+                        <td>'.$profiles['ID'].'</td>                            <td>'.$profiles['LENGTH'].','.$profiles['BREADTH'].','.$profiles['THICKNESS'].'</td>
+                        <td>'.$profiles['PORT'].','.$profiles['CENTER'].','.$profiles['STARBOARD'].'</td>
+                        <td>'.$profiles['WEIGHT'].'</td>
+                        <td>'.$profiles['FORM'].'</td>
+                    </tr>';
+                    }
+                    else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
+                    echo '
+                    <tr>
+                        <td>'.$profiles['ID'].'</td>                            <td>'.$profiles['LENGTH'].','.$profiles['BREADTH'].','.$profiles['THICKNESS'].'</td>
+                        <td>'.$profiles['PORT'].','.$profiles['CENTER'].','.$profiles['STARBOARD'].'</td>
+                        <td>'.$profiles['WEIGHT'].'</td>
+                        <td>'.$profiles['FORM'].'</td>
+                    </tr>';
+                    }
+                    else if(!$flagBlock && !$flagProject){
+                    echo '
+                    <tr>
+                        <td>'.$profiles['ID'].'</td>                            <td>'.$profiles['LENGTH'].','.$profiles['BREADTH'].','.$profiles['THICKNESS'].'</td>
+                        <td>'.$profiles['PORT'].','.$profiles['CENTER'].','.$profiles['STARBOARD'].'</td>
+                        <td>'.$profiles['WEIGHT'].'</td>
+                        <td>'.$profiles['FORM'].'</td>
+                    </tr>';
+                        }?>
                     @endforeach
                 </tbody>
                 <tfoot>

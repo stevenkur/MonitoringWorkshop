@@ -22,7 +22,7 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>XXX</h3>
+              <h3>{{$ship->count()}}</h3>
               <p>Unfinished Project</p>
             </div>
             <div class="icon">
@@ -35,7 +35,7 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>50 ton</h3>
+              <h3>XXX ton</h3>
               <p>Daily Productivity</p>
             </div>
             <div class="icon">
@@ -48,7 +48,7 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>1500 ton</h3>
+              <h3>XXX ton</h3>
               <p>Monthly Productivity</p>
             </div>
             <div class="icon">
@@ -61,7 +61,7 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>44</h3>
+              <h3>{{$user->count()}}</h3>
               <p>User Registered</p>
             </div>
             <div class="icon">

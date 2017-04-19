@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
+use App\Plate;
+use App\Profile;
 
 class SSHController extends Controller
 {
@@ -17,7 +19,9 @@ class SSHController extends Controller
     {
         $ship=ShipProject::all();
         $block=Block::all();
-        return view('dashboard/ssh_menu')->with('ship', $ship)->with('block', $block);
+        $plate=Plate::all();
+        $profile=Profile::all();
+        return view('dashboard/ssh_menu')->with('ship', $ship)->with('block', $block)->with('plate', $plate)->with('profile', $profile);
     }
 
     /**

@@ -21,17 +21,16 @@
 
         <div class="col-md-12">
         <div class="box box-primary">
-            {{ Form::open(array('url' => '/ssh_menu', 'class="form"' => 'form-horizontal')) }}
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            <form class="form">
               <div class="box-body">
               <label for="inputActivity">Select Activity:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="activity">
                     <option value="#">--Select Activity--</option>
                     <option value="1">Recap Material Coming</option>
-                    <option value="2">Recap Material Process (Blasting & Shop Primer)</option>
+                    <option value="2">Recap Material Process (Straightening, Blasting & Shop Primer)</option>
                   </select>
                 </div>
                
@@ -39,13 +38,14 @@
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Choose</button>
+                <button method="post" class="btn btn-primary">Choose</button>
               </div>
             </form>
-            {{ form::close() }}
           </div>
           </div>
 
+        @if(isset($_GET['activity']) || isset($_GET['project_come']) || isset($_GET['block_come']))
+          @if(isset($_GET['project_come']) || isset($_GET['block_come']) || $_GET['activity']==1 )
         <div class="col-md-12">
         <div class="box box-primary">
             
@@ -62,34 +62,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Name of Ship</td>
-                  <td>Many of Material</td>
-                  <td>Many of Material Come</td>
-                  <td>Progress</td>
-                  <td>View Detail</td>
-                </tr>
-                <tr>
-                  <td>Name of Ship</td>
-                  <td>Many of Material</td>
-                  <td>Many of Material Come</td>
-                  <td>Progress</td>
-                  <td>View Detail</td>
-                </tr>
-                <tr>
-                  <td>Name of Ship</td>
-                  <td>Many of Material</td>
-                  <td>Many of Material Come</td>
-                  <td>Progress</td>
-                  <td>View Detail</td>
-                </tr>
-                <tr>
-                  <td>Name of Ship</td>
-                  <td>Many of Material</td>
-                  <td>Many of Material Come</td>
-                  <td>Progress</td>
-                  <td>View Detail</td>
-                </tr>
+                    @foreach($ship as $ships)
+                    <?php 
+                    if($ships['MATERIAL']==0)
+                        $progress = 0;
+                    else
+                        $progress = 100*$ship['MATERIAL_COMING']/$ship['MATERIAL'];?>
+                    <tr>
+                        <td>{{$ships->PROJECT_NAME}}</td>
+                        <td>{{$ships->MATERIAL}}</td>
+                        <td>{{$ships->MATERIAL_COMING}}</td>
+                        <td>{{$progress.'%'}}</td>
+                        <td>
+                            <a href="../public/ssh_menu?project_come=<?php echo $ships['ID'];?>" class="btn btn-primary">View Detail</a>
+                        </td>
+                    </tr>
+                    @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
@@ -105,37 +93,15 @@
            </div>
         </div>
 
-        <h1><center>-----BATAS-----</center></h1>
-
-        <div class="col-md-12">
-        <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form">
-              <div class="box-body">
-              <label for="inputActivity">Select Project of Ship:</label>
-                <div class="form-group">
-                  <select class="form-control">
-                    <option value="#">-- Ship Project List --</option>
-                    <?php $i=1;?>
-                    @foreach($ship as $data)
-                        <?php $datas[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
-                    @endforeach
-                  </select>
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Choose</button>
-              </div>
-            </form>
-            </div>
-          </div>
-
+          <?php 
+                if(isset($_GET['project_come']) && $_GET['project_come']!='#') 
+                   $flagProject=true;
+                else $flagProject=false;
+                if(isset($_GET['block_come']) && $_GET['block_come']!='#') 
+                   $flagBlock=true;
+                else $flagBlock=false;
+            ?>
+          
         <div class="col-md-12">
         <div class="box box-primary">
             
@@ -145,38 +111,19 @@
               <div class="box-body">
               <label for="inputBlck">Select Block of [Ship_Name]:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="block_come">
                     <option value="#">-- Block List --</option>
-                    @foreach($block as $data)
-                        <?php $blockData[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->NAME}}</option>
+                    <?php $i=1;?>
+                    @foreach($block as $blocks)
+                      <?php 
+                        $data_block[$i] = $blocks; $i++;
+                        if($flagProject && $blocks['ID_PROJECT']==$_GET['project_come']){
+                            echo '<option value="'.$blocks['ID'].'">'.$blocks['NAME'].'</option>';
+                        }
+                        else if(!$flagProject){
+                            echo '<option value="'.$blocks['ID'].'">'.$blocks['NAME'].'</option>';
+                        }?>
                     @endforeach
-                  </select>
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Choose</button>
-              </div>
-            </form>
-            </div>
-          </div>
-
-          <div class="col-md-12">
-        <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form">
-              <div class="box-body">
-              <label for="inputStatus">Select Status of Material:</label>
-                <div class="form-group">
-                  <select class="form-control">
-                    <option id="#">-- Status List --</option>
-                    <option id="1">Received</option>
-                    <option id="2">Pending</option>
                   </select>
                 </div>
                
@@ -206,34 +153,38 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Date of Coming</td>
-                </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Date of Coming</td>
-                </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Date of Coming</td>
-                </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Date of Coming</td>
-                </tr>
+                @foreach($plate as $plates)
+                    <?php 
+                    if($plates['DATE_COMING']=='0000-00-00') $status = 'pending';
+                    else $status = 'Received '.$plates['DATE_COMING'];
+                    if($flagBlock && $plates->ID_BLOCK == $_GET['block_come']){
+                    echo '
+                    <tr>
+                        <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>'.$status.'</td>
+                    </tr>';
+                    }
+                    else if($flagProject && $plates->ID_PROJECT == $_GET['project_come']){
+                    echo '
+                    <tr>
+                        <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>'.$status.'</td>
+                    </tr>';
+                    }
+                    else if(!$flagBlock && !$flagProject){
+                    echo '
+                    <tr>
+                        <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>'.$status.'</td>
+                    </tr>';
+                        }?>
+                    @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
@@ -258,42 +209,50 @@
               <table id="profil" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>ID Material</th>
-                  <th>Dimension</th>
-                  <th>Quantity</th>
-                  <th>Weight</th>
-                  <th>Date of Coming</th>
+                    <th>ID Material</th>
+                    <th>Dimension</th>
+                    <th>Quantity</th>
+                    <th>Weight</th>
+                    <th>Form</th>
+                    <th>Date of Coming</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Date of Coming</td>
-                </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Date of Coming</td>
-                </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Date of Coming</td>
-                </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Date of Coming</td>
-                </tr>
+                @foreach($profile as $profiles)
+                    <?php 
+                    if($profiles['DATE_COMING']='0000-00-00') $status = 'pending';
+                    else $status = 'Received '.$profiles['DATE_COMING'];
+                    if($flagBlock && $plates->ID_BLOCK == $_GET['block_come']){
+                    echo '
+                    <tr>
+                        <td>'.$profiles['ID'].'</td>                            <td>'.$profiles['LENGTH'].','.$profiles['BREADTH'].','.$profiles['THICKNESS'].'</td>
+                        <td>'.$profiles['PORT'].','.$profiles['CENTER'].','.$profiles['STARBOARD'].'</td>
+                        <td>'.$profiles['WEIGHT'].'</td>
+                        <td>'.$profiles['FORM'].'</td>
+                        <td>'.$status.'</td>
+                    </tr>';
+                    }
+                    else if($flagProject && $plates->ID_PROJECT == $_GET['project_come']){
+                    echo '
+                    <tr>
+                        <td>'.$profiles['ID'].'</td>                            <td>'.$profiles['LENGTH'].','.$profiles['BREADTH'].','.$profiles['THICKNESS'].'</td>
+                        <td>'.$profiles['PORT'].','.$profiles['CENTER'].','.$profiles['STARBOARD'].'</td>
+                        <td>'.$profiles['WEIGHT'].'</td>
+                        <td>'.$profiles['FORM'].'</td>
+                        <td>'.$status.'</td>
+                    </tr>';
+                    }
+                    else if(!$flagBlock && !$flagProject){
+                    echo '
+                    <tr>
+                        <td>'.$profiles['ID'].'</td>                            <td>'.$profiles['LENGTH'].','.$profiles['BREADTH'].','.$profiles['THICKNESS'].'</td>
+                        <td>'.$profiles['PORT'].','.$profiles['CENTER'].','.$profiles['STARBOARD'].'</td>
+                        <td>'.$profiles['WEIGHT'].'</td>
+                        <td>'.$profiles['FORM'].'</td>
+                        <td>'.$status.'</td>
+                    </tr>';
+                        }?>
+                    @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
@@ -309,6 +268,61 @@
               
            </div>
         </div>
+
+        @elseif($_GET['activity']==2)  
+            <div class="col-md-12">
+            <div class="box box-primary">
+  
+              <div class="box-body">
+              <h1>Plate</h1>  
+              <table id="plate_process" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>ID Material</th>
+                  <th>Dimension</th>
+                  <th>Quantity</th>
+                  <th>Weight</th>
+                  <th>Straightening</th>
+                  <th>Blasting & Shop Primer</th>
+                  <th>Date of Work</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($plate as $plates)
+                    <?php
+                    if($plates['STRAIGHTENING']==1) $str= 'finished '.$plates['STRAIGHTENING_DATE'];
+                    else $str='unfinished';
+                    if($plates['BLASTING']==1) $blast= 'finished '.$plates['BLASTING_DATE'];
+                    else $blast='unfinished';
+                    
+                    echo '
+                    <tr>
+                        <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>'.$str.'</td>
+                        <td>'.$blast.'</td>
+                    </tr>';?>
+                @endforeach
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>ID Material</th>
+                  <th>Dimension</th>
+                  <th>Quantity</th>
+                  <th>Weight</th>
+                  <th>Straightening</th>
+                  <th>Blasting & Shop Primer</th>
+                  <th>Date of Work</th>
+                </tr>
+                </tfoot>
+              </table>
+             </div>  
+              
+           </div>
+        </div>
+          @endif
+        @endif
 
       </div>
     </section>
@@ -350,6 +364,14 @@ $(function() {
           "autoWidth": true
     });
     $('#profil').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    });
+    $('#plate_process').DataTable({
           "paging": true,
           "lengthChange": true,
           "searching": true,
