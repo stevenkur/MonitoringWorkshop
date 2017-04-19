@@ -26,17 +26,17 @@ class CreatePlatesTable extends Migration
             $table->double('CENTER', 6, 2);
             $table->double('STARBOARD', 6, 2);
             $table->double('WEIGHT', 6, 2);
-            $table->date('DATE_COMING')->default('0000-00-00');
+            $table->date('DATE_COMING')->nullable();
             $table->integer('STRAIGHTENING')->default(0);
-            $table->date('STRAIGHTENING_DATE')->default('0000-00-00');
+            $table->date('STRAIGHTENING_DATE')->nullable();
             $table->integer('BLASTING')->default(0);
-            $table->date('BLASTING_DATE')->default('0000-00-00');
+            $table->date('BLASTING_DATE')->nullable();
             $table->integer('MARKING')->default(0);
-            $table->date('MARKING_DATE')->default('0000-00-00');
+            $table->date('MARKING_DATE')->nullable();
             $table->integer('CUTTING')->default(0);
-            $table->date('CUTTING_DATE')->default('0000-00-00');
+            $table->date('CUTTING_DATE')->nullable();
             $table->integer('BLENDING')->default(0);
-            $table->date('BLENDING_DATE')->default('0000-00-00');
+            $table->date('BLENDING_DATE')->nullable();
             $table->timestamps();
         });
     }
