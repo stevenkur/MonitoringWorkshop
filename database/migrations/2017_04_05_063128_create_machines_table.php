@@ -19,6 +19,7 @@ class CreateMachinesTable extends Migration
             $table->string('ACTIVITY', 25);
             $table->string('WORKSHOP', 17);
             $table->integer('OPERATIONAL_HOUR');
+            $table->double('CAPACITY');
             $table->timestamps();
         });
     }
