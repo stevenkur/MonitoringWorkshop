@@ -283,8 +283,9 @@
                   <th>Quantity</th>
                   <th>Weight</th>
                   <th>Straightening</th>
+                  <th>Date Finished</th>
                   <th>Blasting & Shop Primer</th>
-                  <th>Date of Work</th>
+                  <th>Date Finished</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -301,7 +302,9 @@
                         <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
                         <td>'.$str.'</td>
+                        <td>'.$plates['STRAIGHTENING_DATE'].'</td>
                         <td>'.$blast.'</td>
+                        <td>'.$plates['BLASTING_DATE'].'</td>
                     </tr>';?>
                 @endforeach
                 </tbody>
@@ -312,8 +315,9 @@
                   <th>Quantity</th>
                   <th>Weight</th>
                   <th>Straightening</th>
+                  <th>Date Finished</th>
                   <th>Blasting & Shop Primer</th>
-                  <th>Date of Work</th>
+                  <th>Date Finished</th>
                 </tr>
                 </tfoot>
               </table>

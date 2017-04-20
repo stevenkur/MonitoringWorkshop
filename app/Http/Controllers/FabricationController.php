@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\ShipProject;
+use App\Block;
+use App\Profile;
+use App\Plate;
 
 class FabricationController extends Controller
 {
@@ -15,7 +18,10 @@ class FabricationController extends Controller
     public function index(Request $request)
     {
         $ship=ShipProject::all();
-        return view('dashboard/fabrication_menu')->with('ship', $ship);
+        $block=Block::all();
+        $profile=Profile::all();
+        $plate=Plate::all();
+        return view('dashboard/fabrication_menu')->with('ship', $ship)->with('block', $block)->with('profile', $profile)->with('plate', $plate);
     }
 
     /**

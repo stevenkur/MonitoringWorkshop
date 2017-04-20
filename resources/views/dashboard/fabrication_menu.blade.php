@@ -18,35 +18,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-
         <div class="col-md-12">
-        <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form">
-              <div class="box-body">
-              <label for="inputActivity">Select Activity:</label>
-                <div class="form-group">
-                  <select class="form-control">
-                    <option value="#">--Select Activity--</option>
-                    <option value="1">Marking</option>
-                    <option value="2">Cutting</option>
-                    <option value="3">Bending</option>
-                  </select>
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Choose</button>
-              </div>
-            </form>
-          </div>
-          </div>
-
-          <div class="col-md-12">
         <div class="box box-primary">
             
             <!-- /.box-header -->
@@ -55,11 +27,11 @@
               <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="project">
                     <option value="#">-- Ship Project List --</option>
                     <?php $i=1;?>
                     @foreach($ship as $data)
-                        <?php $datas[$i] = $data; $i++;?>
+                        <?php $shipData[$i] = $data; $i++;?>
                         <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
                     @endforeach
                   </select>
@@ -75,7 +47,7 @@
             </div>
           </div>
 
-          <div class="col-md-12">
+        <div class="col-md-12">
         <div class="box box-primary">
             
           <div class="box-body">
@@ -91,34 +63,37 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Name of Block</td>
-                  <td>Many of Material</td>
-                  <td>Many of Material Come</td>
-                  <td>Progress per Block</td>
-                  <td>View Detail</td>
-                </tr>
-                <tr>
-                  <td>Name of Block</td>
-                  <td>Many of Material</td>
-                  <td>Many of Material Come</td>
-                  <td>Progress per Block</td>
-                  <td>View Detail</td>
-                </tr>
-                <tr>
-                  <td>Name of Block</td>
-                  <td>Many of Material</td>
-                  <td>Many of Material Come</td>
-                  <td>Progress per Block</td>
-                  <td>View Detail</td>
-                </tr>
-                <tr>
-                  <td>Name of Block</td>
-                  <td>Many of Material</td>
-                  <td>Many of Material Come</td>
-                  <td>Progress per Block</td>
-                  <td>View Detail</td>
-                </tr>
+                    @foreach($block as $blocks)
+                    <?php 
+                    if($blocks['MATERIAL']==0)
+                        $progress = 0;
+                    else
+                        $progress = 100*$blocks['MATERIAL_COMING']/$blocks['MATERIAL'];
+                    if($flag && $blocks->ID_PROJECT == $_GET['id']){
+                    echo '
+                    <tr>
+                        <td>'.$blocks['NAME'].'</td>
+                        <td>'.$blocks['MATERIAL'].'</td>
+                        <td>'.$blocks['MATERIAL_COMING'].'</td>
+                        <td>'.$progress.'</td>';?>
+                        <td>
+                            <a href="../public/fabrication_menu?project_come=;<?php echo $ships['ID'];?> " class="btn btn-primary">View Detail</a>
+                        </td>
+                    <?php echo '</tr>';
+                    }
+                    else if(!$flag){
+                    echo '
+                    <tr>
+                        <td>'.$blocks['NAME'].'</td>
+                        <td>'.$blocks['MATERIAL'].'</td>
+                        <td>'.$blocks['MATERIAL_COMING'].'</td>
+                        <td>'.$progress.'</td>';?>
+                        <td>
+                            <a href="../public/fabrication_menu?project_come=;<?php echo $ships['ID'];?> " class="btn btn-primary">View Detail</a>
+                        </td>
+                    <?php echo '</tr>';
+                    }?>
+                    @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
