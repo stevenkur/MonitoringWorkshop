@@ -12,10 +12,15 @@ class UserSubAssemblyController extends Controller
 //    { 
 //        $this->middleware('auth'); 
 //    } 
-        
-    public function index()
+    
+	public function input_act_subassembly()
     {
-        return view('user/index');
+        return view('user/input_act_subassembly');
     }   
+    
+    public function subassembly_recap_worker()
+    {
+        return view('user/subassembly_recap_worker');
+    }  
 
 }

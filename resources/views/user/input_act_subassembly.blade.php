@@ -10,7 +10,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
-        <li>Fabrication</li>
+        <li>Sub-Assembly</li>
         <li class="active">Input Activities & Worker</li>
       </ol>
     </section>
@@ -18,7 +18,7 @@
     <section class="content">
     <div class="row">
 
-            <section class="col-lg-6">
+            <section class="col-lg-4">
             <div class="box box-primary">
             
             <!-- /.box-header -->
@@ -46,7 +46,7 @@
             </div>
             </section>
 
-            <section class="col-lg-6">
+            <section class="col-lg-4">
             <div class="box box-primary">
             
             <!-- /.box-header -->
@@ -74,6 +74,34 @@
             </div>
             </section>
 
+            <section class="col-lg-4">
+            <div class="box box-primary">
+            
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form" name="ShipPanel">
+              <div class="box-body">
+              <label for="inputActivity">Select Panel:</label>
+                <div class="form-group">
+                  <select class="form-control">
+                    <option id="#">-- Panel List --</option>
+                    <option id="1">Panel 1</option>
+                    <option id="2">Panel 2</option>
+                    <option id="3">Panel 3</option>
+                    <option id="4">Panel 4</option>
+                  </select>
+                </div>
+               
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Choose</button>
+              </div>
+            </form>
+            </div>
+            </section>
+
           <section class="col-lg-5">
             <div class="box box-primary">
             
@@ -81,13 +109,14 @@
             <!-- form start -->
             <form role="form" name="ShipProject">
               <div class="box-body">
-              <label>Select Material Process:</label>
+              <label>Select Join Part Process:</label>
                 <div class="form-group">
                   <select class="form-control">
-                    <option id="#">-- Material Process List --</option>
-                    <option id="1">Marking</option>
-                    <option id="2">Cutting</option>
-                    <option id="3">Bending</option>
+                    <option id="#">-- Join Part Process List --</option>
+                    <option id="1">Fitting</option>
+                    <option id="2">Welding</option>
+                    <option id="3">Grinding</option>
+                    <option id="4">Fairing</option>
                   </select>
                 </div>
                
@@ -108,11 +137,10 @@
                 <div class="form-group">
                   <select class="form-control">
                     <option id="#">-- Machine Process List --</option>
-                    <option id="1">CNC Plasma</option>
-                    <option id="2">NC Safro</option>
-                    <option id="3">CNC Gas Cutting</option>
-                    <option id="4">Bending Machine</option>
-                    <option id="5">Flame Planner</option>
+                    <option id="1">Welding Machine FCAW 1</option>
+                    <option id="2">Welding Machine FCAW 2</option>
+                    <option id="3">Welding Machine FCAW 3</option>
+                    <option id="4">Service Welding Gantry</option>
                   </select>
                 </div>
                
@@ -143,18 +171,18 @@
 
         <div class="col-md-12">
         <div class="box box-primary">
-            <h4 align="right"><b>Target Quantity per Day: [TARGET] Plate</b></h4>
+            <h4 align="right"><b>Target Quantity per Day: [TARGET] Ton</b></h4>
             <!-- /.box-header -->
             <div class="box-body">
-            <h3>Material List Plate</h3>
+            <h3>Part of Panel</h3>
               <table id="plate" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>ID Material</th>
+                  <th>ID Part</th>
                   <th>Dimension</th>
                   <th>Quantity</th>
                   <th>Weight</th>
-                  <th>Checklist</th>
+                  <th>Join Part</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -190,6 +218,23 @@
               </table>
             </div>
             <!-- /.box-body -->
+            <form role="form" name="ShipActivity">
+              <div class="box-body">
+              <label>Select Activity:</label>
+                <div class="form-group">
+                  <select class="form-control">
+                    <option id="#">-- Activity List --</option>
+                    <option id="1">Fitting</option>
+                    <option id="2">Welding</option>
+                    <option id="3">Grinding</option>
+                    <option id="4">Fairing</option>
+                  </select>
+                </div>
+               
+              </div>
+              <!-- /.box-body -->
+            </form>
+
             <div class="box-footer" align="right">
               <button type="reset" class="btn btn-primary">Reset</button>
               <button type="submit" class="btn btn-primary">Input</button>
@@ -225,11 +270,10 @@
                   <td>
                     <select class="form-control">
                     <option id="0">Not Operator</option>
-                    <option id="1">CNC Plasma Operator</option>
-                    <option id="2">NC Safro Operator</option>
-                    <option id="3">CNC Gas Cutting Operator</option>
-                    <option id="4">Bending Machine Operator</option>
-                    <option id="5">Flame Planner Operator</option>
+                    <option id="1">Welding Machine FCAW 1 Operator</option>
+                    <option id="2">Welding Machine FCAW 2 Operator</option>
+                    <option id="3">Welding Machine FCAW 3 Operator</option>
+                    <option id="4">Service Welding Gantry Operator</option>
                   </select>
                   </td>
                 </tr>
@@ -243,11 +287,10 @@
                   <td>
                     <select class="form-control">
                     <option id="0">Not Operator</option>
-                    <option id="1">CNC Plasma Operator</option>
-                    <option id="2">NC Safro Operator</option>
-                    <option id="3">CNC Gas Cutting Operator</option>
-                    <option id="4">Bending Machine Operator</option>
-                    <option id="5">Flame Planner Operator</option>
+                    <option id="1">Welding Machine FCAW 1 Operator</option>
+                    <option id="2">Welding Machine FCAW 2 Operator</option>
+                    <option id="3">Welding Machine FCAW 3 Operator</option>
+                    <option id="4">Service Welding Gantry Operator</option>
                   </select>
                   </td>
                 </tr>
@@ -261,11 +304,10 @@
                   <td>
                     <select class="form-control">
                     <option id="0">Not Operator</option>
-                    <option id="1">CNC Plasma Operator</option>
-                    <option id="2">NC Safro Operator</option>
-                    <option id="3">CNC Gas Cutting Operator</option>
-                    <option id="4">Bending Machine Operator</option>
-                    <option id="5">Flame Planner Operator</option>
+                    <option id="1">Welding Machine FCAW 1 Operator</option>
+                    <option id="2">Welding Machine FCAW 2 Operator</option>
+                    <option id="3">Welding Machine FCAW 3 Operator</option>
+                    <option id="4">Service Welding Gantry Operator</option>
                   </select>
                   </td>
                 </tr>
@@ -279,11 +321,10 @@
                   <td>
                     <select class="form-control">
                     <option id="0">Not Operator</option>
-                    <option id="1">CNC Plasma Operator</option>
-                    <option id="2">NC Safro Operator</option>
-                    <option id="3">CNC Gas Cutting Operator</option>
-                    <option id="4">Bending Machine Operator</option>
-                    <option id="5">Flame Planner Operator</option>
+                    <option id="1">Welding Machine FCAW 1 Operator</option>
+                    <option id="2">Welding Machine FCAW 2 Operator</option>
+                    <option id="3">Welding Machine FCAW 3 Operator</option>
+                    <option id="4">Service Welding Gantry Operator</option>
                   </select>
                   </td>
                 </tr>

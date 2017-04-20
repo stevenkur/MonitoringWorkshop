@@ -13,9 +13,14 @@ class UserAssemblyController extends Controller
 //        $this->middleware('auth'); 
 //    } 
         
-    public function index()
+	public function input_act_assembly()
     {
-        return view('user/index');
+        return view('user/input_act_assembly');
+    }   
+    
+    public function assembly_recap_worker()
+    {
+        return view('user/assembly_recap_worker');
     }   
 
 }
