@@ -67,7 +67,7 @@
                     if($ships['MATERIAL']==0)
                         $progress = 0;
                     else
-                        $progress = 100*$ship['MATERIAL_COMING']/$ship['MATERIAL'];?>
+                        $progress = 100*$ships['MATERIAL_COMING']/$ships['MATERIAL'];?>
                     <tr>
                         <td>{{$ships->PROJECT_NAME}}</td>
                         <td>{{$ships->MATERIAL}}</td>

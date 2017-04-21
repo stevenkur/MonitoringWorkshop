@@ -126,6 +126,7 @@
                 <thead>
                 <tr>
                   <th>ID</th>
+                  <th>Name</th>
                   <th>Dimension</th>
                   <th>Quantity</th>
                   <th>Weight</th>
@@ -137,6 +138,7 @@
                     echo '
                     <tr>
                         <td>'.$parts['ID'].'</td>
+                        <td>'.$parts['NAME'].'</td>
                         <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
@@ -146,6 +148,7 @@
                     echo '
                     <tr>
                         <td>'.$parts['ID'].'</td>
+                        <td>'.$parts['NAME'].'</td>
                         <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
@@ -155,6 +158,7 @@
                     echo '
                     <tr>
                         <td>'.$parts['ID'].'</td>
+                        <td>'.$parts['NAME'].'</td>
                         <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
@@ -164,6 +168,7 @@
                     echo '
                     <tr>
                         <td>'.$parts['ID'].'</td>
+                        <td>'.$parts['NAME'].'</td>
                         <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
@@ -174,6 +179,7 @@
                 <tfoot>
                 <tr>
                   <th>ID</th>
+                  <th>Name</th>
                   <th>Dimension</th>
                   <th>Quantity</th>
                   <th>Weight</th>

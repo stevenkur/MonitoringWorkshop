@@ -47,6 +47,15 @@
             </div>
           </div>
 
+          <?php 
+                if(isset($_GET['project']) && $_GET['project']!='#') 
+                   $flagProject=true;
+                else $flagProject=false;
+                if(isset($_GET['block']) && $_GET['block']!='#') 
+                   $flagBlock=true;
+                else $flagBlock=false;
+            ?>
+          
         <div class="col-md-12">
         <div class="box box-primary">
             
@@ -69,7 +78,7 @@
                         $progress = 0;
                     else
                         $progress = 100*$blocks['MATERIAL_COMING']/$blocks['MATERIAL'];
-                    if($flag && $blocks->ID_PROJECT == $_GET['id']){
+                    if($flagProject && $blocks->ID_PROJECT == $_GET['project']){
                     echo '
                     <tr>
                         <td>'.$blocks['NAME'].'</td>
@@ -77,11 +86,11 @@
                         <td>'.$blocks['MATERIAL_COMING'].'</td>
                         <td>'.$progress.'</td>';?>
                         <td>
-                            <a href="../public/fabrication_menu?project_come=;<?php echo $ships['ID'];?> " class="btn btn-primary">View Detail</a>
+                            <a href="../public/fabrication_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
                         </td>
                     <?php echo '</tr>';
                     }
-                    else if(!$flag){
+                    else if(!$flagProject){
                     echo '
                     <tr>
                         <td>'.$blocks['NAME'].'</td>
@@ -89,7 +98,7 @@
                         <td>'.$blocks['MATERIAL_COMING'].'</td>
                         <td>'.$progress.'</td>';?>
                         <td>
-                            <a href="../public/fabrication_menu?project_come=;<?php echo $ships['ID'];?> " class="btn btn-primary">View Detail</a>
+                            <a href="../public/fabrication_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
                         </td>
                     <?php echo '</tr>';
                     }?>
@@ -109,6 +118,108 @@
            </div>
         </div>
 
+          <div class="col-md-12">
+          <div class="box box-primary">
+  
+              <div class="box-body">
+              <h1>Plate</h1>  
+              <table id="plate" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>ID Material</th>
+                  <th>Dimension</th>
+                  <th>Quantity</th>
+                  <th>Weight</th>
+                  <th>Marking</th>
+                  <th>Marking Machine</th>
+                  <th>Cutting</th>
+                  <th>Cutting Machine</th>
+                  <th>Blending</th>
+                  <th>Blending Machine</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($plate as $plates)
+                    <?php 
+                    if($plates['MARKING']==1) $marking= 'finished '.$plates['MARKING_DATE'];
+                    else{
+                        $marking='unfinished';
+                        $plates['MARKING_MACHINE'] = "-";
+                    }
+                    if($plates['CUTTING']==1) $cut= 'finished '.$plates['CUTTING_DATE'];
+                    else{
+                        $cut='unfinished';
+                        $plates['CUTTING_MACHINE'] = "-";
+                    }
+                    if($plates['BLENDING']==1) $blend= 'finished '.$plates['BLENDING_DATE'];
+                    else{
+                        $blend='unfinished';
+                        $plates['BLENDING_MACHINE'] = "-";
+                    }
+                    if($flagBlock && $plates->ID_BLOCK == $_GET['block']){
+                    echo '
+                    <tr>
+                        <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>'.$marking.'</td>
+                        <td>'.$plates['MARKING_MACHINE'].'</td>
+                        <td>'.$cut.'</td>
+                        <td>'.$plates['CUTTING_MACHINE'].'</td>
+                        <td>'.$blend.'</td>
+                        <td>'.$plates['BLENDING_MACHINE'].'</td>
+                    </tr>';
+                    }
+                    else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
+                    echo '
+                    <tr>
+                        <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>'.$marking.'</td>
+                        <td>'.$plates['MARKING_MACHINE'].'</td>
+                        <td>'.$cut.'</td>
+                        <td>'.$plates['CUTTING_MACHINE'].'</td>
+                        <td>'.$blend.'</td>
+                        <td>'.$plates['BLENDING_MACHINE'].'</td>
+                    </tr>';
+                    }
+                    else if(!$flagBlock && !$flagProject){
+                    echo '
+                    <tr>
+                        <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>'.$marking.'</td>
+                        <td>'.$plates['MARKING_MACHINE'].'</td>
+                        <td>'.$cut.'</td>
+                        <td>'.$plates['CUTTING_MACHINE'].'</td>
+                        <td>'.$blend.'</td>
+                        <td>'.$plates['BLENDING_MACHINE'].'</td>
+                    </tr>';
+                        }?>
+                    @endforeach
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>ID Material</th>
+                  <th>Dimension</th>
+                  <th>Quantity</th>
+                  <th>Weight</th>
+                  <th>Marking</th>
+                  <th>Marking Machine</th>
+                  <th>Cutting</th>
+                  <th>Cutting Machine</th>
+                  <th>Blending</th>
+                  <th>Blending Machine</th>
+                </tr>
+                </tfoot>
+              </table>
+             </div>  
+              
+           </div>
+        </div>
+          
       </div>
     </section>
   </div>

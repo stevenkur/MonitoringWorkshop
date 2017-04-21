@@ -22,7 +22,7 @@ class CreatePartsTable extends Migration
             $table->integer('ID_PANEL');
             $table->string('PANEL_NAME', 25);
             $table->string('NAME', 25);
-            $table->double('LENGTH', 6, 2);
+            $table->double('LENGTH', 8, 2);
             $table->double('BREADTH', 6, 2);
             $table->double('THICKNESS', 6, 2);
             $table->double('PORT', 6, 2);

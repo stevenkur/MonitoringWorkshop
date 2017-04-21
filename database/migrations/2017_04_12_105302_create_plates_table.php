@@ -19,7 +19,7 @@ class CreatePlatesTable extends Migration
             $table->string('PROJECT_NAME', 55);
             $table->integer('ID_BLOCK');
             $table->string('BLOCK_NAME', 25);
-            $table->double('LENGTH', 6, 2);
+            $table->double('LENGTH', 8, 2);
             $table->double('BREADTH', 6, 2);
             $table->double('THICKNESS', 6, 2);
             $table->double('PORT', 6, 2);
@@ -33,10 +33,13 @@ class CreatePlatesTable extends Migration
             $table->date('BLASTING_DATE')->nullable();
             $table->integer('MARKING')->default(0);
             $table->date('MARKING_DATE')->nullable();
+            $table->string('MARKING_MACHINE')->nullable();
             $table->integer('CUTTING')->default(0);
             $table->date('CUTTING_DATE')->nullable();
+            $table->string('CUTTING_MACHINE')->nullable();
             $table->integer('BLENDING')->default(0);
             $table->date('BLENDING_DATE')->nullable();
+            $table->string('BLENDING_MACHINE')->nullable();
             $table->timestamps();
         });
     }

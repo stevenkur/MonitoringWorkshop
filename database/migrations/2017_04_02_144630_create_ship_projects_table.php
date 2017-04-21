@@ -15,9 +15,9 @@ class CreateShipProjectsTable extends Migration
     {
         Schema::create('ship_projects', function (Blueprint $table) {
             $table->increments('ID');
-            $table->string('PROJECT_NAME', 50);
-            $table->string('OWNER', 50);
-            $table->string('SHIP_TYPE', 14);
+            $table->string('PROJECT_NAME', 150);
+            $table->string('OWNER', 150);
+            $table->string('SHIP_TYPE', 50);
             $table->double('LWL', 6, 2);
             $table->double('LPP', 6, 2);
             $table->double('BREADTH', 6, 2);
@@ -35,7 +35,7 @@ class CreateShipProjectsTable extends Migration
             $table->double('BLOCK_DONE')->default(0);
             $table->date('START');
             $table->date('FINISH');
-            $table->date('FINISHED')->default(null);
+            $table->date('FINISHED')->nullable();
             $table->timestamps();
         });
     }
