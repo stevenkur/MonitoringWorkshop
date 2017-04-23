@@ -18,37 +18,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-
         <div class="col-md-12">
-        <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form">
-              <div class="box-body">
-              <label for="inputActivity">Select Activity:</label>
-                <div class="form-group">
-                  <select class="form-control">
-                    <option value="#">--Select Activity--</option>
-                    <option value="1">Fitting</option>
-                    <option value="2">Welding</option>
-                    <option value="3">Grinding</option>
-                    <option value="4">Fairing</option>
-                  </select>
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Choose</button>
-              </div>
-            </form>
-          </div>
-
-          </div>
-
-          <div class="col-md-12">
         <div class="box box-primary">
             
             <!-- /.box-header -->
@@ -57,11 +27,11 @@
               <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="project">
                     <option value="#">-- Ship Project List --</option>
                     <?php $i=1;?>
                     @foreach($ship as $data)
-                        <?php $datas[$i] = $data; $i++;?>
+                        <?php $shipData[$i] = $data; $i++;?>
                         <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
                     @endforeach
                   </select>
@@ -77,45 +47,62 @@
             </div>
           </div>
 
-          <div class="col-md-6">
+          <?php 
+                if(isset($_GET['project']) && $_GET['project']!='#') 
+                   $flagProject=true;
+                else $flagProject=false;
+                if(isset($_GET['block']) && $_GET['block']!='#') 
+                   $flagBlock=true;
+                else $flagBlock=false;
+                $counts = count($progress);
+            ?>
+        
+        <div class="col-md-12">
         <div class="box box-primary">
             
           <div class="box-body">
-              <h1>Detail Material Coming</h1>
+              <h1>Recap Material Process</h1>
               <table id="block" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Name of Block</th>
-                  <th>Progress per Block</th>
+                  <th>Sub Assembly Progress</th>
                   <th>View Detail</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Name of Block</td>
-                  <td>Progress per Block</td>
-                  <td>View Detail</td>
-                </tr>
-                <tr>
-                  <td>Name of Block</td>
-                  <td>Progress per Block</td>
-                  <td>View Detail</td>
-                </tr>
-                <tr>
-                  <td>Name of Block</td>
-                  <td>Progress per Block</td>
-                  <td>View Detail</td>
-                </tr>
-                <tr>
-                  <td>Name of Block</td>
-                  <td>Progress per Block</td>
-                  <td>View Detail</td>
-                </tr>
+                    <?php $i=0;?>
+                    @foreach($block as $index => $blocks)
+                    <?php
+                    if($i++<$counts) $progs = $progress[$index]['sum'];
+                    else $progs = 0;
+                    
+                    if($flagProject && $blocks->ID_PROJECT == $_GET['project']){
+                    echo '
+                    <tr>
+                        <td>'.$blocks['NAME'].'</td>
+                        <td>'.$progs.'% </td>';?>
+                        <td>
+                            <a href="../public/subassembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
+                        </td>
+                    <?php echo '</tr>';
+                    }
+                    else if(!$flagProject){
+                    echo '
+                    <tr>
+                        <td>'.$blocks['NAME'].'</td>
+                        <td>'.$progs.'% </td>';?>
+                        <td>
+                            <a href="../public/subassembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
+                        </td>
+                    <?php echo '</tr>';
+                    }?>
+                    @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
                   <th>Name of Block</th>
-                  <th>Progress per Block</th>
+                  <th>Sub Assembly Progress</th>
                   <th>View Detail</th>
                 </tr>
                 </tfoot>

@@ -84,7 +84,7 @@
                         <td>'.$blocks['NAME'].'</td>
                         <td>'.$blocks['MATERIAL'].'</td>
                         <td>'.$blocks['MATERIAL_COMING'].'</td>
-                        <td>'.$progress.'</td>';?>
+                        <td>'.$progress.'% </td>';?>
                         <td>
                             <a href="../public/fabrication_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
                         </td>
@@ -96,7 +96,7 @@
                         <td>'.$blocks['NAME'].'</td>
                         <td>'.$blocks['MATERIAL'].'</td>
                         <td>'.$blocks['MATERIAL_COMING'].'</td>
-                        <td>'.$progress.'</td>';?>
+                        <td>'.$progress.'% </td>';?>
                         <td>
                             <a href="../public/fabrication_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
                         </td>

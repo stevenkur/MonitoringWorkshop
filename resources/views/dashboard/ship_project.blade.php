@@ -108,7 +108,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                  <label for="inputLWL">Length of Water Line:</label>
+                  <label for="inputLWL">Length of Water Line (m):</label>
                     @if($flag && $flag2)
                     <input type="text" class="form-control" id="lwl" name="lwl" value="{{$ship->LWL}}">
                     @else      
@@ -116,7 +116,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                  <label for="inputLPP">Length between Perpendicular:</label>
+                  <label for="inputLPP">Length between Perpendicular (m):</label>
                     @if($flag && $flag2)
                     <input type="text" class="form-control" id="lpp" name="lpp" value="{{$ship->LPP}}">
                     @else      
@@ -124,7 +124,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                  <label for="inputBreadth">Breadth (B):</label>
+                  <label for="inputBreadth">Breadth (B) (m):</label>
                     @if($flag && $flag2)
                     <input type="text" class="form-control" id="breadth" name="breadth" value="{{$ship->BREADTH}}">
                     @else     
@@ -132,7 +132,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                  <label for="inputDepth">Depth (D):</label>
+                  <label for="inputDepth">Depth (D) (m):</label>
                     @if($flag && $flag2)
                     <input type="text" class="form-control" id="depth" name="depth" value="{{$ship->DEPTH}}">
                     @else       
@@ -140,7 +140,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                  <label for="inputDraft">Draft (T):</label>
+                  <label for="inputDraft">Draft (T) (m):</label>
                     @if($flag && $flag2)
                     <input type="text" class="form-control" id="draft" name="draft" value="{{$ship->DRAFT}}">
                     @else      
@@ -148,7 +148,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                  <label for="inputDisplacement">Construction Weight:</label>
+                  <label for="inputDisplacement">Construction Weight (ton):</label>
                     @if($flag && $flag2)
                     <input type="text" class="form-control" id="displacement" name="displacement" value="{{$ship->DISPLACEMENT}}">
                     @else       
@@ -156,7 +156,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                  <label for="inputSeaSpeed">Designed Sea Speed:</label>
+                  <label for="inputSeaSpeed">Designed Sea Speed (knot):</label>
                     @if($flag && $flag2)
                     <input type="text" class="form-control" id="sea_speed" name="sea_speed" value="{{$ship->DESIGNED_SPEED}}">  
                     @else 
