@@ -87,6 +87,8 @@
                   <th>Frame</th>
                   <th>Deck</th>
                   <th>Area(m<sup>2</sup>)</th>
+                  <th>Total Layer</th>
+                  <th>Paint Needs</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -96,6 +98,8 @@
                   <td>Frame</td>
                   <td>Deck</td>
                   <td>Area(m2)</td>
+                  <td>Layer</td>
+                  <td>Hitung Rumus</td>
                 </tr>
                 <tr>
                   <td>Room</td>
@@ -103,6 +107,8 @@
                   <td>Frame</td>
                   <td>Deck</td>
                   <td>Area(m2)</td>
+                  <td>Layer</td>
+                  <td>Hitung Rumus</td>
                 </tr>
                 <tr>
                   <td>Room</td>
@@ -110,6 +116,8 @@
                   <td>Frame</td>
                   <td>Deck</td>
                   <td>Area(m2)</td>
+                  <td>Layer</td>
+                  <td>Hitung Rumus</td>
                 </tr>
                 <tr>
                   <td>Room</td>
@@ -117,6 +125,8 @@
                   <td>Frame</td>
                   <td>Deck</td>
                   <td>Area(m2)</td>
+                  <td>Layer</td>
+                  <td>Hitung Rumus</td>
                 </tr>
                 </tbody>
                 <tfoot>
@@ -126,6 +136,8 @@
                   <th>Frame</th>
                   <th>Deck</th>
                   <th>Area(m2)</th>
+                  <td>Layer</td>
+                  <td>Hitung Rumus</td>
                 </tr>
                 </tfoot>
               </table>
@@ -159,8 +171,12 @@
                 </div>
                 <div class="form-group">
                   <label class="col-lg-4"> Loss Factor: </label>
-                  <input type="text" id="volumesolid" placeholder="">
+                  <input type="text" id="lossfactor" placeholder="">
                   <label> % </label>
+                </div>
+                <div class="form-group">
+                  <label class="col-lg-4"> Total Layer: </label>
+                  <input type="text" id="layer" placeholder="">
                 </div>
 
             <div class="box-footer" align="right">

@@ -87,6 +87,7 @@
                   <th>Frame</th>
                   <th>Deck</th>
                   <th>Area (m2)</th>
+                  <th>Total Layer</th>
                   <th>Room Process</th>
                 </tr>
                 </thead>
@@ -97,6 +98,7 @@
                   <td>Frame</td>
                   <td>Deck</td>
                   <td>Area (m2)</td>
+                  <td>Layer</td>
                   <td><input type="checkbox" id="checklistplate" placeholder=""></td>
                 </tr>
                 <tr>
@@ -105,6 +107,7 @@
                   <td>Frame</td>
                   <td>Deck</td>
                   <td>Area (m2)</td>
+                  <td>Layer</td>
                   <td><input type="checkbox" id="checklistplate" placeholder=""></td>
                 </tr>
                 <tr>
@@ -113,6 +116,7 @@
                   <td>Frame</td>
                   <td>Deck</td>
                   <td>Area (m2)</td>
+                  <td>Layer</td>
                   <td><input type="checkbox" id="checklistplate" placeholder=""></td>
                 </tr>
                 <tr>
@@ -121,28 +125,27 @@
                   <td>Frame</td>
                   <td>Deck</td>
                   <td>Area (m2)</td>
+                  <td>Layer</td>
                   <td><input type="checkbox" id="checklistplate" placeholder=""></td>
                 </tr>
                 </tbody>
               </table>
             </div>
             <!-- /.box-body -->
-            <div class="box-footer" align="right">
 
-              <section class="col-lg-5">
+            <section class="col-lg-4">
               <div class="box box-primary">
               
               <!-- /.box-header -->
               <!-- form start -->
               <form role="form" name="ShipProject">
                 <div class="box-body">
-                <label>Select Material Process:</label>
+                <label>Select Activities:</label>
                   <div class="form-group">
                     <select class="form-control">
-                      <option id="#">-- Material Process List --</option>
-                      <option id="1">Marking</option>
-                      <option id="2">Cutting</option>
-                      <option id="3">Bending</option>
+                      <option id="#">-- Activities List --</option>
+                      <option id="1">Blasting</option>
+                      <option id="2">Painting</option>
                     </select>
                   </div>
                  
@@ -152,6 +155,20 @@
               </div>
               </section>
 
+              <section class="col-lg-4">
+              <div class="box box-primary">
+              
+              <label style="font-size: 16px">Total Layer of Paint: </label>
+              <label>12 Layer(s)</label><br>
+              <label style="font-size: 16px">Finish Layer: </label>
+              <input type="text" id="finish" placeholder=""><br><br>
+              <label style="font-size: 16px">Day of Work: </label>
+              <input type="date" id="date" placeholder=""><br>
+
+              </div>
+              </section>
+
+            <div class="box-footer" align="right">
               <button type="reset" class="btn btn-primary">Reset</button>
               <button type="submit" class="btn btn-primary">Input</button>
             </div>
