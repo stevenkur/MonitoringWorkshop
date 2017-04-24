@@ -6,8 +6,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
-use App\Profile;
-use App\Plate;
 use App\Part;
 
 class SubAssemblyController extends Controller
@@ -21,12 +19,10 @@ class SubAssemblyController extends Controller
     {
         $ship=ShipProject::all();
         $block=Block::all();
-        $profile=Profile::all();
-        $plate=Plate::all();
-        $progress=Part::select('id_block', DB::raw('sum(SA_FAIRING+SA_FITTING+SA_GRINDING+SA_WELDING) as sum'))->groupBy('id_block')->get();
-        //$block=Block::leftJoin($progress, 'blocks.id', '=', 'id_block')->get();
+        $progress=Part::select('id_block', DB::raw('sum(FAIRING+FITTING+GRINDING+WELDING) as sum'))->groupBy('id_block')->get();
+        $part=Part::all();
                 
-        return view('dashboard/subassembly_menu')->with('ship', $ship)->with('block', $block)->with('profile', $profile)->with('plate', $plate)->with('progress', $progress);
+        return view('dashboard/subassembly_menu')->with('ship', $ship)->with('block', $block)->with('part', $part)->with('progress', $progress);
     }
     
     /**

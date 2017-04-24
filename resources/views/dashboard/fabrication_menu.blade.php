@@ -60,7 +60,7 @@
         <div class="box box-primary">
             
           <div class="box-body">
-              <h1>Recap Material Process</h1>
+              <h1>Recap Block's Fabrication Process</h1>
               <table id="block" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -244,6 +244,14 @@
 <script>
 $(function() {
     $('#block').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    });
+    $('#plate').DataTable({
           "paging": true,
           "lengthChange": true,
           "searching": true,

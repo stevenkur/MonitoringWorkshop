@@ -61,7 +61,7 @@
         <div class="box box-primary">
             
           <div class="box-body">
-              <h1>Recap Material Process</h1>
+              <h1>Recap Block's Sub Assembly Process</h1>
               <table id="block" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -109,8 +109,130 @@
               </table>
              </div>
            </div>
+          </div>
+            
+          <div class="col-md-12">
+            <div class="box box-primary">
+  
+              <div class="box-body">
+              <h1>Parts</h1>  
+              <table id="part" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Dimension</th>
+                  <th>Quantity</th>
+                  <th>Weight</th>
+                  <th>Fitting</th>
+                  <th>Fitting Machine</th>
+                  <th>Welding</th>
+                  <th>Welding Machine</th>
+                  <th>Grinding</th>
+                  <th>Grinding Machine</th>
+                  <th>Fairing</th>
+                  <th>Fairing Machine</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($part as $parts)
+                    <?php 
+                    if($parts['FITTING']==1) $fitting= 'finished '.$parts['FITTING_DATE'];
+                    else{
+                        $fitting='unfinished';
+                        $parts['FITTING_MACHINE'] = "-";
+                    }
+                    if($parts['WELDING']==1) $welding= 'finished '.$parts['WELDING_DATE'];
+                    else{
+                        $welding='unfinished';
+                        $parts['WELDING_MACHINE'] = "-";
+                    }
+                    if($parts['GRINDING']==1) $grinding= 'finished '.$parts['GRINDING_DATE'];
+                    else{
+                        $grinding='unfinished';
+                        $parts['GRINDING_MACHINE'] = "-";
+                    }
+                    if($parts['FAIRING']==1) $fairing= 'finished '.$parts['FAIRING_DATE'];
+                    else{
+                        $fairing='unfinished';
+                        $parts['FAIRING_MACHINE'] = "-";
+                    }
+                    if($flagBlock && $parts->ID_BLOCK == $_GET['block']){
+                    echo '
+                    <tr>
+                        <td>'.$parts['ID'].'</td> 
+                        <td>'.$parts['NAME'].'</td>                            <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
+                        <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
+                        <td>'.$parts['WEIGHT'].'</td>
+                        <td>'.$fitting.'</td>
+                        <td>'.$parts['FITTING_MACHINE'].'</td>
+                        <td>'.$welding.'</td>
+                        <td>'.$parts['WELDING_MACHINE'].'</td>
+                        <td>'.$grinding.'</td>
+                        <td>'.$parts['GRINDING_MACHINE'].'</td>
+                        <td>'.$fairing.'</td>
+                        <td>'.$parts['FAIRING_MACHINE'].'</td>
+                    </tr>';
+                    }
+                    else if($flagProject && $parts->ID_PROJECT == $_GET['project']){
+                    echo '
+                    <tr>
+                        <td>'.$parts['ID'].'</td> 
+                        <td>'.$parts['NAME'].'</td>                            <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
+                        <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
+                        <td>'.$parts['WEIGHT'].'</td>
+                        <td>'.$fitting.'</td>
+                        <td>'.$parts['FITTING_MACHINE'].'</td>
+                        <td>'.$welding.'</td>
+                        <td>'.$parts['WELDING_MACHINE'].'</td>
+                        <td>'.$grinding.'</td>
+                        <td>'.$parts['GRINDING_MACHINE'].'</td>
+                        <td>'.$fairing.'</td>
+                        <td>'.$parts['FAIRING_MACHINE'].'</td>
+                    </tr>';
+                    }
+                    else if(!$flagBlock && !$flagProject){
+                    echo '
+                    <tr>
+                        <td>'.$parts['ID'].'</td> 
+                        <td>'.$parts['NAME'].'</td>                            <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
+                        <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
+                        <td>'.$parts['WEIGHT'].'</td>
+                        <td>'.$fitting.'</td>
+                        <td>'.$parts['FITTING_MACHINE'].'</td>
+                        <td>'.$welding.'</td>
+                        <td>'.$parts['WELDING_MACHINE'].'</td>
+                        <td>'.$grinding.'</td>
+                        <td>'.$parts['GRINDING_MACHINE'].'</td>
+                        <td>'.$fairing.'</td>
+                        <td>'.$parts['FAIRING_MACHINE'].'</td>
+                    </tr>';
+                        }?>
+                    @endforeach
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Dimension</th>
+                  <th>Quantity</th>
+                  <th>Weight</th>
+                  <th>Fitting</th>
+                  <th>Fitting Machine</th>
+                  <th>Welding</th>
+                  <th>Welding Machine</th>
+                  <th>Grinding</th>
+                  <th>Grinding Machine</th>
+                  <th>Fairing</th>
+                  <th>Fairing Machine</th>
+                </tr>
+                </tfoot>
+              </table>
+             </div>  
+              
+           </div>
         </div>
-
+                     
       </div>
     </section>
   </div>
@@ -135,6 +257,14 @@
 <script>
 $(function() {
     $('#block').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    });
+    $('#part').DataTable({
           "paging": true,
           "lengthChange": true,
           "searching": true,

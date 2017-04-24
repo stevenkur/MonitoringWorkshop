@@ -18,10 +18,10 @@ class CreateBlocksTable extends Migration
             $table->integer('ID_PROJECT');
             $table->string('PROJECT_NAME', 55);
             $table->string('NAME', 25);
-            $table->integer('MATERIAL')->default(0);
-            $table->integer('MATERIAL_COMING')->default(0);
-            $table->integer('PART')->default(0);
-            $table->integer('PART_COMING')->default(0);
+            $table->double('MATERIAL', 6, 2)->default(0);
+            $table->double('MATERIAL_COMING', 6, 2)->default(0);
+            $table->double('PART', 6, 2);->default(0);
+            $table->double('PART_COMING', 6, 2)->default(0);
             $table->double('PANEL')->default(0);
             $table->double('PANEL_DONE')->default(0);
             $table->timestamps();

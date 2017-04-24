@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\ShipProject;
+use App\Block;
+use App\Panel;
 
 class AssemblyController extends Controller
 {
@@ -15,7 +18,11 @@ class AssemblyController extends Controller
     public function index(Request $request)
     {
         $ship=ShipProject::all();
-        return view('dashboard/assembly_menu')->with('ship', $ship);
+        $block=Block::all();
+        $progress=Panel::select('id_block', DB::raw('sum(FAIRING+FITTING+GRINDING+WELDING) as sum'))->groupBy('id_block')->get();
+        $panel=Panel::all();
+                
+        return view('dashboard/assembly_menu')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('progress', $progress);
     }
 
     /**
