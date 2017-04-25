@@ -76,51 +76,64 @@
             </div>
           </div>
 
-          <div class="col-md-6">
+        <div class="col-md-12">
         <div class="box box-primary">
-            
-          <div class="box-body">
-              <h1>Recap Process</h1>
-              <table id="panel" class="table table-bordered table-striped">
+            <!-- /.box-header -->
+            <div class="box-body">
+            <h3>Recap Process</h3>
+              <table id="bbs" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Name of Block</th>
-                  <th>Progress per Block</th>
-                  <th>View Detail</th>
+                  <th>Room</th>
+                  <th>Side</th>
+                  <th>Frame</th>
+                  <th>Deck</th>
+                  <th>Area (m<sup>2</sup>)</th>
+                  <th>Blasting</th>
+                  <th>FInished Layer Painting</th>
+                  <th>Date of Work</th>
+                  <th>Total Process</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td>Name of Block</td>
-                  <td>Progress per Block</td>
-                  <td>View Detail</td>
+                  <td>Room</td>
+                  <td>Side</td>
+                  <td>Frame</td>
+                  <td>Deck</td>
+                  <td>Area (m2)</td>
+                  <td>Blasting</td>
+                  <td>FInished Layer Painting</td>
+                  <td>Date of Work</td>
+                  <td>Total Process</td>
                 </tr>
                 <tr>
-                  <td>Name of Block</td>
-                  <td>Progress per Block</td>
-                  <td>View Detail</td>
+                  <td>Room</td>
+                  <td>Side</td>
+                  <td>Frame</td>
+                  <td>Deck</td>
+                  <td>Area (m2)</td>
+                  <td>Blasting</td>
+                  <td>FInished Layer Painting</td>
+                  <td>Date of Work</td>
+                  <td>Total Process</td>
                 </tr>
                 <tr>
-                  <td>Name of Block</td>
-                  <td>Progress per Block</td>
-                  <td>View Detail</td>
-                </tr>
-                <tr>
-                  <td>Name of Block</td>
-                  <td>Progress per Block</td>
-                  <td>View Detail</td>
+                  <td>Room</td>
+                  <td>Side</td>
+                  <td>Frame</td>
+                  <td>Deck</td>
+                  <td>Area (m2)</td>
+                  <td>Blasting</td>
+                  <td>FInished Layer Painting</td>
+                  <td>Date of Work</td>
+                  <td>Total Process</td>
                 </tr>
                 </tbody>
-                <tfoot>
-                <tr>
-                  <th>Name of Block</th>
-                  <th>Progress per Block</th>
-                  <th>View Detail</th>
-                </tr>
-                </tfoot>
               </table>
-             </div>
-           </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
         </div>
 
       </div>
@@ -146,7 +159,7 @@
 <!-- page script -->
 <script>
 $(function() {
-    $('#panel').DataTable({
+    $('#bbs').DataTable({
           "paging": true,
           "lengthChange": true,
           "searching": true,

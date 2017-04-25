@@ -87,9 +87,9 @@
         </div>
       </section>
 
-        <section class="col-lg-6">
+        <section class="col-lg-12">
             <div class="box box-primary">
-            
+            <section class="col-lg-6">
             <form role="form">
               <div class="box-body">
                   <h4> Percentage Progress:</h4>
@@ -131,7 +131,9 @@
                   <label class="col-lg-3"> Welding: </label>
                   <input type="checkbox" id="welding_finished" placeholder="">
                 </div>
-
+                </section>
+                <br>
+                <section class="col-lg-6">
                 <h4> Welding Process:</h4>
                 <div class="form-group">
                   <label class="col-lg-3"> Length of join: </label>
@@ -155,89 +157,118 @@
                 </div>
 
             </form>
+            </section>
 
-            <div class="box-footer">
+            <div class="box-footer" align="right">
               <button type="reset" class="btn btn-primary">Reset</button>
               <button type="submit" class="btn btn-primary">Finish</button>
             </div>
           </div>
         </section>
 
-        <section class="col-lg-6">
+        <div class="col-md-12">
+        <div class="box box-primary">
+            <!-- /.box-header -->
+            <div class="box-body">
+            <h3>Worker & Time</h3>
+              <table id="plate" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Name of Worker</th>
+                  <th>NIP</th>
+                  <th>Position/Division</th>
+                  <th>Checklist</th>
+                  <th>Was Sick/Accident</th>
+                  <th>Was Absent</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>Name of Worker</td>
+                  <td>NIP</td>
+                  <td>Position/Division</td>
+                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
+                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
+                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
+                </tr>
+                <tr>
+                  <td>Name of Worker</td>
+                  <td>NIP</td>
+                  <td>Position/Division</td>
+                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
+                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
+                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
+                </tr>
+                <tr>
+                  <td>Name of Worker</td>
+                  <td>NIP</td>
+                  <td>Position/Division</td>
+                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
+                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
+                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
+                </tr>
+                <tr>
+                  <td>Name of Worker</td>
+                  <td>NIP</td>
+                  <td>Position/Division</td>
+                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
+                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
+                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+
+            <div class="col-lg-3">
             <div class="box box-primary">
-            
-            <form role="form">
-              <div class="box-body">
-                  <h4> Detail Worker and Time:</h4>
-                <div class="form-group">
-                  <label class="col-lg-3"> Loading: </label>
-                  <input type="text" id="loading" placeholder="">
-                  <label> % </label>
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-3"> Adjusting: </label>
-                  <input type="text" id="adjusting" placeholder="">
-                  <label> % </label>
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-3"> Fitting: </label>
-                  <input type="text" id="fitting" placeholder="">
-                  <label> % </label>
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-3"> Welding: </label>
-                  <input type="text" id="welding" placeholder="">
-                  <label> % </label>
-                </div>
+            <div class="box box-body">
+            <div class="form-group">
+              <label style="font-size: 16px">Input Many Hours of Works: </label><br>
+              <input type="text" id="manyhours" placeholder="">
+              <label>hours</label>
+              <label style="font-size: 16px">Normal Hours (8 Hours)</label> <input type="checkbox" id="checklistok" placeholder="">              
+              <label style="font-size: 16px">Additional Hours: </label><br>
+              <input type="text" id="additionalhours" placeholder="">
+              <label>hours</label>
+            </div>
+            </div>
+            </div>
+            </div>
 
-              <h4> Finished Process:</h4>
-              <div class="form-group">
-                  <label class="col-lg-3"> Loading: </label>
-                  <input type="checkbox" id="loading_finished" placeholder="">
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-3"> Adjusting: </label>
-                  <input type="checkbox" id="adjusting_finished" placeholder="">
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-3"> Fitting: </label>
-                  <input type="checkbox" id="fitting_finished" placeholder="">
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-3"> Welding: </label>
-                  <input type="checkbox" id="welding_finished" placeholder="">
-                </div>
+            <div class="col-lg-6">
+            <div class="box box-primary">
+            <div class="box box-body">
+            <div class="form-group">
+              <label style="font-size: 16px">Problem: </label>
+              <select class="form-control" name="problem">
+                <option id="1">No Problem</option>
+                <option id="2">Broken Machine</option>
+                <option id="3">Worker Sick/Acident</option>
+                <option id="4">Power Failure</option>
+                <option id="5">Worker Absent</option>
+              </select>
+              <br>
+              <label style="font-size: 16px">Waste Time (If any): </label>
+              <input type="text" id="wastetime" placeholder="">
+              <label>hours</label>
+              <br>
+              <label style="font-size: 16px">Shift: </label>
+              <select class="form-control" name="shift">
+                <option id="1">Shift 1</option>
+                <option id="2">Shift 2</option>
+              </select>
+            </div>
+            </div>
+            </div>
+            </div>
 
-                <h4> Welding Process:</h4>
-                <div class="form-group">
-                  <label class="col-lg-3"> Length of join: </label>
-                  <input type="text" id="lengthjoin" placeholder="">
-                  <label> m </label>
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-3"> Finished Wield: </label>
-                  <input type="text" id="finishedwield" placeholder="">
-                  <label> m </label>
-                </div>
-
-                <h4> Duration:</h4>
-                <div class="form-group">
-                  <label class="col-lg-3"> Day of Start Work: </label>
-                  <input type="date" id="start" placeholder="">
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-3"> Day of Finish Work: </label>
-                  <input type="date" id="finish" placeholder="">
-                </div>
-
-            </form>
-
-            <div class="box-footer">
+            <div class="box-footer" align="right">
               <button type="reset" class="btn btn-primary">Reset</button>
-              <button type="submit" class="btn btn-primary">Finish</button>
+              <button type="submit" class="btn btn-primary">Input</button>
             </div>
           </div>
-        </section>
+        </div>
 
         </div>
     </section>
