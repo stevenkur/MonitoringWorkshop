@@ -20,7 +20,7 @@ class CreatePanelsTable extends Migration
             $table->integer('ID_BLOCK');
             $table->string('BLOCK_NAME', 25);
             $table->string('NAME', 25);
-            $table->double('PART', 6, 2);->default(0);
+            $table->double('PART', 6, 2)->default(0);
             $table->double('PART_COMING', 6, 2)->default(0);
             $table->double('PART_DONE', 6, 2)->default(0);
             $table->double('FITTING', 6, 2)->default(0);

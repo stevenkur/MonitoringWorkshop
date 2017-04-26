@@ -27,7 +27,7 @@ class CreateShipProjectsTable extends Migration
             $table->double('DESIGNED_SPEED', 6, 2);
             $table->double('MATERIAL', 6, 2)->default(0);
             $table->double('MATERIAL_COMING', 6, 2)->default(0);
-            $table->double('PART', 6, 2);->default(0);
+            $table->double('PART', 6, 2)->default(0);
             $table->double('PART_COMING', 6, 2)->default(0);
             $table->double('PANEL')->default(0);
             $table->double('PANEL_DONE')->default(0);
