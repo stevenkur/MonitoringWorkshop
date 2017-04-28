@@ -7,6 +7,7 @@ use App\ShipProject;
 use App\Block;
 use App\Plate;
 use App\Profile;
+use Carbon\Carbon;
 
 class UserSSHController extends Controller
 {
@@ -24,22 +25,20 @@ class UserSSHController extends Controller
         return view('user/input_material_ssh')->with('ship', $ship)->with('block', $block)->with('plate', $plate)->with('profile', $profile);
     }
     
-    public function confirm_material(Request $request)
+    public function confirm_material_plate($id)
     {
-        if($request->type == 'plate'){
-            $plate=Plate::all();
-            $plate->DATE_COMING=date(d/m/Y);
-            $plate->save();
-        }
-        else{
-            $profile=Profile::all();
-            $profile->DATE_COMING=date(d/m/Y);
-            $profile->save();
-        }
+        $plate=Plate::where('id',$id)->update(['DATE_COMING' => Carbon::today()->format('Y-m-d')]);
         
-        return view('user/input_material_ssh')->with('ship', $ship)->with('block', $block)->with('plate', $plate)->with('profile', $profile);
+        return redirect()->back()->with('message','Operation Successful !');
     }
 
+    public function confirm_material_profile($id)
+    {
+        $profile=Profile::where('id',$id)->update(['DATE_COMING' => Carbon::today()->format('Y-m-d')]);
+        
+        return redirect()->back()->with('message','Operation Successful !');
+    }
+    
     public function input_act_ssh()
     {
         $ship=ShipProject::all();
@@ -51,7 +50,9 @@ class UserSSHController extends Controller
     {
         $ship=ShipProject::all();
         $block=Block::all();
-        return view('user/ssh_recap_material_coming')->with('ship', $ship)->with('block', $block);
+        $plate=Plate::all();
+        $profile=Profile::all();
+        return view('user/ssh_recap_material_coming')->with('ship', $ship)->with('block', $block)->with('plate', $plate)->with('profile', $profile);
     }
 
     public function ssh_recap_material_process()

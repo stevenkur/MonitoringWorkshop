@@ -36,7 +36,8 @@ Route::any('bbs_menu', ['as'=>'bbs_menu', 'uses'=>'BBSController@index']);
 Route::any('erection_menu', ['as'=>'erection_menu', 'uses'=>'ErectionController@index']);
 
 Route::any('input_material_ssh', ['as'=>'input_material_ssh', 'uses'=>'UserSSHController@input_material_ssh']);
-Route::any('confirm_material', ['as'=>'confirm_material', 'uses'=>'UserSSHController@confirm_material']);
+Route::post('confirm_material_plate/{id}', ['as'=>'confirm_material_plate', 'uses'=>'UserSSHController@confirm_material_plate']);
+Route::post('confirm_material_profile/{id}', ['as'=>'confirm_material_profile', 'uses'=>'UserSSHController@confirm_material_profile']);
 Route::any('ssh_recap_material_coming', ['as'=>'ssh_recap_material_coming', 'uses'=>'UserSSHController@ssh_recap_material_coming']);
 Route::any('ssh_recap_material_process', ['as'=>'ssh_recap_material_process', 'uses'=>'UserSSHController@ssh_recap_material_process']);
 Route::any('input_act_ssh', ['as'=>'input_act_ssh', 'uses'=>'UserSSHController@input_act_ssh']);

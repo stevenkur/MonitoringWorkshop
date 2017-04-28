@@ -124,8 +124,8 @@
                   <label for="inputDimension">Dimension (mm):</label>
                   <input type="text" class="form-control" id="material_length" name="length" placeholder="Enter length of material"><br>
                   <input type="text" class="form-control" id="material_breadth" name="breadth" placeholder="Enter breadth of material"><br>
-                  <input type="text" class="form-control" id="material_thickness" name="thickness" placeholder="Enter thickness of material">
-                  <input type="text" class="form-control" id="material_width" name="width" placeholder="Enter width of material">
+                  <input type="text" class="form-control" id="material_thickness" name="thickness" placeholder="Enter thickness of material"><br>
+                  <input type="text" class="form-control" id="material_height" name="height" placeholder="Enter height of material">
                 </div>
                 <div class="form-group">
                   <label for="inputQuantity">Quantity:</label>
@@ -224,7 +224,7 @@
                     echo '
                     <tr>
                         <td>'.$profiles['ID'].'</td>       
-                        <td>'.'l='.$profiles['LENGTH'].', b='.$profiles['BREADTH'].', t='.$profiles['THICKNESS'].', w='.$profiles['WIDTH'].'</td>
+                        <td>'.'l='.$profiles['LENGTH'].', b='.$profiles['BREADTH'].', t='.$profiles['THICKNESS'].', h='.$profiles['HEIGHT'].'</td>
                         <td>'.'p'.$profiles['PORT'].', c='.$profiles['CENTER'].', s='.$profiles['STARBOARD'].'</td>
                         <td>'.$profiles['WEIGHT'].'</td>
                         <td>'.$profiles['FORM'].'</td>
@@ -234,7 +234,7 @@
                     echo '
                     <tr>
                         <td>'.$profiles['ID'].'</td>       
-                        <td>'.'l='.$profiles['LENGTH'].', b='.$profiles['BREADTH'].', t='.$profiles['THICKNESS'].', w='.$profiles['WIDTH'].'</td>
+                        <td>'.'l='.$profiles['LENGTH'].', b='.$profiles['BREADTH'].', t='.$profiles['THICKNESS'].', h='.$profiles['HEIGHT'].'</td>
                         <td>'.'p'.$profiles['PORT'].', c='.$profiles['CENTER'].', s='.$profiles['STARBOARD'].'</td>
                         <td>'.$profiles['WEIGHT'].'</td>
                         <td>'.$profiles['FORM'].'</td>
@@ -244,7 +244,7 @@
                     echo '
                     <tr>
                         <td>'.$profiles['ID'].'</td>   
-                        <td>'.'l='.$profiles['LENGTH'].', b='.$profiles['BREADTH'].', t='.$profiles['THICKNESS'].', w='.$profiles['WIDTH'].'</td>
+                        <td>'.'l='.$profiles['LENGTH'].', b='.$profiles['BREADTH'].', t='.$profiles['THICKNESS'].', h='.$profiles['HEIGHT'].'</td>
                         <td>'.'p'.$profiles['PORT'].', c='.$profiles['CENTER'].', s='.$profiles['STARBOARD'].'</td>
                         <td>'.$profiles['WEIGHT'].'</td>
                         <td>'.$profiles['FORM'].'</td>

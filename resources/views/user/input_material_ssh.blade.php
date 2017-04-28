@@ -114,7 +114,15 @@
                         <td>'.$plates['ID'].'</td>                            <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
-                        <td><input type="checkbox" id="checklistprofile" placeholder=""></td>
+                        <td>';?>
+                            @if ($plates->DATE_COMING==null)
+                            <form method="post"  action="{{route('confirm_material_plate', $plates->ID)}}">
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                                <input name="id" type="hidden" value="{{ $plates->ID }}">
+                                <button type="submit" class="btn btn-submit" id="confirmMaterial" placeholder="">CONFIRM COMING</button>
+                            </form>
+                            @endif
+                        <?php echo '</td>
                     </tr>';
                     }
                     else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
@@ -123,7 +131,15 @@
                         <td>'.$plates['ID'].'</td>                            <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
-                        <td><input type="checkbox" id="checklistprofile" placeholder=""></td>
+                        <td>';?>
+                            @if ($plates->DATE_COMING==null)
+                            <form method="post"  action="{{route('confirm_material_plate', $plates->ID)}}">
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                                <input name="id" type="hidden" value="{{ $plates->ID }}">
+                                <button type="submit" class="btn btn-submit" id="confirmMaterial" placeholder="">CONFIRM COMING</button>
+                            </form>
+                            @endif
+                        <?php echo '</td>
                     </tr>';
                     }
                     else if(!$flagBlock && !$flagProject){
@@ -132,7 +148,15 @@
                         <td>'.$plates['ID'].'</td>                            <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
-                        <td><input type="checkbox" id="checklistprofile" placeholder=""></td>
+                        <td>';?>
+                            @if ($plates->DATE_COMING==null)
+                            <form method="post"  action="{{route('confirm_material_plate', $plates->ID)}}">
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                                <input name="id" type="hidden" value="{{ $plates->ID }}">
+                                <button type="submit" class="btn btn-submit" id="confirmMaterial" placeholder="">CONFIRM COMING</button>
+                            </form>
+                            @endif
+                        <?php echo '</td>
                     </tr>';
                         }?>
                     @endforeach
@@ -164,33 +188,57 @@
                     echo '
                     <tr>
                         <td>'.$profiles['ID'].'</td>    
-                        <td>'.'l='.$profiles['LENGTH'].', b='.$profiles['BREADTH'].', t='.$profiles['THICKNESS'].', w='.$profiles['WIDTH'].'</td>
+                        <td>'.'l='.$profiles['LENGTH'].', b='.$profiles['BREADTH'].', t='.$profiles['THICKNESS'].', h='.$profiles['HEIGHT'].'</td>
                         <td>'.'p'.$profiles['PORT'].', c='.$profiles['CENTER'].', s='.$profiles['STARBOARD'].'</td>
                         <td>'.$profiles['LENGTH'].'</td>
                         <td>'.$profiles['WEIGHT'].'</td>
-                        <td><input type="checkbox" id="checklistprofile" placeholder=""></td>
+                        <td>';?>
+                            @if ($profiles->DATE_COMING==null)
+                            <form method="post"  action="{{route('confirm_material_profile', $profiles->ID)}}">
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                                <input name="id" type="hidden" value="{{ $profiles->ID }}">
+                                <button type="submit" class="btn btn-submit" id="confirmMaterial" placeholder="">CONFIRM COMING</button>
+                            </form>
+                            @endif
+                        <?php echo '</td>
                     </tr>';
                     }
                     else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
                     echo '
                     <tr>
                         <td>'.$profiles['ID'].'</td> 
-                        <td>'.'l='.$profiles['LENGTH'].', b='.$profiles['BREADTH'].', t='.$profiles['THICKNESS'].', w='.$profiles['WIDTH'].'</td>
+                        <td>'.'l='.$profiles['LENGTH'].', b='.$profiles['BREADTH'].', t='.$profiles['THICKNESS'].', h='.$profiles['HEIGHT'].'</td>
                         <td>'.'p'.$profiles['PORT'].', c='.$profiles['CENTER'].', s='.$profiles['STARBOARD'].'</td>
                         <td>'.$profiles['LENGTH'].'</td>
                         <td>'.$profiles['WEIGHT'].'</td>
-                        <td><input type="checkbox" id="checklistprofile" placeholder=""></td>
+                        <td>';?>
+                            @if ($profiles->DATE_COMING==null)
+                            <form method="post"  action="{{route('confirm_material_profile', $profiles->ID)}}">
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                                <input name="id" type="hidden" value="{{ $profiles->ID }}">
+                                <button type="submit" class="btn btn-submit" id="confirmMaterial" placeholder="">CONFIRM COMING</button>
+                            </form>
+                            @endif
+                        <?php echo '</td>
                     </tr>';
                     }
                     else if(!$flagBlock && !$flagProject){
                     echo '
                     <tr>
                         <td>'.$profiles['ID'].'</td>     
-                        <td>'.'l='.$profiles['LENGTH'].', b='.$profiles['BREADTH'].', t='.$profiles['THICKNESS'].', w='.$profiles['WIDTH'].'</td>
+                        <td>'.'l='.$profiles['LENGTH'].', b='.$profiles['BREADTH'].', t='.$profiles['THICKNESS'].', h='.$profiles['HEIGHT'].'</td>
                         <td>'.'p'.$profiles['PORT'].', c='.$profiles['CENTER'].', s='.$profiles['STARBOARD'].'</td>
                         <td>'.$profiles['LENGTH'].'</td>
                         <td>'.$profiles['WEIGHT'].'</td>
-                        <td><input type="checkbox" id="checklistprofile" placeholder=""></td>
+                        <td>';?>
+                            @if ($profiles->DATE_COMING==null)
+                            <form method="post"  action="{{route('confirm_material_profile', $profiles->ID)}}">
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                                <input name="id" type="hidden" value="{{ $profiles->ID }}">
+                                <button type="submit" class="btn btn-submit" id="confirmMaterial" placeholder="">CONFIRM COMING</button>
+                            </form>
+                            @endif
+                        <?php echo '</td>
                     </tr>';
                         }?>
                     @endforeach

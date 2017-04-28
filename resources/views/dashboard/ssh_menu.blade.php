@@ -220,7 +220,7 @@
                 <tbody>
                 @foreach($profile as $profiles)
                     <?php 
-                    if($profiles['DATE_COMING']='0000-00-00') $status = 'pending';
+                    if($profiles['DATE_COMING']=null) $status = 'pending';
                     else $status = 'Received '.$profiles['DATE_COMING'];
                     if($flagBlock && $plates->ID_BLOCK == $_GET['block_come']){
                     echo '

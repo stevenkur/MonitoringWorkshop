@@ -236,7 +236,7 @@
                   <input type="text" class="form-control" id="part_weight" name="weight"  placeholder="Enter weight">
                 </div>
                 <div class="form-group">
-                  <label for="inputStage">Stage:</label>
+                  <label for="inputStage">Form:</label>
                   <input type="text" class="form-control" id="part_stage" name="stage"  placeholder="Enter stage">
                 </div>
               </div>
