@@ -75,7 +75,7 @@
             </div>
             </section>
 
-        <div class="col-md-6">
+        <div class="col-md-7">
         <div class="box">
             <!-- /.box-header -->
             <div class="box-body">
@@ -88,6 +88,7 @@
                   <th>Deck</th>
                   <th>Area(m<sup>2</sup>)</th>
                   <th>Total Layer</th>
+                  <th>Paint Type</th>
                   <th>Paint Needs</th>
                 </tr>
                 </thead>
@@ -99,6 +100,7 @@
                   <td>Deck</td>
                   <td>Area(m2)</td>
                   <td>Layer</td>
+                  <td>Cat</td>
                   <td>Hitung Rumus</td>
                 </tr>
                 <tr>
@@ -108,6 +110,7 @@
                   <td>Deck</td>
                   <td>Area(m2)</td>
                   <td>Layer</td>
+                  <td>Cat</td>
                   <td>Hitung Rumus</td>
                 </tr>
                 <tr>
@@ -117,6 +120,7 @@
                   <td>Deck</td>
                   <td>Area(m2)</td>
                   <td>Layer</td>
+                  <td>Cat</td>
                   <td>Hitung Rumus</td>
                 </tr>
                 <tr>
@@ -126,6 +130,7 @@
                   <td>Deck</td>
                   <td>Area(m2)</td>
                   <td>Layer</td>
+                  <td>Cat</td>
                   <td>Hitung Rumus</td>
                 </tr>
                 </tbody>
@@ -137,6 +142,7 @@
                   <th>Deck</th>
                   <th>Area(m2)</th>
                   <td>Layer</td>
+                  <td>Cat</td>
                   <td>Hitung Rumus</td>
                 </tr>
                 </tfoot>
@@ -146,7 +152,7 @@
           </div>
         </div>
 
-        <section class="col-lg-6">
+        <section class="col-lg-5">
         <div class="box box-primary">
         <form role="form" name="BBSPaint">
                 <br>
@@ -160,12 +166,12 @@
                   <label> m2 </label>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-4"> Input Dry Film Thickness: </label>
+                  <label class="col-lg-4"> Dry Film Thickness: </label>
                   <input type="text" id="dryfilm" placeholder="">
                   <label> mikron </label>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-4"> Input Volume Solid: </label>
+                  <label class="col-lg-4"> Volume Solid: </label>
                   <input type="text" id="volumesolid" placeholder="">
                   <label> % </label>
                 </div>
@@ -177,6 +183,10 @@
                 <div class="form-group">
                   <label class="col-lg-4"> Total Layer: </label>
                   <input type="text" id="layer" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label class="col-lg-4"> Paint Type: </label>
+                  <input type="text" id="painttype" placeholder="">
                 </div>
 
             <div class="box-footer" align="right">
