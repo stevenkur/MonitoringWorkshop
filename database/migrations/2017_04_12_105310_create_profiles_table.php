@@ -22,6 +22,7 @@ class CreateProfilesTable extends Migration
             $table->double('LENGTH', 8, 2);
             $table->double('BREADTH', 6, 2);
             $table->double('THICKNESS', 6, 2);
+            $table->double('WIDTH', 6, 2);
             $table->double('PORT', 6, 2);
             $table->double('CENTER', 6, 2);
             $table->double('STARBOARD', 6, 2);

@@ -155,7 +155,7 @@
                 <tbody>
                 @foreach($plate as $plates)
                     <?php 
-                    if($plates['DATE_COMING']=='0000-00-00') $status = 'pending';
+                    if($plates['DATE_COMING']==null) $status = 'pending';
                     else $status = 'Received '.$plates['DATE_COMING'];
                     if($flagBlock && $plates->ID_BLOCK == $_GET['block_come']){
                     echo '

@@ -49,7 +49,8 @@ class MaterialListController extends Controller
             $part = new Plate();
         } else{
             $part = new Profile(); 
-            $part->FORM = $request->form;     
+            $part->FORM = $request->form;  
+            $part->WIDTH = $request->width;      
         }
         $part->ID = $request->id;        
         $part->ID_PROJECT = $block->ID_PROJECT;
