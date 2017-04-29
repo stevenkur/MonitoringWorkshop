@@ -29,10 +29,11 @@
                 <div class="form-group">
                   <select class="form-control">
                     <option id="#">-- Ship Project List --</option>
-                    <option id="1">Project 1</option>
-                    <option id="2">Project 2</option>
-                    <option id="3">Project 3</option>
-                    <option id="4">Project 4</option>
+                    <?php $i=1;?>
+                    @foreach($ship as $data)
+                        <?php $shipData[$i] = $data; $i++;?>
+                        <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
+                    @endforeach
                   </select>
                 </div>
                
@@ -57,10 +58,11 @@
                 <div class="form-group">
                   <select class="form-control">
                     <option id="#">-- Block List --</option>
-                    <option id="1">Block 1</option>
-                    <option id="2">Block 2</option>
-                    <option id="3">Block 3</option>
-                    <option id="4">Block 4</option>
+                    <?php $i=1;?>
+                    @foreach($block as $data)
+                        <?php $blockData[$i] = $data; $i++;?>
+                        <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
+                    @endforeach
                   </select>
                 </div>
                
