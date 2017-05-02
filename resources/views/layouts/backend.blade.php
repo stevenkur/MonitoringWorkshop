@@ -77,7 +77,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
+        <li class="treeview">
           <a href="{{ route('admins.index') }}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
@@ -136,6 +136,28 @@
             <li><a href="{{ route('assembly_menu')}}"><i class="fa fa-circle-o"></i> Assembly</a></li>
             <li><a href="{{ route('bbs_menu')}}"><i class="fa fa-circle-o"></i> BBS</a></li>
             <li><a href="{{ route('erection_menu')}}"><i class="fa fa-circle-o"></i> Erection Process</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="">
+            <i class="fa fa-ship"></i>
+            <span>Total Ship Progress</span>
+          </a>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-line-chart"></i> 
+            <span>Planning Production</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href=""><i class="fa fa-circle-o"></i> Planning Workload</a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i> Conclusion of All Project</a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i> Conclusion Finishing Workload</a></li>
           </ul>
         </li>
 
