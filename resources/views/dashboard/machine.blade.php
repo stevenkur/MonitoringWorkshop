@@ -47,6 +47,10 @@
                   </select>
                 </div>
                 <div class="form-group">
+                  <label for="inputActivity">Capacity</label>
+                  <input type="number" class="form-control" id="capacity" name="capacity" placeholder="Enter capacity of machine">
+                </div>
+                <div class="form-group">
                   <label for="inputOperational">Normal Operational Hour</label>
                   <input type="number" class="form-control" id="operational" name="operational" placeholder="Enter operational hour">
                 </div>
@@ -73,6 +77,7 @@
                   <th>Activity</th>
                   <th>Workshop</th>
                   <th>Operational Hour</th>
+                  <th>Capacity</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -90,7 +95,8 @@
                   <th>Name of Machine</th>
                   <th>Activity</th>
                   <th>Workshop</th>
-                  <th>Target/Day</th>
+                  <th>Operational Hour</th>
+                  <th>Capacity</th>
                 </tr>
                 </tfoot>
               </table>

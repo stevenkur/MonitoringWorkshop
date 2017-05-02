@@ -57,45 +57,26 @@
                 <tr>
                   <th>Name of Block</th>
                   <th>Last Date of Work</th>
-                  <th>Finished Blasting</th>
-                  <th>Finished ShopPrimer</th>
-                  <th>Not Yet Processed</th>
+                  <th>Straightening Unfinished</th>
+                  <th>Finished Straightening</th>
+                  <th>Blasting & Shop Primer Unfinished</th>
+                  <th>Finished Blasting & Shop Primer</th>
                   <th>Progress Activity</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
+                <?php for($i=0; $i<5; $i++){
+                  echo '
+                  <tr>
                   <td>Name</td>
                   <td>Date</td>
+                  <td>51</td>
                   <td>102</td>
                   <td>90</td>
                   <td>3</td>
                   <td>90%</td>
-                </tr>
-                <tr>
-                  <td>Name</td>
-                  <td>Date</td>
-                  <td>102</td>
-                  <td>90</td>
-                  <td>3</td>
-                  <td>90%</td>
-                </tr>
-                <tr>
-                  <td>Name</td>
-                  <td>Date</td>
-                  <td>102</td>
-                  <td>90</td>
-                  <td>3</td>
-                  <td>90%</td>
-                </tr>
-                <tr>
-                  <td>Name</td>
-                  <td>Date</td>
-                  <td>102</td>
-                  <td>90</td>
-                  <td>3</td>
-                  <td>90%</td>
-                </tr>
+                  </tr>';
+                }?>
                 </tbody>
               </table>
             </div>
