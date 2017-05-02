@@ -87,6 +87,7 @@
                     <td>{{$machines->ACTIVITY}}</td>
                     <td>{{$machines->WORKSHOP}}</td>
                     <td>{{$machines->OPERATIONAL_HOUR}}</td>
+                    <td>{{$machines->CAPACITY}}</td>
                 </tr>
                     @endforeach
                 </tbody>
