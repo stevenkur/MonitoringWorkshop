@@ -28,8 +28,8 @@
               <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
-                  <select class="form-control">
-                    <option id="#">-- Ship Project List --</option>
+                  <select class="form-control" name="project">
+                    <option value="#">-- Ship Project List --</option>
                     <?php $i=1;?>
                     @foreach($ship as $data)
                         <?php $shipData[$i] = $data; $i++;?>
@@ -48,6 +48,12 @@
             </div>
             </section>
 
+          <?php 
+                if(isset($_GET['project']) && $_GET['project']!='#') 
+                   $flagProject=true;
+                else $flagProject=false;
+            ?>
+          
         <div class="col-md-12">
         <div class="box box-primary">
             <!-- /.box-header -->
@@ -56,46 +62,43 @@
                 <thead>
                 <tr>
                   <th>Name of Block</th>
-                  <th>Last Date of Work</th>
-                  <th>Finished Blasting</th>
-                  <th>Finished ShopPrimer</th>
-                  <th>Not Yet Processed</th>
+                  <th>Unfinished Marking</th>
+                  <th>Finished Marking</th>
+                  <th>Unfinished Cutting</th>
+                  <th>Finished Cutting</th>
+                  <th>Unfinished Blending</th>
+                  <th>Finished Blending</th>
                   <th>Progress Activity</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Name</td>
-                  <td>Date</td>
-                  <td>102</td>
-                  <td>90</td>
-                  <td>3</td>
-                  <td>90%</td>
-                </tr>
-                <tr>
-                  <td>Name</td>
-                  <td>Date</td>
-                  <td>102</td>
-                  <td>90</td>
-                  <td>3</td>
-                  <td>90%</td>
-                </tr>
-                <tr>
-                  <td>Name</td>
-                  <td>Date</td>
-                  <td>102</td>
-                  <td>90</td>
-                  <td>3</td>
-                  <td>90%</td>
-                </tr>
-                <tr>
-                  <td>Name</td>
-                  <td>Date</td>
-                  <td>102</td>
-                  <td>90</td>
-                  <td>3</td>
-                  <td>90%</td>
-                </tr>
+                @foreach($progress as $prog)
+                    @if($flagProject && $prog->ID_PROJECT==$_GET['project'])
+                    <tr>
+                      <td>{{$prog->BLOCK_NAME}}</td>
+<!--                      <td>{{$prog->ID_PROJECT}}</td>-->
+                      <td>{{$prog->NUM-$prog->MARKING}}</td>
+                      <td>{{$prog->MARKING}}</td>
+                      <td>{{($prog->NUM-$prog->CUTTING)}}</td>
+                      <td>{{$prog->CUTTING}}</td>
+                      <td>{{($prog->NUM-$prog->BLENDING)}}</td>
+                      <td>{{$prog->BLENDING}}</td>
+                      <td>{{($prog->MARKING+$prog->CUTTING+$prog->BLENDING)/(3*$prog->NUM).'%'}}</td>
+                    </tr>
+                    @elseif(!$flagProject)
+                    <tr>
+                      <td>{{$prog->BLOCK_NAME}}</td>
+<!--                      <td>{{$prog->ID_PROJECT}}</td>-->
+                      <td>{{$prog->NUM-$prog->MARKING}}</td>
+                      <td>{{$prog->MARKING}}</td>
+                      <td>{{($prog->NUM-$prog->CUTTING)}}</td>
+                      <td>{{$prog->CUTTING}}</td>
+                      <td>{{($prog->NUM-$prog->BLENDING)}}</td>
+                      <td>{{$prog->BLENDING}}</td>
+                      <td>{{($prog->MARKING+$prog->CUTTING+$prog->BLENDING)/(3*$prog->NUM).'%'}}</td>
+                    </tr>
+                    @endif
+                @endforeach
                 </tbody>
               </table>
             </div>

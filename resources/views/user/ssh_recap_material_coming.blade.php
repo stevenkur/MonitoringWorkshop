@@ -55,6 +55,9 @@
                 if(isset($_GET['block']) && $_GET['block']!='#') 
                    $flagBlock=true;
                 else $flagBlock=false;
+                if(isset($_GET['status']) && $_GET['status']!='#') 
+                   $flagStatus=true;
+                else $flagStatus=false;
             ?>
           
             <section class="col-lg-4">
@@ -100,13 +103,15 @@
               <div class="box-body">
               <label for="inputActivity">Status:</label>
                 <div class="form-group">
-                  <select class="form-control">
-                    <option id="#">-- List --</option>
+                  <select class="form-control" name="status">
+                    <option value="#">-- List --</option>
                     <option id="1">Arrived</option>
                     <option id="2">Pending</option>
                   </select>
                 </div>
-               
+               <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Choose</button>
+              </div>
               </div>
               <!-- /.box-body -->
                 
@@ -132,35 +137,107 @@
                 <tbody>
                 @foreach($plate as $plates)
                     <?php 
-                    if($plates['DATE_COMING']==null) $status = 'pending';
+                    if($plates['DATE_COMING']==null) $status = 'Pending';
                     else $status = 'Received '.$plates['DATE_COMING'];
                     if($flagBlock && $plates->ID_BLOCK == $_GET['block']){
-                    echo '
-                    <tr>
-                        <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
-                        <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
-                        <td>'.$plates['WEIGHT'].'</td>
-                        <td>'.$status.'</td>
-                    </tr>';
+                        if($flagStatus && $_GET['status']=='Arrived'){
+                            if($status!='Pending'){
+                                echo '
+                                <tr>
+                                    <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                                    <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                                    <td>'.$plates['WEIGHT'].'</td>
+                                    <td>'.$status.'</td>
+                                </tr>';
+                            }
+                        }
+                        else if($flagStatus && $_GET['status']=='Pending'){
+                            if($status=='Pending'){
+                                echo '
+                                <tr>
+                                    <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                                    <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                                    <td>'.$plates['WEIGHT'].'</td>
+                                    <td>'.$status.'</td>
+                                </tr>';
+                            }
+                        }
+                        else if(!$flagBlock){
+                            echo '
+                            <tr>
+                                <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                                <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                                <td>'.$plates['WEIGHT'].'</td>
+                                <td>'.$status.'</td>
+                            </tr>';
+                        }
                     }
                     else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
-                    echo '
-                    <tr>
-                        <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
-                        <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
-                        <td>'.$plates['WEIGHT'].'</td>
-                        <td>'.$status.'</td>
-                    </tr>';
-                    }
+                        if($flagStatus && $_GET['status']=='Arrived'){
+                            if($status!='Pending'){
+                                echo '
+                                <tr>
+                                    <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                                    <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                                    <td>'.$plates['WEIGHT'].'</td>
+                                    <td>'.$status.'</td>
+                                </tr>';
+                            }
+                        }
+                        else if($flagStatus && $_GET['status']=='Pending'){
+                            if($status=='Pending'){
+                                echo '
+                                <tr>
+                                    <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                                    <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                                    <td>'.$plates['WEIGHT'].'</td>
+                                    <td>'.$status.'</td>
+                                </tr>';
+                            }
+                        }
+                        else if(!$flagBlock){
+                            echo '
+                            <tr>
+                                <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                                <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                                <td>'.$plates['WEIGHT'].'</td>
+                                <td>'.$status.'</td>
+                            </tr>';
+                        }
+                    }                           
                     else if(!$flagBlock && !$flagProject){
-                    echo '
-                    <tr>
-                        <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
-                        <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
-                        <td>'.$plates['WEIGHT'].'</td>
-                        <td>'.$status.'</td>
-                    </tr>';
-                        }?>
+                        if($flagStatus && $_GET['status']=='Arrived'){
+                            if($status!='Pending'){
+                                echo '
+                                <tr>
+                                    <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                                    <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                                    <td>'.$plates['WEIGHT'].'</td>
+                                    <td>'.$status.'</td>
+                                </tr>';
+                            }
+                        }
+                        else if($flagStatus && $_GET['status']=='Pending'){
+                            if($status=='Pending'){
+                                echo '
+                                <tr>
+                                    <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                                    <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                                    <td>'.$plates['WEIGHT'].'</td>
+                                    <td>'.$status.'</td>
+                                </tr>';
+                            }
+                        }
+                        else if(!$flagBlock){
+                            echo '
+                            <tr>
+                                <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                                <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                                <td>'.$plates['WEIGHT'].'</td>
+                                <td>'.$status.'</td>
+                            </tr>';
+                        }
+                    }?>
                     @endforeach
                 </tbody>
                 <tfoot>

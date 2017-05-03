@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
@@ -59,13 +60,16 @@ class UserSSHController extends Controller
     {
         $ship=ShipProject::all();
         $block=Block::all();
+        
         return view('user/ssh_recap_material_process')->with('ship', $ship)->with('block', $block);
     }
 
     public function ssh_recap_progress_activity()
     {
         $ship=ShipProject::all();
-        return view('user/ssh_recap_progress_activity')->with('ship', $ship);
+        $progress=Plate::select('ID_BLOCK', 'BLOCK_NAME', 'ID_PROJECT', DB::raw('sum(STRAIGHTENING) as STR'), DB::raw('count(ID) as NUM'), DB::raw('sum(BLASTING) as BLAST'))->groupBy('ID_BLOCK', 'BLOCK_NAME', 'ID_PROJECT')->get();
+        
+        return view('user/ssh_recap_progress_activity')->with('ship', $ship)->with('progress', $progress);
     }
 
 }

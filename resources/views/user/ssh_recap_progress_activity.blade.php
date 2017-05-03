@@ -24,12 +24,12 @@
             
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" name="ShipProject">
+            <form role="form">
               <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
-                  <select class="form-control">
-                    <option id="#">-- Ship Project List --</option>
+                  <select class="form-control" name="project">
+                    <option value="#">-- Ship Project List --</option>
                     <?php $i=1;?>
                     @foreach($ship as $data)
                         <?php $shipData[$i] = $data; $i++;?>
@@ -48,6 +48,12 @@
             </div>
             </section>
 
+          <?php 
+                if(isset($_GET['project']) && $_GET['project']!='#') 
+                   $flagProject=true;
+                else $flagProject=false;
+            ?>
+          
         <div class="col-md-12">
         <div class="box box-primary">
             <!-- /.box-header -->
@@ -56,27 +62,38 @@
                 <thead>
                 <tr>
                   <th>Name of Block</th>
-                  <th>Last Date of Work</th>
+<!--                  <th>Last Date of Work</th>-->
                   <th>Straightening Unfinished</th>
-                  <th>Finished Straightening</th>
+                  <th>Straightening Finished</th>
                   <th>Blasting & Shop Primer Unfinished</th>
-                  <th>Finished Blasting & Shop Primer</th>
+                  <th>Blasting & Shop Primer Finished</th>
                   <th>Progress Activity</th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php for($i=0; $i<5; $i++){
-                  echo '
-                  <tr>
-                  <td>Name</td>
-                  <td>Date</td>
-                  <td>51</td>
-                  <td>102</td>
-                  <td>90</td>
-                  <td>3</td>
-                  <td>90%</td>
-                  </tr>';
-                }?>
+                @foreach($progress as $prog)
+                    @if($flagProject && $prog->ID_PROJECT==$_GET['project'])
+                    <tr>
+                      <td>{{$prog->BLOCK_NAME}}</td>
+<!--                      <td>{{$prog->ID_PROJECT}}</td>-->
+                      <td>{{$prog->NUM-$prog->STR}}</td>
+                      <td>{{$prog->STR}}</td>
+                      <td>{{($prog->NUM-$prog->BLAST)}}</td>
+                      <td>{{$prog->BLAST}}</td>
+                      <td>{{($prog->STR+$prog->BLAST)/(2*$prog->NUM).'%'}}</td>
+                    </tr>
+                    @elseif(!$flagProject)
+                    <tr>
+                      <td>{{$prog->BLOCK_NAME}}</td>
+<!--                      <td>{{$prog->ID_PROJECT}}</td>-->
+                      <td>{{$prog->NUM-$prog->STR}}</td>
+                      <td>{{$prog->STR}}</td>
+                      <td>{{($prog->NUM-$prog->BLAST)}}</td>
+                      <td>{{$prog->BLAST}}</td>
+                      <td>{{($prog->STR+$prog->BLAST)/(2*$prog->NUM).'%'}}</td>
+                    </tr>
+                    @endif
+                @endforeach
                 </tbody>
               </table>
             </div>
