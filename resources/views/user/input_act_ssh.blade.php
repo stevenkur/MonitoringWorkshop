@@ -209,7 +209,7 @@
             <!-- /.box-header -->
             <div class="box-body">
             <h3>Worker & Time</h3>
-              <table id="plate" class="table table-bordered table-striped">
+              <table id="worker" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Name of Worker</th>
@@ -222,10 +222,11 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($worker as $workers)
                 <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
+                  <td>{{$workers->NAME}}</td>
+                  <td>{{$workers->NIP}}</td>
+                  <td>{{$workers->POSITION.'/'.$workers->DIVISION}}</td>
                   <td><input type="checkbox" id="checklistok" placeholder=""></td>
                   <td><input type="checkbox" id="checklistsick" placeholder=""></td>
                   <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
@@ -237,51 +238,7 @@
                   </select>
                   </td>
                 </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
-                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
-                  <td>
-                    <select class="form-control">
-                    <option id="0">Not Operator</option>
-                    <option id="1">Operator Rool Machine</option>
-                    <option id="2">Operator Shoot Blasting & Primering Machine</option>
-                  </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
-                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
-                  <td>
-                    <select class="form-control">
-                    <option id="0">Not Operator</option>
-                    <option id="1">Operator Rool Machine</option>
-                    <option id="2">Operator Shoot Blasting & Primering Machine</option>
-                  </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
-                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
-                  <td>
-                    <select class="form-control">
-                    <option id="0">Not Operator</option>
-                    <option id="1">Operator Rool Machine</option>
-                    <option id="2">Operator Shoot Blasting & Primering Machine</option>
-                  </select>
-                  </td>
-                </tr>
+                @endforeach
                 </tbody>
               </table>
             </div>
@@ -363,6 +320,14 @@ $(function() {
           "paging": true,
           "lengthChange": true,
           "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    });
+    $('#worker').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": false,
           "ordering": true,
           "info": true,
           "autoWidth": true
