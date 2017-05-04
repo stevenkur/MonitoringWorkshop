@@ -6,12 +6,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Recap Machine
+        Machine
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
-        <li>Input Machine</li>
-        <li class="active">Recap Machine</li>
+        <li class="active">Machine</li>
       </ol>
     </section>
 

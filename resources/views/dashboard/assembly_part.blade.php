@@ -10,8 +10,8 @@
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
-        <li>Assembly Part List</li>
-        <li class="active">Input Assembly Part List</li>
+        <li>Create Ship Project Data</li>
+        <li class="active">Assembly Part List</li>
       </ol>
     </section>
 

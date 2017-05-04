@@ -6,11 +6,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Create New Panel
+        Panel List
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
-        <li>Panel List</li>
+        <li>Create Ship Project Data</li>
         <li class="active">Panel List</li>
       </ol>
     </section>

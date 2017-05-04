@@ -119,7 +119,7 @@
                             <form method="post"  action="{{route('confirm_material_plate', $plates->ID)}}">
                                 <input name="_token" type="hidden" value="{{ csrf_token() }}">
                                 <input name="id" type="hidden" value="{{ $plates->ID }}">
-                                <button type="submit" class="btn btn-submit" id="confirmMaterial" placeholder="">CONFIRM COMING</button>
+                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">CONFIRM COMING</button>
                             </form>
                             @endif
                         <?php echo '</td>
@@ -136,7 +136,7 @@
                             <form method="post"  action="{{route('confirm_material_plate', $plates->ID)}}">
                                 <input name="_token" type="hidden" value="{{ csrf_token() }}">
                                 <input name="id" type="hidden" value="{{ $plates->ID }}">
-                                <button type="submit" class="btn btn-submit" id="confirmMaterial" placeholder="">CONFIRM COMING</button>
+                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">CONFIRM COMING</button>
                             </form>
                             @endif
                         <?php echo '</td>
@@ -153,7 +153,7 @@
                             <form method="post"  action="{{route('confirm_material_plate', $plates->ID)}}">
                                 <input name="_token" type="hidden" value="{{ csrf_token() }}">
                                 <input name="id" type="hidden" value="{{ $plates->ID }}">
-                                <button type="submit" class="btn btn-submit" id="confirmMaterial" placeholder="">CONFIRM COMING</button>
+                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">CONFIRM COMING</button>
                             </form>
                             @endif
                         <?php echo '</td>
@@ -197,7 +197,7 @@
                             <form method="post"  action="{{route('confirm_material_profile', $profiles->ID)}}">
                                 <input name="_token" type="hidden" value="{{ csrf_token() }}">
                                 <input name="id" type="hidden" value="{{ $profiles->ID }}">
-                                <button type="submit" class="btn btn-submit" id="confirmMaterial" placeholder="">CONFIRM COMING</button>
+                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">CONFIRM COMING</button>
                             </form>
                             @endif
                         <?php echo '</td>
@@ -216,7 +216,7 @@
                             <form method="post"  action="{{route('confirm_material_profile', $profiles->ID)}}">
                                 <input name="_token" type="hidden" value="{{ csrf_token() }}">
                                 <input name="id" type="hidden" value="{{ $profiles->ID }}">
-                                <button type="submit" class="btn btn-submit" id="confirmMaterial" placeholder="">CONFIRM COMING</button>
+                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">CONFIRM COMING</button>
                             </form>
                             @endif
                         <?php echo '</td>
@@ -235,7 +235,7 @@
                             <form method="post"  action="{{route('confirm_material_profile', $profiles->ID)}}">
                                 <input name="_token" type="hidden" value="{{ csrf_token() }}">
                                 <input name="id" type="hidden" value="{{ $profiles->ID }}">
-                                <button type="submit" class="btn btn-submit" id="confirmMaterial" placeholder="">CONFIRM COMING</button>
+                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">CONFIRM COMING</button>
                             </form>
                             @endif
                         <?php echo '</td>

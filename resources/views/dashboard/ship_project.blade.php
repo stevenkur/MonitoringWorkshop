@@ -6,11 +6,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Create New Ship Project
+        Ship Project
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
-        <li>Input Ship Project</li>
+        <li>Create Ship Project Data</li>
         <li class="active">Ship Project</li>
       </ol>
     </section>

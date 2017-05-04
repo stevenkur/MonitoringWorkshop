@@ -6,12 +6,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Recapitulation User
+        Application User
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
-        <li>Register Application User</li>
-        <li class="active">Recapitulation User</li>
+        <li class="active">Application User</li>
       </ol>
     </section>
 

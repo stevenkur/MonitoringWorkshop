@@ -6,11 +6,10 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Recap Worker
+        Worker
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
-        <li>Input Worker</li>
         <li class="active">Worker</li>
       </ol>
     </section>
