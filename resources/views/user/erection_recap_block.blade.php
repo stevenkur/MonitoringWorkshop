@@ -28,7 +28,7 @@
               <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="project">
                     <option id="#">-- Ship Project List --</option>
                     <?php $i=1;?>
                     @foreach($ship as $data)

@@ -27,7 +27,7 @@
               <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="project">
                     <option id="#">-- Ship Project List --</option>
                     <option id="1">Project 1</option>
                     <option id="2">Project 2</option>
@@ -55,7 +55,7 @@
               <div class="box-body">
               <label for="inputActivity">Select Block:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="block">
                     <option id="#">-- Block List --</option>
                     <option id="1">Block 1</option>
                     <option id="2">Block 2</option>
@@ -83,7 +83,7 @@
               <div class="box-body">
               <label for="inputActivity">Select Panel:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="panel">
                     <option id="#">-- Panel List --</option>
                     <option id="1">Panel 1</option>
                     <option id="2">Panel 2</option>
@@ -111,7 +111,7 @@
               <div class="box-body">
               <label>Select Join Panel Process:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="joinpanel">
                     <option id="#">-- Join Panel Process List --</option>
                     <option id="1">Fitting</option>
                     <option id="2">Welding</option>
@@ -135,7 +135,7 @@
               <div class="box-body">
               <label>Select Machine Process:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="machine">
                     <option id="#">-- Machine Process List --</option>
                     <option id="1">Welding Machine FCAW 1</option>
                     <option id="2">Welding Machine FCAW 2</option>

@@ -27,7 +27,7 @@
               <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="project">
                     <option id="#">-- Ship Project List --</option>
                     <?php $i=1;?>
                     @foreach($ship as $data)
@@ -57,7 +57,7 @@
               <label>Select Block to Join:</label>
               <div class="row">
                 <div class="col-lg-6">
-                  <select class="form-control">
+                  <select class="form-control" name="block">
                     <option id="#">-- Block List --</option>
                     <?php $i=1;?>
                     @foreach($block as $data)
@@ -67,7 +67,7 @@
                   </select>
                 </div>
                 <div class="col-lg-6">
-                  <select class="form-control">
+                  <select class="form-control" name="block">
                     <option id="#">-- Block List --</option>
                     <?php $i=1;?>
                     @foreach($block as $data)

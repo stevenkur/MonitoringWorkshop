@@ -28,7 +28,7 @@
               <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="project">
                     <option id="#">-- Ship Project List --</option>
                     <option id="1">Project 1</option>
                     <option id="2">Project 2</option>
@@ -56,7 +56,7 @@
               <div class="box-body">
               <label for="inputActivity">Select BLock:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="block">
                     <option id="#">-- Block List --</option>
                     <option id="1">Block 1</option>
                     <option id="2">Block 2</option>
