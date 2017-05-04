@@ -23,4 +23,14 @@ class UserSubAssemblyController extends Controller
         return view('user/subassembly_recap_worker');
     }  
 
+    public function subassembly_recap_progress_activity()
+    {
+        return view('user/subassembly_recap_progress_activity');
+    }   
+
+    public function subassembly_recap_join_panel_process()
+    {
+        return view('user/subassembly_recap_join_panel_process');
+    }   
+
 }

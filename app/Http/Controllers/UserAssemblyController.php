@@ -23,4 +23,14 @@ class UserAssemblyController extends Controller
         return view('user/assembly_recap_worker');
     }   
 
+    public function assembly_recap_progress_activity()
+    {
+        return view('user/assembly_recap_progress_activity');
+    }  
+
+    public function assembly_recap_join_part_process()
+    {
+        return view('user/assembly_recap_join_part_process');
+    }  
+
 }

@@ -6,49 +6,49 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Create New Ship Project
+        Total Ship Progress
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
-        <li>Input Ship Project</li>
-        <li class="active">Ship Project</li>
+        <li class="active">Total Ship Progress</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
       <div class="row">
-
-        <div class="col-md-6">
-        <div class="box box-primary">
-         
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form class="form">
-            <div class="box-body">
-              <label for="inputActivity">Select Project of Ship:</label>
-                <div class="form-group">
-                  <select class="form-control" name="id">
-                    <option value="#">-- Ship Project List --</option>
-                    <?php $i=1;?>
-                    @foreach($ship as $data)
-                        <?php $datas[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
-                    @endforeach
-                  </select>
-                </div>
-               
+          <!-- /.box-header -->
+          <!-- form start -->  
+          <div class="col-md-12">
+          <div class="box box-primary">
+          <div class="box-body">
+              <label for="viewPanel">Panel List</label>
+              <table id="panel" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>SHIP NAME</th>
+                  <th>PROGRESS</th>
+                  <th>START PROJECT</th>
+                  <th>TARGET FINISH</th>
+                  <th>LAST DATE WORKED</th>
+                </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>SHIP NAME</th>
+                  <th>PROGRESS</th>
+                  <th>START PROJECT</th>
+                  <th>TARGET FINISH</th>
+                  <th>LAST DATE WORKED</th>
+                </tr>
+                </tfoot>
+              </table>
             </div>
-            <!-- /.box-body -->
-            <div class="box-footer">
-              <button method="post" class="btn btn-primary">Choose</button>
             </div>
-            </form>
-        </div>
-        </div>
-            
-            
-
+          </div>
           </div>
     </section>
   </div>
@@ -59,11 +59,27 @@
 <script src="adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="adminlte/bootstrap/js/bootstrap.min.js"></script>
-<!-- ChartJS 1.0.1 -->
-<script src="adminlte/plugins/chartjs/Chart.min.js"></script>
+<!-- DataTables -->
+<script src="adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="adminlte/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="adminlte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="adminlte/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="adminlte/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="admin/dist/js/demo.js"></script>
+<script src="adminlte/dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+$(function() {
+    $('#panel').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    });
+  });
+</script>
