@@ -27,8 +27,8 @@
               <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
-                  <select class="form-control">
-                    <option id="#">-- Ship Project List --</option>
+                  <select class="form-control" name="project">
+                    <option value="#">-- Ship Project List --</option>
                     <?php $i=1;?>
                     @foreach($ship as $data)
                         <?php $shipData[$i] = $data; $i++;?>
@@ -47,6 +47,15 @@
             </div>
             </section>
 
+        <?php 
+                if(isset($_GET['project']) && $_GET['project']!='#') 
+                   $flagProject=true;
+                else $flagProject=false;
+                if(isset($_GET['block']) && $_GET['block']!='#') 
+                   $flagBlock=true;
+                else $flagBlock=false;
+            ?>
+        
             <section class="col-lg-6">
             <div class="box box-primary">
             
@@ -56,8 +65,8 @@
               <div class="box-body">
               <label for="inputActivity">Select Block:</label>
                 <div class="form-group">
-                  <select class="form-control">
-                    <option id="#">-- Block List --</option>
+                  <select class="form-control" name="block">
+                    <option value="#">-- Block List --</option>
                     <?php $i=1;?>
                     @foreach($block as $data)
                         <?php $blockData[$i] = $data; $i++;?>
@@ -85,7 +94,7 @@
               <div class="box-body">
               <label>Select Material Process:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="process">
                     <option id="#">-- Material Process List --</option>
                     <option id="1">Marking</option>
                     <option id="2">Cutting</option>
@@ -108,7 +117,7 @@
               <div class="box-body">
               <label>Select Machine Process:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="machine">
                     <option id="#">-- Machine Process List --</option>
                     <option id="1">CNC Plasma</option>
                     <option id="2">NC Safro</option>
@@ -134,7 +143,7 @@
               <label>Date of Work:</label>
                 <div class="form-group">
                   <input type="date" name="dateofwork">
-                  </select>
+<!--                  </select>-->
                 </div>
                
               </div>
