@@ -28,7 +28,7 @@
               <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="project">
                     <option id="#">-- Ship Project List --</option>
                     <?php $i=1;?>
                     @foreach($ship as $data)
@@ -48,6 +48,15 @@
             </div>
             </section>
 
+          <?php 
+                if(isset($_GET['project']) && $_GET['project']!='#') 
+                   $flagProject=true;
+                else $flagProject=false;
+                if(isset($_GET['block']) && $_GET['block']!='#') 
+                   $flagBlock=true;
+                else $flagBlock=false;
+            ?>
+          
             <section class="col-lg-6">
             <div class="box box-primary">
             
@@ -57,7 +66,7 @@
               <div class="box-body">
               <label for="inputActivity">Select BLock:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="block">
                     <option id="#">-- Block List --</option>
                     <?php $i=1;?>
                     @foreach($block as $data)
