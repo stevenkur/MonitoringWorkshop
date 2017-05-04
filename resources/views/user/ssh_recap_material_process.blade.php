@@ -19,7 +19,7 @@
     <section class="content">
       <div class="row">
 
-            <section class="col-lg-4">
+            <section class="col-lg-6">
             <div class="box box-primary">
             
             <!-- /.box-header -->
@@ -52,9 +52,12 @@
                 if(isset($_GET['project']) && $_GET['project']!='#') 
                    $flagProject=true;
                 else $flagProject=false;
+                if(isset($_GET['block']) && $_GET['block']!='#') 
+                   $flagBlock=true;
+                else $flagBlock=false;
             ?>
           
-            <section class="col-lg-4">
+            <section class="col-lg-6">
             <div class="box box-primary">
             
             <!-- /.box-header -->
@@ -63,8 +66,8 @@
               <div class="box-body">
               <label for="inputActivity">Select BLock:</label>
                 <div class="form-group">
-                  <select class="form-control">
-                    <option id="#">-- Block List --</option>
+                  <select class="form-control" name="block">
+                    <option value="#">-- Block List --</option>
                     <?php $i=1;?>
                     @foreach($block as $data)
                         <?php $blockData[$i] = $data; $i++;?>
@@ -83,11 +86,10 @@
             </div>
             </section>
 
+<!--
             <section class="col-lg-4">
             <div class="box box-primary">
             
-            <!-- /.box-header -->
-            <!-- form start -->
             <form role="form" name="ShipBlock">
               <div class="box-body">
               <label for="inputActivity">Activity:</label>
@@ -100,25 +102,37 @@
                 </div>
                
               </div>
-              <!-- /.box-body -->
+            </form>
             </div>
             </section>
+-->
 
         <section class="col-md-6">
         <div class="box box-primary">
-
-          <h3>Target Quantity per-Day: <br> [XX] Plate per Workshop</h3>
-          <br>  
-
+            <div class="box-body">
+              <h3>Target Quantity per-Day: <br> [XX] Plate per Workshop</h3>
+              <br>  
+            </div>
         </div>
         </section>
 
         <section class="col-md-6">
         <div class="box box-primary">
-
-        <h3>Finish: [XX] plate <br> Total: [XX] plate</h3>
-        <br>
-
+            <div class="box-body">
+                <?php $countStr=0; $countBlast=0; $totalz=0; ?>
+                @foreach($plate as $plates)
+                    <?php
+                        if($plates['STRAIGHTENING']==1) $countStr++;
+                        if($plates['BLASTING']==1) $countBlast++;
+                        $totalz++;
+                    ?>
+                @endforeach
+                <h3>Finished Straightening: <?php echo $countStr; ?> plates
+                    <br> Finished Blasting: <?php echo $countStr; ?> plates
+                    <br> Total Plates: <?php echo $totalz; ?> plates
+                </h3>
+                <br>
+            </div>
         </div>
         </section>
 
@@ -134,63 +148,51 @@
                   <th>Dimension</th>
                   <th>Quantity</th>
                   <th>Weight</th>
-                  <th>Activity</th>
-                  <th>Date of Work</th>
-                  <th>Output Workshop</th>
+                  <th>Straightening</th>
+                  <th>Date Finished</th>
+                  <th>Blasting & Shop Primer</th>
+                  <th>Date Finished</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr><tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr><tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr><tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr>
+                @foreach($plate as $plates)
+                    <?php
+                    if($plates['STRAIGHTENING']==1) $str= 'finished '.$plates['STRAIGHTENING_DATE'];
+                    else $str='unfinished';
+                    if($plates['BLASTING']==1) $blast= 'finished '.$plates['BLASTING_DATE'];
+                    else $blast='unfinished';
+                    
+                    echo '
+                    <tr>
+                        <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>'.$str.'</td>
+                        <td>'.$plates['STRAIGHTENING_DATE'].'</td>
+                        <td>'.$blast.'</td>
+                        <td>'.$plates['BLASTING_DATE'].'</td>
+                    </tr>';?>
+                @endforeach
                 </tbody>
+                <tfoot>
+                <tr>
+                  <th>ID Material</th>
+                  <th>Dimension</th>
+                  <th>Quantity</th>
+                  <th>Weight</th>
+                  <th>Straightening</th>
+                  <th>Date Finished</th>
+                  <th>Blasting & Shop Primer</th>
+                  <th>Date Finished</th>
+                </tr>
+                </tfoot>
               </table>
             </div>
             <!-- /.box-body -->
           </div>
         </div>
-
         </div>
-    </section>
+      </section>
   </div>
 
 @stop
@@ -214,11 +216,11 @@
 <script>
 $(function() {
     $('#plate').DataTable({
-          "paging": false,
-          "lengthChange": false,
+          "paging": true,
+          "lengthChange": true,
           "searching": true,
-          "ordering": false,
-          "info": false,
+          "ordering": true,
+          "info": true,
           "autoWidth": true
     });
   });

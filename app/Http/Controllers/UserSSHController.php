@@ -60,8 +60,9 @@ class UserSSHController extends Controller
     {
         $ship=ShipProject::all();
         $block=Block::all();
+        $plate=Plate::all();
         
-        return view('user/ssh_recap_material_process')->with('ship', $ship)->with('block', $block);
+        return view('user/ssh_recap_material_process')->with('ship', $ship)->with('block', $block)->with('plate', $plate);
     }
 
     public function ssh_recap_progress_activity()
