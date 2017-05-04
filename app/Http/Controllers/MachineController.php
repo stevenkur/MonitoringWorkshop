@@ -41,7 +41,8 @@ class MachineController extends Controller
         $machine->NAME = $request->name;        
         $machine->ACTIVITY = $request->activity;		
         $machine->WORKSHOP = $request->workshop;  
-        $machine->OPERATIONAL_HOUR = $request->operational;    
+        $machine->OPERATIONAL_HOUR = $request->operational;  
+        $machine->CAPACITY = $request->capacity;    
         $machine->save();        
         return redirect()->route('machine.index')
             ->with('alert-success', 'Data Berhasil Disimpan.');

@@ -24,12 +24,12 @@
             
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" name="ShipProject">
+            <form role="form">
               <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
-                  <select class="form-control">
-                    <option id="#">-- Ship Project List --</option>
+                  <select class="form-control" name="project">
+                    <option value="#">-- Ship Project List --</option>
                     <?php $i=1;?>
                     @foreach($ship as $data)
                         <?php $shipData[$i] = $data; $i++;?>
@@ -47,7 +47,13 @@
             </form>
             </div>
             </section>
-
+            
+            <?php 
+                if(isset($_GET['project']) && $_GET['project']!='#') 
+                   $flagProject=true;
+                else $flagProject=false;
+            ?>
+          
             <section class="col-lg-4">
             <div class="box box-primary">
             

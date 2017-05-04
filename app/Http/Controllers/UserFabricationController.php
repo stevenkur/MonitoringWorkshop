@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
+use App\Plate;
 
 class UserFabricationController extends Controller
 {
@@ -37,7 +39,9 @@ class UserFabricationController extends Controller
     public function fabrication_recap_progress_activity()
     {
         $ship=ShipProject::all();
-        return view('user/fabrication_recap_progress_activity')->with('ship', $ship);
+        $progress=Plate::select('ID_BLOCK', 'BLOCK_NAME', 'ID_PROJECT', DB::raw('sum(MARKING) as MARKING'), DB::raw('count(ID) as NUM'), DB::raw('sum(CUTTING) as CUTTING'), DB::raw('sum(BLENDING) as BLENDING'))->groupBy('ID_BLOCK', 'BLOCK_NAME', 'ID_PROJECT')->get();
+        
+        return view('user/fabrication_recap_progress_activity')->with('ship', $ship)->with('progress', $progress);
     }
 
 }
