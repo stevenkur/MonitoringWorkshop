@@ -183,38 +183,16 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($worker as $workers)
                 <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
+                  <td>{{$workers->NAME}}</td>
+                  <td>{{$workers->NIK}}</td>
+                  <td>{{$workers->POSITION.'/'.$workers->DIVISION}}</td>
                   <td><input type="checkbox" id="checklistok" placeholder=""></td>
                   <td><input type="checkbox" id="checklistsick" placeholder=""></td>
                   <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
                 </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
-                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
-                </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
-                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
-                </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
-                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
-                </tr>
+                @endforeach
                 </tbody>
               </table>
             </div>
@@ -224,8 +202,8 @@
             <div class="box box-primary">
             <div class="box box-body">
             <div class="form-group">
-              <label style="font-size: 16px">Input Many Hours of Works: </label><br>
-              <input type="text" id="manyhours" placeholder="">
+              <label style="font-size: 16px">Input Work Hours: </label><br>
+              <input type="text" id="machinehours" placeholder="">
               <label>hours</label>
               <label style="font-size: 16px">Normal Hours (8 Hours)</label> <input type="checkbox" id="checklistok" placeholder="">              
               <label style="font-size: 16px">Additional Hours: </label><br>
@@ -236,7 +214,7 @@
             </div>
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-lg-4">
             <div class="box box-primary">
             <div class="box box-body">
             <div class="form-group">

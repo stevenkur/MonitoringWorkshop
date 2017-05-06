@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
 use App\Worker;
+use App\Panel;
+use App\Machine;
 
 class UserAssemblyController extends Controller
 {

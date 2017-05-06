@@ -182,91 +182,28 @@
             <!-- /.box-header -->
             <div class="box-body">
             <h3>Worker & Time</h3>
-              <table id="plate" class="table table-bordered table-striped">
+              <table id="tabel2" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Name of Worker</th>
-                  <th>NIP</th>
+                  <th>NIK</th>
                   <th>Position/Division</th>
                   <th>Checklist</th>
                   <th>Was Sick/Accident</th>
                   <th>Was Absent</th>
-                  <th>Operator</th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($worker as $workers)
                 <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
+                  <td>{{$workers->NAME}}</td>
+                  <td>{{$workers->NIK}}</td>
+                  <td>{{$workers->POSITION.'/'.$workers->DIVISION}}</td>
                   <td><input type="checkbox" id="checklistok" placeholder=""></td>
                   <td><input type="checkbox" id="checklistsick" placeholder=""></td>
                   <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
-                  <td>
-                    <select class="form-control">
-                    <option id="0">Not Operator</option>
-                    <option id="1">CNC Plasma Operator</option>
-                    <option id="2">NC Safro Operator</option>
-                    <option id="3">CNC Gas Cutting Operator</option>
-                    <option id="4">Bending Machine Operator</option>
-                    <option id="5">Flame Planner Operator</option>
-                  </select>
-                  </td>
                 </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
-                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
-                  <td>
-                    <select class="form-control">
-                    <option id="0">Not Operator</option>
-                    <option id="1">CNC Plasma Operator</option>
-                    <option id="2">NC Safro Operator</option>
-                    <option id="3">CNC Gas Cutting Operator</option>
-                    <option id="4">Bending Machine Operator</option>
-                    <option id="5">Flame Planner Operator</option>
-                  </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
-                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
-                  <td>
-                    <select class="form-control">
-                    <option id="0">Not Operator</option>
-                    <option id="1">CNC Plasma Operator</option>
-                    <option id="2">NC Safro Operator</option>
-                    <option id="3">CNC Gas Cutting Operator</option>
-                    <option id="4">Bending Machine Operator</option>
-                    <option id="5">Flame Planner Operator</option>
-                  </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
-                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
-                  <td>
-                    <select class="form-control">
-                    <option id="0">Not Operator</option>
-                    <option id="1">CNC Plasma Operator</option>
-                    <option id="2">NC Safro Operator</option>
-                    <option id="3">CNC Gas Cutting Operator</option>
-                    <option id="4">Bending Machine Operator</option>
-                    <option id="5">Flame Planner Operator</option>
-                  </select>
-                  </td>
-                </tr>
+                @endforeach
                 </tbody>
               </table>
             </div>
@@ -276,7 +213,7 @@
             <div class="box box-primary">
             <div class="box box-body">
             <div class="form-group">
-              <label style="font-size: 16px">Input Machine Working Hours: </label><br>
+              <label style="font-size: 16px">Input Work Hours: </label><br>
               <input type="text" id="machinehours" placeholder="">
               <label>hours</label>
               <label style="font-size: 16px">Normal Hours (8 Hours)</label> <input type="checkbox" id="checklistok" placeholder="">              
@@ -288,7 +225,7 @@
             </div>
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-lg-4">
             <div class="box box-primary">
             <div class="box box-body">
             <div class="form-group">
@@ -344,8 +281,8 @@
 <!-- page script -->
 <script>
 $(function() {
-    $('#assemblypart').DataTable({
-          "paging": true,
+    $('#tabel2').DataTable({
+          "paging": false,
           "lengthChange": true,
           "searching": true,
           "ordering": true,

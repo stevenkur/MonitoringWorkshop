@@ -18,15 +18,15 @@ class UserBBSController extends Controller
     {
         $ship=ShipProject::all();
         $block=Block::all();
-        $worker=Worker::where('DIVISION', 'BBS')->get();
-        return view('user/bbs_calculate_paint_needs')->with('ship', $ship)->with('block', $block)->with('worker', $worker);
+        return view('user/bbs_calculate_paint_needs')->with('ship', $ship)->with('block', $block);
     }
     
     public function input_act_bbs()
     {
         $ship=ShipProject::all();
         $block=Block::all();
-        return view('user/input_act_bbs')->with('ship', $ship)->with('block', $block);
+        $worker=Worker::where('DIVISION', 'BBS')->get();
+        return view('user/input_act_bbs')->with('ship', $ship)->with('block', $block)->with('worker', $worker);
     }   
 
     public function bbs_recap_material_process()
