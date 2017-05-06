@@ -18,7 +18,7 @@ class UserBBSController extends Controller
     {
         $ship=ShipProject::all();
         $block=Block::all();
-        $worker=Worker::where('DIVISION', 'Erection Process')->get();
+        $worker=Worker::where('DIVISION', 'BBS')->get();
         return view('user/bbs_calculate_paint_needs')->with('ship', $ship)->with('block', $block)->with('worker', $worker);
     }
     

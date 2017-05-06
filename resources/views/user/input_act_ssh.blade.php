@@ -186,43 +186,52 @@
             <!-- /.box-header -->
             <div class="box-body">
             <h3>Worker & Time</h3>
-              <table id="worker" class="table table-bordered table-striped">
+              <table id="tabel2" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Name of Worker</th>
-                  <th>NIP</th>
+                  <th>NIK</th>
                   <th>Position/Division</th>
                   <th>Checklist</th>
                   <th>Was Sick/Accident</th>
                   <th>Was Absent</th>
-                  <th>Operated Machine</th>
+                  <th>Operator Machine</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($worker as $workers)
                 <tr>
                   <td>{{$workers->NAME}}</td>
-                  <td>{{$workers->NIP}}</td>
+                  <td>{{$workers->NIK}}</td>
                   <td>{{$workers->POSITION.'/'.$workers->DIVISION}}</td>
                   <td><input type="checkbox" id="checklistok" placeholder=""></td>
                   <td><input type="checkbox" id="checklistsick" placeholder=""></td>
                   <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
-                  <td>
-                      <select class="form-control" name="machine">
-                          <option value="#">-- Machine List --</option>
-                        <?php $i=1;?>
-                        @foreach($machine as $machines)
-                            <?php $blockMachine[$i] = $machines; $i++;?>
-                            <option value="{{$machines->ID}}">{{$machines->NAME}}</option>
-                        @endforeach
-                    </select>
-                  </td>
+                  <td><input type="checkbox" id="checklistoperator" placeholder=""></td>
                 </tr>
                 @endforeach
                 </tbody>
               </table>
             </div>
             <!-- /.box-body -->
+
+            <div class="col-lg-3">
+            <div class="box box-primary">
+            <div class="box box-body">
+            <div class="form-group">
+            <label style="font-size: 16px">Select Machine: </label><br>
+            <select class="form-control" name="machine">
+                  <option value="#">-- Machine List --</option>
+                <?php $i=1;?>
+                @foreach($machine as $machines)
+                    <?php $blockMachine[$i] = $machines; $i++;?>
+                    <option value="{{$machines->ID}}">{{$machines->NAME}}</option>
+                @endforeach
+            </select>
+            </div>
+            </div>
+            </div>
+            </div>
 
             <div class="col-lg-3">
             <div class="box box-primary">
@@ -240,7 +249,7 @@
             </div>
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-lg-4">
             <div class="box box-primary">
             <div class="box box-body">
             <div class="form-group">
@@ -298,6 +307,14 @@
 $(function() {
     $('#tabel').DataTable({
           "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    });
+    $('#tabel2').DataTable({
+          "paging": false,
           "lengthChange": true,
           "searching": true,
           "ordering": true,

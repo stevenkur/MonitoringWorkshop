@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
 use App\Plate;
+use App\Worker;
 
 class UserFabricationController extends Controller
 {
