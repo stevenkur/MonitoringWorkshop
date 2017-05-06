@@ -49,7 +49,7 @@ class UserSubAssemblyController extends Controller
         $block=Block::all();
         $panel=Panel::all();
         $machine=Machine::all();
-        return view('user/subassembly_recap_join_panel_process')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('machine', $machine);
+        return view('user/subassembly_recap_join_part_process')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('machine', $machine);
     }   
 
 }

@@ -30,7 +30,7 @@ class UserAssemblyController extends Controller
 
     public function assembly_recap_join_part_process()
     {
-        return view('user/assembly_recap_join_part_process');
+        return view('user/assembly_recap_join_panel_process');
     }  
 
 }
