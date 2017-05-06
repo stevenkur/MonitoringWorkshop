@@ -175,7 +175,7 @@
                 <thead>
                 <tr>
                   <th>Name of Worker</th>
-                  <th>NIP</th>
+                  <th>NIK</th>
                   <th>Position/Division</th>
                   <th>Checklist</th>
                   <th>Was Sick/Accident</th>

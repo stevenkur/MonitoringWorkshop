@@ -231,7 +231,7 @@
             <div class="form-group">
             <label style="font-size: 16px">Select Machine: </label><br>
             <select class="form-control" name="machine">
-                  <option value="#">-- Machine List --</option>
+                <option value="#">-- Machine List --</option>
                 <?php $i=1;?>
                 @foreach($machine as $machines)
                     <?php $blockMachine[$i] = $machines; $i++;?>

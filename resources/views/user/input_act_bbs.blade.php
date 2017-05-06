@@ -94,42 +94,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Room</td>
-                  <td>Side</td>
-                  <td>Frame</td>
-                  <td>Deck</td>
-                  <td>Area (m2)</td>
-                  <td>Layer</td>
-                  <td><input type="checkbox" id="checklistplate" placeholder=""></td>
-                </tr>
-                <tr>
-                  <td>Room</td>
-                  <td>Side</td>
-                  <td>Frame</td>
-                  <td>Deck</td>
-                  <td>Area (m2)</td>
-                  <td>Layer</td>
-                  <td><input type="checkbox" id="checklistplate" placeholder=""></td>
-                </tr>
-                <tr>
-                  <td>Room</td>
-                  <td>Side</td>
-                  <td>Frame</td>
-                  <td>Deck</td>
-                  <td>Area (m2)</td>
-                  <td>Layer</td>
-                  <td><input type="checkbox" id="checklistplate" placeholder=""></td>
-                </tr>
-                <tr>
-                  <td>Room</td>
-                  <td>Side</td>
-                  <td>Frame</td>
-                  <td>Deck</td>
-                  <td>Area (m2)</td>
-                  <td>Layer</td>
-                  <td><input type="checkbox" id="checklistplate" placeholder=""></td>
-                </tr>
+                
                 </tbody>
               </table>
             </div>
