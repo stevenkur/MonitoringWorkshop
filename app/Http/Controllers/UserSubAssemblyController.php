@@ -22,7 +22,7 @@ class UserSubAssemblyController extends Controller
         $ship=ShipProject::all();
         $block=Block::all();
         $panel=Panel::all();
-        $machine=Machine::all();
+        $machine=Machine::where('WORKSHOP', 'Sub-Assembly')->get();
         $worker=Worker::where('DIVISION', 'Sub-Assembly')->get();
         return view('user/input_act_subassembly')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('machine', $machine)->with('worker', $worker);
     }   
