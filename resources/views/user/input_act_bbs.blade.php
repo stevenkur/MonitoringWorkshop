@@ -61,7 +61,7 @@
                     <?php $i=1;?>
                     @foreach($block as $data)
                         <?php $blockData[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
+                        <option value="{{$data->ID}}">{{$data->NAME}}</option>
                     @endforeach
                   </select>
                 </div>

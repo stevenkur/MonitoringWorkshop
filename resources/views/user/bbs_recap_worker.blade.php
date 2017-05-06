@@ -29,7 +29,7 @@
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
                   <select class="form-control" name="project">
-                    <option id="#">-- Ship Project List --</option>
+                    <option value="#">-- Ship Project List --</option>
                     <?php $i=1;?>
                     @foreach($ship as $data)
                         <?php $shipData[$i] = $data; $i++;?>
@@ -58,11 +58,11 @@
               <label for="inputActivity">Select BLock:</label>
                 <div class="form-group">
                   <select class="form-control" name="block">
-                    <option id="#">-- Block List --</option>
+                    <option value="#">-- Block List --</option>
                     <?php $i=1;?>
                     @foreach($block as $data)
                         <?php $blockData[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
+                        <option value="{{$data->ID}}">{{$data->NAME}}</option>
                     @endforeach
                   </select>
                 </div>

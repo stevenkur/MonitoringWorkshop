@@ -43,12 +43,11 @@ class UserSubAssemblyController extends Controller
         return view('user/subassembly_recap_progress_activity')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('machine', $machine);
     }   
 
-    public function subassembly_recap_join_panel_process()
+    public function subassembly_recap_join_part_process()
     {
         $ship=ShipProject::all();
         $block=Block::all();
         $panel=Panel::all();
-        $machine=Machine::all();
         return view('user/subassembly_recap_join_part_process')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('machine', $machine);
     }   
 
