@@ -47,7 +47,7 @@
             </div>
             </section>
 
-        <?php 
+            <?php 
                 if(isset($_GET['project']) && $_GET['project']!='#') 
                    $flagProject=true;
                 else $flagProject=false;
@@ -83,70 +83,7 @@
               </div>
             </form>
             </div>
-            </section>
-
-          <section class="col-lg-5">
-            <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" name="ShipProject">
-              <div class="box-body">
-              <label>Select Material Process:</label>
-                <div class="form-group">
-                  <select class="form-control" name="process">
-                    <option id="#">-- Material Process List --</option>
-                    <option id="1">Straightening</option>
-                    <option id="2">Blasting & Shop Primer</option>
-                  </select>
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-            </form>
-            </div>
-            </section>
-
-            <section class="col-lg-5">
-            <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" name="ShipBlock">
-              <div class="box-body">
-              <label>Select Machine Process:</label>
-                <div class="form-group">
-                  <select class="form-control" name="machine">
-                    <option id="#">-- Machine Process List --</option>
-                    <option id="1">Rool Machine</option>
-                    <option id="2">Shoot Blasting & Primering Machine</option>
-                  </select>
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-            </form>
-            </div>
-            </section>
-
-            <section class="col-lg-2">
-            <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" name="ShipProject">
-              <div class="box-body">
-              <label>Date of Work:</label>
-                <div class="form-group">
-                  <input type="date" name="dateofwork">
-<!--                  </select>-->
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-            </form>
-            </div>
-            </section>
+            </section>  
 
         <div class="col-md-12">
         <div class="box box-primary">
@@ -154,53 +91,121 @@
             <div class="box-body">
             <h4 align="right"><b>Target Quantity per Day: [TARGET] Plate</b></h4>
             <h3>Material List Plate</h3>
-              <table id="plate" class="table table-bordered table-striped">
+              <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>ID Material</th>
                   <th>Dimension</th>
                   <th>Quantity</th>
                   <th>Weight</th>
-                  <th>Checklist</th>
+                  <th>Material Process</th>
+                  <th>Machine Process</th>
+                  <th>Confirmation</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td><input type="checkbox" id="checklistplate" placeholder=""></td>
-                </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td><input type="checkbox" id="checklistplate" placeholder=""></td>
-                </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td><input type="checkbox" id="checklistplate" placeholder=""></td>
-                </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td><input type="checkbox" id="checklistplate" placeholder=""></td>
-                </tr>
+                @foreach($plate as $plates)
+                    <?php if($flagBlock && $plates->ID_BLOCK == $_GET['block']){
+                    echo '
+                    <tr>
+                        <td>'.$plates['ID'].'</td>                            
+                        <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
+                        <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>
+                          <select class="form-control" name="process">
+                            <option id="#">-- Material Process List --</option>
+                            <option id="1">Straightening</option>
+                            <option id="2">Blasting & Shop Primer</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-control" name="machine">
+                            <option id="#">-- Machine Process List --</option>
+                            <option id="1">Rool Machine</option>
+                            <option id="2">Shoot Blasting & Primering Machine</option>
+                          </select>
+                        </td>
+                        <td>';?>
+                            @if ($plates->DATE_COMING==null)
+                            <form method="post"  action="{{route('confirm_material_plate', $plates->ID)}}">
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                                <input name="id" type="hidden" value="{{ $plates->ID }}">
+                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">INPUT</button>
+                            </form>
+                            @endif
+                        <?php echo '</td>
+                    </tr>';
+                    }
+                    else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
+                    echo '
+                    <tr>
+                        <td>'.$plates['ID'].'</td>                            
+                        <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
+                        <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>
+                          <select class="form-control" name="process">
+                            <option id="#">-- Material Process List --</option>
+                            <option id="1">Straightening</option>
+                            <option id="2">Blasting & Shop Primer</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-control" name="machine">
+                            <option id="#">-- Machine Process List --</option>
+                            <option id="1">Rool Machine</option>
+                            <option id="2">Shoot Blasting & Primering Machine</option>
+                          </select>
+                        </td>
+                        <td>';?>
+                            @if ($plates->DATE_COMING==null)
+                            <form method="post"  action="{{route('confirm_material_plate', $plates->ID)}}">
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                                <input name="id" type="hidden" value="{{ $plates->ID }}">
+                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">INPUT</button>
+                            </form>
+                            @endif
+                        <?php echo '</td>
+                    </tr>';
+                    }
+                    else if(!$flagBlock && !$flagProject){
+                    echo '
+                    <tr>
+                        <td>'.$plates['ID'].'</td>                            
+                        <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
+                        <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>
+                          <select class="form-control" name="process">
+                            <option id="#">-- Material Process List --</option>
+                            <option id="1">Straightening</option>
+                            <option id="2">Blasting & Shop Primer</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-control" name="machine">
+                            <option id="#">-- Machine Process List --</option>
+                            <option id="1">Rool Machine</option>
+                            <option id="2">Shoot Blasting & Primering Machine</option>
+                          </select>
+                        </td>
+                        <td>';?>
+                            @if ($plates->DATE_COMING==null)
+                            <form method="post"  action="{{route('confirm_material_plate', $plates->ID)}}">
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                                <input name="id" type="hidden" value="{{ $plates->ID }}">
+                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">INPUT</button>
+                            </form>
+                            @endif
+                        <?php echo '</td>
+                    </tr>';
+                        }?>
+                    @endforeach
                 </tbody>
               </table>
             </div>
             <!-- /.box-body -->
-            <div class="box-footer" align="right">
-              <button type="reset" class="btn btn-primary">Reset</button>
-              <button type="submit" class="btn btn-primary">Input</button>
-            </div>
           </div>
         </div>
 
@@ -316,18 +321,10 @@
 <!-- page script -->
 <script>
 $(function() {
-    $('#assemblypart').DataTable({
+    $('#tabel').DataTable({
           "paging": true,
           "lengthChange": true,
           "searching": true,
-          "ordering": true,
-          "info": true,
-          "autoWidth": true
-    });
-    $('#worker').DataTable({
-          "paging": true,
-          "lengthChange": true,
-          "searching": false,
           "ordering": true,
           "info": true,
           "autoWidth": true
