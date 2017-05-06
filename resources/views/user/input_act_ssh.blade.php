@@ -99,8 +99,7 @@
                   <th>Quantity</th>
                   <th>Weight</th>
                   <th>Material Process</th>
-                  <th>Machine Process</th>
-                  <th>Confirmation</th>
+                  <th>Select</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -119,21 +118,12 @@
                             <option id="2">Blasting & Shop Primer</option>
                           </select>
                         </td>
-                        <td>
-                          <select class="form-control" name="machine">
-                            <option id="#">-- Machine Process List --</option>
-                            <option id="1">Rool Machine</option>
-                            <option id="2">Shoot Blasting & Primering Machine</option>
-                          </select>
-                        </td>
                         <td>';?>
-                            @if ($plates->DATE_COMING==null)
-                            <form method="post"  action="{{route('confirm_material_plate', $plates->ID)}}">
+                            <form method="post"  action="#">
                                 <input name="_token" type="hidden" value="{{ csrf_token() }}">
                                 <input name="id" type="hidden" value="{{ $plates->ID }}">
-                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">INPUT</button>
+                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">SELECT</button>
                             </form>
-                            @endif
                         <?php echo '</td>
                     </tr>';
                     }
@@ -151,21 +141,12 @@
                             <option id="2">Blasting & Shop Primer</option>
                           </select>
                         </td>
-                        <td>
-                          <select class="form-control" name="machine">
-                            <option id="#">-- Machine Process List --</option>
-                            <option id="1">Rool Machine</option>
-                            <option id="2">Shoot Blasting & Primering Machine</option>
-                          </select>
-                        </td>
                         <td>';?>
-                            @if ($plates->DATE_COMING==null)
-                            <form method="post"  action="{{route('confirm_material_plate', $plates->ID)}}">
+                            <form method="post"  action="#">
                                 <input name="_token" type="hidden" value="{{ csrf_token() }}">
                                 <input name="id" type="hidden" value="{{ $plates->ID }}">
-                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">INPUT</button>
+                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">SELECT</button>
                             </form>
-                            @endif
                         <?php echo '</td>
                     </tr>';
                     }
@@ -183,21 +164,12 @@
                             <option id="2">Blasting & Shop Primer</option>
                           </select>
                         </td>
-                        <td>
-                          <select class="form-control" name="machine">
-                            <option id="#">-- Machine Process List --</option>
-                            <option id="1">Rool Machine</option>
-                            <option id="2">Shoot Blasting & Primering Machine</option>
-                          </select>
-                        </td>
                         <td>';?>
-                            @if ($plates->DATE_COMING==null)
-                            <form method="post"  action="{{route('confirm_material_plate', $plates->ID)}}">
+                            <form method="post"  action="#">
                                 <input name="_token" type="hidden" value="{{ csrf_token() }}">
                                 <input name="id" type="hidden" value="{{ $plates->ID }}">
-                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">INPUT</button>
+                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">SELECT</button>
                             </form>
-                            @endif
                         <?php echo '</td>
                     </tr>';
                         }?>
@@ -223,7 +195,7 @@
                   <th>Checklist</th>
                   <th>Was Sick/Accident</th>
                   <th>Was Absent</th>
-                  <th>Operator</th>
+                  <th>Operated Machine</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -236,11 +208,14 @@
                   <td><input type="checkbox" id="checklistsick" placeholder=""></td>
                   <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
                   <td>
-                    <select class="form-control">
-                    <option id="0">Not Operator</option>
-                    <option id="1">Operator Rool Machine</option>
-                    <option id="2">Operator Shoot Blasting & Primering Machine</option>
-                  </select>
+                      <select class="form-control" name="machine">
+                          <option value="#">-- Machine List --</option>
+                        <?php $i=1;?>
+                        @foreach($machine as $machines)
+                            <?php $blockMachine[$i] = $machines; $i++;?>
+                            <option value="{{$machines->ID}}">{{$machines->NAME}}</option>
+                        @endforeach
+                    </select>
                   </td>
                 </tr>
                 @endforeach

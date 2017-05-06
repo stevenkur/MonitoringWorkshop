@@ -27,13 +27,14 @@
               <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
-                  <select class="form-control">
-                    <option id="#">-- Ship Project List --</option>
-                    <option id="1">Project 1</option>
-                    <option id="2">Project 2</option>
-                    <option id="3">Project 3</option>
-                    <option id="4">Project 4</option>
-                  </select>
+                    <select class="form-control">
+                    <option value="#">-- Ship Project List --</option>
+                    <?php $i=1;?>
+                    @foreach($ship as $data)
+                        <?php $shipData[$i] = $data; $i++;?>
+                        <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
+                    @endforeach
+                    </select>
                 </div>
                
               </div>
@@ -46,6 +47,18 @@
             </div>
             </section>
 
+            <?php 
+                if(isset($_GET['project']) && $_GET['project']!='#') 
+                   $flagProject=true;
+                else $flagProject=false;
+                if(isset($_GET['block']) && $_GET['block']!='#') 
+                   $flagBlock=true;
+                else $flagBlock=false;
+                if(isset($_GET['machine']) && $_GET['machine']!='#') 
+                   $flagMachine=true;
+                else $flagMachine=false;
+            ?>
+        
             <section class="col-lg-4">
             <div class="box box-primary">
             
@@ -56,11 +69,12 @@
               <label for="inputActivity">Select Block:</label>
                 <div class="form-group">
                   <select class="form-control">
-                    <option id="#">-- Block List --</option>
-                    <option id="1">Block 1</option>
-                    <option id="2">Block 2</option>
-                    <option id="3">Block 3</option>
-                    <option id="4">Block 4</option>
+                    <option value="#">-- Block List --</option>
+                    <?php $i=1;?>
+                    @foreach($block as $data)
+                        <?php $blockData[$i] = $data; $i++;?>
+                        <option value="{{$data->ID}}">{{$data->NAME}}</option>
+                    @endforeach
                   </select>
                 </div>
                
@@ -84,11 +98,12 @@
               <label for="inputActivity">Select Panel:</label>
                 <div class="form-group">
                   <select class="form-control">
-                    <option id="#">-- Panel List --</option>
-                    <option id="1">Panel 1</option>
-                    <option id="2">Panel 2</option>
-                    <option id="3">Panel 3</option>
-                    <option id="4">Panel 4</option>
+                    <option value="#">-- Panel List --</option>
+                    <?php $i=1;?>
+                    @foreach($panel as $panels)
+                        <?php $blockPanel[$i] = $panels; $i++;?>
+                        <option value="{{$panels->ID}}">{{$panels->NAME}}</option>
+                    @endforeach
                   </select>
                 </div>
                
@@ -135,12 +150,13 @@
               <div class="box-body">
               <label>Select Machine Process:</label>
                 <div class="form-group">
-                  <select class="form-control">
-                    <option id="#">-- Machine Process List --</option>
-                    <option id="1">Welding Machine FCAW 1</option>
-                    <option id="2">Welding Machine FCAW 2</option>
-                    <option id="3">Welding Machine FCAW 3</option>
-                    <option id="4">Service Welding Gantry</option>
+                  <select class="form-control" name="machine">
+                    <option value="#">-- Machine List --</option>
+                    <?php $i=1;?>
+                    @foreach($machine as $machines)
+                        <?php $blockMachine[$i] = $machines; $i++;?>
+                        <option value="{{$machines->ID}}">{{$machines->NAME}}</option>
+                    @endforeach
                   </select>
                 </div>
                

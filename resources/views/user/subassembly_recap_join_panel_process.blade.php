@@ -29,8 +29,12 @@
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
                   <select class="form-control" name="project">
-                    <option id="#">-- Ship Project List --</option>
-                    
+                    <option value="#">-- Ship Project List --</option>
+                    <?php $i=1;?>
+                    @foreach($ship as $data)
+                        <?php $shipData[$i] = $data; $i++;?>
+                        <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
+                    @endforeach
                   </select>
                 </div>
                
@@ -44,6 +48,18 @@
             </div>
             </section>
 
+            <?php 
+                if(isset($_GET['project']) && $_GET['project']!='#') 
+                   $flagProject=true;
+                else $flagProject=false;
+                if(isset($_GET['block']) && $_GET['block']!='#') 
+                   $flagBlock=true;
+                else $flagBlock=false;
+                if(isset($_GET['panel']) && $_GET['panel']!='#') 
+                   $flagPanel=true;
+                else $flagPanel=false;
+            ?>
+          
             <section class="col-lg-4">
             <div class="box box-primary">
             
@@ -54,8 +70,12 @@
               <label for="inputActivity">Select BLock:</label>
                 <div class="form-group">
                   <select class="form-control" name="block">
-                    <option id="#">-- Block List --</option>
-                    
+                    <option value="#">-- Block List --</option>
+                    <?php $i=1;?>
+                    @foreach($block as $data)
+                        <?php $blockData[$i] = $data; $i++;?>
+                        <option value="{{$data->ID}}">{{$data->NAME}}</option>
+                    @endforeach
                   </select>
                 </div>
                
@@ -74,20 +94,25 @@
             
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" name="ShipBlock">
+            <form role="form" name="ShipPanel">
               <div class="box-body">
               <label for="inputActivity">Panel Name:</label>
                 <div class="form-group">
                   <select class="form-control" name="panel">
-                    <option id="#">-- Panel List --</option>
-                    
+                    <option value="#">-- Panel List --</option>
+                    <?php $i=1;?>
+                    @foreach($panel as $panels)
+                        <?php $blockPanel[$i] = $panels; $i++;?>
+                        <option value="{{$panels->ID}}">{{$panels->NAME}}</option>
+                    @endforeach
                   </select>
                 </div>
                
               </div>
               <!-- /.box-body -->
-            </div>
-            </section>
+            </form>
+        </div>
+        </section>
 
         <section class="col-md-12">
         <div class="box box-primary">

@@ -30,7 +30,11 @@
                 <div class="form-group">
                   <select class="form-control" name="project">
                     <option value="#">-- Ship Project List --</option>
-                    
+                    <?php $i=1;?>
+                    @foreach($ship as $data)
+                        <?php $shipData[$i] = $data; $i++;?>
+                        <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
+                    @endforeach
                   </select>
                 </div>
                
@@ -44,6 +48,18 @@
             </div>
             </section>
 
+            <?php 
+                if(isset($_GET['project']) && $_GET['project']!='#') 
+                   $flagProject=true;
+                else $flagProject=false;
+                if(isset($_GET['block']) && $_GET['block']!='#') 
+                   $flagBlock=true;
+                else $flagBlock=false;
+                if(isset($_GET['machine']) && $_GET['machine']!='#') 
+                   $flagMachine=true;
+                else $flagMachine=false;
+            ?>
+          
             <section class="col-md-6">
             <div class="box box-primary">
             
@@ -54,11 +70,12 @@
               <label for="inputActivity">Select Block:</label>
                 <div class="form-group">
                   <select class="form-control" name="block">
-                    <option id="#">-- Block List --</option>
-                    <option id="1">Block 1</option>
-                    <option id="2">Block 2</option>
-                    <option id="3">Block 3</option>
-                    <option id="4">Block 4</option>
+                    <option value="#">-- Block List --</option>
+                    <?php $i=1;?>
+                    @foreach($block as $data)
+                        <?php $blockData[$i] = $data; $i++;?>
+                        <option value="{{$data->ID}}">{{$data->NAME}}</option>
+                    @endforeach
                   </select>
                 </div>
                

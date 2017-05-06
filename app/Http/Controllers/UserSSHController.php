@@ -9,6 +9,7 @@ use App\Block;
 use App\Plate;
 use App\Profile;
 use App\Worker;
+use App\Machine;
 use Carbon\Carbon;
 
 class UserSSHController extends Controller
@@ -46,8 +47,9 @@ class UserSSHController extends Controller
         $ship=ShipProject::all();
         $block=Block::all();
         $plate=Plate::all();
+        $machine=Machine::all();
         $worker=Worker::where('DIVISION', 'SSH')->get();
-        return view('user/input_act_ssh')->with('ship', $ship)->with('block', $block)->with('plate', $plate)->with('worker', $worker);
+        return view('user/input_act_ssh')->with('ship', $ship)->with('block', $block)->with('plate', $plate)->with('worker', $worker)->with('machine', $machine);
     }
 
     public function ssh_recap_material_coming()

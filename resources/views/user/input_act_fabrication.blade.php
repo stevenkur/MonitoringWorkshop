@@ -47,13 +47,16 @@
             </div>
             </section>
 
-        <?php 
+            <?php 
                 if(isset($_GET['project']) && $_GET['project']!='#') 
                    $flagProject=true;
                 else $flagProject=false;
                 if(isset($_GET['block']) && $_GET['block']!='#') 
                    $flagBlock=true;
                 else $flagBlock=false;
+                if(isset($_GET['machine']) && $_GET['machine']!='#') 
+                   $flagMachine=true;
+                else $flagMachine=false;
             ?>
         
             <section class="col-lg-6">
@@ -95,10 +98,12 @@
               <label>Select Material Process:</label>
                 <div class="form-group">
                   <select class="form-control" name="process">
-                    <option id="#">-- Material Process List --</option>
-                    <option id="1">Marking</option>
-                    <option id="2">Cutting</option>
-                    <option id="3">Bending</option>
+                    <option value="#">-- Material Process List --</option>
+                    <?php $i=1;?>
+                    @foreach($material as $mat)
+                        <?php $blockMaterial[$i] = $mat; $i++;?>
+                        <option value="{{$mat->ID}}">{{$mat->ID}}</option>
+                    @endforeach
                   </select>
                 </div>
                
