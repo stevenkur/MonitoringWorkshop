@@ -176,7 +176,6 @@
               <label>Date of Work:</label>
                 <div class="form-group">
                   <input type="date" name="dateofwork">
-                  </select>
                 </div>
                
               </div>
