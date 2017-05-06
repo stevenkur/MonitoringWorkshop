@@ -88,120 +88,98 @@
             </div>
             </section>
 
-          <section class="col-lg-5">
-            <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" name="ShipProject">
-              <div class="box-body">
-              <label>Select Material Process:</label>
-                <div class="form-group">
-                  <select class="form-control" name="process">
-                    <option value="#">-- Material Process List --</option>
-                    <?php $i=1;?>
-                    @foreach($material as $mat)
-                        <?php $blockMaterial[$i] = $mat; $i++;?>
-                        <option value="{{$mat->ID}}">{{$mat->ID}}</option>
-                    @endforeach
-                  </select>
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-            </form>
-            </div>
-            </section>
-
-            <section class="col-lg-5">
-            <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" name="ShipBlock">
-              <div class="box-body">
-              <label>Select Machine Process:</label>
-                <div class="form-group">
-                  <select class="form-control" name="machine">
-                    <option id="#">-- Machine Process List --</option>
-                    <option id="1">CNC Plasma</option>
-                    <option id="2">NC Safro</option>
-                    <option id="3">CNC Gas Cutting</option>
-                    <option id="4">Bending Machine</option>
-                    <option id="5">Flame Planner</option>
-                  </select>
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-            </form>
-            </div>
-            </section>
-
-            <section class="col-lg-2">
-            <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" name="ShipProject">
-              <div class="box-body">
-              <label>Date of Work:</label>
-                <div class="form-group">
-                  <input type="date" name="dateofwork">
-<!--                  </select>-->
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-            </form>
-            </div>
-            </section>
-
         <div class="col-md-12">
         <div class="box box-primary">
             <h4 align="right"><b>Target Quantity per Day: [TARGET] Plate</b></h4>
             <!-- /.box-header -->
             <div class="box-body">
             <h3>Material List Plate</h3>
-              <table id="plate" class="table table-bordered table-striped">
+              <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>ID Material</th>
                   <th>Dimension</th>
                   <th>Quantity</th>
                   <th>Weight</th>
-                  <th>Checklist</th>
+                  <th>Material Process</th>
+                  <th>Select</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td><input type="checkbox" id="checklistplate" placeholder=""></td>
-                </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td><input type="checkbox" id="checklistplate" placeholder=""></td>
-                </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td><input type="checkbox" id="checklistplate" placeholder=""></td>
-                </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td><input type="checkbox" id="checklistplate" placeholder=""></td>
-                </tr>
+                @foreach($plate as $plates)
+                    <?php if($flagBlock && $plates->ID_BLOCK == $_GET['block']){
+                    echo '
+                    <tr>
+                        <td>'.$plates['ID'].'</td>                            
+                        <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
+                        <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>
+                          <select class="form-control" name="process">
+                            <option id="#">-- Material Process List --</option>
+                            <option id="1">Marking</option>
+                            <option id="2">Cutting</option>
+                            <option id="3">Bending</option>
+                          </select>
+                        </td>
+                        <td>';?>
+                            <form method="post"  action="#">
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                                <input name="id" type="hidden" value="{{ $plates->ID }}">
+                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">SELECT</button>
+                            </form>
+                        <?php echo '</td>
+                    </tr>';
+                    }
+                    else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
+                    echo '
+                    <tr>
+                        <td>'.$plates['ID'].'</td>                            
+                        <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
+                        <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>
+                          <select class="form-control" name="process">
+                            <option id="#">-- Material Process List --</option>
+                            <option id="1">Marking</option>
+                            <option id="2">Cutting</option>
+                            <option id="3">Bending</option>
+                          </select>
+                        </td>
+                        <td>';?>
+                            <form method="post"  action="#">
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                                <input name="id" type="hidden" value="{{ $plates->ID }}">
+                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">SELECT</button>
+                            </form>
+                        <?php echo '</td>
+                    </tr>';
+                    }
+                    else if(!$flagBlock && !$flagProject){
+                    echo '
+                    <tr>
+                        <td>'.$plates['ID'].'</td>                            
+                        <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
+                        <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>
+                          <select class="form-control" name="process">
+                            <option id="#">-- Material Process List --</option>
+                            <option id="1">Marking</option>
+                            <option id="2">Cutting</option>
+                            <option id="3">Bending</option>
+                          </select>
+                        </td>
+                        <td>';?>
+                            <form method="post"  action="#">
+                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                                <input name="id" type="hidden" value="{{ $plates->ID }}">
+                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">SELECT</button>
+                            </form>
+                        <?php echo '</td>
+                    </tr>';
+                        }?>
+                    @endforeach
                 </tbody>
               </table>
             </div>
@@ -218,7 +196,7 @@
             <!-- /.box-header -->
             <div class="box-body">
             <h3>Worker & Time</h3>
-              <table id="plate" class="table table-bordered table-striped">
+              <table id="tabel2" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Name of Worker</th>
@@ -227,86 +205,43 @@
                   <th>Checklist</th>
                   <th>Was Sick/Accident</th>
                   <th>Was Absent</th>
-                  <th>Operator</th>
+                  <th>Operator Machine</th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($worker as $workers)
                 <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
+                  <td>{{$workers->NAME}}</td>
+                  <td>{{$workers->NIK}}</td>
+                  <td>{{$workers->POSITION.'/'.$workers->DIVISION}}</td>
                   <td><input type="checkbox" id="checklistok" placeholder=""></td>
                   <td><input type="checkbox" id="checklistsick" placeholder=""></td>
                   <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
-                  <td>
-                    <select class="form-control">
-                    <option id="0">Not Operator</option>
-                    <option id="1">CNC Plasma Operator</option>
-                    <option id="2">NC Safro Operator</option>
-                    <option id="3">CNC Gas Cutting Operator</option>
-                    <option id="4">Bending Machine Operator</option>
-                    <option id="5">Flame Planner Operator</option>
-                  </select>
-                  </td>
+                  <td><input type="checkbox" id="checklistoperator" placeholder=""></td>
                 </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
-                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
-                  <td>
-                    <select class="form-control">
-                    <option id="0">Not Operator</option>
-                    <option id="1">CNC Plasma Operator</option>
-                    <option id="2">NC Safro Operator</option>
-                    <option id="3">CNC Gas Cutting Operator</option>
-                    <option id="4">Bending Machine Operator</option>
-                    <option id="5">Flame Planner Operator</option>
-                  </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
-                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
-                  <td>
-                    <select class="form-control">
-                    <option id="0">Not Operator</option>
-                    <option id="1">CNC Plasma Operator</option>
-                    <option id="2">NC Safro Operator</option>
-                    <option id="3">CNC Gas Cutting Operator</option>
-                    <option id="4">Bending Machine Operator</option>
-                    <option id="5">Flame Planner Operator</option>
-                  </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
-                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
-                  <td>
-                    <select class="form-control">
-                    <option id="0">Not Operator</option>
-                    <option id="1">CNC Plasma Operator</option>
-                    <option id="2">NC Safro Operator</option>
-                    <option id="3">CNC Gas Cutting Operator</option>
-                    <option id="4">Bending Machine Operator</option>
-                    <option id="5">Flame Planner Operator</option>
-                  </select>
-                  </td>
-                </tr>
+                @endforeach
                 </tbody>
               </table>
             </div>
             <!-- /.box-body -->
+
+            <div class="col-lg-3">
+            <div class="box box-primary">
+            <div class="box box-body">
+            <div class="form-group">
+            <label style="font-size: 16px">Select Machine: </label><br>
+            <select class="form-control" name="machine">
+                  <option value="#">-- Machine List --</option>
+                <?php $i=1;?>
+                @foreach($machine as $machines)
+                    <?php $blockMachine[$i] = $machines; $i++;?>
+                    <option value="{{$machines->ID}}">{{$machines->NAME}}</option>
+                @endforeach
+            </select>
+            </div>
+            </div>
+            </div>
+            </div>
 
             <div class="col-lg-3">
             <div class="box box-primary">
@@ -324,7 +259,7 @@
             </div>
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-lg-4">
             <div class="box box-primary">
             <div class="box box-body">
             <div class="form-group">
@@ -380,8 +315,16 @@
 <!-- page script -->
 <script>
 $(function() {
-    $('#assemblypart').DataTable({
+    $('#tabel').DataTable({
           "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    });
+    $('#tabel2').DataTable({
+          "paging": false,
           "lengthChange": true,
           "searching": true,
           "ordering": true,
