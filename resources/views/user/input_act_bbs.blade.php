@@ -78,9 +78,9 @@
 
         <div class="col-md-12">
         <div class="box box-primary">
-            <h4 align="right"><b>Target Quantity per Day: [TARGET] Plate</b></h4>
             <!-- /.box-header -->
             <div class="box-body">
+            <h4 align="right"><b>Target Quantity per Day: [TARGET] Plate</b></h4>
               <table id="plate" class="table table-bordered table-striped">
                 <thead>
                 <tr>
