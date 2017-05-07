@@ -47,7 +47,7 @@ class UserSSHController extends Controller
         $ship=ShipProject::all();
         $block=Block::all();
         $plate=Plate::all();
-        $machine=Machine::all();
+        $machine=Machine::where('WORKSHOP', 'SSH')->get();
         $worker=Worker::where('DIVISION', 'SSH')->get();
         return view('user/input_act_ssh')->with('ship', $ship)->with('block', $block)->with('plate', $plate)->with('worker', $worker)->with('machine', $machine);
     }

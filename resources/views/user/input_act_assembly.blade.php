@@ -117,80 +117,13 @@
             </div>
             </section>
 
-          <section class="col-lg-5">
-            <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" name="ShipProject">
-              <div class="box-body">
-              <label>Select Join Part Process:</label>
-                <div class="form-group">
-                  <select class="form-control">
-                    <option id="#">-- Join Part Process List --</option>
-                    <option id="1">Fitting</option>
-                    <option id="2">Welding</option>
-                    <option id="3">Grinding</option>
-                    <option id="4">Fairing</option>
-                  </select>
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-            </form>
-            </div>
-            </section>
-
-            <section class="col-lg-5">
-            <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" name="ShipBlock">
-              <div class="box-body">
-              <label>Select Machine Process:</label>
-                <div class="form-group">
-                  <select class="form-control" name="machine">
-                    <option value="#">-- Machine List --</option>
-                    <?php $i=1;?>
-                    @foreach($machine as $machines)
-                        <?php $blockMachine[$i] = $machines; $i++;?>
-                        <option value="{{$machines->ID}}">{{$machines->NAME}}</option>
-                    @endforeach
-                  </select>
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-            </form>
-            </div>
-            </section>
-
-            <section class="col-lg-2">
-            <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" name="ShipProject">
-              <div class="box-body">
-              <label>Date of Work:</label>
-                <div class="form-group">
-                  <input type="date" name="dateofwork">
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-            </form>
-            </div>
-            </section>
-
         <div class="col-md-12">
         <div class="box box-primary">
-            <h4 align="right"><b>Target Quantity per Day: [TARGET] Ton</b></h4>
             <!-- /.box-header -->
             <div class="box-body">
+            <h4 align="right"><b>Target Quantity per Day: [TARGET] Ton</b></h4>
             <h3>Part of Panel</h3>
-              <table id="plate" class="table table-bordered table-striped">
+              <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>ID Part</th>
@@ -201,60 +134,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td><input type="checkbox" id="checklistplate" placeholder=""></td>
-                </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td><input type="checkbox" id="checklistplate" placeholder=""></td>
-                </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td><input type="checkbox" id="checklistplate" placeholder=""></td>
-                </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td><input type="checkbox" id="checklistplate" placeholder=""></td>
-                </tr>
+
                 </tbody>
               </table>
             </div>
             <!-- /.box-body -->
-            <form role="form" name="ShipActivity">
-              <div class="box-body">
-              <label>Select Activity:</label>
-                <div class="form-group">
-                  <select class="form-control">
-                    <option id="#">-- Activity List --</option>
-                    <option id="1">Fitting</option>
-                    <option id="2">Welding</option>
-                    <option id="3">Grinding</option>
-                    <option id="4">Fairing</option>
-                  </select>
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-            </form>
-
-            <div class="box-footer" align="right">
-              <button type="reset" class="btn btn-primary">Reset</button>
-              <button type="submit" class="btn btn-primary">Input</button>
-            </div>
-          </div>
+          
+        </div>
         </div>
 
         <div class="col-md-12">
@@ -262,91 +148,52 @@
             <!-- /.box-header -->
             <div class="box-body">
             <h3>Worker & Time</h3>
-              <table id="plate" class="table table-bordered table-striped">
+              <table id="tabel2" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Name of Worker</th>
-                  <th>NIP</th>
+                  <th>NIK</th>
                   <th>Position/Division</th>
                   <th>Checklist</th>
                   <th>Was Sick/Accident</th>
                   <th>Was Absent</th>
-                  <th>Operator</th>
+                  <th>Operator Machine</th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($worker as $workers)
                 <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
+                  <td>{{$workers->NAME}}</td>
+                  <td>{{$workers->NIK}}</td>
+                  <td>{{$workers->POSITION.'/'.$workers->DIVISION}}</td>
                   <td><input type="checkbox" id="checklistok" placeholder=""></td>
                   <td><input type="checkbox" id="checklistsick" placeholder=""></td>
                   <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
-                  <td>
-                    <select class="form-control">
-                    <option id="0">Not Operator</option>
-                    <option id="1">Welding Machine FCAW 1 Operator</option>
-                    <option id="2">Welding Machine FCAW 2 Operator</option>
-                    <option id="3">Welding Machine FCAW 3 Operator</option>
-                    <option id="4">Service Welding Gantry Operator</option>
-                  </select>
-                  </td>
+                  <td><input type="checkbox" id="checklistoperator" placeholder=""></td>
                 </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
-                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
-                  <td>
-                    <select class="form-control">
-                    <option id="0">Not Operator</option>
-                    <option id="1">Welding Machine FCAW 1 Operator</option>
-                    <option id="2">Welding Machine FCAW 2 Operator</option>
-                    <option id="3">Welding Machine FCAW 3 Operator</option>
-                    <option id="4">Service Welding Gantry Operator</option>
-                  </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
-                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
-                  <td>
-                    <select class="form-control">
-                    <option id="0">Not Operator</option>
-                    <option id="1">Welding Machine FCAW 1 Operator</option>
-                    <option id="2">Welding Machine FCAW 2 Operator</option>
-                    <option id="3">Welding Machine FCAW 3 Operator</option>
-                    <option id="4">Service Welding Gantry Operator</option>
-                  </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Position/Division</td>
-                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
-                  <td>
-                    <select class="form-control">
-                    <option id="0">Not Operator</option>
-                    <option id="1">Welding Machine FCAW 1 Operator</option>
-                    <option id="2">Welding Machine FCAW 2 Operator</option>
-                    <option id="3">Welding Machine FCAW 3 Operator</option>
-                    <option id="4">Service Welding Gantry Operator</option>
-                  </select>
-                  </td>
-                </tr>
+                @endforeach
                 </tbody>
               </table>
             </div>
             <!-- /.box-body -->
+
+            <div class="col-lg-3">
+            <div class="box box-primary">
+            <div class="box box-body">
+            <div class="form-group">
+            <label style="font-size: 16px">Select Machine: </label><br>
+            <select class="form-control" name="machine">
+                <option value="#">-- Machine List --</option>
+                <?php $i=1;?>
+                @foreach($machine as $machines)
+                    <?php $blockMachine[$i] = $machines; $i++;?>
+                    <option value="{{$machines->ID}}">{{$machines->NAME}}</option>
+                @endforeach
+            </select>
+            </div>
+            </div>
+            </div>
+            </div>
 
             <div class="col-lg-3">
             <div class="box box-primary">
@@ -364,7 +211,7 @@
             </div>
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-lg-4">
             <div class="box box-primary">
             <div class="box box-body">
             <div class="form-group">
@@ -420,8 +267,16 @@
 <!-- page script -->
 <script>
 $(function() {
-    $('#assemblypart').DataTable({
+    $('#tabel').DataTable({
           "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    });
+    $('#tabel2').DataTable({
+          "paging": false,
           "lengthChange": true,
           "searching": true,
           "ordering": true,
@@ -430,3 +285,4 @@ $(function() {
     });
   });
 </script>
+

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
+use App\Worker;
 
 class UserErectionController extends Controller
 {
@@ -17,7 +18,8 @@ class UserErectionController extends Controller
     {
         $ship=ShipProject::all();
         $block=Block::all();
-        return view('user/input_act_erection')->with('ship', $ship)->with('block', $block);
+        $worker=Worker::where('DIVISION', 'Erection Process')->get();
+        return view('user/input_act_erection')->with('ship', $ship)->with('block', $block)->with('worker', $worker);
     }
 
     public function erection_recap_block()

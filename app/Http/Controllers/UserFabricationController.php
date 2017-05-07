@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
 use App\Plate;
+use App\Worker;
+use App\Machine;
 
 class UserFabricationController extends Controller
 {
@@ -20,7 +22,9 @@ class UserFabricationController extends Controller
         $ship=ShipProject::all();
         $block=Block::all();
         $plate=Plate::all();
-        return view('user/input_act_fabrication')->with('ship', $ship)->with('block', $block)->with('material', $plate);
+        $machine=Machine::where('WORKSHOP', 'Fabrication')->get();
+        $worker=Worker::where('DIVISION', 'Fabrication')->get();
+        return view('user/input_act_fabrication')->with('ship', $ship)->with('block', $block)->with('plate', $plate)->with('worker', $worker)->with('machine', $machine);
     }
 
     public function fabrication_recap_material_process()

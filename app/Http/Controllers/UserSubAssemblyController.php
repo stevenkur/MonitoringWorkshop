@@ -8,6 +8,7 @@ use App\Block;
 use App\Panel;
 use App\Plate;
 use App\Machine;
+use App\Worker;
 
 class UserSubAssemblyController extends Controller
 {
@@ -21,8 +22,9 @@ class UserSubAssemblyController extends Controller
         $ship=ShipProject::all();
         $block=Block::all();
         $panel=Panel::all();
-        $machine=Machine::all();
-        return view('user/input_act_subassembly')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('machine', $machine);
+        $machine=Machine::where('WORKSHOP', 'Sub-Assembly')->get();
+        $worker=Worker::where('DIVISION', 'Sub-Assembly')->get();
+        return view('user/input_act_subassembly')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('machine', $machine)->with('worker', $worker);
     }   
     
     public function subassembly_recap_worker()

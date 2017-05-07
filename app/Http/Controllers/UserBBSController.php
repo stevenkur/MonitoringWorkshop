@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
+use App\Worker;
 
 class UserBBSController extends Controller
 {
@@ -24,7 +25,8 @@ class UserBBSController extends Controller
     {
         $ship=ShipProject::all();
         $block=Block::all();
-        return view('user/input_act_bbs')->with('ship', $ship)->with('block', $block);
+        $worker=Worker::where('DIVISION', 'BBS')->get();
+        return view('user/input_act_bbs')->with('ship', $ship)->with('block', $block)->with('worker', $worker);
     }   
 
     public function bbs_recap_material_process()

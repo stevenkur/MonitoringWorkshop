@@ -89,7 +89,7 @@
                   <th>Name of Worker</th>
                   <th>Division</th>
                   <th>Position</th>
-                  <th>NIP</th>
+                  <th>NIK</th>
                 </tr>
                 </tfoot>
               </table>

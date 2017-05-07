@@ -66,8 +66,8 @@
                   <th>Finished Marking</th>
                   <th>Unfinished Cutting</th>
                   <th>Finished Cutting</th>
-                  <th>Unfinished Blending</th>
-                  <th>Finished Blending</th>
+                  <th>Unfinished Bending</th>
+                  <th>Finished Bending</th>
                   <th>Progress Activity</th>
                 </tr>
                 </thead>
