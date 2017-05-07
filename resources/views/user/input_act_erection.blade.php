@@ -136,12 +136,12 @@
                 <section class="col-lg-6">
                 <h4> Welding Process:</h4>
                 <div class="form-group">
-                  <label class="col-lg-3"> Length of join: </label>
+                  <label class="col-lg-3"> Total Weld: </label>
                   <input type="text" id="lengthjoin" placeholder="">
                   <label> m </label>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-3"> Finished Wield: </label>
+                  <label class="col-lg-3"> Finished Weld: </label>
                   <input type="text" id="finishedwield" placeholder="">
                   <label> m </label>
                 </div>

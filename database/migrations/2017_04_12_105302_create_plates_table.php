@@ -40,6 +40,7 @@ class CreatePlatesTable extends Migration
             $table->integer('BLENDING')->default(0);
             $table->date('BLENDING_DATE')->nullable();
             $table->string('BLENDING_MACHINE')->nullable();
+            $table->double('PERCENTAGE', 4, 2);
             $table->timestamps();
         });
     }
