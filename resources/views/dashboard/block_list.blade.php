@@ -92,13 +92,15 @@
             <div class="col-md-6">
             <div class="box box-primary">
           <div class="box-body">
-              <label for="viewBlock">Block List</label>
+              <label for="viewBlock">Block</label>
               <table id="block" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>ID</th>
                   <th>NAME</th>
                   <th>PROJECT</th>
+                  <th>EDIT</th>
+                  <th>DELETE</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -108,6 +110,8 @@
                         <td>'.$blocks['ID'].'</td>
                         <td>'.$blocks['NAME'].'</td>
                         <td>'.$blocks['PROJECT_NAME'].'</td>
+                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
                     </tr>';
                         }
                         else if(!$flag)
@@ -116,6 +120,8 @@
                         <td>'.$blocks['ID'].'</td>
                         <td>'.$blocks['NAME'].'</td>
                         <td>'.$blocks['PROJECT_NAME'].'</td>
+                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
                     </tr>';?>
                     @endforeach
                 </tbody>
@@ -124,6 +130,8 @@
                   <th>ID</th>
                   <th>NAME</th>
                   <th>PROJECT</th>
+                  <th>EDIT</th>
+                  <th>DELETE</th>
                 </tr>
                 </tfoot>
               </table>

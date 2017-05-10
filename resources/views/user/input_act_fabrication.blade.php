@@ -202,9 +202,7 @@
                   <th>Name of Worker</th>
                   <th>NIP</th>
                   <th>Position/Division</th>
-                  <th>Checklist</th>
-                  <th>Was Sick/Accident</th>
-                  <th>Was Absent</th>
+                  <th>Attendance</th>
                   <th>Operator Machine</th>
                 </tr>
                 </thead>
@@ -214,9 +212,14 @@
                   <td>{{$workers->NAME}}</td>
                   <td>{{$workers->NIK}}</td>
                   <td>{{$workers->POSITION.'/'.$workers->DIVISION}}</td>
-                  <td><input type="checkbox" id="checklistok" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistsick" placeholder=""></td>
-                  <td><input type="checkbox" id="checklistabsent" placeholder=""></td>
+                  <td>
+                    <select class="form-control" name="process">
+                      <option id="#">-- Attendance List --</option>
+                      <option id="1">Present</option>
+                      <option id="2">Was Sick/Accident</option>
+                      <option id="3">Was Absent</option>
+                    </select>
+                  </td>
                   <td><input type="checkbox" id="checklistoperator" placeholder=""></td>
                 </tr>
                 @endforeach

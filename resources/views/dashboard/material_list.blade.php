@@ -45,6 +45,7 @@
               </div>
             </form>
             </div>
+            </section>
                 
             <?php 
                 if(isset($_GET['project']) && $_GET['project']!='#') 
@@ -55,7 +56,8 @@
                 else $flagBlock=false;
             ?>
                 
-                <!-- /.box-header -->
+            <section class="col-lg-6">
+            <!-- /.box-header -->
             <!-- form start -->
             <div class="box box-primary">
             <form role="form">
@@ -85,8 +87,9 @@
               </div>
             </form>
             </div>
-
+            </section>
             
+            <section class="col-lg-4">
             <!-- /.box-header -->
             <!-- form start -->  
             <div class="box box-primary">
@@ -94,7 +97,7 @@
             <form action="{{route('material_list.store')}}" role="form" method="post">
                 {{csrf_field()}}
               <div class="box-body">
-                  <h4> Input Material List for [Ship_Name] [Block_Name]</h4>
+                <h3> Input Material List for <br>[Ship_Name] [Block_Name]</h3>
                 <div class="form-group">
                   <label for="inputID">ID:</label>
                   <input type="text" class="form-control" id="material_id" name="id" placeholder="Enter id of material">
@@ -149,10 +152,10 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
             </form>
-          </div>
-                
-      </section>            
-        <section class="col-lg-6">
+          </div>                
+          </section>    
+
+        <section class="col-lg-8">
             <div class="box box-primary">
           <div class="box-body">
               <label for="viewPlate">Plate</label>
@@ -160,9 +163,11 @@
                 <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Dimension</th>
-                  <th>Quantity</th>
-                  <th>Weight</th>
+                  <th>DIMENSION</th>
+                  <th>QUANTITY</th>
+                  <th>WEIGHT</th>
+                  <th>EDIT</th>
+                  <th>DELETE</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -170,25 +175,34 @@
                     <?php if($flagBlock && $plates->ID_BLOCK == $_GET['block']){
                     echo '
                     <tr>
-                        <td>'.$plates['ID'].'</td>                            <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['ID'].'</td>                            
+                        <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
+                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
                     </tr>';
                     }
                     else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
                     echo '
                     <tr>
-                        <td>'.$plates['ID'].'</td>                            <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['ID'].'</td>                            
+                        <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
+                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
                     </tr>';
                     }
                     else if(!$flagBlock && !$flagProject){
                     echo '
                     <tr>
-                        <td>'.$plates['ID'].'</td>                            <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['ID'].'</td>                            
+                        <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
+                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
                     </tr>';
                         }?>
                     @endforeach
@@ -196,26 +210,30 @@
                 <tfoot>
                 <tr>
                   <th>ID</th>
-                  <th>Dimension</th>
-                  <th>Quantity</th>
-                  <th>Weight</th>
+                  <th>DIMENSION</th>
+                  <th>QUANTITY</th>
+                  <th>WEIGHT</th>
+                  <th>EDIT</th>
+                  <th>DELETE</th>
                 </tr>
                 </tfoot>
               </table>
             </div>
             </div>
                 
-                <div class="box box-primary">
-          <div class="box-body">
+            <div class="box box-primary">
+            <div class="box-body">
               <label for="viewProfile">Profile</label>
               <table id="materialProfile" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Dimension</th>
-                  <th>Quantity</th>
-                  <th>Weight</th>
-                  <th>Form</th>
+                  <th>DIMENSION</th>
+                  <th>QUANTITY</th>
+                  <th>WEIGHT</th>
+                  <th>FORM</th>
+                  <th>EDIT</th>
+                  <th>DELETE</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -228,6 +246,8 @@
                         <td>'.'p'.$profiles['PORT'].', c='.$profiles['CENTER'].', s='.$profiles['STARBOARD'].'</td>
                         <td>'.$profiles['WEIGHT'].'</td>
                         <td>'.$profiles['FORM'].'</td>
+                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
                     </tr>';
                     }
                     else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
@@ -238,6 +258,8 @@
                         <td>'.'p'.$profiles['PORT'].', c='.$profiles['CENTER'].', s='.$profiles['STARBOARD'].'</td>
                         <td>'.$profiles['WEIGHT'].'</td>
                         <td>'.$profiles['FORM'].'</td>
+                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
                     </tr>';
                     }
                     else if(!$flagBlock && !$flagProject){
@@ -248,6 +270,8 @@
                         <td>'.'p'.$profiles['PORT'].', c='.$profiles['CENTER'].', s='.$profiles['STARBOARD'].'</td>
                         <td>'.$profiles['WEIGHT'].'</td>
                         <td>'.$profiles['FORM'].'</td>
+                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
                     </tr>';
                         }?>
                     @endforeach
@@ -255,10 +279,12 @@
                 <tfoot>
                 <tr>
                   <th>ID</th>
-                  <th>Dimension</th>
-                  <th>Quantity</th>
-                  <th>Weight</th>
-                  <th>Form</th>
+                  <th>DIMENSION</th>
+                  <th>QUANTITY</th>
+                  <th>WEIGHT</th>
+                  <th>FORM</th>
+                  <th>EDIT</th>
+                  <th>DELETE</th>
                 </tr>
                 </tfoot>
               </table>

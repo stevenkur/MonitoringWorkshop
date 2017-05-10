@@ -17,7 +17,7 @@
 
  <section class="content">
         <div class="row">
-            <section class="col-lg-6">
+            <section class="col-lg-4">
             <div class="box box-primary">
             
             <!-- /.box-header -->
@@ -44,7 +44,7 @@
               </div>
             </form>
             </div>
-                <div class="box box-primary">
+            </section>
             
             <?php 
                 if(isset($_GET['project']) && $_GET['project']!='#') 
@@ -57,7 +57,10 @@
                    $flagPanel=true;
                 else $flagPanel=false;
             ?>
-                    
+              
+            <section class="col-lg-4">
+            <div class="box box-primary">      
+            
             <!-- /.box-header -->
             <!-- form start -->
             <form role="form">
@@ -87,9 +90,13 @@
                 <button type="submit" class="btn btn-primary">Choose</button>
               </div>
             </form>
-                </div>
-                <div class="box box-primary">
-                    <!-- /.box-header -->
+            </div>
+            </section>
+            
+            <section class="col-lg-4">
+            <div class="box box-primary">
+            
+            <!-- /.box-header -->
             <!-- form start -->
             <form role="form">
               <div class="box-body">
@@ -120,76 +127,9 @@
               </div>
             </form>                    
             </div>
-                <div class="box box-primary">
-                <div class="box-body">
-              <table id="assemblypart" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Dimension</th>
-                  <th>Quantity</th>
-                  <th>Weight</th>
-                </tr>
-                </thead>
-                <tbody>
-                    @foreach($part as $parts)
-                    <?php if($flagBlock && $parts->ID_BLOCK == $_GET['block']){
-                    echo '
-                    <tr>
-                        <td>'.$parts['ID'].'</td>
-                        <td>'.$parts['NAME'].'</td>
-                        <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
-                        <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
-                        <td>'.$parts['WEIGHT'].'</td>
-                    </tr>';
-                    }
-                    else if($flagProject && $parts->ID_PROJECT == $_GET['project']){
-                    echo '
-                    <tr>
-                        <td>'.$parts['ID'].'</td>
-                        <td>'.$parts['NAME'].'</td>
-                        <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
-                        <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
-                        <td>'.$parts['WEIGHT'].'</td>
-                    </tr>';
-                    }
-                    else if($flagPanel && $parts->ID_PANEL == $_GET['panel']){
-                    echo '
-                    <tr>
-                        <td>'.$parts['ID'].'</td>
-                        <td>'.$parts['NAME'].'</td>
-                        <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
-                        <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
-                        <td>'.$parts['WEIGHT'].'</td>
-                    </tr>';
-                    }
-                    else if(!$flagBlock && !$flagProject && !$flagPanel){
-                    echo '
-                    <tr>
-                        <td>'.$parts['ID'].'</td>
-                        <td>'.$parts['NAME'].'</td>
-                        <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
-                        <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
-                        <td>'.$parts['WEIGHT'].'</td>
-                    </tr>';
-                        }?>
-                    @endforeach
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Dimension</th>
-                  <th>Quantity</th>
-                  <th>Weight</th>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-            </div>
-      </section>
-        <section class="col-lg-6">
+            </section>
+          
+            <section class="col-lg-4">
             <!-- /.box-header -->
             <!-- form start -->  
             <div class="box box-primary">
@@ -249,6 +189,90 @@
             </form>
           </div>
         </section>
+
+        <section class="col-lg-8">
+            <div class="box box-primary">
+            <div class="box-body">
+              <label for="viewAssemblyPart">Assembly Part</label>
+              <table id="assemblypart" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>NAME</th>
+                  <th>DIMENSION</th>
+                  <th>QUANTITY</th>
+                  <th>WEIGHT</th>
+                  <th>EDIT</th>
+                  <th>DELETE</th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach($part as $parts)
+                    <?php if($flagBlock && $parts->ID_BLOCK == $_GET['block']){
+                    echo '
+                    <tr>
+                        <td>'.$parts['ID'].'</td>
+                        <td>'.$parts['NAME'].'</td>
+                        <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
+                        <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
+                        <td>'.$parts['WEIGHT'].'</td>
+                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
+                    </tr>';
+                    }
+                    else if($flagProject && $parts->ID_PROJECT == $_GET['project']){
+                    echo '
+                    <tr>
+                        <td>'.$parts['ID'].'</td>
+                        <td>'.$parts['NAME'].'</td>
+                        <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
+                        <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
+                        <td>'.$parts['WEIGHT'].'</td>
+                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
+                    </tr>';
+                    }
+                    else if($flagPanel && $parts->ID_PANEL == $_GET['panel']){
+                    echo '
+                    <tr>
+                        <td>'.$parts['ID'].'</td>
+                        <td>'.$parts['NAME'].'</td>
+                        <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
+                        <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
+                        <td>'.$parts['WEIGHT'].'</td>
+                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
+                    </tr>';
+                    }
+                    else if(!$flagBlock && !$flagProject && !$flagPanel){
+                    echo '
+                    <tr>
+                        <td>'.$parts['ID'].'</td>
+                        <td>'.$parts['NAME'].'</td>
+                        <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
+                        <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
+                        <td>'.$parts['WEIGHT'].'</td>
+                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
+                    </tr>';
+                        }?>
+                    @endforeach
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>NAME</th>
+                  <th>DIMENSION</th>
+                  <th>QUANTITY</th>
+                  <th>WEIGHT</th>
+                  <th>EDIT</th>
+                  <th>DELETE</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            </div>
+            </section>
         </div>
     </section>
 </div>   

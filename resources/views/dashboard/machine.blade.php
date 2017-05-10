@@ -17,7 +17,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <section class="col-lg-6">
+        <section class="col-lg-4">
             <div class="box box-primary">
             
             <!-- /.box-header -->
@@ -25,6 +25,7 @@
             <form role="form" action="{{route('machine.store')}}" method="post">
                 {{csrf_field()}}
               <div class="box-body">
+                  <h3> Add New Machine</h3>
                 <div class="form-group">
                   <label for="inputMachine">Name of Machine:</label>
                   <input type="text" class="form-control" id="name" name="name" placeholder="Enter name of machine">
@@ -65,18 +66,21 @@
           </div>
           </section>
           
-        <section class="col-lg-6">
-        <div class="box">
+        <section class="col-lg-8">
+        <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
+              <label for="viewMachine">Machine</label>
               <table id="machineTable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Name of Machine</th>
-                  <th>Activity</th>
-                  <th>Workshop</th>
-                  <th>Operational Hour</th>
-                  <th>Capacity</th>
+                  <th>NAME OF MACHINE</th>
+                  <th>ACTIVITY</th>
+                  <th>WORKSHOP</th>
+                  <th>OPERATIONAL HOUR</th>
+                  <th>CAPACITY</th>
+                  <th>EDIT</th>
+                  <th>DELETE</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -87,16 +91,20 @@
                     <td>{{$machines->WORKSHOP}}</td>
                     <td>{{$machines->OPERATIONAL_HOUR}}</td>
                     <td>{{$machines->CAPACITY}}</td>
+                    <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                    <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
                 </tr>
                     @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Name of Machine</th>
-                  <th>Activity</th>
-                  <th>Workshop</th>
-                  <th>Operational Hour</th>
-                  <th>Capacity</th>
+                  <th>NAME OF MACHINE</th>
+                  <th>ACTIVITY</th>
+                  <th>WORKSHOP</th>
+                  <th>OPERATIONAL HOUR</th>
+                  <th>CAPACITY</th>
+                  <th>EDIT</th>
+                  <th>DELETE</th>
                 </tr>
                 </tfoot>
               </table>

@@ -23,8 +23,7 @@
         <div class="box box-primary">
          
             <!-- /.box-header -->
-            <!-- form start -->
-            
+            <!-- form start -->            
             <form class="form">
             <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
@@ -46,11 +45,8 @@
               </div>
             </form>
             </div>
+        </div>
             
-            <div class="box box-primary">
-         
-            <!-- /.box-header -->
-            <!-- form start -->
             
                 <?php 
                 if(isset($_GET['project']) && $_GET['project']!='#') 
@@ -60,7 +56,12 @@
                    $flagBlock=true;
                 else $flagBlock=false;
                 ?>
-                
+            
+        <div class="col-md-6">
+        <div class="box box-primary">
+         
+            <!-- /.box-header -->
+            <!-- form start -->    
             <form class="form">
             <div class="box-body">
               <label for="inputActivity">Select Block:</label>
@@ -87,9 +88,11 @@
                 <button method="post" class="btn btn-primary">Choose</button>
               </div>
             </form>
-            </div>
+        </div>
+        </div>
             
-            <div class="box box-primary">      
+        <div class="col-md-4">
+        <div class="box box-primary">      
             <form action="{{route('panel.store')}}" role="form" method="post">
                 {{csrf_field()}}
               <div class="box-body">
@@ -118,15 +121,15 @@
                 <button type="submit" class="btn btn-primary">Create</button>
               </div>
             </form>
-          </div>
-          </div>
+        </div>
+        </div>
             
             <!-- /.box-header -->
             <!-- form start -->  
-            <div class="col-md-6">
+            <div class="col-md-8">
             <div class="box box-primary">
           <div class="box-body">
-              <label for="viewPanel">Panel List</label>
+              <label for="viewPanel">Panel</label>
               <table id="panel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -134,6 +137,8 @@
                   <th>NAME</th>
                   <th>PROJECT</th>
                   <th>BLOCK</th>
+                  <th>EDIT</th>
+                  <th>DELETE</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -145,6 +150,8 @@
                             <td>'.$panels['NAME'].'</td>
                             <td>'.$panels['PROJECT_NAME'].'</td>
                             <td>'.$panels['BLOCK_NAME'].'</td>
+                            <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                            <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
                         </tr>';
                         }
                         else if($flagProject && $panels->ID_PROJECT == $_GET['project']){
@@ -154,6 +161,8 @@
                             <td>'.$panels['NAME'].'</td>
                             <td>'.$panels['PROJECT_NAME'].'</td>
                             <td>'.$panels['BLOCK_NAME'].'</td>
+                            <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                            <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
                         </tr>';
                         }
                         else if(!$flagBlock && !$flagProject){
@@ -163,6 +172,8 @@
                             <td>'.$panels['NAME'].'</td>
                             <td>'.$panels['PROJECT_NAME'].'</td>
                             <td>'.$panels['BLOCK_NAME'].'</td>
+                            <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                            <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
                         </tr>';
                         }?>
                     @endforeach
@@ -173,6 +184,8 @@
                   <th>NAME</th>
                   <th>PROJECT</th>
                   <th>BLOCK</th>
+                  <th>EDIT</th>
+                  <th>DELETE</th>
                 </tr>
                 </tfoot>
               </table>

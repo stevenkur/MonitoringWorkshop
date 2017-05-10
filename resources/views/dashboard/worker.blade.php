@@ -17,7 +17,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <section class="col-lg-6">
+        <section class="col-lg-4">
           <div class="box box-primary">
             
             <!-- /.box-header -->
@@ -25,6 +25,7 @@
             <form role="form" action="{{route('worker.store')}}" method="post">
                 {{csrf_field()}}
               <div class="box-body">
+                <h3> Register New Worker</h3>
                 <div class="form-group">
                   <label for="inputWorker">Name of Worker:</label>
                   <input type="text" class="form-control" id="name" name="name" placeholder="Enter worker">
@@ -61,17 +62,20 @@
           </div>
             </section>
           
-        <section class="col-lg-6">
-        <div class="box">
+        <section class="col-lg-8">
+        <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
+              <label for="viewWorker">Worker</label>
               <table id="workerTable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Name of Worker</th>
-                  <th>Division</th>
-                  <th>Position</th>
+                  <th>NAME OF WORKER</th>
+                  <th>DIVISION</th>
+                  <th>POSITION</th>
                   <th>NIK</th>
+                  <th>EDIT</th>
+                  <th>DELETE</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -81,15 +85,19 @@
                     <td>{{$workers->DIVISION}}</td>
                     <td>{{$workers->POSITION}}</td>
                     <td>{{$workers->NIK}}</td>
+                    <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                    <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
                 </tr>
                     @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Name of Worker</th>
-                  <th>Division</th>
-                  <th>Position</th>
+                  <th>NAME OF WORKER</th>
+                  <th>DIVISION</th>
+                  <th>POSITION</th>
                   <th>NIK</th>
+                  <th>EDIT</th>
+                  <th>DELETE</th>
                 </tr>
                 </tfoot>
               </table>

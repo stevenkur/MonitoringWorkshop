@@ -17,7 +17,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-          <section class="col-lg-6">
+          <section class="col-lg-4">
         <div class="box box-primary">
             
             <!-- /.box-header -->
@@ -75,20 +75,23 @@
           </div>
           </section>
           
-        <section class="col-lg-6">
-        <div class="box">
+        <section class="col-lg-8">
+        <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
+              <label for="viewUser">User</label>
               <table id="user" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Username</th>
-                  <th>Password</th>
-                  <th>Full Name</th>
-                  <th>Phone Number</th>
-                  <th>Division</th>
-                  <th>Position</th>
+                  <th>USERNAME</th>
+                  <th>PASSWORD</th>
+                  <th>FULL NAME</th>
+                  <th>PHONE NUMBER</th>
+                  <th>DIVISION</th>
+                  <th>POSITION</th>
                   <th>NIK</th>
+                  <th>EDIT</th>
+                  <th>DELETE</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -101,9 +104,24 @@
                     <td>{{$users->DIVISION}}</td>
                     <td>{{$users->POSITION}}</td>
                     <td>{{$users->NIK}}</td>
+                    <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                    <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
                 </tr>
                     @endforeach
                 </tbody>
+                <tfoot>
+                <tr>
+                  <th>USERNAME</th>
+                  <th>PASSWORD</th>
+                  <th>FULL NAME</th>
+                  <th>PHONE NUMBER</th>
+                  <th>DIVISION</th>
+                  <th>POSITION</th>
+                  <th>NIK</th>
+                  <th>EDIT</th>
+                  <th>DELETE</th>
+                </tr>
+                </tfoot>
               </table>
             </div>
             <!-- /.box-body -->
