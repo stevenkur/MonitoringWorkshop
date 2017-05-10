@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2017 at 08:22 AM
+-- Generation Time: May 10, 2017 at 07:14 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -79,7 +79,37 @@ CREATE TABLE `machines` (
   `CAPACITY` double NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `machines`
+--
+
+INSERT INTO `machines` (`ID`, `NAME`, `ACTIVITY`, `WORKSHOP`, `OPERATIONAL_HOUR`, `CAPACITY`, `created_at`, `updated_at`) VALUES
+(1, 'MACHINE STR 001', 'Straightening', 'SSH', 10, 500, NULL, NULL),
+(2, 'MACHINE STR 002', 'Straightening', 'SSH', 15, 1500, NULL, NULL),
+(3, 'MACHINE BLAST 001', 'Blasting', 'SSH', 15, 1500, NULL, NULL),
+(4, 'MACHINE BLAST 002', 'Blasting', 'SSH', 13, 3500, NULL, NULL),
+(5, 'MACHINE MARKING 001', 'Marking', 'Fabrication', 11, 3500, NULL, NULL),
+(6, 'MACHINE MARKING 002', 'Marking', 'Fabrication', 9, 5500, NULL, NULL),
+(7, 'MACHINE CUTTING 001', 'Cutting', 'Fabrication', 9, 5500, NULL, NULL),
+(8, 'MACHINE CUTTING 002', 'Cutting', 'Fabrication', 10, 7500, NULL, NULL),
+(9, 'MACHINE BLENDING 001', 'Bending', 'Fabrication', 9, 5500, NULL, NULL),
+(10, 'MACHINE BLENDING 002', 'Bending', 'Fabrication', 10, 7500, NULL, NULL),
+(11, 'MACHINE FITTING 001', 'Fitting', 'Sub Assembly', 10, 7500, NULL, NULL),
+(12, 'MACHINE WELDING 001', 'Welding', 'Sub Assembly', 10, 7500, NULL, NULL),
+(13, 'MACHINE GRINDING 001', 'Grindng', 'Sub Assembly', 10, 7500, NULL, NULL),
+(14, 'MACHINE FAIRING 001', 'Fairing', 'Sub Assembly', 10, 7500, NULL, NULL),
+(15, 'MACHINE FITTING 002', 'Fitting', 'Assembly', 10, 7500, NULL, NULL),
+(16, 'MACHINE WELDING 002', 'Welding', 'Assembly', 10, 7500, NULL, NULL),
+(17, 'MACHINE GRINDING 002', 'Grindng', 'Assembly', 10, 7500, NULL, NULL),
+(18, 'MACHINE FAIRING 002', 'Fairing', 'Assembly', 10, 7500, NULL, NULL),
+(19, 'MACHINE BLAST 001', 'Blasting', 'BBS', 15, 1500, NULL, NULL),
+(20, 'MACHINE PAINTING 001', 'Painting', 'BBS', 15, 1500, NULL, NULL),
+(21, 'MACHINE LOADING 003', 'Loading', 'Erection', 10, 7500, NULL, NULL),
+(22, 'MACHINE ADJUSTING 003', 'Adjusting', 'Erection', 10, 7500, NULL, NULL),
+(23, 'MACHINE FITTING 003', 'Fitting', 'Erection', 10, 7500, NULL, NULL),
+(24, 'MACHINE WELDING 003', 'Welding', 'Erection', 10, 7500, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -430,6 +460,42 @@ CREATE TABLE `workers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Dumping data for table `workers`
+--
+
+INSERT INTO `workers` (`ID`, `NAME`, `DIVISION`, `POSITION`, `NIK`, `created_at`, `updated_at`) VALUES
+(1, 'Worker SSH 1', 'SSH', 'WORKER', '1965100219125901', NULL, NULL),
+(2, 'Worker SSH 2', 'SSH', 'WORKER', '1965100219125921', NULL, NULL),
+(3, 'Worker SSH 3', 'SSH', 'WORKER', '1965100219125301', NULL, NULL),
+(4, 'Worker SSH 4', 'SSH', 'WORKER', '1965100219124901', NULL, NULL),
+(5, 'Worker SSH 5', 'SSH', 'WORKER', '1965100219155901', NULL, NULL),
+(6, 'Worker Fabrication 1', 'Fabrication', 'WORKER', '1965100219125901', NULL, NULL),
+(7, 'Worker Fabrication 2', 'Fabrication', 'WORKER', '1965200219125921', NULL, NULL),
+(8, 'Worker Fabrication 3', 'Fabrication', 'WORKER', '1965300219125301', NULL, NULL),
+(9, 'Worker Fabrication 4', 'Fabrication', 'WORKER', '1965400219124901', NULL, NULL),
+(10, 'Worker Fabrication 5', 'Fabrication', 'WORKER', '1965500219155901', NULL, NULL),
+(11, 'Worker Sub Assembly 1', 'Sub Assembly', 'WORKER', '1965100219125901', NULL, NULL),
+(12, 'Worker Sub Assembly 2', 'Sub Assembly', 'WORKER', '2965200219125921', NULL, NULL),
+(13, 'Worker Sub Assembly 3', 'Sub Assembly', 'WORKER', '3965300219125301', NULL, NULL),
+(14, 'Worker Sub Assembly 4', 'Sub Assembly', 'WORKER', '4965400219124901', NULL, NULL),
+(15, 'Worker Sub Assembly 5', 'Sub Assembly', 'WORKER', '5965500219155901', NULL, NULL),
+(16, 'Worker Assembly 1', 'Assembly', 'WORKER', '1965120219125901', NULL, NULL),
+(17, 'Worker Assembly 2', 'Assembly', 'WORKER', '2965203219125921', NULL, NULL),
+(18, 'Worker Assembly 3', 'Assembly', 'WORKER', '3965304219125301', NULL, NULL),
+(19, 'Worker Assembly 4', 'Assembly', 'WORKER', '4965405219124901', NULL, NULL),
+(20, 'Worker Assembly 5', 'Assembly', 'WORKER', '5965506219155901', NULL, NULL),
+(21, 'Worker BBS 1', 'BBS', 'WORKER', '1965120219125901', NULL, NULL),
+(22, 'Worker BBS 2', 'BBS', 'WORKER', '2965203319125921', NULL, NULL),
+(23, 'Worker BBS 3', 'BBS', 'WORKER', '3965304419125301', NULL, NULL),
+(24, 'Worker BBS 4', 'BBS', 'WORKER', '4965405519124901', NULL, NULL),
+(25, 'Worker BBS 5', 'BBS', 'WORKER', '5965506619155901', NULL, NULL),
+(26, 'Worker Erection Process 1', 'Erection Process', 'WORKER', '1965120219125901', NULL, NULL),
+(27, 'Worker Erection Process 2', 'Erection Process', 'WORKER', '2965203319125921', NULL, NULL),
+(28, 'Worker Erection Process 3', 'Erection Process', 'WORKER', '3965304419125301', NULL, NULL),
+(29, 'Worker Erection Process 4', 'Erection Process', 'WORKER', '4965405519124901', NULL, NULL),
+(30, 'Worker Erection Process 5', 'Erection Process', 'WORKER', '5965506619155901', NULL, NULL);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -506,7 +572,7 @@ ALTER TABLE `blocks`
 -- AUTO_INCREMENT for table `machines`
 --
 ALTER TABLE `machines`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
@@ -526,7 +592,7 @@ ALTER TABLE `ship_projects`
 -- AUTO_INCREMENT for table `workers`
 --
 ALTER TABLE `workers`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
