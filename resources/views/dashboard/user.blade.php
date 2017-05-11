@@ -105,7 +105,12 @@
                     <td>{{$users->POSITION}}</td>
                     <td>{{$users->NIK}}</td>
                     <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                    <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
+                    <td>
+                        {{ Form::open(array('url' => 'users/' . $users->USERNAME)) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
+                        {{ Form::close() }}
+                    </td>
                 </tr>
                     @endforeach
                 </tbody>

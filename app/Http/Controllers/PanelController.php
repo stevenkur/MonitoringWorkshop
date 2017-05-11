@@ -91,7 +91,17 @@ class PanelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //        
+        $panel = new Panel();        
+        $panel->NAME = $request->name;        
+        $panel->ID_PROJECT = $request->ID_PROJECT;		
+        $panel->PROJECT_NAME = $request->PROJECT_NAME;   
+        $panel->ID_BLOCK = $request->ID_BLOCK;		
+        $panel->BLOCK_NAME = $request->BLOCK_NAME;
+        $panel->save();
+                
+        return redirect()->route('panel.index')
+            ->with('alert-success', 'Data Berhasil Disimpan.');
     }
 
     /**
@@ -103,5 +113,20 @@ class PanelController extends Controller
     public function destroy($id)
     {
         //
+        $panels = Panel::where('ID', $id);
+        
+        $panel = Panel::find($id);
+        
+        $block=Block::findOrFail($panel->ID_BLOCK);
+        $ship=ShipProject::findOrFail($panel->ID_PROJECT);
+        
+        $blocks= Block::where('ID', $panel->ID_BLOCK)->update(['PANEL'=>$block->PANEL-1]);
+        $ships= ShipProject::where('ID', $panel->ID_PROJECT)->update(['PANEL'=>$ship->PANEL-1]);
+        
+        $panels->delete();
+        
+        return redirect()->route('panel.index')
+            ->with('alert-success', 'Data Berhasil Disimpan.');
+        
     }
 }

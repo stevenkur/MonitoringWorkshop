@@ -20,9 +20,8 @@
         <section class="col-lg-4">
             <div class="box box-primary">
             
-            <!-- /.box-header -->
-            <!-- form start -->
             <form role="form" action="{{route('machine.store')}}" method="post">
+                <input name="_method" type="hidden" value="POST">
                 {{csrf_field()}}
               <div class="box-body">
                   <h3> Add New Machine</h3>
@@ -56,7 +55,6 @@
                 </div>
                 
               </div>
-              <!-- /.box-body -->
 
               <div class="box-footer">
                 <button type="reset" class="btn btn-default">Reset</button>
@@ -92,7 +90,12 @@
                     <td>{{$machines->OPERATIONAL_HOUR}}</td>
                     <td>{{$machines->CAPACITY}}</td>
                     <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                    <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
+                    <td>
+                        {{ Form::open(array('url' => 'machine/' . $machines->ID)) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
+                        {{ Form::close() }}
+                    </td>
                 </tr>
                     @endforeach
                 </tbody>

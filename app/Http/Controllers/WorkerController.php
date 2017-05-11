@@ -80,6 +80,14 @@ class WorkerController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $worker = Worker::find($id);        
+        $worker->NAME = $request->name;        
+        $worker->DIVISION = $request->division;		
+        $worker->POSITION = $request->position;  
+        $worker->NIK = $request->nik;    
+        $worker->save();        
+        return redirect()->route('worker.index')
+            ->with('alert-success', 'Data Berhasil Disimpan.');
     }
 
     /**
@@ -91,5 +99,8 @@ class WorkerController extends Controller
     public function destroy($id)
     {
         //
+        $worker = Worker::where('ID',$id)->delete();        
+        return redirect()->route('worker.index')
+            ->with('alert-success', 'Data Berhasil Disimpan.');
     }
 }

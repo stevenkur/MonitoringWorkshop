@@ -80,6 +80,15 @@ class MachineController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $machine = Machine::findOrFail($id);        
+        $machine->NAME = $request->name;        
+        $machine->ACTIVITY = $request->activity;		
+        $machine->WORKSHOP = $request->workshop;  
+        $machine->OPERATIONAL_HOUR = $request->operational;  
+        $machine->CAPACITY = $request->capacity;    
+        $machine->save();        
+        return redirect()->route('machine.index')
+            ->with('alert-success', 'Data Berhasil Disimpan.');
     }
 
     /**
@@ -91,5 +100,8 @@ class MachineController extends Controller
     public function destroy($id)
     {
         //
+        $machine = Machine::where('ID',$id)->delete();
+        return redirect()->route('machine.index')
+            ->with('alert-success', 'Data Berhasil Dihapus.');
     }
 }

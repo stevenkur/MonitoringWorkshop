@@ -84,6 +84,17 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $user = User::find($id);        
+        $user->USERNAME = $request->username;        
+        $user->PASSWORD = $request->password;		
+        $user->FULL_NAME = $request->fullname;  
+        $user->PHONE_NUMBER = $request->phonenumber; 
+        $user->DIVISION = $request->division; 
+        $user->POSITION = $request->position; 
+        $user->NIK = $request->nik;     
+        $user->save();     
+        return redirect()->route('users.index')
+            ->with('alert-success', 'Data Berhasil Disimpan.');
     }
 
     /**
@@ -95,5 +106,8 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        $user = User::where('USERNAME', $id)->delete();
+        return redirect()->route('users.index')
+            ->with('alert-success', 'Data Berhasil Dihapus.');
     }
 }

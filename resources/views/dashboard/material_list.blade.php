@@ -180,7 +180,12 @@
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
                         <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
+                        <td>';?>
+                            {{ Form::open(array('url' => 'material_list/' . $plates->ID)) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
+                            {{ Form::close() }}
+                        <?php echo '</td>
                     </tr>';
                     }
                     else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
@@ -191,7 +196,12 @@
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
                         <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
+                        <td>';?>
+                            {{ Form::open(array('url' => 'material_list/' . $plates->ID)) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
+                            {{ Form::close() }}
+                        <?php echo '</td>
                     </tr>';
                     }
                     else if(!$flagBlock && !$flagProject){
@@ -202,7 +212,12 @@
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
                         <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
+                        <td>';?>
+                            {{ Form::open(array('url' => 'material_list/' . $plates->ID)) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
+                            {{ Form::close() }}
+                        <?php echo '</td>
                     </tr>';
                         }?>
                     @endforeach
@@ -247,7 +262,12 @@
                         <td>'.$profiles['WEIGHT'].'</td>
                         <td>'.$profiles['FORM'].'</td>
                         <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
+                        <td>';?>
+                            {{ Form::open(array('url' => 'material_list/' . $profiles->ID)) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
+                            {{ Form::close() }}
+                        <?php echo '</td>
                     </tr>';
                     }
                     else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
@@ -259,7 +279,12 @@
                         <td>'.$profiles['WEIGHT'].'</td>
                         <td>'.$profiles['FORM'].'</td>
                         <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
+                        <td>';?>
+                            {{ Form::open(array('url' => 'material_list/' . $profiles->ID)) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
+                            {{ Form::close() }}
+                        <?php echo '</td>
                     </tr>';
                     }
                     else if(!$flagBlock && !$flagProject){
@@ -271,7 +296,12 @@
                         <td>'.$profiles['WEIGHT'].'</td>
                         <td>'.$profiles['FORM'].'</td>
                         <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
+                        <td>';?>
+                            {{ Form::open(array('url' => 'material_list/' . $profiles->ID)) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
+                            {{ Form::close() }}
+                        <?php echo '</td>
                     </tr>';
                         }?>
                     @endforeach

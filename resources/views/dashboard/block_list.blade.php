@@ -111,7 +111,12 @@
                         <td>'.$blocks['NAME'].'</td>
                         <td>'.$blocks['PROJECT_NAME'].'</td>
                         <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
+                        <td>';?>
+                            {{ Form::open(array('url' => 'block/' . $blocks->ID)) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
+                            {{ Form::close() }}
+                        <?php echo '</td>
                     </tr>';
                         }
                         else if(!$flag)
@@ -121,7 +126,12 @@
                         <td>'.$blocks['NAME'].'</td>
                         <td>'.$blocks['PROJECT_NAME'].'</td>
                         <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
+                        <td>';?>
+                            {{ Form::open(array('url' => 'block/' . $blocks->ID)) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
+                            {{ Form::close() }}
+                        <?php echo '</td>
                     </tr>';?>
                     @endforeach
                 </tbody>

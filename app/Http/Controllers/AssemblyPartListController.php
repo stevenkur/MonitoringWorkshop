@@ -56,7 +56,6 @@ class AssemblyPartListController extends Controller
         $part->BLOCK_NAME = $panel->BLOCK_NAME;   
         $part->ID_PANEL = $panel->ID;		
         $part->PANEL_NAME = $panel->NAME; 
-        $part->NAME = $request->name;
         $part->LENGTH = $request->length; 
         $part->BREADTH = $request->breadth; 
         $part->THICKNESS = $request->thickness;     
@@ -107,6 +106,28 @@ class AssemblyPartListController extends Controller
     public function update(Request $request, $id)
     {
         //
+        
+        $part = Part::find($id);        
+        $part->ID = $request->id;      
+        $part->NAME = $request->name;                
+        $part->ID_PROJECT = $request->id_project;		
+        $part->PROJECT_NAME = $request->project_name;   
+        $part->ID_BLOCK = $request->id_block;		
+        $part->BLOCK_NAME = $request->block_name;   
+        $part->ID_PANEL = $request->id_panel;		
+        $part->PANEL_NAME = $request->panel_name; 
+        $part->LENGTH = $request->length; 
+        $part->BREADTH = $request->breadth; 
+        $part->THICKNESS = $request->thickness;     
+        $part->PORT = $request->p;     
+        $part->CENTER = $request->c;     
+        $part->STARBOARD = $request->s;  
+        $part->WEIGHT = $request->weight; 
+        $part->STAGE = $request->stage; 
+        $part->save();
+        
+        return redirect()->route('assembly_part.index')
+            ->with('alert-success', 'Data Berhasil Disimpan.');
     }
 
     /**
@@ -118,5 +139,20 @@ class AssemblyPartListController extends Controller
     public function destroy($id)
     {
         //
+        $parts = Part::where('ID', $id);
+        $part = Part::find($id)->get();
+        
+        $panel= Panel::findOrFail($part->ID_PANEL);
+        $block= Block::findOrFail($part->ID_BLOCK);
+        $ship= ShipProject::findOrFail($part->ID_PROJECT);
+        
+        $panels= Panel::where('ID', $part->ID_PANEL)->update(['PART'=>$panel->PART-$part->weight]);
+        $blocks= Block::where('ID', $part->ID_BLOCK)->update(['PART'=>$block->PART-$part->weight]);
+        $ships= ShipProject::where('ID', $part->ID_PROJECT)->update(['PART'=>$ship->PART-$part->weight]);
+        
+        $parts->delete();
+        
+        return redirect()->route('assembly_part.index')
+            ->with('alert-success', 'Data Berhasil Disimpan.');
     }
 }

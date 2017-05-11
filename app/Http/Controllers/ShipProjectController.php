@@ -116,5 +116,8 @@ class ShipProjectController extends Controller
     public function destroy($id)
     {
         //
+        $ship = ShipProject::find($id);
+        $ship->delete();
+        return redirect()->route('ship_project.index')->with('alert-success', 'Data Berhasil Diubah.');
     }
 }

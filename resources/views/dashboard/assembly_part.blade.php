@@ -217,7 +217,12 @@
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
                         <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
+                        <td>';?>
+                            {{ Form::open(array('url' => 'assembly_part/' . $parts->ID)) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
+                            {{ Form::close() }}
+                        <?php echo '</td>
                     </tr>';
                     }
                     else if($flagProject && $parts->ID_PROJECT == $_GET['project']){
@@ -229,7 +234,12 @@
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
                         <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
+                        <td>';?>
+                            {{ Form::open(array('url' => 'assembly_part/' . $parts->ID)) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
+                            {{ Form::close() }}
+                        <?php echo '</td>
                     </tr>';
                     }
                     else if($flagPanel && $parts->ID_PANEL == $_GET['panel']){
@@ -241,7 +251,12 @@
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
                         <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
+                        <td>';?>
+                            {{ Form::open(array('url' => 'assembly_part/' . $parts->ID)) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
+                            {{ Form::close() }}
+                        <?php echo '</td>
                     </tr>';
                     }
                     else if(!$flagBlock && !$flagProject && !$flagPanel){
@@ -253,7 +268,12 @@
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
                         <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                        <td><a class="btn btn-danger" type="submit" href="">Delete</a></td>
+                        <td>';?>
+                            {{ Form::open(array('url' => 'assembly_part/' . $parts->ID)) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
+                            {{ Form::close() }}
+                        <?php echo '</td>
                     </tr>';
                         }?>
                     @endforeach

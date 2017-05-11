@@ -55,7 +55,7 @@ class BlockController extends Controller
         $blocks->PANEL_DONE = 0;   
         $blocks->save();
         
-        $ships= ShipProject::where('ID', $request->project_id)->update(['BLOCK'=>$ship->BLOCK+1]);
+        $ships= ShipProject::where('ID', $request->project_id)->update(['BLOCK'=>$ships->BLOCK+1]);
         return redirect()->route('block.index')
             ->with('alert-success', 'Data Berhasil Disimpan.');
     }
@@ -95,6 +95,20 @@ class BlockController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $blocks = Block::find($id);        
+        $blocks->NAME = $request->name;        
+        $blocks->ID_PROJECT = $request->project_id;		
+        $blocks->PROJECT_NAME = $request->PROJECT_NAME;   
+        $blocks->MATERIAL = $request->MATERIAL;   
+        $blocks->MATERIAL_COMING = $request->MATERIAL_COMING;   
+        $blocks->PART = $request->PART;   
+        $blocks->PART_COMING = $request->PART_COMING;   
+        $blocks->PANEL = $request->PANEL;   
+        $blocks->PANEL_DONE = $request->PANEL_COMING;   
+        $blocks->save();
+        
+        return redirect()->route('block.index')
+            ->with('alert-success', 'Data Berhasil Disimpan.');
     }
 
     /**
@@ -106,5 +120,13 @@ class BlockController extends Controller
     public function destroy($id)
     {
         //
+        $blocks = Block::where('ID', $id);
+        $block = Block::find($id);
+        
+        $ships=ShipProject::findOrFail($block->ID_PROJECT);
+        $ships=ShipProject::where('ID', $block->ID_PROJECT)->update(['BLOCK'=>$ships->BLOCK-1]);
+        $blocks->delete();
+        return redirect()->route('block.index')
+            ->with('alert-success', 'Data Berhasil Disimpan.');
     }
 }
