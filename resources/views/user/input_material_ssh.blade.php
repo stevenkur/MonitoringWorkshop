@@ -111,7 +111,8 @@
                     <?php if($flagBlock && $plates->ID_BLOCK == $_GET['block']){
                     echo '
                     <tr>
-                        <td>'.$plates['ID'].'</td>                            <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['ID'].'</td>                            
+                        <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
                         <td>';?>
@@ -128,7 +129,8 @@
                     else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
                     echo '
                     <tr>
-                        <td>'.$plates['ID'].'</td>                            <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['ID'].'</td>                            
+                        <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
                         <td>';?>
@@ -145,7 +147,8 @@
                     else if(!$flagBlock && !$flagProject){
                     echo '
                     <tr>
-                        <td>'.$plates['ID'].'</td>                            <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['ID'].'</td>                            
+                        <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
                         <td>';?>
@@ -190,7 +193,6 @@
                         <td>'.$profiles['ID'].'</td>    
                         <td>'.'l='.$profiles['LENGTH'].', b='.$profiles['BREADTH'].', t='.$profiles['THICKNESS'].', h='.$profiles['HEIGHT'].'</td>
                         <td>'.'p'.$profiles['PORT'].', c='.$profiles['CENTER'].', s='.$profiles['STARBOARD'].'</td>
-                        <td>'.$profiles['LENGTH'].'</td>
                         <td>'.$profiles['WEIGHT'].'</td>
                         <td>';?>
                             @if ($profiles->DATE_COMING==null)
@@ -209,7 +211,6 @@
                         <td>'.$profiles['ID'].'</td> 
                         <td>'.'l='.$profiles['LENGTH'].', b='.$profiles['BREADTH'].', t='.$profiles['THICKNESS'].', h='.$profiles['HEIGHT'].'</td>
                         <td>'.'p'.$profiles['PORT'].', c='.$profiles['CENTER'].', s='.$profiles['STARBOARD'].'</td>
-                        <td>'.$profiles['LENGTH'].'</td>
                         <td>'.$profiles['WEIGHT'].'</td>
                         <td>';?>
                             @if ($profiles->DATE_COMING==null)
@@ -228,7 +229,6 @@
                         <td>'.$profiles['ID'].'</td>     
                         <td>'.'l='.$profiles['LENGTH'].', b='.$profiles['BREADTH'].', t='.$profiles['THICKNESS'].', h='.$profiles['HEIGHT'].'</td>
                         <td>'.'p'.$profiles['PORT'].', c='.$profiles['CENTER'].', s='.$profiles['STARBOARD'].'</td>
-                        <td>'.$profiles['LENGTH'].'</td>
                         <td>'.$profiles['WEIGHT'].'</td>
                         <td>';?>
                             @if ($profiles->DATE_COMING==null)
