@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::resource('home', 'HomeController');
+Route::post('login','HomeController@loginvalidate');
 Route::resource('admins', 'AdminController');
 Route::resource('usermain', 'UserMainController');
 Route::resource('users', 'UserController');
