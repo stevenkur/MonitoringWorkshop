@@ -80,13 +80,15 @@ class MachineController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $machine = Machine::findOrFail($id);        
-        $machine->NAME = $request->name;        
-        $machine->ACTIVITY = $request->activity;		
-        $machine->WORKSHOP = $request->workshop;  
-        $machine->OPERATIONAL_HOUR = $request->operational;  
-        $machine->CAPACITY = $request->capacity;    
-        $machine->save();        
+        $machine = Machine::where('ID',$id);
+        $machine->update([
+            'NAME' => $request->name,
+            'ACTIVITY' => $request->activity,
+            'WORKSHOP' => $request->workshop,
+            'OPERATIONAL_HOUR' => $request->operational,
+            'CAPACITY' => $request->capacity
+        ]);
+        
         return redirect()->route('machine.index')
             ->with('alert-success', 'Data Berhasil Disimpan.');
     }

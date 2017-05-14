@@ -117,18 +117,17 @@ class MaterialListController extends Controller
     public function destroy($id)
     {
         //
-        
         $profile = Profile::where('ID', $id);
         
         if($profile->first()!=null){
-            $profiles = Profile::find($id)->get();
+            $profiles = Profile::find($id)->first();
             $block_id = $profiles->ID_BLOCK;
             $project_id = $profiles->ID_PROJECT;
             $weight = $profiles->WEIGHT;
         }
         else{
             $plate = Plate::where('ID', $id);
-            $plates = Plate::find($id)->get();
+            $plates = Plate::find($id)->first();
             $block_id = $plates->ID_BLOCK;
             $project_id = $plates->ID_PROJECT;
             $weight = $plates->WEIGHT;
@@ -140,8 +139,9 @@ class MaterialListController extends Controller
         $blocks= Block::where('ID', $block_id)->update(['MATERIAL'=>$block->MATERIAL-$weight]);
         $ships= ShipProject::where('ID', $project_id)->update(['MATERIAL'=>$ship->MATERIAL-$weight]);
         
-        $plate->delete();         
-        $profile->delete();       
+        if($profile->first()!=null)
+            $profile->delete();         
+        else $plate->delete();       
         
         return redirect()->route('material_list.index')
             ->with('alert-success', 'Data Berhasil Disimpan.');

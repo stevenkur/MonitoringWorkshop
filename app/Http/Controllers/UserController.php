@@ -84,15 +84,16 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $user = User::find($id);        
-        $user->USERNAME = $request->username;        
-        $user->PASSWORD = $request->password;		
-        $user->FULL_NAME = $request->fullname;  
-        $user->PHONE_NUMBER = $request->phonenumber; 
-        $user->DIVISION = $request->division; 
-        $user->POSITION = $request->position; 
-        $user->NIK = $request->nik;     
-        $user->save();     
+        $user = User::where('USERNAME',$id); 
+        $user->update([
+            'PASSWORD' => $request->password,
+            'FULL_NAME' => $request->fullname,
+            'PHONE_NUMBER' => $request->phonenumber,
+            'DIVISION' => $request->division,
+            'POSITION' => $request->position,
+            'NIK' => $request->nik
+        ]);
+        
         return redirect()->route('users.index')
             ->with('alert-success', 'Data Berhasil Disimpan.');
     }

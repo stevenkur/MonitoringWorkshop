@@ -187,7 +187,7 @@
                 </thead>
                 <tbody>
                 @foreach($profile as $profiles)
-                    <?php if($flagBlock && $plates->ID_BLOCK == $_GET['block']){
+                    <?php if($flagBlock && $profiles->ID_BLOCK == $_GET['block']){
                     echo '
                     <tr>
                         <td>'.$profiles['ID'].'</td>    
@@ -205,7 +205,7 @@
                         <?php echo '</td>
                     </tr>';
                     }
-                    else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
+                    else if($flagProject && $profiles->ID_PROJECT == $_GET['project']){
                     echo '
                     <tr>
                         <td>'.$profiles['ID'].'</td> 

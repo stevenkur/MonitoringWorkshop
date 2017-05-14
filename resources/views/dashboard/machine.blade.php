@@ -9,56 +9,82 @@
         Machine
       </h1>
       <ol class="breadcrumb">
-        <li><i class="fa fa-dashboard"></i> Home</li>
+        <li><i class="fa fa-dashboard"></i>Home</li>
         <li class="active">Machine</li>
       </ol>
     </section>
-
+        
+      <?php  
+      if(isset($_GET['id'])){
+        foreach($machine as $machines){
+            if($machines['ID']==$_GET['id']){
+                $name = $machines['NAME'];
+                $activity = $machines['ACTIVITY'];
+                $workshop = $machines['WORKSHOP'];
+                $capacity = $machines['CAPACITY'];
+                $operational = $machines['OPERATIONAL_HOUR'];
+                break;
+            }
+        }
+        $flag=true;
+      }
+      else
+        $flag=false;
+      ?>
+    
+      
     <!-- Main content -->
     <section class="content">
       <div class="row">
         <section class="col-lg-4">
             <div class="box box-primary">
-            
-            <form role="form" action="{{route('machine.store')}}" method="post">
+            @if($flag)
+                <form role="form" action="{{route('machine.update', $_GET['id'])}}" method="post">
+                <input name="_method" type="hidden" value="PATCH">
+            @else 
+                <form role="form" action="{{route('machine.store')}}" method="post">
                 <input name="_method" type="hidden" value="POST">
+            @endif
                 {{csrf_field()}}
               <div class="box-body">
                   <h3> Add New Machine</h3>
                 <div class="form-group">
                   <label for="inputMachine">Name of Machine:</label>
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter name of machine">
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter name of machine" size=50 <?php if($flag) echo 'value='."'$name'";?>>
                 </div>
                 <div class="form-group">
                   <label for="inputActivity">Name of Activity:</label>
-                  <input type="text" class="form-control" id="activity" name="activity" placeholder="Enter name of activity">
+                  <input type="text" class="form-control" id="activity" name="activity" placeholder="Enter name of activity" <?php if($flag) echo 'value='."'$activity'";?>>
                 </div>
                 <div class="form-group">
                   <label for="inputWorkIn">Work in:</label>
                   <select class="form-control" name="workshop">
-                    <option id="#">--Select Division--</option>
-                    <option id="1">SSH</option>
-                    <option id="2">Fabrication</option>
-                    <option id="3">Sub Assembly</option>
-                    <option id="4">Assembly</option>
-                    <option id="5">BBS</option>
-                    <option id="6">Erection Process</option>
+                    <option value="#"  <?php if($flag&&$workshop=='#') echo 'selected'; ?> >--Select Division--</option>
+                    <option id="1"  <?php if($flag&&$workshop=='SSH') echo 'selected'; ?>>SSH</option>
+                    <option id="2" <?php if($flag&&$workshop=='Fabrication') echo 'selected'; ?>>Fabrication</option>
+                    <option id="3" <?php if($flag&&$workshop=='Sub Assembly') echo 'selected'; ?>>Sub Assembly</option>
+                    <option id="4" <?php if($flag&&$workshop=='Assembly') echo 'selected'; ?>>Assembly</option>
+                    <option id="5" <?php if($flag&&$workshop=='BBS') echo 'selected'; ?>>BBS</option>
+                    <option id="6" <?php if($flag&&$workshop=='Erection Process') echo 'selected'; ?>>Erection Process</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label for="inputActivity">Capacity</label>
-                  <input type="number" class="form-control" id="capacity" name="capacity" placeholder="Enter capacity of machine">
+                  <input type="number" class="form-control" id="capacity" name="capacity" placeholder="Enter capacity of machine" <?php if($flag) echo 'value='.$capacity; ?>>
                 </div>
                 <div class="form-group">
                   <label for="inputOperational">Normal Operational Hour</label>
-                  <input type="number" class="form-control" id="operational" name="operational" placeholder="Enter operational hour">
+                  <input type="number" class="form-control" id="operational" name="operational" placeholder="Enter operational hour" <?php if($flag) echo 'value='.$operational; ?>>
                 </div>
                 
               </div>
 
               <div class="box-footer">
                 <button type="reset" class="btn btn-default">Reset</button>
-                <button type="submit" class="btn btn-primary">Input</button>
+                <button type="submit" class="btn btn-primary">
+                  <?php if($flag) echo 'Update';
+                        else echo 'Submit';?>
+                </button>
               </div>
             </form>
           </div>
@@ -89,7 +115,9 @@
                     <td>{{$machines->WORKSHOP}}</td>
                     <td>{{$machines->OPERATIONAL_HOUR}}</td>
                     <td>{{$machines->CAPACITY}}</td>
-                    <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                    <td>
+                        <a class="btn btn-primary" type="submit" href="./machine?id={{$machines->ID}}">Edit</a>
+                    </td>
                     <td>
                         {{ Form::open(array('url' => 'machine/' . $machines->ID)) }}
                             {{ Form::hidden('_method', 'DELETE') }}

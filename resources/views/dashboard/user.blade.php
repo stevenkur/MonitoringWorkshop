@@ -14,6 +14,25 @@
       </ol>
     </section>
 
+      <?php 
+        if(isset($_GET['username'])){
+            foreach($user as $users){
+                if($users['USERNAME']==$_GET['username']){
+                    $username = $users['USERNAME'];
+                    $password = $users['PASSWORD'];
+                    $fullname = $users['FULL_NAME'];
+                    $phone = $users['PHONE_NUMBER'];
+                    $division = $users['DIVISION'];
+                    $position = $users['POSITION'];
+                    $nik = $users['NIK'];
+                }
+            }
+            $flag=true;
+        }
+        else 
+            $flag=false;
+      ?>
+      
     <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -22,46 +41,52 @@
             
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="{{route('users.store')}}" method="post">
+                @if($flag)
+                    <form role="form" action="{{route('users.update', $username)}}" method="post">
+                    <input name="_method" type="hidden" value="PATCH">
+                @else 
+                    <form role="form" action="{{route('users.store')}}" method="post">
+                    <input name="_method" type="hidden" value="POST">
+                @endif
                 {{csrf_field()}}
               <div class="box-body">
                   <h3> Register New User</h3>
                 <div class="form-group">
                   <label for="inputUsername">Username:</label>
-                  <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+                  <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" <?php if($flag){ echo 'value='."'$username'"; echo "disabled";}?>>
                 </div>
                 <div class="form-group">
                   <label for="inputPassword">Password:</label>
-                  <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" <?php if($flag) echo 'value='.$password; ?>>
                 </div>
                 <div class="form-group">
                   <label for="inputFullName">Full Name:</label>
-                  <input type="text" class="form-control" id="fullname" name="fullname"  placeholder="Enter full name">
+                  <input type="text" class="form-control" id="fullname" name="fullname"  placeholder="Enter full name"  <?php if($flag) echo 'value='."'$fullname'"; ?>>
                 </div>
                 <div class="form-group">
                   <label for="inputPhoneNumber">Phone Number:</label>
-                  <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="Enter phone number">
+                  <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="Enter phone number"  <?php if($flag) echo 'value='.$phone; ?>>
                 </div>
                 <div class="form-group">
                   <label for="inputDivision">Division:</label>
                   <select class="form-control" name="division" id="division">
-                    <option id="#">--Select Division--</option>
-                    <option id="1">PPC/Admin</option>
-                    <option id="2">Steel Stock House</option>
-                    <option id="3">Fabrication</option>
-                    <option id="4">Sub Assembly</option>
-                    <option id="5">Assembly</option>
-                    <option id="6">Block Blasting Structure</option>
-                    <option id="7">Erection</option>
+                    <option value="#" <?php if($flag&&$division=='#') echo 'selected'; ?>>--Select Division--</option>
+                    <option id="1" <?php if($flag&&$division=='PPC/Admin') echo 'selected'; ?>>PPC/Admin</option>
+                    <option id="2"<?php if($flag&&$division=='Steel Stock House') echo 'selected'; ?>>Steel Stock House</option>
+                    <option id="3"<?php if($flag&&$division=='Fabrication') echo 'selected'; ?>>Fabrication</option>
+                    <option id="4"<?php if($flag&&$division=='Sub Assembly') echo 'selected'; ?>>Sub Assembly</option>
+                    <option id="5"<?php if($flag&&$division=='Assembly') echo 'selected'; ?>>Assembly</option>
+                    <option id="6"<?php if($flag&&$division=='Block Blasting Structure') echo 'selected'; ?>>Block Blasting Structure</option>
+                    <option id="7"<?php if($flag&&$division=='Erection') echo 'selected'; ?>>Erection</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label for="inputPosition">Position:</label>
-                  <input type="text" class="form-control" id="position" name="position"  placeholder="Enter position">
+                  <input type="text" class="form-control" id="position" name="position"  placeholder="Enter position" <?php if($flag) echo 'value='."'$position'"; ?>>
                 </div>
                 <div class="form-group">
                   <label for="inputNIK">NIK:</label>
-                  <input type="text" class="form-control" id="nik" name="nik"  placeholder="Enter NIK">
+                  <input type="text" class="form-control" id="nik" name="nik"  placeholder="Enter NIK"  <?php if($flag) echo 'value='."'$nik'"; ?>>
                 </div>
                 
               </div>
@@ -69,7 +94,10 @@
 
               <div class="box-footer">
                 <button type="reset" class="btn btn-default">Reset</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">
+                    <?php if($flag) echo 'Update';
+                        else echo 'Submit';?>
+                </button>
               </div>
             </form>
           </div>
@@ -104,7 +132,9 @@
                     <td>{{$users->DIVISION}}</td>
                     <td>{{$users->POSITION}}</td>
                     <td>{{$users->NIK}}</td>
-                    <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                    <td>
+                        <a class="btn btn-primary" type="submit" href="./users?username={{$users->USERNAME}}">Edit</a>
+                    </td>
                     <td>
                         {{ Form::open(array('url' => 'users/' . $users->USERNAME)) }}
                             {{ Form::hidden('_method', 'DELETE') }}

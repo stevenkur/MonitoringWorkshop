@@ -80,12 +80,14 @@ class WorkerController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $worker = Worker::find($id);        
-        $worker->NAME = $request->name;        
-        $worker->DIVISION = $request->division;		
-        $worker->POSITION = $request->position;  
-        $worker->NIK = $request->nik;    
-        $worker->save();        
+        $worker = Worker::where('ID',$id);      
+        $worker->update([
+            'NAME' => $request->name,
+            'DIVISION' => $request->division,
+            'POSITION' => $request->position,
+            'NIK' => $request->nik
+        ]);
+        
         return redirect()->route('worker.index')
             ->with('alert-success', 'Data Berhasil Disimpan.');
     }
