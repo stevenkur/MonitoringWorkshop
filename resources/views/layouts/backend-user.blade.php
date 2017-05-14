@@ -185,7 +185,7 @@
           </ul>
         </li>
 
-        <li><a href="#"><i class="fa fa-laptop"></i> <span>Log Out</span></a></li>
+        <li><a href="logout"><i class="fa fa-laptop"></i> <span>Log Out</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

@@ -140,7 +140,7 @@
         </li>
 
         <li class="treeview">
-          <a href="">
+          <a href="{{ route('total_ship_progress')}}">
             <i class="fa fa-ship"></i>
             <span>Total Ship Progress</span>
           </a>
@@ -155,13 +155,13 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i> Planning Workload</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Conclusion of All Project</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Conclusion Finishing Workload</a></li>
+            <li><a href="{{ route('planning_workload')}}"><i class="fa fa-circle-o"></i> Planning Workload</a></li>
+            <li><a href="{{ route('conclusion_all_project')}}"><i class="fa fa-circle-o"></i> Conclusion of All Project</a></li>
+            <li><a href="{{ route('conclusion_finishing_workload')}}"><i class="fa fa-circle-o"></i> Conclusion Finishing Workload</a></li>
           </ul>
         </li>
 
-        <li><a href="#"><i class="fa fa-laptop"></i> <span>Log Out</span></a></li>
+        <li><a href="logout"><i class="fa fa-laptop"></i> <span>Log Out</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

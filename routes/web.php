@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 Route::resource('home', 'HomeController');
 Route::post('login','HomeController@loginvalidate');
+Route::get('logout','HomeController@logout');
 Route::resource('admins', 'AdminController');
 Route::resource('usermain', 'UserMainController');
 Route::resource('users', 'UserController');
@@ -67,3 +68,8 @@ Route::any('bbs_calculate_paint_needs', ['as'=>'bbs_calculate_paint_needs', 'use
 Route::any('input_act_erection', ['as'=>'input_act_erection', 'uses'=>'UserErectionController@input_act_erection']);
 Route::any('erection_recap_block', ['as'=>'erection_recap_block', 'uses'=>'UserErectionController@erection_recap_block']);
 Route::any('erection_recap_worker', ['as'=>'erection_recap_worker', 'uses'=>'UserErectionController@erection_recap_worker']);
+
+Route::any('total_ship_progress', ['as'=>'total_ship_progress', 'uses'=>'AdminController@total_ship_progress']);
+Route::any('planning_workload', ['as'=>'planning_workload', 'uses'=>'AdminController@planning_workload']);
+Route::any('conclusion_all_project', ['as'=>'conclusion_all_project', 'uses'=>'AdminController@conclusion_all_project']);
+Route::any('conclusion_finishing_workload', ['as'=>'conclusion_finishing_workload', 'uses'=>'AdminController@conclusion_finishing_workload']);
