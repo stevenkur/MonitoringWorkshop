@@ -28,7 +28,7 @@
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
                   <select class="form-control" name="project">
-                    <option id="#">-- Ship Project List --</option>
+                    <option value="#">-- Ship Project List --</option>
                     <?php $i=1;?>
                     @foreach($ship as $data)
                         <?php $shipData[$i] = $data; $i++;?>
@@ -66,7 +66,7 @@
               <label for="inputActivity">Select BLock:</label>
                 <div class="form-group">
                   <select class="form-control" name="block">
-                    <option id="#">-- Block List --</option>
+                    <option value="#">-- Block List --</option>
                     <?php $i=1;?>
                     @foreach($block as $data)
                         <?php $blockData[$i] = $data; $i++;?>
@@ -85,6 +85,17 @@
             </div>
             </section>  
 
+        <?php
+            if(isset($_GET['process'])){
+                $proc = explode('|', $_GET['process']);
+                $flagProcess = true;
+//                echo $proc[0];
+//                echo '<br>';
+//                echo $proc[1];
+            }
+            else $flagProcess = false;
+        ?>
+        
         <div class="col-md-12">
         <div class="box box-primary">
             <!-- /.box-header -->
@@ -99,33 +110,43 @@
                   <th>Quantity</th>
                   <th>Weight</th>
                   <th>Material Process</th>
-                  <th>Select</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($plate as $plates)
-                    <?php if($flagBlock && $plates->ID_BLOCK == $_GET['block']){
+                    <?php 
+                    if($plates->STRAIGHTENING==0) $flagStr = false;
+                    else $flagStr = true;
+                    if($plates->BLASTING==0) $flagBlast = false;
+                    else $flagBlast = true;
+                    
+                    if($flagBlock && $plates->ID_BLOCK == $_GET['block']){
                     echo '
                     <tr>
                         <td>'.$plates['ID'].'</td>                            
                         <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
-                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>';?>
                         <td>
-                          <select class="form-control" name="process">
-                            <option id="#">-- Material Process List --</option>
-                            <option id="1">Straightening</option>
-                            <option id="2">Blasting & Shop Primer</option>
-                          </select>
-                        </td>
-                        <td>';?>
-                            <form method="post"  action="#">
-                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
-                                <input name="id" type="hidden" value="{{ $plates->ID }}">
-                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">SELECT</button>
+                            @if(!$flagStr)
+                            <form action="./input_act_ssh" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="1|<?php echo $plates['ID'];?>">Straightening</option>
+                                </select>
                             </form>
-                        <?php echo '</td>
-                    </tr>';
+                            @elseif(!$flagBlast)
+                            <form action="./input_act_ssh" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $plates['ID'];?>">Blasting & Shop Primer</option>
+                                </select>
+                            </form>
+                            @else
+                            Finished
+                            @endif
+                        </td>
+                    <?php echo '</tr>';
                     }
                     else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
                     echo '
@@ -133,22 +154,27 @@
                         <td>'.$plates['ID'].'</td>                            
                         <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
-                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>';?>
                         <td>
-                          <select class="form-control" name="process">
-                            <option id="#">-- Material Process List --</option>
-                            <option id="1">Straightening</option>
-                            <option id="2">Blasting & Shop Primer</option>
-                          </select>
-                        </td>
-                        <td>';?>
-                            <form method="post"  action="#">
-                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
-                                <input name="id" type="hidden" value="{{ $plates->ID }}">
-                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">SELECT</button>
+                            @if(!$flagStr)
+                            <form action="./input_act_ssh" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="1|<?php echo $plates['ID'];?>">Straightening</option>
+                                </select>
                             </form>
-                        <?php echo '</td>
-                    </tr>';
+                            @elseif(!$flagBlast)
+                            <form action="./input_act_ssh" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $plates['ID'];?>">Blasting & Shop Primer</option>
+                                </select>
+                            </form>
+                            @else
+                            Finished
+                            @endif
+                        </td>
+                    <?php echo '</tr>';
                     }
                     else if(!$flagBlock && !$flagProject){
                     echo '
@@ -156,22 +182,27 @@
                         <td>'.$plates['ID'].'</td>                            
                         <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
-                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>';?>
                         <td>
-                          <select class="form-control" name="process">
-                            <option id="#">-- Material Process List --</option>
-                            <option id="1">Straightening</option>
-                            <option id="2">Blasting & Shop Primer</option>
-                          </select>
-                        </td>
-                        <td>';?>
-                            <form method="post"  action="#">
-                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
-                                <input name="id" type="hidden" value="{{ $plates->ID }}">
-                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">SELECT</button>
+                            @if(!$flagStr)
+                            <form action="./input_act_ssh" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="1|<?php echo $plates['ID'];?>">Straightening</option>
+                                </select>
                             </form>
-                        <?php echo '</td>
-                    </tr>';
+                            @elseif(!$flagBlast)
+                            <form action="./input_act_ssh" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $plates['ID'];?>">Blasting & Shop Primer</option>
+                                </select>
+                            </form>
+                            @else
+                            Finished
+                            @endif
+                        </td>
+                    <?php echo '</tr>';
                         }?>
                     @endforeach
                 </tbody>
@@ -181,6 +212,7 @@
           </div>
         </div>
 
+        @if($flagProcess)
         <div class="col-md-12">
         <div class="box box-primary">
             <!-- /.box-header -->
@@ -285,7 +317,8 @@
             </div>
           </div>
         </div>
-
+        @endif
+        
         </div>
     </section>
 </div>   

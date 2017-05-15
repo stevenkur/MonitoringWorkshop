@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2017 at 07:14 AM
+-- Generation Time: May 15, 2017 at 02:58 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -31,8 +31,8 @@ CREATE TABLE `blocks` (
   `ID_PROJECT` int(11) NOT NULL,
   `PROJECT_NAME` varchar(55) COLLATE utf8mb4_unicode_ci NOT NULL,
   `NAME` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `MATERIAL` double(6,2) NOT NULL DEFAULT '0.00',
-  `MATERIAL_COMING` double(6,2) NOT NULL DEFAULT '0.00',
+  `MATERIAL` double(8,2) NOT NULL DEFAULT '0.00',
+  `MATERIAL_COMING` double(8,2) NOT NULL DEFAULT '0.00',
   `PART` double(6,2) NOT NULL DEFAULT '0.00',
   `PART_COMING` double(6,2) NOT NULL DEFAULT '0.00',
   `PANEL` double NOT NULL DEFAULT '0',
@@ -58,11 +58,12 @@ CREATE TABLE `blocks` (
 --
 
 INSERT INTO `blocks` (`ID`, `ID_PROJECT`, `PROJECT_NAME`, `NAME`, `MATERIAL`, `MATERIAL_COMING`, `PART`, `PART_COMING`, `PANEL`, `PANEL_DONE`, `LOADING`, `LOADING_DATE`, `ADJUSTING`, `ADJUSTING_DATE`, `FITTING`, `FITTING_DATE`, `WELDING`, `WELDING_LENGTH`, `WELDING_FINISH`, `WELDING_DATE`, `ERECTION_START`, `ERECTION_FINISH`, `created_at`, `updated_at`) VALUES
-(1, 2, 'SSV 293', 'NV1', 9999.99, 0.00, 1909.00, 0.00, 1, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-04-19 17:31:42', '2017-04-22 16:00:27'),
+(1, 2, 'SSV 293', 'NV1', 5749.69, 0.00, 1909.00, 0.00, 1, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-04-19 17:31:42', '2017-05-13 00:29:52'),
 (3, 2, 'SSV 293', 'DH', 9999.99, 0.00, 0.00, 0.00, 0, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-04-22 16:02:04', '2017-04-22 16:13:01'),
 (4, 2, 'SSV 293', 'FU-(P/S)', 9999.99, 0.00, 0.00, 0.00, 0, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-04-22 16:15:20', '2017-04-22 16:26:45'),
 (5, 2, 'SSV 293', 'RD-(P/S)', 7614.00, 0.00, 0.00, 0.00, 0, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-04-22 16:29:55', '2017-04-22 16:35:39'),
-(6, 2, 'SSV 293', 'BR2-(P/S)', 9999.99, 0.00, 0.00, 0.00, 0, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-04-22 17:01:55', '2017-04-22 17:48:48');
+(6, 2, 'SSV 293', 'BR2-(P/S)', 9999.99, 0.00, 0.00, 0.00, 0, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-04-22 17:01:55', '2017-04-22 17:48:48'),
+(11, 1, 'Tanker Pertamina', 'TEST', 17.00, 0.00, 0.00, 0.00, 0, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-05-11 09:54:06', '2017-05-13 00:28:04');
 
 -- --------------------------------------------------------
 
@@ -86,7 +87,7 @@ CREATE TABLE `machines` (
 --
 
 INSERT INTO `machines` (`ID`, `NAME`, `ACTIVITY`, `WORKSHOP`, `OPERATIONAL_HOUR`, `CAPACITY`, `created_at`, `updated_at`) VALUES
-(1, 'MACHINE STR 001', 'Straightening', 'SSH', 10, 500, NULL, NULL),
+(1, 'MACHINE STR 001', 'Straightening', 'SSH', 10, 500, NULL, '2017-05-14 08:22:23'),
 (2, 'MACHINE STR 002', 'Straightening', 'SSH', 15, 1500, NULL, NULL),
 (3, 'MACHINE BLAST 001', 'Blasting', 'SSH', 15, 1500, NULL, NULL),
 (4, 'MACHINE BLAST 002', 'Blasting', 'SSH', 13, 3500, NULL, NULL),
@@ -372,7 +373,7 @@ CREATE TABLE `profiles` (
   `LENGTH` double(8,2) NOT NULL,
   `BREADTH` double(6,2) NOT NULL,
   `THICKNESS` double(6,2) NOT NULL,
-  `WIDTH` double(6,2) NOT NULL,
+  `HEIGHT` double(6,2) NOT NULL,
   `PORT` double(6,2) NOT NULL,
   `CENTER` double(6,2) NOT NULL,
   `STARBOARD` double(6,2) NOT NULL,
@@ -382,6 +383,14 @@ CREATE TABLE `profiles` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `profiles`
+--
+
+INSERT INTO `profiles` (`ID`, `ID_PROJECT`, `PROJECT_NAME`, `ID_BLOCK`, `BLOCK_NAME`, `LENGTH`, `BREADTH`, `THICKNESS`, `HEIGHT`, `PORT`, `CENTER`, `STARBOARD`, `WEIGHT`, `FORM`, `DATE_COMING`, `created_at`, `updated_at`) VALUES
+('NV1-PRO1', 2, 'SSV 293', 1, 'NV1', 16460.00, 1515.00, 6.00, 6.00, 1.00, 1.00, 0.00, 2500.00, 'L', NULL, '2017-05-10 00:30:24', '2017-05-10 00:30:24'),
+('NV1-PRO1', 2, 'SSV 293', 1, 'NV1', 16460.00, 1515.00, 6.00, 6.00, 1.00, 1.00, 0.00, 2500.00, 'L', NULL, '2017-05-10 00:31:22', '2017-05-10 00:31:22');
 
 -- --------------------------------------------------------
 
@@ -421,8 +430,8 @@ CREATE TABLE `ship_projects` (
 --
 
 INSERT INTO `ship_projects` (`ID`, `PROJECT_NAME`, `OWNER`, `SHIP_TYPE`, `LWL`, `LPP`, `BREADTH`, `DEPTH`, `DRAFT`, `DISPLACEMENT`, `DESIGNED_SPEED`, `MATERIAL`, `MATERIAL_COMING`, `PART`, `PART_COMING`, `PANEL`, `PANEL_DONE`, `BLOCK`, `BLOCK_DONE`, `START`, `FINISH`, `FINISHED`, `created_at`, `updated_at`) VALUES
-(1, 'Tanker Pertamina', 'PT Pertamina Persero', 'Tanker', 250.00, 75.00, 250.00, 64.00, 350.00, 2500.00, 75.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, '2017-04-20', '2017-06-30', NULL, '2017-04-19 16:59:55', '2017-04-19 16:59:55'),
-(2, 'SSV 293', 'Philippines Government', 'Development of LPD', 114.64, 107.49, 21.80, 11.30, 5.00, 4516.00, 16.00, 9999.99, 0.00, 1909.00, 0.00, 1, 0, 0, 0, '2015-08-05', '2016-09-05', NULL, '2017-04-19 17:26:31', '2017-04-22 17:48:48');
+(1, 'Tanker Pertamina', 'PT Pertamina Persero', 'Tanker', 250.00, 75.00, 250.00, 64.00, 350.00, 2500.00, 75.00, 17.00, 0.00, 0.00, 0.00, 0, 0, 3, 0, '2017-04-20', '2017-06-30', NULL, '2017-04-19 16:59:55', '2017-05-13 00:28:04'),
+(2, 'SSV 293', 'Philippines Government', 'Development of LPD', 114.64, 107.49, 21.80, 11.30, 5.00, 4516.00, 16.00, 3249.69, 0.00, 1909.00, 0.00, 1, 0, 0, 0, '2015-08-05', '2016-09-05', NULL, '2017-04-19 17:26:31', '2017-05-13 00:29:52');
 
 -- --------------------------------------------------------
 
@@ -442,6 +451,13 @@ CREATE TABLE `user` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`USERNAME`, `PASSWORD`, `FULL_NAME`, `PHONE_NUMBER`, `DIVISION`, `POSITION`, `NIK`, `remember_token`, `created_at`, `updated_at`) VALUES
+('prasetyon', 'qwe123', 'Prasetyo Nugrohadi', '+6287854444653', 'PPC/Admin', 'Administrator', '5114100070', NULL, '2017-05-13 00:38:03', '2017-05-14 08:32:22');
 
 -- --------------------------------------------------------
 
@@ -464,7 +480,7 @@ CREATE TABLE `workers` (
 --
 
 INSERT INTO `workers` (`ID`, `NAME`, `DIVISION`, `POSITION`, `NIK`, `created_at`, `updated_at`) VALUES
-(1, 'Worker SSH 1', 'SSH', 'WORKER', '1965100219125901', NULL, NULL),
+(1, 'Worker SSH 1', 'SSH', 'WORKER', '1965100219125901', NULL, '2017-05-14 08:30:20'),
 (2, 'Worker SSH 2', 'SSH', 'WORKER', '1965100219125921', NULL, NULL),
 (3, 'Worker SSH 3', 'SSH', 'WORKER', '1965100219125301', NULL, NULL),
 (4, 'Worker SSH 4', 'SSH', 'WORKER', '1965100219124901', NULL, NULL),
@@ -567,7 +583,7 @@ ALTER TABLE `workers`
 -- AUTO_INCREMENT for table `blocks`
 --
 ALTER TABLE `blocks`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `machines`
 --

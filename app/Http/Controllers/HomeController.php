@@ -59,7 +59,7 @@ class HomeController extends Controller
             {
                 if (Auth::attempt(array('USERNAME'=>$userdata['USERNAME'],'PASSWORD'=>$userdata['PASSWORD']),false)){
                     return Redirect::to('admins');
-                }
+                    }
                 else{
                     return Redirect::to('home');
                 }
