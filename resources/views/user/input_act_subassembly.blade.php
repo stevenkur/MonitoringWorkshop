@@ -116,6 +116,17 @@
             </div>
             </section>
 
+        <?php
+            if(isset($_GET['process'])){
+                $proc = explode('|', $_GET['process']);
+                $flagProcess = true;
+//                echo $proc[0];
+//                echo '<br>';
+//                echo $proc[1];
+            }
+            else $flagProcess = false;
+        ?>
+
         <div class="col-md-12">
         <div class="box box-primary">
             <!-- /.box-header -->
@@ -125,50 +136,156 @@
               <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>ID Part</th>
-                    <th>Name</th>
-                    <th>Dimension</th>
-                    <th>Quantity</th>
-                    <th>Weight</th>
-                    <th>Join Part</th>
+                  <th>ID Part</th>
+                  <th>Name</th>
+                  <th>Dimension</th>
+                  <th>Quantity</th>
+                  <th>Weight</th>
+                  <th>Material Process</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($part as $parts)
-                        <?php if($flagBlock && $parts->ID_BLOCK == $_GET['block']){
-                        echo '
-                        <tr>
-                            <td>'.$parts['ID'].'</td>
-                            <td>'.$parts['NAME'].'</td>
-                            <td>'.'l='.$parts['LENGTH'].', b='.$parts['BREADTH'].', t='.$parts['THICKNESS'].'</td>
+                    <?php 
+                    if($parts->FITTING==0) $flagFit = false;
+                    else $flagFit = true;
+                    if($parts->WELDING==0) $flagWeld = false;
+                    else $flagWeld = true;
+                    if($parts->GRINDING==0) $flagGrind = false;
+                    else $flagGrind = true;
+                    if($parts->FAIRING==0) $flagFair = false;
+                    else $flagFair = true;
+
+                    if($flagBlock && $parts->ID_BLOCK == $_GET['block']){
+                    echo '
+                    <tr>
+                        <td>'.$parts['ID'].'</td>
+                        <td>'.$parts['NAME'].'</td>
+                        <td>'.'l='.$parts['LENGTH'].', b='.$parts['BREADTH'].', t='.$parts['THICKNESS'].'</td>
                         <td>p='.$parts['PORT'].', c='.$parts['CENTER'].', s='.$parts['STARBOARD'].'</td>
-                            <td>'.$parts['WEIGHT'].'</td>
-                            <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                        </tr>';
-                        }
-                        else if($flagProject && $parts->ID_PROJECT == $_GET['project']){
-                        echo '
-                        <tr>
-                            <td>'.$parts['ID'].'</td>
-                            <td>'.$parts['NAME'].'</td>
-                            <td>'.'l='.$parts['LENGTH'].', b='.$parts['BREADTH'].', t='.$parts['THICKNESS'].'</td>
+                        <td>'.$parts['WEIGHT'].'</td>';?>
+                        <td>
+                          @if(!$flagFit)
+                            <form action="./input_act_subassembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="1|<?php echo $parts['ID'];?>">Fitting</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagWeld)
+                            <form action="./input_act_subassembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $parts['ID'];?>">Welding</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagGrind)
+                            <form action="./input_act_subassembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $parts['ID'];?>">Grinding</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagFair)
+                            <form action="./input_act_subassembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $parts['ID'];?>">Fairing</option>
+                                </select>
+                            </form>
+                            @else
+                            Finished
+                            @endif
+                        </td>
+                    <?php echo '</tr>';
+                    }
+                    else if($flagProject && $parts->ID_PROJECT == $_GET['project']){
+                    echo '
+                    <tr>
+                        <td>'.$parts['ID'].'</td>
+                        <td>'.$parts['NAME'].'</td>
+                        <td>'.'l='.$parts['LENGTH'].', b='.$parts['BREADTH'].', t='.$parts['THICKNESS'].'</td>
                         <td>p='.$parts['PORT'].', c='.$parts['CENTER'].', s='.$parts['STARBOARD'].'</td>
-                            <td>'.$parts['WEIGHT'].'</td>
-                            <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                        </tr>';
-                        }
-                        else if(!$flagBlock && !$flagProject){
-                        echo '
-                        <tr>
-                            <td>'.$parts['ID'].'</td>
-                            <td>'.$parts['NAME'].'</td>
-                            <td>'.'l='.$parts['LENGTH'].', b='.$parts['BREADTH'].', t='.$parts['THICKNESS'].'</td>
+                        <td>'.$parts['WEIGHT'].'</td>';?>
+                        <td>
+                          @if(!$flagFit)
+                            <form action="./input_act_subassembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="1|<?php echo $parts['ID'];?>">Fitting</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagWeld)
+                            <form action="./input_act_subassembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $parts['ID'];?>">Welding</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagGrind)
+                            <form action="./input_act_subassembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $parts['ID'];?>">Grinding</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagFair)
+                            <form action="./input_act_subassembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $parts['ID'];?>">Fairing</option>
+                                </select>
+                            </form>
+                            @else
+                            Finished
+                            @endif
+                        </td>
+                    <?php echo '</tr>';
+                    }
+                    else if(!$flagBlock && !$flagProject){
+                    echo '
+                    <tr>
+                        <td>'.$parts['ID'].'</td>
+                        <td>'.$parts['NAME'].'</td>
+                        <td>'.'l='.$parts['LENGTH'].', b='.$parts['BREADTH'].', t='.$parts['THICKNESS'].'</td>
                         <td>p='.$parts['PORT'].', c='.$parts['CENTER'].', s='.$parts['STARBOARD'].'</td>
-                            <td>'.$parts['WEIGHT'].'</td>
-                            <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                        </tr>';
-                        }?>
-                    @endforeach
+                        <td>'.$parts['WEIGHT'].'</td>';?>
+                        <td>
+                          @if(!$flagFit)
+                            <form action="./input_act_subassembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="1|<?php echo $parts['ID'];?>">Fitting</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagWeld)
+                            <form action="./input_act_subassembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $parts['ID'];?>">Welding</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagGrind)
+                            <form action="./input_act_subassembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $parts['ID'];?>">Grinding</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagFair)
+                            <form action="./input_act_subassembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $parts['ID'];?>">Fairing</option>
+                                </select>
+                            </form>
+                            @else
+                            Finished
+                            @endif
+                        </td>
+                    <?php echo '</tr>';
+                    }?>
+                @endforeach
                 </tbody>
               </table>
             </div>
@@ -177,6 +294,7 @@
         </div>
         </div>
 
+        @if($flagProcess)
         <div class="col-md-12">
         <div class="box box-primary">
             <!-- /.box-header -->
@@ -281,6 +399,7 @@
             </div>
           </div>
         </div>
+        @endif
 
         </div>
     </section>

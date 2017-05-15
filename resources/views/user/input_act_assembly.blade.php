@@ -117,6 +117,17 @@
             </div>
             </section>
 
+        <?php
+            if(isset($_GET['process'])){
+                $proc = explode('|', $_GET['process']);
+                $flagProcess = true;
+//                echo $proc[0];
+//                echo '<br>';
+//                echo $proc[1];
+            }
+            else $flagProcess = false;
+        ?>
+
         <div class="col-md-12">
         <div class="box box-primary">
             <!-- /.box-header -->
@@ -130,11 +141,151 @@
                   <th>Dimension</th>
                   <th>Quantity</th>
                   <th>Weight</th>
-                  <th>Join Part</th>
+                  <th>Material Process</th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($panel as $panels)
+                    <?php 
+                    if($panels->FITTING==0) $flagFit = false;
+                    else $flagFit = true;
+                    if($panels->WELDING==0) $flagWeld = false;
+                    else $flagWeld = true;
+                    if($panels->GRINDING==0) $flagGrind = false;
+                    else $flagGrind = true;
+                    if($panels->FAIRING==0) $flagFair = false;
+                    else $flagFair = true;
 
+                    if($flagBlock && $panels->ID_BLOCK == $_GET['block']){
+                    echo '
+                    <tr>
+                        <td>'.$panels['ID'].'</td>
+                        <td>'.$panels['NAME'].'</td>
+                        <td>'.'l='.$panels['LENGTH'].', b='.$panels['BREADTH'].', t='.$panels['THICKNESS'].'</td>
+                        <td>p='.$panels['PORT'].', c='.$panels['CENTER'].', s='.$panels['STARBOARD'].'</td>
+                        <td>'.$panels['WEIGHT'].'</td>';?>
+                        <td>
+                          @if(!$flagFit)
+                            <form action="./input_act_assembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="1|<?php echo $panels['ID'];?>">Fitting</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagWeld)
+                            <form action="./input_act_assembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $panels['ID'];?>">Welding</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagGrind)
+                            <form action="./input_act_assembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $panels['ID'];?>">Grinding</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagFair)
+                            <form action="./input_act_assembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $panels['ID'];?>">Fairing</option>
+                                </select>
+                            </form>
+                            @else
+                            Finished
+                            @endif
+                        </td>
+                    <?php echo '</tr>';
+                    }
+                    else if($flagProject && $panels->ID_PROJECT == $_GET['project']){
+                    echo '
+                    <tr>
+                        <td>'.$panels['ID'].'</td>
+                        <td>'.$panels['NAME'].'</td>
+                        <td>'.'l='.$panels['LENGTH'].', b='.$panels['BREADTH'].', t='.$panels['THICKNESS'].'</td>
+                        <td>p='.$panels['PORT'].', c='.$panels['CENTER'].', s='.$panels['STARBOARD'].'</td>
+                        <td>'.$panels['WEIGHT'].'</td>';?>
+                        <td>
+                          @if(!$flagFit)
+                            <form action="./input_act_assembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="1|<?php echo $panels['ID'];?>">Fitting</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagWeld)
+                            <form action="./input_act_assembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $panels['ID'];?>">Welding</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagGrind)
+                            <form action="./input_act_assembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $panels['ID'];?>">Grinding</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagFair)
+                            <form action="./input_act_assembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $panels['ID'];?>">Fairing</option>
+                                </select>
+                            </form>
+                            @else
+                            Finished
+                            @endif
+                        </td>
+                    <?php echo '</tr>';
+                    }
+                    else if(!$flagBlock && !$flagProject){
+                    echo '
+                    <tr>
+                        <td>'.$panels['ID'].'</td>
+                        <td>'.$panels['NAME'].'</td>
+                        <td>'.'l='.$panels['LENGTH'].', b='.$panels['BREADTH'].', t='.$panels['THICKNESS'].'</td>
+                        <td>p='.$panels['PORT'].', c='.$panels['CENTER'].', s='.$panels['STARBOARD'].'</td>
+                        <td>'.$panels['WEIGHT'].'</td>';?>
+                        <td>
+                          @if(!$flagFit)
+                            <form action="./input_act_assembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="1|<?php echo $panels['ID'];?>">Fitting</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagWeld)
+                            <form action="./input_act_assembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $panels['ID'];?>">Welding</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagGrind)
+                            <form action="./input_act_assembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $panels['ID'];?>">Grinding</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagFair)
+                            <form action="./input_act_assembly" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $panels['ID'];?>">Fairing</option>
+                                </select>
+                            </form>
+                            @else
+                            Finished
+                            @endif
+                        </td>
+                    <?php echo '</tr>';
+                    }?>
+                @endforeach
                 </tbody>
               </table>
             </div>
@@ -143,6 +294,7 @@
         </div>
         </div>
 
+        @if($flagProcess)
         <div class="col-md-12">
         <div class="box box-primary">
             <!-- /.box-header -->
@@ -247,6 +399,7 @@
             </div>
           </div>
         </div>
+        @endif
 
         </div>
     </section>

@@ -88,6 +88,17 @@
             </div>
             </section>
 
+        <?php
+            if(isset($_GET['process'])){
+                $proc = explode('|', $_GET['process']);
+                $flagProcess = true;
+//                echo $proc[0];
+//                echo '<br>';
+//                echo $proc[1];
+            }
+            else $flagProcess = false;
+        ?>
+
         <div class="col-md-12">
         <div class="box box-primary">
             <h4 align="right"><b>Target Quantity per Day: [TARGET] Plate</b></h4>
@@ -102,34 +113,52 @@
                   <th>Quantity</th>
                   <th>Weight</th>
                   <th>Material Process</th>
-                  <th>Select</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($plate as $plates)
-                    <?php if($flagBlock && $plates->ID_BLOCK == $_GET['block']){
+                    <?php 
+                    if($plates->MARKING==0) $flagMark = false;
+                    else $flagMark = true;
+                    if($plates->CUTTING==0) $flagCut = false;
+                    else $flagCut = true;
+                    if($plates->BENDING==0) $flagBend = false;
+                    else $flagBend = true;
+
+                    if($flagBlock && $plates->ID_BLOCK == $_GET['block']){
                     echo '
                     <tr>
                         <td>'.$plates['ID'].'</td>                            
                         <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
-                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>';?>
                         <td>
-                          <select class="form-control" name="process">
-                            <option id="#">-- Material Process List --</option>
-                            <option id="1">Marking</option>
-                            <option id="2">Cutting</option>
-                            <option id="3">Bending</option>
-                          </select>
-                        </td>
-                        <td>';?>
-                            <form method="post"  action="#">
-                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
-                                <input name="id" type="hidden" value="{{ $plates->ID }}">
-                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">SELECT</button>
+                          @if(!$flagMark)
+                            <form action="./input_act_fabrication" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="1|<?php echo $plates['ID'];?>">Marking</option>
+                                </select>
                             </form>
-                        <?php echo '</td>
-                    </tr>';
+                            @elseif(!$flagCut)
+                            <form action="./input_act_fabrication" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $plates['ID'];?>">Cutting</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagBend)
+                            <form action="./input_act_fabrication" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $plates['ID'];?>">Bending</option>
+                                </select>
+                            </form>
+                            @else
+                            Finished
+                            @endif
+                        </td>
+                    <?php echo '</tr>';
                     }
                     else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
                     echo '
@@ -137,23 +166,34 @@
                         <td>'.$plates['ID'].'</td>                            
                         <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
-                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>';?>
                         <td>
-                          <select class="form-control" name="process">
-                            <option id="#">-- Material Process List --</option>
-                            <option id="1">Marking</option>
-                            <option id="2">Cutting</option>
-                            <option id="3">Bending</option>
-                          </select>
-                        </td>
-                        <td>';?>
-                            <form method="post"  action="#">
-                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
-                                <input name="id" type="hidden" value="{{ $plates->ID }}">
-                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">SELECT</button>
+                          @if(!$flagMark)
+                            <form action="./input_act_fabrication" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="1|<?php echo $plates['ID'];?>">Marking</option>
+                                </select>
                             </form>
-                        <?php echo '</td>
-                    </tr>';
+                            @elseif(!$flagCut)
+                            <form action="./input_act_fabrication" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $plates['ID'];?>">Cutting</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagBend)
+                            <form action="./input_act_fabrication" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $plates['ID'];?>">Bending</option>
+                                </select>
+                            </form>
+                            @else
+                            Finished
+                            @endif
+                        </td>
+                    <?php echo '</tr>';
                     }
                     else if(!$flagBlock && !$flagProject){
                     echo '
@@ -161,23 +201,34 @@
                         <td>'.$plates['ID'].'</td>                            
                         <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
-                        <td>'.$plates['WEIGHT'].'</td>
+                        <td>'.$plates['WEIGHT'].'</td>';?>
                         <td>
-                          <select class="form-control" name="process">
-                            <option id="#">-- Material Process List --</option>
-                            <option id="1">Marking</option>
-                            <option id="2">Cutting</option>
-                            <option id="3">Bending</option>
-                          </select>
-                        </td>
-                        <td>';?>
-                            <form method="post"  action="#">
-                                <input name="_token" type="hidden" value="{{ csrf_token() }}">
-                                <input name="id" type="hidden" value="{{ $plates->ID }}">
-                                <button type="submit" class="btn btn-primary" id="confirmMaterial" placeholder="">SELECT</button>
+                          @if(!$flagMark)
+                            <form action="./input_act_fabrication" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="1|<?php echo $plates['ID'];?>">Marking</option>
+                                </select>
                             </form>
-                        <?php echo '</td>
-                    </tr>';
+                            @elseif(!$flagCut)
+                            <form action="./input_act_fabrication" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $plates['ID'];?>">Cutting</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagBend)
+                            <form action="./input_act_fabrication" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $plates['ID'];?>">Bending</option>
+                                </select>
+                            </form>
+                            @else
+                            Finished
+                            @endif
+                        </td>
+                    <?php echo '</tr>';
                         }?>
                     @endforeach
                 </tbody>
@@ -191,6 +242,7 @@
           </div>
         </div>
 
+        @if($flagProcess)
         <div class="col-md-12">
         <div class="box box-primary">
             <!-- /.box-header -->
@@ -295,6 +347,7 @@
             </div>
           </div>
         </div>
+        @endif
 
         </div>
     </section>
