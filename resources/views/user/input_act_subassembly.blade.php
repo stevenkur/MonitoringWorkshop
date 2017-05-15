@@ -27,7 +27,7 @@
               <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
-                    <select class="form-control">
+                    <select class="form-control" name="project">
                     <option value="#">-- Ship Project List --</option>
                     <?php $i=1;?>
                     @foreach($ship as $data)
@@ -36,7 +36,6 @@
                     @endforeach
                     </select>
                 </div>
-               
               </div>
               <!-- /.box-body -->
 
@@ -54,9 +53,9 @@
                 if(isset($_GET['block']) && $_GET['block']!='#') 
                    $flagBlock=true;
                 else $flagBlock=false;
-                if(isset($_GET['machine']) && $_GET['machine']!='#') 
-                   $flagMachine=true;
-                else $flagMachine=false;
+                if(isset($_GET['panel']) && $_GET['panel']!='#') 
+                   $flagPanel=true;
+                else $flagPanel=false;
             ?>
         
             <section class="col-lg-4">
@@ -68,7 +67,7 @@
               <div class="box-body">
               <label for="inputActivity">Select Block:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="block">
                     <option value="#">-- Block List --</option>
                     <?php $i=1;?>
                     @foreach($block as $data)
@@ -97,7 +96,7 @@
               <div class="box-body">
               <label for="inputActivity">Select Panel:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="panel">
                     <option value="#">-- Panel List --</option>
                     <?php $i=1;?>
                     @foreach($panel as $panels)
@@ -126,15 +125,50 @@
               <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>ID Part</th>
-                  <th>Dimension</th>
-                  <th>Quantity</th>
-                  <th>Weight</th>
-                  <th>Join Part</th>
+                    <th>ID Part</th>
+                    <th>Name</th>
+                    <th>Dimension</th>
+                    <th>Quantity</th>
+                    <th>Weight</th>
+                    <th>Join Part</th>
                 </tr>
                 </thead>
                 <tbody>
-                
+                @foreach($part as $parts)
+                        <?php if($flagBlock && $parts->ID_BLOCK == $_GET['block']){
+                        echo '
+                        <tr>
+                            <td>'.$parts['ID'].'</td>
+                            <td>'.$parts['NAME'].'</td>
+                            <td>'.'l='.$parts['LENGTH'].', b='.$parts['BREADTH'].', t='.$parts['THICKNESS'].'</td>
+                        <td>p='.$parts['PORT'].', c='.$parts['CENTER'].', s='.$parts['STARBOARD'].'</td>
+                            <td>'.$parts['WEIGHT'].'</td>
+                            <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                        </tr>';
+                        }
+                        else if($flagProject && $parts->ID_PROJECT == $_GET['project']){
+                        echo '
+                        <tr>
+                            <td>'.$parts['ID'].'</td>
+                            <td>'.$parts['NAME'].'</td>
+                            <td>'.'l='.$parts['LENGTH'].', b='.$parts['BREADTH'].', t='.$parts['THICKNESS'].'</td>
+                        <td>p='.$parts['PORT'].', c='.$parts['CENTER'].', s='.$parts['STARBOARD'].'</td>
+                            <td>'.$parts['WEIGHT'].'</td>
+                            <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                        </tr>';
+                        }
+                        else if(!$flagBlock && !$flagProject){
+                        echo '
+                        <tr>
+                            <td>'.$parts['ID'].'</td>
+                            <td>'.$parts['NAME'].'</td>
+                            <td>'.'l='.$parts['LENGTH'].', b='.$parts['BREADTH'].', t='.$parts['THICKNESS'].'</td>
+                        <td>p='.$parts['PORT'].', c='.$parts['CENTER'].', s='.$parts['STARBOARD'].'</td>
+                            <td>'.$parts['WEIGHT'].'</td>
+                            <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                        </tr>';
+                        }?>
+                    @endforeach
                 </tbody>
               </table>
             </div>

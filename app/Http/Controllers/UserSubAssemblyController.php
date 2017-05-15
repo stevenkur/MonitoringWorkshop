@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
 use App\Panel;
+use App\Part;
 use App\Plate;
 use App\Machine;
 use App\Worker;
@@ -22,9 +23,10 @@ class UserSubAssemblyController extends Controller
         $ship=ShipProject::all();
         $block=Block::all();
         $panel=Panel::all();
+        $part=Part::all();
         $machine=Machine::where('WORKSHOP', 'Sub Assembly')->get();
         $worker=Worker::where('DIVISION', 'Sub Assembly')->get();
-        return view('user/input_act_subassembly')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('machine', $machine)->with('worker', $worker);
+        return view('user/input_act_subassembly')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('machine', $machine)->with('worker', $worker)->with('part', $part);
     }   
     
     public function subassembly_recap_worker()
