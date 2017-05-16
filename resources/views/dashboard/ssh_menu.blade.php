@@ -74,7 +74,7 @@
                         <td>{{$ships->MATERIAL_COMING}}</td>
                         <td>{{$progress.'%'}}</td>
                         <td>
-                            <a href="../public/ssh_menu?project_come=<?php echo $ships['ID'];?>" class="btn btn-primary">View Detail</a>
+                            <a href="../ssh_menu?project_come=<?php echo $ships['ID'];?>" class="btn btn-primary">View Detail</a>
                         </td>
                     </tr>
                     @endforeach

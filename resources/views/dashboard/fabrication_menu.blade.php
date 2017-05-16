@@ -86,7 +86,7 @@
                         <td>'.$blocks['MATERIAL_COMING'].'</td>
                         <td>'.$progress.'% </td>';?>
                         <td>
-                            <a href="../public/fabrication_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
+                            <a href="../fabrication_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
                         </td>
                     <?php echo '</tr>';
                     }
@@ -98,7 +98,7 @@
                         <td>'.$blocks['MATERIAL_COMING'].'</td>
                         <td>'.$progress.'% </td>';?>
                         <td>
-                            <a href="../public/fabrication_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
+                            <a href="../fabrication_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
                         </td>
                     <?php echo '</tr>';
                     }?>
@@ -159,7 +159,8 @@
                     if($flagBlock && $plates->ID_BLOCK == $_GET['block']){
                     echo '
                     <tr>
-                        <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['ID'].'</td>                            
+                        <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
                         <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
                         <td>'.$marking.'</td>
@@ -173,7 +174,8 @@
                     else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
                     echo '
                     <tr>
-                        <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['ID'].'</td>                            
+                        <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
                         <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
                         <td>'.$marking.'</td>
@@ -187,7 +189,8 @@
                     else if(!$flagBlock && !$flagProject){
                     echo '
                     <tr>
-                        <td>'.$plates['ID'].'</td>                            <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
+                        <td>'.$plates['ID'].'</td>                            
+                        <td>'.$plates['LENGTH'].','.$plates['BREADTH'].','.$plates['THICKNESS'].'</td>
                         <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
                         <td>'.$marking.'</td>

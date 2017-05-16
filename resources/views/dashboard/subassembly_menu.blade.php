@@ -83,7 +83,7 @@
                         <td>'.$blocks['NAME'].'</td>
                         <td>'.$progs.'% </td>';?>
                         <td>
-                            <a href="../public/subassembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
+                            <a href="../subassembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
                         </td>
                     <?php echo '</tr>';
                     }
@@ -93,7 +93,7 @@
                         <td>'.$blocks['NAME'].'</td>
                         <td>'.$progs.'% </td>';?>
                         <td>
-                            <a href="../public/subassembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
+                            <a href="../subassembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
                         </td>
                     <?php echo '</tr>';
                     }?>
@@ -161,7 +161,8 @@
                     echo '
                     <tr>
                         <td>'.$parts['ID'].'</td> 
-                        <td>'.$parts['NAME'].'</td>                            <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
+                        <td>'.$parts['NAME'].'</td>                            
+                        <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
                         <td>'.$fitting.'</td>
@@ -178,7 +179,8 @@
                     echo '
                     <tr>
                         <td>'.$parts['ID'].'</td> 
-                        <td>'.$parts['NAME'].'</td>                            <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
+                        <td>'.$parts['NAME'].'</td>                            
+                        <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
                         <td>'.$fitting.'</td>
@@ -195,7 +197,8 @@
                     echo '
                     <tr>
                         <td>'.$parts['ID'].'</td> 
-                        <td>'.$parts['NAME'].'</td>                            <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
+                        <td>'.$parts['NAME'].'</td>                            
+                        <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
                         <td>'.$fitting.'</td>

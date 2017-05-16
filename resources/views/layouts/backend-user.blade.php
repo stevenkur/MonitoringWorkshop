@@ -49,7 +49,7 @@
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>MWS</b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>User </b></span>
+        <span class="logo-lg"><b>MonitoringWorkshop</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -57,6 +57,8 @@
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
         </a>
+
+        <h4 align="right" style="color:white; font-size: 24px">{{ date('l, d M Y') }}</h4>
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
@@ -66,11 +68,11 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="public/adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="public/adminlte/dist/img/user.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <p>User [Divition]</p>
+          <p style="font-size: 12px"><i class="fa fa-circle text-success"></i> Online</p>
         </div>
       </div>
     

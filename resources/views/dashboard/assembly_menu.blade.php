@@ -84,7 +84,7 @@
                         <td>'.$blocks['NAME'].'</td>
                         <td>'.$progs.'% </td>';?>
                         <td>
-                            <a href="../public/subassembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
+                            <a href="../subassembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
                         </td>
                     <?php echo '</tr>';
                     }
@@ -94,7 +94,7 @@
                         <td>'.$blocks['NAME'].'</td>
                         <td>'.$progs.'% </td>';?>
                         <td>
-                            <a href="../public/subassembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
+                            <a href="../subassembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
                         </td>
                     <?php echo '</tr>';
                     }?>
