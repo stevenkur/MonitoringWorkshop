@@ -47,6 +47,18 @@
             </div>
             </section>
 
+            <?php 
+                if(isset($_GET['project']) && $_GET['project']!='#') 
+                   $flagProject=true;
+                else $flagProject=false;
+                if(isset($_GET['block1']) && $_GET['block1']!='#') 
+                   $flagBlock1=true;
+                else $flagBlock1=false;
+                if(isset($_GET['block2']) && $_GET['block2']!='#') 
+                   $flagBlock2=true;
+                else $flagBlock2=false;
+            ?>
+
       <section class="col-lg-12">
         <div class="box box-primary">
             <!-- /.box-header -->
@@ -57,7 +69,7 @@
               <label>Select Block to Join:</label>
               <div class="row">
                 <div class="col-lg-6">
-                  <select class="form-control" name="block">
+                  <select class="form-control" name="block1">
                     <option id="#">-- Block List --</option>
                     <?php $i=1;?>
                     @foreach($block as $data)
@@ -67,7 +79,7 @@
                   </select>
                 </div>
                 <div class="col-lg-6">
-                  <select class="form-control" name="block">
+                  <select class="form-control" name="block2">
                     <option id="#">-- Block List --</option>
                     <?php $i=1;?>
                     @foreach($block as $data)
@@ -87,12 +99,23 @@
         </div>
       </section>
 
+        <?php
+            if(isset($_GET['process'])){
+                $proc = explode('|', $_GET['process']);
+                $flagProcess = true;
+//                echo $proc[0];
+//                echo '<br>';
+//                echo $proc[1];
+            }
+            else $flagProcess = false;
+        ?>
+
         <section class="col-lg-12">
             <div class="box box-primary">
             <section class="col-lg-6">
             <form role="form">
               <div class="box-body">
-                  <h4> Percentage Progress:</h4>
+                <h4> Percentage Progress:</h4>
                 <div class="form-group">
                   <label class="col-lg-3"> Loading: </label>
                   <input type="text" id="loading" placeholder="">
@@ -131,9 +154,10 @@
                   <label class="col-lg-3"> Welding: </label>
                   <input type="checkbox" id="welding_finished" placeholder="">
                 </div>
-                </section>
+            </section>
                 <br>
-                <section class="col-lg-6">
+                
+            <section class="col-lg-6">
                 <h4> Welding Process:</h4>
                 <div class="form-group">
                   <label class="col-lg-3"> Total Weld: </label>
@@ -155,6 +179,7 @@
                   <label class="col-lg-3"> Day of Finish Work: </label>
                   <input type="date" id="finish" placeholder="">
                 </div>
+            </section>
 
             </form>
             </section>
@@ -254,22 +279,23 @@
         </div>
     </section>
 </div>   
+
 @stop
 <!-- jQuery 2.2.3 -->
-<script src="adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="public/adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
-<script src="adminlte/bootstrap/js/bootstrap.min.js"></script>
+<script src="public/adminlte/bootstrap/js/bootstrap.min.js"></script>
 <!-- DataTables -->
-<script src="adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="adminlte/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="public/adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="public/adminlte/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <!-- SlimScroll -->
-<script src="adminlte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="public/adminlte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
-<script src="adminlte/plugins/fastclick/fastclick.js"></script>
+<script src="public/adminlte/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
-<script src="adminlte/dist/js/app.min.js"></script>
+<script src="public/adminlte/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="adminlte/dist/js/demo.js"></script>
+<script src="public/adminlte/dist/js/demo.js"></script>
 <!-- page script -->
 <script>
 $(function() {

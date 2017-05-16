@@ -47,7 +47,11 @@
             @endif
                 {{csrf_field()}}
               <div class="box-body">
+                @if($flag)
+                <h3> Update Worker '<?php echo $name; ?>' </h3>
+                @else
                 <h3> Register New Worker</h3>
+                @endif
                 <div class="form-group">
                   <label for="inputWorker">Name of Worker:</label>
                   <input type="text" class="form-control" id="name" name="name" placeholder="Enter worker" <?php if($flag) echo 'value='."'$name'"; ?>>
@@ -143,22 +147,21 @@
   </div>
 
 @stop
-
 <!-- jQuery 2.2.3 -->
-<script src="adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="public/adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
-<script src="adminlte/bootstrap/js/bootstrap.min.js"></script>
+<script src="public/adminlte/bootstrap/js/bootstrap.min.js"></script>
 <!-- DataTables -->
-<script src="adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="adminlte/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="public/adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="public/adminlte/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <!-- SlimScroll -->
-<script src="adminlte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="public/adminlte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
-<script src="adminlte/plugins/fastclick/fastclick.js"></script>
+<script src="public/adminlte/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
-<script src="adminlte/dist/js/app.min.js"></script>
+<script src="public/adminlte/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="adminlte/dist/js/demo.js"></script>
+<script src="public/adminlte/dist/js/demo.js"></script>
 <!-- page script -->
 <script>
 $(function() {

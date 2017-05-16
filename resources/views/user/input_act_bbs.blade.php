@@ -76,6 +76,17 @@
             </div>
             </section>
 
+        <?php
+            if(isset($_GET['process'])){
+                $proc = explode('|', $_GET['process']);
+                $flagProcess = true;
+//                echo $proc[0];
+//                echo '<br>';
+//                echo $proc[1];
+            }
+            else $flagProcess = false;
+        ?>
+
         <div class="col-md-12">
         <div class="box box-primary">
             <!-- /.box-header -->
@@ -129,8 +140,6 @@
               <label>12 Layer(s)</label><br>
               <label style="font-size: 16px">Finish Layer: </label>
               <input type="text" id="finish" placeholder=""><br><br>
-              <label style="font-size: 16px">Day of Work: </label>
-              <input type="date" id="date" placeholder=""><br>
 
               </div>
               </section>
@@ -230,22 +239,23 @@
         </div>
     </section>
 </div>   
+
 @stop
 <!-- jQuery 2.2.3 -->
-<script src="adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="public/adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
-<script src="adminlte/bootstrap/js/bootstrap.min.js"></script>
+<script src="public/adminlte/bootstrap/js/bootstrap.min.js"></script>
 <!-- DataTables -->
-<script src="adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="adminlte/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="public/adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="public/adminlte/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <!-- SlimScroll -->
-<script src="adminlte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="public/adminlte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
-<script src="adminlte/plugins/fastclick/fastclick.js"></script>
+<script src="public/adminlte/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
-<script src="adminlte/dist/js/app.min.js"></script>
+<script src="public/adminlte/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="adminlte/dist/js/demo.js"></script>
+<script src="public/adminlte/dist/js/demo.js"></script>
 <!-- page script -->
 <script>
 $(function() {

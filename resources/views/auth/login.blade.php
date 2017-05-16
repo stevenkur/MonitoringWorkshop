@@ -4,7 +4,7 @@
 
 <center>
 <h3>WELCOME TO INFORMATION SYSTEM FOR MONITORING ACTIVITIES IN PRODUCTION WORKSHOP OF NEW SHIP BUILDING</h3>
-<img src="{{ URL::asset('img/ship.png') }}" alt="ship" width="300" height="100">
+<img src="{{ URL::asset('public/img/ship.png') }}" alt="ship" width="300" height="100">
 </center>
 
 <div class="container">
