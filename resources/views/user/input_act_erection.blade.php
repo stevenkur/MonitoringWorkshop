@@ -112,8 +112,8 @@
 
         <section class="col-lg-12">
             <div class="box box-primary">
-            <section class="col-lg-6">
             <form role="form">
+            <section class="col-lg-6">
               <div class="box-body">
                 <h4> Percentage Progress:</h4>
                 <div class="form-group">
@@ -154,6 +154,7 @@
                   <label class="col-lg-3"> Welding: </label>
                   <input type="checkbox" id="welding_finished" placeholder="">
                 </div>
+                </div>
             </section>
                 <br>
                 
@@ -181,14 +182,12 @@
                 </div>
             </section>
 
-            </form>
-            </section>
-
             <div class="box-footer" align="right">
               <button type="reset" class="btn btn-primary">Reset</button>
               <button type="submit" class="btn btn-primary">Finish</button>
             </div>
-          </div>
+          </form>
+            </div>
         </section>
 
         <div class="col-md-12">

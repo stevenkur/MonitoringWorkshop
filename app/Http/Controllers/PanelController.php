@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Block;
 use App\ShipProject;
 use App\Panel;
+use App\Part;
 
 class PanelController extends Controller
 {
@@ -92,7 +93,7 @@ class PanelController extends Controller
     public function update(Request $request, $id)
     {
         //        
-        $panel = new Panel();        
+        $panel = Panel::where('ID', $id);        
         $panel->NAME = $request->name;        
         $panel->ID_PROJECT = $request->ID_PROJECT;		
         $panel->PROJECT_NAME = $request->PROJECT_NAME;   
@@ -114,15 +115,15 @@ class PanelController extends Controller
     {
         //
         $panels = Panel::where('ID', $id);
-        
         $panel = Panel::find($id);
-        
-        $block=Block::findOrFail($panel->ID_BLOCK);
-        $ship=ShipProject::findOrFail($panel->ID_PROJECT);
-        
-        $blocks= Block::where('ID', $panel->ID_BLOCK)->update(['PANEL'=>$block->PANEL-1]);
-        $ships= ShipProject::where('ID', $panel->ID_PROJECT)->update(['PANEL'=>$ship->PANEL-1]);
-        
+//        
+//        $block=Block::where('ID_BLOCK', $panel->ID_BLOCK);
+//        $ship=ShipProject::where('ID_PROJECT', $panel->ID_PROJECT);
+//        
+        $blocks= Block::where('ID', $panel->ID_BLOCK)->update(['PANEL'=>'PANEL'-1,'PART'=>'PART'-$panel->weight]);
+        $ships= ShipProject::where('ID', $panel->ID_PROJECT)->update(['PANEL'=>'PANEL'-1,'PART'=>'PART'-$panel->weight]);
+
+        $parts = Part::where('ID_PANEL', $id)->delete();
         $panels->delete();
         
         return redirect()->route('panel.index')

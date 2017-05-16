@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Block;
 use App\ShipProject;
+use App\Panel;
+use App\Part;
+use App\Plate;
+use App\Profile;
 
 class BlockController extends Controller
 {
@@ -123,9 +127,14 @@ class BlockController extends Controller
         $blocks = Block::where('ID', $id);
         $block = Block::find($id);
         
-        $ships=ShipProject::findOrFail($block->ID_PROJECT);
-        $ships=ShipProject::where('ID', $block->ID_PROJECT)->update(['BLOCK'=>$ships->BLOCK-1]);
+        $ships=ShipProject::where('ID', $block->ID_PROJECT)->update(['BLOCK'=>'BLOCK'-1,'PANEL'=>'PANEL'-1,'PART'=>'PART'-$block->weight]);
+        
+        $panel = Panel::where('ID_BLOCK', $id)->delete();
+        $parts = Part::where('ID_BLOCK', $id)->delete();
+        $plate = Plate::where('ID_BLOCK', $id)->delete();
+        $profile = Profile::where('ID_BLOCK', $id)->delete();
         $blocks->delete();
+        
         return redirect()->route('block.index')
             ->with('alert-success', 'Data Berhasil Disimpan.');
     }
