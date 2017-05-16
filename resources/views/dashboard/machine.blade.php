@@ -74,11 +74,11 @@
                 </div>
                 <div class="form-group">
                   <label for="inputActivity">Capacity</label>
-                  <input type="number" class="form-control" id="capacity" name="capacity" placeholder="Enter capacity of machine" <?php if($flag) echo 'value='.$capacity; ?>>
+                  <input type="text" class="form-control" id="capacity" name="capacity" placeholder="Enter capacity of machine" <?php if($flag) echo 'value='.$capacity; ?>>
                 </div>
                 <div class="form-group">
                   <label for="inputOperational">Normal Operational Hour</label>
-                  <input type="number" class="form-control" id="operational" name="operational" placeholder="Enter operational hour" <?php if($flag) echo 'value='.$operational; ?>>
+                  <input type="text" class="form-control" id="operational" name="operational" placeholder="Enter operational hour" <?php if($flag) echo 'value='.$operational; ?>>
                 </div>
                 
               </div>
