@@ -14,7 +14,7 @@ class CreateErectionsTable extends Migration
     public function up()
     {
         Schema::create('erections', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('ID');
             $table->timestamps();
         });
     }
