@@ -39,54 +39,20 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($room as $rooms)
                 <tr>
-                  <td>Ship Project</td>
-                  <td>Block</td>
-                  <td>Room</td>
-                  <td>Side</td>
-                  <td>Frame</td>
-                  <td>Deck</td>
-                  <td>Area(m2)</td>
-                  <td>Layer</td>
-                  <td>Cat</td>
-                  <td>Hitung Rumus</td>
+                    <td>{{$rooms->PROJECT_NAME}}</td>
+                    <td>{{$rooms->BLOCK_NAME}}</td>
+                    <td>{{$rooms->ROOM}}</td>
+                    <td>{{$rooms->SIDE}}</td>
+                    <td>{{$rooms->FRAME}}</td>
+                    <td>{{$rooms->DECK}}</td>
+                    <td>{{$rooms->AREA}}</td>
+                    <td>{{$rooms->TOTAL_LAYER}}</td>
+                    <td>{{$rooms->PAINT_TYPE}}</td>
+                    <td>{{$rooms->PAINT_NEEDS}}</td>
                 </tr>
-                <tr>
-                  <td>Ship Project</td>
-                  <td>Block</td>
-                  <td>Room</td>
-                  <td>Side</td>
-                  <td>Frame</td>
-                  <td>Deck</td>
-                  <td>Area(m2)</td>
-                  <td>Layer</td>
-                  <td>Cat</td>
-                  <td>Hitung Rumus</td>
-                </tr>
-                <tr>
-                  <td>Ship Project</td>
-                  <td>Block</td>
-                  <td>Room</td>
-                  <td>Side</td>
-                  <td>Frame</td>
-                  <td>Deck</td>
-                  <td>Area(m2)</td>
-                  <td>Layer</td>
-                  <td>Cat</td>
-                  <td>Hitung Rumus</td>
-                </tr>
-                <tr>
-                  <td>Ship Project</td>
-                  <td>Block</td>
-                  <td>Room</td>
-                  <td>Side</td>
-                  <td>Frame</td>
-                  <td>Deck</td>
-                  <td>Area(m2)</td>
-                  <td>Layer</td>
-                  <td>Cat</td>
-                  <td>Hitung Rumus</td>
-                </tr>
+                @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
@@ -108,14 +74,14 @@
         </div>
         </div>
 
-        <section class="col-lg-12">
+        <section class="col-lg-8">
         <div class="box box-primary">
         <div class="box-body">
         <h3>Insert Rooms</h3>
         <form role="form" name="BBSPaint">
                 <br>
                 <div class="form-group">
-                  <label class="col-lg-2"> Ship Project </label>
+                  <label class="col-lg-3"> Ship Project </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
                   <select class="form-control" name="project">
@@ -131,7 +97,7 @@
                 <br>
                 <br>
                 <div class="form-group">
-                  <label class="col-lg-2"> Block </label>
+                  <label class="col-lg-3"> Block </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
                   <select class="form-control" name="block">
@@ -147,86 +113,86 @@
                 <br>
                 <br>
                 <div class="form-group">
-                  <label class="col-lg-2"> Room </label>
+                  <label class="col-lg-3"> Room </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="room" placeholder="" style="width:550px">
+                  <input type="text" id="room" placeholder="" style="width:250px">
                   </div>
                 </div>
                 <br>
                 <div class="form-group">
-                  <label class="col-lg-2"> Side </label>
+                  <label class="col-lg-3"> Side </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="side" placeholder="" style="width:550px">
+                  <input type="text" id="side" placeholder="" style="width:250px">
                   </div>
                 </div>
                 <br>
                 <div class="form-group">
-                  <label class="col-lg-2"> Frame </label>
+                  <label class="col-lg-3"> Frame </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="frame" placeholder="" style="width:550px">
+                  <input type="text" id="frame" placeholder="" style="width:250px">
                   </div>
                 </div>
                 <br>
                 <div class="form-group">
-                  <label class="col-lg-2"> Deck </label>
+                  <label class="col-lg-3"> Deck </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="deck" placeholder="" style="width:550px">
+                  <input type="text" id="deck" placeholder="" style="width:250px">
                   </div>
                 </div>
                 <br>
                 <div class="form-group">
-                  <label class="col-lg-2"> Area </label>
+                  <label class="col-lg-3"> Area </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="area" placeholder="" style="width:550px">
+                  <input type="text" id="area" placeholder="" style="width:250px">
                   <label> m<sup>2</sup> </label>
                   </div>
                 </div>
                 <br>
                 <div class="form-group">
-                  <label class="col-lg-2"> Dry Film Thickness </label>
+                  <label class="col-lg-3"> Dry Film Thickness </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="dryfilm" placeholder="" style="width:550px">
+                  <input type="text" id="dft" placeholder="" style="width:250px">
                   <label> mikron </label>
                   </div>
                 </div>
                 <br>
                 <div class="form-group">
-                  <label class="col-lg-2"> Volume Solid </label>
+                  <label class="col-lg-3"> Volume Solid </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="volumesolid" placeholder="" style="width:550px">
+                  <input type="text" id="vs" placeholder="" style="width:250px">
                   <label> % </label>
                   </div>
                 </div>
                 <br>
                 <div class="form-group">
-                  <label class="col-lg-2"> Loss Factor </label>
+                  <label class="col-lg-3"> Loss Factor </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="lossfactor" placeholder="" style="width:550px">
+                  <input type="text" id="lf" placeholder="" style="width:250px">
                   <label> % </label>
                   </div>
                 </div>
                 <br>
                 <div class="form-group">
-                  <label class="col-lg-2"> Total Layer </label>
+                  <label class="col-lg-3"> Total Layer </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="layer" placeholder="" style="width:550px">
+                  <input type="text" id="layer" placeholder="" style="width:250px">
                   </div>
                 </div>
                 <br>
                 <div class="form-group">
-                  <label class="col-lg-2"> Paint Type </label>
+                  <label class="col-lg-3"> Paint Type </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="painttype" placeholder="" style="width:550px">
+                  <input type="text" id="painttype" placeholder="" style="width:250px">
                   </div>
                 </div>
                 <br>

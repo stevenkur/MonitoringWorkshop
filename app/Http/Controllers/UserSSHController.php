@@ -10,6 +10,7 @@ use App\Plate;
 use App\Profile;
 use App\Worker;
 use App\Machine;
+use App\SSH;
 use Carbon\Carbon;
 
 class UserSSHController extends Controller

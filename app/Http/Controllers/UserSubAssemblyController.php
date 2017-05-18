@@ -10,6 +10,7 @@ use App\Part;
 use App\Plate;
 use App\Machine;
 use App\Worker;
+use App\SubAssembly;
 
 class UserSubAssemblyController extends Controller
 {

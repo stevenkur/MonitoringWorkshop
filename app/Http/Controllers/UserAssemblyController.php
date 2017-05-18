@@ -9,6 +9,7 @@ use App\Panel;
 use App\Plate;
 use App\Worker;
 use App\Machine;
+use App\Assembly;
 
 class UserAssemblyController extends Controller
 {

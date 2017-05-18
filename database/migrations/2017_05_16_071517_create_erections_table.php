@@ -15,6 +15,13 @@ class CreateErectionsTable extends Migration
     {
         Schema::create('erections', function (Blueprint $table) {
             $table->increments('ID');
+            $table->integer('ID_WORKER');
+            $table->string('WORKER_NAME', 25);
+            $table->string('ATTENDANCE', 18);
+            $table->string('PROBLEM', 50);
+            $table->double('WASTE_TIME', 6,2);
+            $table->integer('SHIFT');
+            $table->string('USER', 25);
             $table->timestamps();
         });
     }

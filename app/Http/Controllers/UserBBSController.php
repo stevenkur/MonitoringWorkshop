@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
 use App\Worker;
+use App\BBS;
+use App\Room;
 
 class UserBBSController extends Controller
 {
@@ -18,7 +20,8 @@ class UserBBSController extends Controller
     {
         $ship=ShipProject::all();
         $block=Block::all();
-        return view('user/bbs_calculate_paint_needs')->with('ship', $ship)->with('block', $block);
+        $room=Room::all();
+        return view('user/bbs_calculate_paint_needs')->with('ship', $ship)->with('block', $block)->with('room', $room);
     }
     
     public function input_act_bbs()

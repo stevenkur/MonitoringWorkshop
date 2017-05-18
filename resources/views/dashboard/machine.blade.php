@@ -73,11 +73,11 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="inputActivity">Capacity</label>
+                  <label for="inputActivity">Capacity (min/ton)</label>
                   <input type="text" class="form-control" id="capacity" name="capacity" placeholder="Enter capacity of machine" <?php if($flag) echo 'value='.$capacity; ?>>
                 </div>
                 <div class="form-group">
-                  <label for="inputOperational">Normal Operational Hour</label>
+                  <label for="inputOperational">Normal Operational Hour (hour)</label>
                   <input type="text" class="form-control" id="operational" name="operational" placeholder="Enter operational hour" <?php if($flag) echo 'value='.$operational; ?>>
                 </div>
                 
@@ -105,8 +105,8 @@
                   <th>NAME OF MACHINE</th>
                   <th>ACTIVITY</th>
                   <th>WORKSHOP</th>
-                  <th>OPERATIONAL HOUR</th>
-                  <th>CAPACITY</th>
+                  <th>OPERATIONAL HOUR (hour)</th>
+                  <th>CAPACITY (min/ton)</th>
                   <th>EDIT</th>
                   <th>DELETE</th>
                 </tr>
@@ -136,8 +136,8 @@
                   <th>NAME OF MACHINE</th>
                   <th>ACTIVITY</th>
                   <th>WORKSHOP</th>
-                  <th>OPERATIONAL HOUR</th>
-                  <th>CAPACITY</th>
+                  <th>OPERATIONAL HOUR (hour)</th>
+                  <th>CAPACITY (min/ton)</th>
                   <th>EDIT</th>
                   <th>DELETE</th>
                 </tr>

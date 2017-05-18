@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
 use App\Worker;
+use App\Erection;
 
 class UserErectionController extends Controller
 {

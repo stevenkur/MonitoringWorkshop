@@ -26,6 +26,7 @@ class CreateSSHsTable extends Migration
             $table->string('PROBLEM', 50);
             $table->double('WASTE_TIME', 6,2);
             $table->integer('SHIFT');
+            $table->string('USER', 25);
             $table->timestamps();
         });
     }

@@ -9,6 +9,7 @@ use App\Block;
 use App\Plate;
 use App\Worker;
 use App\Machine;
+use App\Fabrication;
 
 class UserFabricationController extends Controller
 {
