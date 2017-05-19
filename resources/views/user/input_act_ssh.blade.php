@@ -89,9 +89,9 @@
             if(isset($_GET['process'])){
                 $proc = explode('|', $_GET['process']);
                 $flagProcess = true;
-//                echo $proc[0];
-//                echo '<br>';
-//                echo $proc[1];
+                if($proc[0]==1) $process = 'Straightening';
+                else if($proc[0]==2) $process = 'Blasting & Shop Primer';
+                $idMaterial = $proc[1];
             }
             else $flagProcess = false;
         ?>
@@ -284,37 +284,39 @@
             </div>
             </div>
 
-            <div class="col-lg-4">
-            <div class="box box-primary">
-            <div class="box box-body">
-            <div class="form-group">
-              <label style="font-size: 16px">Problem: </label>
-              <select class="form-control" name="problem">
-                <option id="1">No Problem</option>
-                <option id="2">Broken Machine</option>
-                <option id="3">Worker Sick/Acident</option>
-                <option id="4">Power Failure</option>
-                <option id="5">Worker Absent</option>
-              </select>
-              <br>
-              <label style="font-size: 16px">Waste Time (If any): </label>
-              <input type="text" id="wastetime" placeholder="">
-              <label>hours</label>
-              <br>
-              <label style="font-size: 16px">Shift: </label>
-              <select class="form-control" name="shift">
-                <option id="1">Shift 1</option>
-                <option id="2">Shift 2</option>
-              </select>
-            </div>
-            </div>
-            </div>
-            </div>
+            <form>
+                <div class="col-lg-4">
+                    <div class="box box-primary">
+                        <div class="box box-body">
+                            <div class="form-group">
+                              <label style="font-size: 16px">Problem: </label>
+                              <select class="form-control" name="problem">
+                                <option id="1">No Problem</option>
+                                <option id="2">Broken Machine</option>
+                                <option id="3">Worker Sick/Acident</option>
+                                <option id="4">Power Failure</option>
+                                <option id="5">Worker Absent</option>
+                              </select>
+                              <br>
+                              <label style="font-size: 16px">Waste Time (If any): </label>
+                              <input type="text" id="wastetime" placeholder="">
+                              <label>hours</label>
+                              <br>
+                              <label style="font-size: 16px">Shift: </label>
+                              <select class="form-control" name="shift">
+                                <option id="1">Shift 1</option>
+                                <option id="2">Shift 2</option>
+                              </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="box-footer" align="right">
-              <button type="reset" class="btn btn-primary">Reset</button>
-              <button type="submit" class="btn btn-primary">Input</button>
-            </div>
+                <div class="box-footer" align="right">
+                  <button type="reset" class="btn btn-primary">Reset</button>
+                  <button type="submit" class="btn btn-primary">Input</button>
+                </div>
+            </form>
           </div>
         </div>
         @endif
