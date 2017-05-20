@@ -15,6 +15,7 @@ class CreateFabricationsTable extends Migration
     {
         Schema::create('fabrications', function (Blueprint $table) {
             $table->increments('ID');
+            $table->string('ID_MATERIAL', 25);
             $table->integer('ID_WORKER');
             $table->string('WORKER_NAME', 25);
             $table->string('ATTENDANCE', 18);

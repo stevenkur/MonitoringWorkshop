@@ -15,6 +15,7 @@ class CreateSubAssembliesTable extends Migration
     {
         Schema::create('sub_assembly', function (Blueprint $table) {
             $table->increments('ID');
+            $table->string('ID_PART', 25);
             $table->integer('ID_WORKER');
             $table->string('WORKER_NAME', 25);
             $table->string('ATTENDANCE', 18);

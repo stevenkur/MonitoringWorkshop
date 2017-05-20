@@ -92,13 +92,14 @@
             if(isset($_GET['process'])){
                 $proc = explode('|', $_GET['process']);
                 $flagProcess = true;
-//                echo $proc[0];
-//                echo '<br>';
-//                echo $proc[1];
+                if($proc[0]==1) $process = 'Marking';
+                else if($proc[0]==2) $process = 'Cutting';
+                else if($proc[0]==3) $process = 'Blending';
+                $idMaterial = $proc[1];
             }
             else $flagProcess = false;
         ?>
-
+        
         <div class="col-md-12">
         <div class="box box-primary">
             <h4 align="right"><b>Target Quantity per Day: [TARGET] Plate</b></h4>
@@ -244,6 +245,8 @@
 
         @if($flagProcess)
         <div class="col-md-12">
+            <form action="{{route('input_works_fabrication')}}" role="form" method="post">
+            {{csrf_field()}}
         <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
@@ -252,28 +255,37 @@
                 <thead>
                 <tr>
                   <th>Name of Worker</th>
-                  <th>NIP</th>
+                  <th>NIK</th>
                   <th>Position/Division</th>
                   <th>Attendance</th>
                   <th>Operator Machine</th>
                 </tr>
                 </thead>
                 <tbody>
+                <?php $i=0;?>
                 @foreach($worker as $workers)
                 <tr>
                   <td>{{$workers->NAME}}</td>
                   <td>{{$workers->NIK}}</td>
                   <td>{{$workers->POSITION.'/'.$workers->DIVISION}}</td>
                   <td>
-                    <select class="form-control" name="process">
-                      <option id="#">-- Attendance List --</option>
+                    <input name="<?php echo 'id'.$i;?>" type="hidden" value="{{ $workers->ID }}">
+                    <input name="<?php echo 'name'.$i;?>" type="hidden" value="{{ $workers->NAME }}">
+                    <select class="form-control" name="<?php echo 'attendance'.$i;?>">
+<!--                      <option value="#">-- Attendance List --</option>-->
                       <option id="1">Present</option>
                       <option id="2">Was Sick/Accident</option>
                       <option id="3">Was Absent</option>
                     </select>
                   </td>
-                  <td><input type="checkbox" id="checklistoperator" placeholder=""></td>
+                  <td>
+                      <select class="form-control" id="checklistoperator" name="<?php echo 'operator'.$i;?>" placeholder="">
+                        <option value="no">No</option>
+                        <option value="ok">Yes</option>
+                      </select>  
+                    </td>
                 </tr>
+                <?php $i++;?> 
                 @endforeach
                 </tbody>
               </table>
@@ -286,11 +298,11 @@
             <div class="form-group">
             <label style="font-size: 16px">Select Machine: </label><br>
             <select class="form-control" name="machine">
-                <option value="#">-- Machine List --</option>
+<!--                <option value="#">-- Machine List --</option>-->
                 <?php $i=1;?>
                 @foreach($machine as $machines)
                     <?php $blockMachine[$i] = $machines; $i++;?>
-                    <option value="{{$machines->ID}}">{{$machines->NAME}}</option>
+                    <option id="{{$machines->ID}}">{{$machines->NAME}}</option>
                 @endforeach
             </select>
             </div>
@@ -298,54 +310,56 @@
             </div>
             </div>
 
+            <input name="num" type="hidden" value="{{ $worker->count() }}">
+            <input name="id_material" type="hidden" value="{{ $idMaterial }}">
+            <input name="process" type="hidden" value="{{ $process }}">
             <div class="col-lg-3">
-            <div class="box box-primary">
-            <div class="box box-body">
-            <div class="form-group">
-              <label style="font-size: 16px">Input Machine Working Hours: </label><br>
-              <input type="text" id="machinehours" placeholder="">
-              <label>hours</label>
-              <label style="font-size: 16px">Normal Hours (8 Hours)</label> <input type="checkbox" id="checklistok" placeholder="">              
-              <label style="font-size: 16px">Additional Hours: </label><br>
-              <input type="text" id="additionalhours" placeholder="">
-              <label>hours</label>
+                <div class="box box-primary">
+                    <div class="box box-body">
+                        <div class="form-group">
+                          <label style="font-size: 16px">Input Machine Working Hours: </label><br>
+                          <input type="text" id="machinehours" name="machinehours" placeholder="" value="0">
+                          <label>hours</label>
+                          <label style="font-size: 16px">Normal Hours (8 Hours)</label> <input type="checkbox" id="checklistok" placeholder="">              
+                          <label style="font-size: 16px">Additional Hours: </label><br>
+                          <input type="text" id="additionalhours" NAME="machineaddhours" placeholder="" value="0">
+                          <label>hours</label>
+                        </div>
+                    </div>
+                </div>
             </div>
+                <div class="col-lg-4">
+                    <div class="box box-primary">
+                        <div class="box box-body">
+                            <div class="form-group">
+                              <label style="font-size: 16px">Problem: </label>
+                              <select class="form-control" name="problem">
+                                <option id="1">No Problem</option>
+                                <option id="2">Broken Machine</option>
+                                <option id="3">Worker Sick/Acident</option>
+                                <option id="4">Power Failure</option>
+                                <option id="5">Worker Absent</option>
+                              </select>
+                              <br>
+                              <label style="font-size: 16px">Waste Time (If any): </label>
+                              <input type="text" id="wastetime" name="wastetime" placeholder="" value="0">
+                              <label>hours</label>
+                              <br>
+                              <label style="font-size: 16px">Shift: </label>
+                              <select class="form-control" name="shift">
+                                <option id="1">Shift 1</option>
+                                <option id="2">Shift 2</option>
+                              </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer" align="right">
+                  <button type="reset" class="btn btn-primary">Reset</button>
+                  <button type="submit" class="btn btn-primary">Input</button>
+                </div>
             </div>
-            </div>
-            </div>
-
-            <div class="col-lg-4">
-            <div class="box box-primary">
-            <div class="box box-body">
-            <div class="form-group">
-              <label style="font-size: 16px">Problem: </label>
-              <select class="form-control" name="problem">
-                <option id="1">No Problem</option>
-                <option id="2">Broken Machine</option>
-                <option id="3">Worker Sick/Acident</option>
-                <option id="4">Power Failure</option>
-                <option id="5">Worker Absent</option>
-              </select>
-              <br>
-              <label style="font-size: 16px">Waste Time (If any): </label>
-              <input type="text" id="wastetime" placeholder="">
-              <label>hours</label>
-              <br>
-              <label style="font-size: 16px">Shift: </label>
-              <select class="form-control" name="shift">
-                <option id="1">Shift 1</option>
-                <option id="2">Shift 2</option>
-              </select>
-            </div>
-            </div>
-            </div>
-            </div>
-
-            <div class="box-footer" align="right">
-              <button type="reset" class="btn btn-primary">Reset</button>
-              <button type="submit" class="btn btn-primary">Input</button>
-            </div>
-          </div>
+            </form>
         </div>
         @endif
 

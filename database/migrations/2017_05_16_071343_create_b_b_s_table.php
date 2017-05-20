@@ -15,6 +15,7 @@ class CreateBBSTable extends Migration
     {
         Schema::create('bbs', function (Blueprint $table) {
             $table->increments('ID');
+            $table->string('ID_BLOCK', 25);
             $table->integer('ID_WORKER');
             $table->string('WORKER_NAME', 25);
             $table->string('ATTENDANCE', 18);

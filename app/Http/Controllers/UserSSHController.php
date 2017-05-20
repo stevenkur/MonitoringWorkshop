@@ -79,4 +79,45 @@ class UserSSHController extends Controller
         return view('user/ssh_recap_progress_activity')->with('ship', $ship)->with('progress', $progress);
     }
 
+    public function works(Request $request)
+    {
+//        dd(Input::all());
+        $input = Input::all();
+        $count = $input['num'];
+        
+        for($i=0; $i<$count; $i++)
+        {
+            $ssh = new SSH();        
+            $ssh->ID_MATERIAL = $input['id_material'];  
+            $ssh->ID_WORKER = $input['id'.$i];        
+            $ssh->WORKER_NAME = $input['name'.$i];		
+            $ssh->ATTENDANCE = $input['attendance'.$i];   
+            $ssh->PROCESS = $input['process'];   
+            $ssh->OPERATOR = $input['operator'.$i];   
+            $ssh->MACHINE = $input['machine'];   
+            $ssh->MACHINE_WORKING = $input['machinehours'];   
+            $ssh->MACHINE_ADD_HOURS = $input['machineaddhours'];   
+            $ssh->PROBLEM = $input['problem']; 
+            $ssh->WASTE_TIME = $input['wastetime']; 
+            $ssh->SHIFT = substr($input['shift'], 6); 
+            $ssh->USER = 'admin'; 
+            $ssh->save();
+        }
+        
+        if($input['process']=='Straightening'){
+            $plate = Plate::where('ID', $input['id_material'])->update(['STRAIGHTENING'=>1, 'STRAIGHTENING_DATE'=>Carbon::today()->format('Y-m-d')]);
+        }
+        else{
+            $plate = Plate::where('ID', $input['id_material'])->update(['BLASTING'=>1, 'BLASTING_DATE'=>Carbon::today()->format('Y-m-d')]);
+        }
+        
+        $ship=ShipProject::all();
+        $block=Block::all();
+        $plate=Plate::all();
+        $profile=Profile::all();
+        $machine=Machine::where('WORKSHOP', 'SSH')->get();
+        $worker=Worker::where('DIVISION', 'SSH')->get();
+        
+        return view('user/input_act_ssh')->with('ship', $ship)->with('block', $block)->with('plate', $plate)->with('worker', $worker)->with('machine', $machine);
+    }
 }

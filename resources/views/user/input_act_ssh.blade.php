@@ -214,6 +214,8 @@
 
         @if($flagProcess)
         <div class="col-md-12">
+            <form action="{{route('input_works_ssh')}}" role="form" method="post">
+            {{csrf_field()}}
         <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
@@ -229,21 +231,30 @@
                 </tr>
                 </thead>
                 <tbody>
+                <?php $i=0;?>
                 @foreach($worker as $workers)
                 <tr>
                   <td>{{$workers->NAME}}</td>
                   <td>{{$workers->NIK}}</td>
                   <td>{{$workers->POSITION.'/'.$workers->DIVISION}}</td>
                   <td>
-                    <select class="form-control" name="process">
-                      <option id="#">-- Attendance List --</option>
+                    <input name="<?php echo 'id'.$i;?>" type="hidden" value="{{ $workers->ID }}">
+                    <input name="<?php echo 'name'.$i;?>" type="hidden" value="{{ $workers->NAME }}">
+                    <select class="form-control" name="<?php echo 'attendance'.$i;?>">
+<!--                      <option value="#">-- Attendance List --</option>-->
                       <option id="1">Present</option>
                       <option id="2">Was Sick/Accident</option>
                       <option id="3">Was Absent</option>
                     </select>
                   </td>
-                  <td><input type="checkbox" id="checklistoperator" placeholder=""></td>
+                  <td>
+                      <select class="form-control" id="checklistoperator" name="<?php echo 'operator'.$i;?>" placeholder="">
+                        <option value="no">No</option>
+                        <option value="ok">Yes</option>
+                      </select>  
+                    </td>
                 </tr>
+                <?php $i++;?> 
                 @endforeach
                 </tbody>
               </table>
@@ -256,11 +267,11 @@
             <div class="form-group">
             <label style="font-size: 16px">Select Machine: </label><br>
             <select class="form-control" name="machine">
-                <option value="#">-- Machine List --</option>
+<!--                <option value="#">-- Machine List --</option>-->
                 <?php $i=1;?>
                 @foreach($machine as $machines)
                     <?php $blockMachine[$i] = $machines; $i++;?>
-                    <option value="{{$machines->ID}}">{{$machines->NAME}}</option>
+                    <option id="{{$machines->ID}}">{{$machines->NAME}}</option>
                 @endforeach
             </select>
             </div>
@@ -268,23 +279,24 @@
             </div>
             </div>
 
+            <input name="num" type="hidden" value="{{ $worker->count() }}">
+            <input name="id_material" type="hidden" value="{{ $idMaterial }}">
+            <input name="process" type="hidden" value="{{ $process }}">
             <div class="col-lg-3">
-            <div class="box box-primary">
-            <div class="box box-body">
-            <div class="form-group">
-              <label style="font-size: 16px">Input Machine Working Hours: </label><br>
-              <input type="text" id="machinehours" placeholder="">
-              <label>hours</label>
-              <label style="font-size: 16px">Normal Hours (8 Hours)</label> <input type="checkbox" id="checklistok" placeholder="">              
-              <label style="font-size: 16px">Additional Hours: </label><br>
-              <input type="text" id="additionalhours" placeholder="">
-              <label>hours</label>
+                <div class="box box-primary">
+                    <div class="box box-body">
+                        <div class="form-group">
+                          <label style="font-size: 16px">Input Machine Working Hours: </label><br>
+                          <input type="text" id="machinehours" name="machinehours" placeholder="" value="0">
+                          <label>hours</label>
+                          <label style="font-size: 16px">Normal Hours (8 Hours)</label> <input type="checkbox" id="checklistok" placeholder="">              
+                          <label style="font-size: 16px">Additional Hours: </label><br>
+                          <input type="text" id="additionalhours" NAME="machineaddhours" placeholder="" value="0">
+                          <label>hours</label>
+                        </div>
+                    </div>
+                </div>
             </div>
-            </div>
-            </div>
-            </div>
-
-            <form>
                 <div class="col-lg-4">
                     <div class="box box-primary">
                         <div class="box box-body">
@@ -299,7 +311,7 @@
                               </select>
                               <br>
                               <label style="font-size: 16px">Waste Time (If any): </label>
-                              <input type="text" id="wastetime" placeholder="">
+                              <input type="text" id="wastetime" name="wastetime" placeholder="" value="0">
                               <label>hours</label>
                               <br>
                               <label style="font-size: 16px">Shift: </label>
@@ -311,13 +323,12 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="box-footer" align="right">
                   <button type="reset" class="btn btn-primary">Reset</button>
                   <button type="submit" class="btn btn-primary">Input</button>
                 </div>
+            </div>
             </form>
-          </div>
         </div>
         @endif
         
