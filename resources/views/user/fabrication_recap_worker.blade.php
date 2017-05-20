@@ -29,7 +29,7 @@
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
                   <select class="form-control" name="project">
-                    <option id="#">-- Ship Project List --</option>
+                    <option value="#">-- Ship Project List --</option>
                     <?php $i=1;?>
                     @foreach($ship as $data)
                         <?php $shipData[$i] = $data; $i++;?>
@@ -67,7 +67,7 @@
               <label for="inputActivity">Select BLock:</label>
                 <div class="form-group">
                   <select class="form-control" name="block">
-                    <option id="#">-- Block List --</option>
+                    <option value="#">-- Block List --</option>
                     <?php $i=1;?>
                     @foreach($block as $data)
                         <?php $blockData[$i] = $data; $i++;?>
@@ -95,7 +95,6 @@
                 <thead>
                 <tr>
                   <th>Name of Worker</th>
-                  <th>NIP</th>
                   <th>Shift</th>
                   <th>Activity</th>
                   <th>Problem</th>
@@ -104,48 +103,16 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($fabrication as $fabrications)
                 <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
+                  <td>{{$fabrications->WORKER_NAME}}</td>
+                  <td>{{$fabrications->SHIFT}}</td>
+                  <td>{{$fabrications->PROCESS.' '.$fabrications->ID_MATERIAL}}</td>
+                  <td>{{$fabrications->PROBLEM}}</td>
+                  <td>{{$fabrications->MACHINE_WORKING}}</td>
+                  <td>{{$fabrications->MACHINE_WORKING+$fabrications->MACHINE_ADD_HOURS}}</td>
                 </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr><tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr><tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr><tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr>
+                @endforeach
                 </tbody>
               </table>
             </div>
@@ -177,11 +144,11 @@
 <script>
 $(function() {
     $('#plate').DataTable({
-          "paging": false,
-          "lengthChange": false,
+          "paging": true,
+          "lengthChange": true,
           "searching": true,
-          "ordering": false,
-          "info": false,
+          "ordering": true,
+          "info": true,
           "autoWidth": true
     });
   });
