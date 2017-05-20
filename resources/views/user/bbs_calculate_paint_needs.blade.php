@@ -79,7 +79,6 @@
         <div class="box-body">
         <h3>Insert Rooms</h3>
         <form role="form" href="{{ route('bbs_add_rooms')}}" method="post">
-        <input name="_method" type="hidden" value="POST">
         {{csrf_field()}}
                 <br>
                 <div class="form-group">

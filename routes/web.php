@@ -62,10 +62,11 @@ Route::any('assembly_recap_join_panel_process', ['as'=>'assembly_recap_join_pane
 Route::any('assembly_recap_worker', ['as'=>'assembly_recap_worker', 'uses'=>'UserAssemblyController@assembly_recap_worker']);
 Route::any('assembly_recap_progress_activity', ['as'=>'assembly_recap_progress_activity', 'uses'=>'UserAssemblyController@assembly_recap_progress_activity']);
 
+Route::any('bbs_calculate_paint_needs', ['as'=>'bbs_calculate_paint_needs', 'uses'=>'UserBBSController@bbs_calculate_paint_needs']);
+Route::any('bbs_add_rooms', ['as'=>'bbs_add_rooms', 'uses'=>'UserBBSController@bbs_add_rooms']);
 Route::any('input_act_bbs', ['as'=>'input_act_bbs', 'uses'=>'UserBBSController@input_act_bbs']);
 Route::any('bbs_recap_material_process', ['as'=>'bbs_recap_material_process', 'uses'=>'UserBBSController@bbs_recap_material_process']);
 Route::any('bbs_recap_worker', ['as'=>'bbs_recap_worker', 'uses'=>'UserBBSController@bbs_recap_worker']);
-Route::any('bbs_calculate_paint_needs', ['as'=>'bbs_calculate_paint_needs', 'uses'=>'UserBBSController@bbs_calculate_paint_needs']);
 
 Route::any('input_act_erection', ['as'=>'input_act_erection', 'uses'=>'UserErectionController@input_act_erection']);
 Route::any('erection_recap_block', ['as'=>'erection_recap_block', 'uses'=>'UserErectionController@erection_recap_block']);
