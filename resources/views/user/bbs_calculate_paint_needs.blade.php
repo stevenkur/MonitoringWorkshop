@@ -76,10 +76,10 @@
 
         <section class="col-lg-8">
         <div class="box box-primary">
-        <div class="box-body">
-        <h3>Insert Rooms</h3>
         <form role="form" href="{{route('bbs_add_rooms')}}" method="post">
         {{csrf_field()}}
+        <div class="box-body">
+        <h3>Insert Rooms</h3>
                 <br>
                 <div class="form-group">
                   <label class="col-lg-3"> Ship Project </label>
@@ -199,11 +199,11 @@
                 <br>
 
             <div class="box-footer" align="right">
-              <button type="reset" class="btn btn-primary">Reset</button>
-              <button type="submit" class="btn btn-primary">Input</button>
+              <button type="reset" class="btn btn-ok">Reset</button>
+              <button value="submit" type="submit" class="btn btn-primary">Input</button>
             </div>
-        </form>
         </div>
+        </form>
         </div>
         </section>
 
