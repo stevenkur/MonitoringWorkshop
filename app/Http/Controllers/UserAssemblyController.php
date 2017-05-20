@@ -10,6 +10,7 @@ use App\Plate;
 use App\Worker;
 use App\Machine;
 use App\Assembly;
+use Carbon\Carbon;
 
 class UserAssemblyController extends Controller
 {
@@ -51,6 +52,53 @@ class UserAssemblyController extends Controller
         $ship=ShipProject::all();
         $block=Block::all();
         return view('user/assembly_recap_join_panel_process')->with('ship', $ship)->with('block', $block);
+    }
+
+    public function works(Request $request)
+    {
+//        dd(Input::all());
+        $input = Input::all();
+        $count = $input['num'];
+        
+        for($i=0; $i<$count; $i++)
+        {
+            $assembly = new Assembly();        
+            $assembly->ID_MATERIAL = $input['id_material'];  
+            $assembly->ID_WORKER = $input['id'.$i];        
+            $assembly->WORKER_NAME = $input['name'.$i];      
+            $assembly->ATTENDANCE = $input['attendance'.$i];   
+            $assembly->PROCESS = $input['process'];   
+            $assembly->OPERATOR = $input['operator'.$i];   
+            $assembly->MACHINE = $input['machine'];   
+            $assembly->MACHINE_WORKING = $input['machinehours'];   
+            $assembly->MACHINE_ADD_HOURS = $input['machineaddhours'];   
+            $assembly->PROBLEM = $input['problem']; 
+            $assembly->WASTE_TIME = $input['wastetime']; 
+            $assembly->SHIFT = substr($input['shift'], 6); 
+            $assembly->USER = 'admin'; 
+            $assembly->save();
+        }
+        
+        if($input['process']=='Fitting'){
+            $panel = Panel::where('ID', $input['id_material'])->update(['FITTING'=>1, 'FITTING_DATE'=>Carbon::today()->format('Y-m-d')]);
+        }
+        else if($input['process']=='Welding'){
+            $panel = Panel::where('ID', $input['id_material'])->update(['WELDING'=>1, 'WELDING_DATE'=>Carbon::today()->format('Y-m-d')]);
+        }
+        else if($input['process']=='Grinding'){
+            $panel = Panel::where('ID', $input['id_material'])->update(['GRINDING'=>1, 'GRINDING_DATE'=>Carbon::today()->format('Y-m-d')]);
+        }
+        else {
+            $panel = Panel::where('ID', $input['id_material'])->update(['FAIRING'=>1, 'FAIRING_DATE'=>Carbon::today()->format('Y-m-d')]);
+        }
+        
+        $ship=ShipProject::all();
+        $block=Block::all();
+        $panel=Panel::all();
+        $machine=Machine::where('WORKSHOP', 'Assembly')->get();
+        $worker=Worker::where('DIVISION', 'Assembly')->get();
+        
+        return view('user/input_act_assembly')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('machine', $machine)->with('worker', $worker);
     }  
 
 }

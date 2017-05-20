@@ -231,8 +231,7 @@
             <div class="form-group">
               <label style="font-size: 16px">Input Work Hours: </label><br>
               <input type="text" id="machinehours" placeholder="">
-              <label>hours</label>
-              <label style="font-size: 16px">Normal Hours (8 Hours)</label> <input type="checkbox" id="checklistok" placeholder="">              
+              <label>hours</label>       
               <label style="font-size: 16px">Additional Hours: </label><br>
               <input type="text" id="additionalhours" placeholder="">
               <label>hours</label>

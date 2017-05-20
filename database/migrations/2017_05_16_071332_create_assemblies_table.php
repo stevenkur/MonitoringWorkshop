@@ -15,11 +15,11 @@ class CreateAssembliesTable extends Migration
     {
         Schema::create('assembly', function (Blueprint $table) {
             $table->increments('ID');
-            $table->string('ID_PANEL', 25);
+            $table->string('ID_MATERIAL', 25);
             $table->integer('ID_WORKER');
             $table->string('WORKER_NAME', 25);
             $table->string('ATTENDANCE', 18);
-            $table->string('PROCESS', 18);
+            $table->string('PROCESS', 25);
             $table->string('OPERATOR', 25);
             $table->string('MACHINE', 20);
             $table->double('MACHINE_WORKING', 6,2);

@@ -15,11 +15,11 @@ class CreateBBSTable extends Migration
     {
         Schema::create('bbs', function (Blueprint $table) {
             $table->increments('ID');
-            $table->string('ID_BLOCK', 25);
+            $table->string('ID_MATERIAL', 25);
             $table->integer('ID_WORKER');
             $table->string('WORKER_NAME', 25);
             $table->string('ATTENDANCE', 18);
-            $table->string('PROCESS', 18);
+            $table->string('PROCESS', 25);
             $table->string('PROBLEM', 50);
             $table->double('WASTE_TIME', 6,2);
             $table->integer('SHIFT');
