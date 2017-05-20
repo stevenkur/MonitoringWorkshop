@@ -78,7 +78,7 @@
         <div class="box box-primary">
         <div class="box-body">
         <h3>Insert Rooms</h3>
-        <form role="form" href="{{ route('bbs_add_rooms')}}" method="post">
+        <form role="form" href="{{route('bbs_add_rooms')}}" method="post">
         {{csrf_field()}}
                 <br>
                 <div class="form-group">
@@ -90,7 +90,7 @@
                     <?php $i=1;?>
                     @foreach($ship as $data)
                         <?php $shipData[$i] = $data; $i++;?>
-                        <option name="projectid" value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
+                        <option value="{{$data->ID}}|<?php echo $data['PROJECT_NAME'];?>">{{$data->PROJECT_NAME}}</option>
                     @endforeach
                   </select>
                   </div>
@@ -106,7 +106,7 @@
                     <?php $i=1;?>
                     @foreach($block as $datas)
                         <?php $blockData[$i] = $datas; $i++;?>
-                        <option name="blockid" value="{{$datas->ID}}">{{$datas->NAME}}</option>
+                        <option value="{{$datas->ID}}|<?php echo $datas['NAME'];?>">{{$datas->NAME}}</option>
                     @endforeach
                   </select>
                   </div>
