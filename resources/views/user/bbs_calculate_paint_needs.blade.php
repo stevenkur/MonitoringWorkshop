@@ -78,7 +78,9 @@
         <div class="box box-primary">
         <div class="box-body">
         <h3>Insert Rooms</h3>
-        <form role="form" name="BBSPaint">
+        <form role="form" href="{{ route('bbs_add_rooms')}}" method="post">
+        <input name="_method" type="hidden" value="POST">
+        {{csrf_field()}}
                 <br>
                 <div class="form-group">
                   <label class="col-lg-3"> Ship Project </label>
@@ -89,7 +91,7 @@
                     <?php $i=1;?>
                     @foreach($ship as $data)
                         <?php $shipData[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
+                        <option name="projectid" value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
                     @endforeach
                   </select>
                   </div>
@@ -105,7 +107,7 @@
                     <?php $i=1;?>
                     @foreach($block as $datas)
                         <?php $blockData[$i] = $datas; $i++;?>
-                        <option value="{{$datas->ID}}">{{$datas->NAME}}</option>
+                        <option name="blockid" value="{{$datas->ID}}">{{$datas->NAME}}</option>
                     @endforeach
                   </select>
                   </div>
@@ -116,7 +118,7 @@
                   <label class="col-lg-3"> Room </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="room" placeholder="" style="width:250px">
+                  <input type="text" id="room" name="room" placeholder="" style="width:250px">
                   </div>
                 </div>
                 <br>
@@ -124,7 +126,7 @@
                   <label class="col-lg-3"> Side </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="side" placeholder="" style="width:250px">
+                  <input type="text" id="side" name="side" placeholder="" style="width:250px">
                   </div>
                 </div>
                 <br>
@@ -132,7 +134,7 @@
                   <label class="col-lg-3"> Frame </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="frame" placeholder="" style="width:250px">
+                  <input type="text" id="frame" name="frame" placeholder="" style="width:250px">
                   </div>
                 </div>
                 <br>
@@ -140,7 +142,7 @@
                   <label class="col-lg-3"> Deck </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="deck" placeholder="" style="width:250px">
+                  <input type="text" id="deck" name="deck" placeholder="" style="width:250px">
                   </div>
                 </div>
                 <br>
@@ -148,7 +150,7 @@
                   <label class="col-lg-3"> Area </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="area" placeholder="" style="width:250px">
+                  <input type="text" id="area" name="area" placeholder="" style="width:250px">
                   <label> m<sup>2</sup> </label>
                   </div>
                 </div>
@@ -157,7 +159,7 @@
                   <label class="col-lg-3"> Dry Film Thickness </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="dft" placeholder="" style="width:250px">
+                  <input type="text" id="dft" name="dft" placeholder="" style="width:250px">
                   <label> mikron </label>
                   </div>
                 </div>
@@ -166,7 +168,7 @@
                   <label class="col-lg-3"> Volume Solid </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="vs" placeholder="" style="width:250px">
+                  <input type="text" id="vs" name="vs" placeholder="" style="width:250px">
                   <label> % </label>
                   </div>
                 </div>
@@ -175,7 +177,7 @@
                   <label class="col-lg-3"> Loss Factor </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="lf" placeholder="" style="width:250px">
+                  <input type="text" id="lf" name="lf" placeholder="" style="width:250px">
                   <label> % </label>
                   </div>
                 </div>
@@ -184,7 +186,7 @@
                   <label class="col-lg-3"> Total Layer </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="layer" placeholder="" style="width:250px">
+                  <input type="text" id="layer" name="layer" placeholder="" style="width:250px">
                   </div>
                 </div>
                 <br>
@@ -192,7 +194,7 @@
                   <label class="col-lg-3"> Paint Type </label>
                   <label class="col-lg-1"> : </label>
                   <div class="col-lg-6">
-                  <input type="text" id="painttype" placeholder="" style="width:250px">
+                  <input type="text" id="painttype" name="painttype" placeholder="" style="width:250px">
                   </div>
                 </div>
                 <br>
