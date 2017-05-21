@@ -111,8 +111,7 @@
                 <thead>
                 <tr>
                   <th>ID Part</th>
-                  <th>Dimension</th>
-                  <th>Quantity</th>
+                  <th>Name</th>
                   <th>Weight</th>
                   <th>Material Process</th>
                 </tr>
@@ -134,9 +133,7 @@
                     <tr>
                         <td>'.$panels['ID'].'</td>
                         <td>'.$panels['NAME'].'</td>
-                        <td>'.'l='.$panels['LENGTH'].', b='.$panels['BREADTH'].', t='.$panels['THICKNESS'].'</td>
-                        <td>p='.$panels['PORT'].', c='.$panels['CENTER'].', s='.$panels['STARBOARD'].'</td>
-                        <td>'.$panels['WEIGHT'].'</td>';?>
+                        <td>'.$panels['PART_DONE'];?></td>
                         <td>
                           @if(!$flagFit)
                             <form action="./input_act_assembly" class="form" method="get">
@@ -177,9 +174,7 @@
                     <tr>
                         <td>'.$panels['ID'].'</td>
                         <td>'.$panels['NAME'].'</td>
-                        <td>'.'l='.$panels['LENGTH'].', b='.$panels['BREADTH'].', t='.$panels['THICKNESS'].'</td>
-                        <td>p='.$panels['PORT'].', c='.$panels['CENTER'].', s='.$panels['STARBOARD'].'</td>
-                        <td>'.$panels['WEIGHT'].'</td>';?>
+                        <td>'.$panels['PART_DONE'];?></td>
                         <td>
                           @if(!$flagFit)
                             <form action="./input_act_assembly" class="form" method="get">
@@ -220,9 +215,7 @@
                     <tr>
                         <td>'.$panels['ID'].'</td>
                         <td>'.$panels['NAME'].'</td>
-                        <td>'.'l='.$panels['LENGTH'].', b='.$panels['BREADTH'].', t='.$panels['THICKNESS'].'</td>
-                        <td>p='.$panels['PORT'].', c='.$panels['CENTER'].', s='.$panels['STARBOARD'].'</td>
-                        <td>'.$panels['WEIGHT'].'</td>';?>
+                        <td>'.$panels['PART_DONE'];?></td>
                         <td>
                           @if(!$flagFit)
                             <form action="./input_act_assembly" class="form" method="get">

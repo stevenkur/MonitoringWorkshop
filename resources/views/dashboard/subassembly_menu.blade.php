@@ -83,7 +83,7 @@
                         <td>'.$blocks['NAME'].'</td>
                         <td>'.$progs.'% </td>';?>
                         <td>
-                            <a href="../subassembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
+                            <a href="./subassembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
                         </td>
                     <?php echo '</tr>';
                     }
@@ -93,7 +93,7 @@
                         <td>'.$blocks['NAME'].'</td>
                         <td>'.$progs.'% </td>';?>
                         <td>
-                            <a href="../subassembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
+                            <a href="./subassembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
                         </td>
                     <?php echo '</tr>';
                     }?>
@@ -139,22 +139,22 @@
                     <?php 
                     if($parts['FITTING']==1) $fitting= 'finished '.$parts['FITTING_DATE'];
                     else{
-                        $fitting='unfinished';
+                        $fitting=$parts['FITTING'];
                         $parts['FITTING_MACHINE'] = "-";
                     }
                     if($parts['WELDING']==1) $welding= 'finished '.$parts['WELDING_DATE'];
                     else{
-                        $welding='unfinished';
+                        $welding=$parts['WELDING'];
                         $parts['WELDING_MACHINE'] = "-";
                     }
                     if($parts['GRINDING']==1) $grinding= 'finished '.$parts['GRINDING_DATE'];
                     else{
-                        $grinding='unfinished';
+                        $grinding=$parts['GRINDING'];
                         $parts['GRINDING_MACHINE'] = "-";
                     }
                     if($parts['FAIRING']==1) $fairing= 'finished '.$parts['FAIRING_DATE'];
                     else{
-                        $fairing='unfinished';
+                        $fairing=$parts['FAIRING'];
                         $parts['FAIRING_MACHINE'] = "-";
                     }
                     if($flagBlock && $parts->ID_BLOCK == $_GET['block']){

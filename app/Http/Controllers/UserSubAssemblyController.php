@@ -36,8 +36,9 @@ class UserSubAssemblyController extends Controller
         $ship=ShipProject::all();
         $block=Block::all();
         $panel=Panel::all();
-        $machine=Machine::all();
-        return view('user/subassembly_recap_worker')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('machine', $machine);
+        $subassembly=SubAssembly::all();
+        
+        return view('user/subassembly_recap_worker')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('subass',$subassembly);
     }  
 
     public function subassembly_recap_progress_activity()

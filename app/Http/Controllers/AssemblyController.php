@@ -19,7 +19,7 @@ class AssemblyController extends Controller
     {
         $ship=ShipProject::all();
         $block=Block::all();
-        $progress=Panel::select('id_block', DB::raw('sum(FAIRING+FITTING+GRINDING+WELDING) as sum'))->groupBy('id_block')->get();
+        $progress=Panel::select('id_block', DB::raw('sum(FAIRING+FITTING+GRINDING+WELDING)/3 as sum'))->groupBy('id_block')->get();
         $panel=Panel::all();
                 
         return view('dashboard/assembly_menu')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('progress', $progress);

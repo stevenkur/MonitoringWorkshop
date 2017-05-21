@@ -98,7 +98,6 @@
                 <thead>
                 <tr>
                   <th>Name of Worker</th>
-                  <th>NIP</th>
                   <th>Shift</th>
                   <th>Activity</th>
                   <th>Problem</th>
@@ -107,48 +106,16 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($subass as $subasss)
                 <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
+                  <td>{{$subasss->WORKER_NAME}}</td>
+                  <td>{{$subasss->SHIFT}}</td>
+                  <td>{{$subasss->PROCESS.' '.$subasss->ID_PANEL}}</td>
+                  <td>{{$subasss->PROBLEM}}</td>
+                  <td>{{$subasss->MACHINE_WORKING}}</td>
+                  <td>{{$subasss->MACHINE_WORKING+$subasss->MACHINE_ADD_HOURS}}</td>
                 </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr><tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr><tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr><tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr>
+                @endforeach
                 </tbody>
               </table>
             </div>

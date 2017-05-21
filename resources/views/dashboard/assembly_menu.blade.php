@@ -84,7 +84,7 @@
                         <td>'.$blocks['NAME'].'</td>
                         <td>'.$progs.'% </td>';?>
                         <td>
-                            <a href="../subassembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
+                            <a href="./assembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
                         </td>
                     <?php echo '</tr>';
                     }
@@ -94,7 +94,7 @@
                         <td>'.$blocks['NAME'].'</td>
                         <td>'.$progs.'% </td>';?>
                         <td>
-                            <a href="../subassembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
+                            <a href="./assembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
                         </td>
                     <?php echo '</tr>';
                     }?>
@@ -138,22 +138,22 @@
                     <?php 
                     if($panels['FITTING']==1) $fitting= 'finished '.$panels['FITTING_DATE'];
                     else{
-                        $fitting='unfinished';
+                        $fitting=$panels['FITTING'];
                         $panels['FITTING_MACHINE'] = "-";
                     }
                     if($panels['WELDING']==1) $welding= 'finished '.$panels['WELDING_DATE'];
                     else{
-                        $welding='unfinished';
+                        $welding=$panels['WELDING'];
                         $panels['WELDING_MACHINE'] = "-";
                     }
                     if($panels['GRINDING']==1) $grinding= 'finished '.$panels['GRINDING_DATE'];
                     else{
-                        $grinding='unfinished';
+                        $grinding=$panels['GRINDING'];
                         $panels['GRINDING_MACHINE'] = "-";
                     }
                     if($panels['FAIRING']==1) $fairing= 'finished '.$panels['FAIRING_DATE'];
                     else{
-                        $fairing='unfinished';
+                        $fairing=$panels['FAIRING'];
                         $panels['FAIRING_MACHINE'] = "-";
                     }
                     if($flagBlock && $panels->ID_BLOCK == $_GET['block']){

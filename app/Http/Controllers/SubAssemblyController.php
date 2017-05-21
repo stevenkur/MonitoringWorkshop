@@ -19,7 +19,7 @@ class SubAssemblyController extends Controller
     {
         $ship=ShipProject::all();
         $block=Block::all();
-        $progress=Part::select('id_block', DB::raw('sum(FAIRING+FITTING+GRINDING+WELDING) as sum'))->groupBy('id_block')->get();
+        $progress=Part::select('id_block', DB::raw('sum(FAIRING+FITTING+GRINDING+WELDING)/3 as sum'))->groupBy('id_block')->get();
         $part=Part::all();
                 
         return view('dashboard/subassembly_menu')->with('ship', $ship)->with('block', $block)->with('part', $part)->with('progress', $progress);
