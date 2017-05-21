@@ -82,7 +82,7 @@
             <!-- /.box-header -->
             <div class="box-body">
             <h3>List Worker</h3>
-              <table id="plate" class="table table-bordered table-striped">
+              <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Name of Worker</th>
@@ -90,53 +90,21 @@
                   <th>Shift</th>
                   <th>Activity</th>
                   <th>Problem</th>
-                  <th>Many Hours Machine</th>
-                  <th>Many Hours Realitation</th>
+                  <th>Many Hours Work</th>
+                  <th>Many Hours Work Realitation</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody>                
+                @foreach($bbs as $bbss)
                 <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
+                  <td>{{$bbss->WORKER_NAME}}</td>
+                  <td>{{$bbss->SHIFT}}</td>
+                  <td>{{$bbss->PROCESS.' '.$bbss->ID_MATERIAL}}</td>
+                  <td>{{$bbss->PROBLEM}}</td>
+                  <td>{{$bbss->WORKING_HOURS}}</td>
+                  <td>{{$bbss->WORKING_HOURS+$bbss->ADD_WORKING_HOURS}}</td>
                 </tr>
-                <tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr><tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr><tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr><tr>
-                  <td>ID Material</td>
-                  <td>Dimension</td>
-                  <td>Quantity</td>
-                  <td>Weight</td>
-                  <td>Activity</td>
-                  <td>Date of Work</td>
-                  <td>Output Workshop</td>
-                </tr>
+                @endforeach
                 </tbody>
               </table>
             </div>
@@ -167,12 +135,12 @@
 <!-- page script -->
 <script>
 $(function() {
-    $('#plate').DataTable({
-          "paging": false,
-          "lengthChange": false,
+    $('#tabel').DataTable({
+          "paging": true,
+          "lengthChange": true,
           "searching": true,
-          "ordering": false,
-          "info": false,
+          "ordering": true,
+          "info": true,
           "autoWidth": true
     });
   });

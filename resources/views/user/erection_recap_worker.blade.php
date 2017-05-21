@@ -81,7 +81,7 @@
         <div class="box">
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="machine" class="table table-bordered table-striped">
+              <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Name of Worker</th>
@@ -93,49 +93,17 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($erection as $erections)
                 <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Shift</td>
-                  <td>Activity</td>
-                  <td>Problem</td>
-                  <td>Many hours Realitation</td>
+                  <td>{{$erections->WORKER_NAME}}</td>
+                  <td>{{$erections->SHIFT}}</td>
+                  <td>{{$erections->PROCESS.' '.$erections->ID_MATERIAL}}</td>
+                  <td>{{$erections->PROBLEM}}</td>
+                  <td>{{$erections->WORKING_HOURS}}</td>
+                  <td>{{$erections->WORKING_HOURS+$erections->ADD_WORKING_HOURS}}</td>
                 </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Shift</td>
-                  <td>Activity</td>
-                  <td>Problem</td>
-                  <td>Many hours Realitation</td>
-                </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Shift</td>
-                  <td>Activity</td>
-                  <td>Problem</td>
-                  <td>Many hours Realitation</td>
-                </tr>
-                <tr>
-                  <td>Name of Worker</td>
-                  <td>NIP</td>
-                  <td>Shift</td>
-                  <td>Activity</td>
-                  <td>Problem</td>
-                  <td>Many hours Realitation</td>
-                </tr>
+                @endforeach
                 </tbody>
-                <tfoot>
-                <tr>
-                  <th>Name of Worker</th>
-                  <th>NIP</th>
-                  <th>Shift</th>
-                  <th>Activity</th>
-                  <th>Problem</th>
-                  <th>Many hours Realitation</th>
-                </tr>
-                </tfoot>
               </table>
             </div>
             <!-- /.box-body -->
@@ -165,7 +133,7 @@
 <!-- page script -->
 <script>
 $(function() {
-    $('#machine').DataTable({
+    $('#tabel').DataTable({
           "paging": true,
           "lengthChange": true,
           "searching": true,

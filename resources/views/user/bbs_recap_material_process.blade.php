@@ -91,7 +91,7 @@
             <!-- /.box-header -->
             <div class="box-body">
             <h3>Material List Plate</h3>
-              <table id="plate" class="table table-bordered table-striped">
+              <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Room</th>
@@ -99,46 +99,30 @@
                   <th>Frame</th>
                   <th>Deck</th>
                   <th>Area (m<sup>2</sup>)</th>
+                  <th>Total Layer</th>
                   <th>Blasting</th>
-                  <th>FInished Layer Painting</th>
-                  <th>Date of Work</th>
+                  <th>Blasting Date</th>
+                  <th>Painting</th>
+                  <th>Painting Date</th>
                   <th>Total Process</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td>Room</td>
-                  <td>Side</td>
-                  <td>Frame</td>
-                  <td>Deck</td>
-                  <td>Area (m2)</td>
-                  <td>Blasting</td>
-                  <td>FInished Layer Painting</td>
-                  <td>Date of Work</td>
-                  <td>Total Process</td>
-                </tr>
-                <tr>
-                  <td>Room</td>
-                  <td>Side</td>
-                  <td>Frame</td>
-                  <td>Deck</td>
-                  <td>Area (m2)</td>
-                  <td>Blasting</td>
-                  <td>FInished Layer Painting</td>
-                  <td>Date of Work</td>
-                  <td>Total Process</td>
-                </tr>
-                <tr>
-                  <td>Room</td>
-                  <td>Side</td>
-                  <td>Frame</td>
-                  <td>Deck</td>
-                  <td>Area (m2)</td>
-                  <td>Blasting</td>
-                  <td>FInished Layer Painting</td>
-                  <td>Date of Work</td>
-                  <td>Total Process</td>
-                </tr>
+                  @foreach($room as $rooms)
+                  <td>{{$rooms->ID}}</td>
+                  <td>{{$rooms->SIDE}}</td>
+                  <td>{{$rooms->FRAME}}</td>
+                  <td>{{$rooms->DECK}}</td>
+                  <td>{{$rooms->AREA}}</td>
+                  <td>{{$rooms->TOTAL_LAYER}}</td>
+                  <td>{{$rooms->BLASTING}}</td>
+                  <td>{{$rooms->BLASTING_DATE}}</td>
+                  <td>{{$rooms->PAINTING}}</td>
+                  <td>{{$rooms->PAINTING_DATE}}</td>
+                  <td>Process</td>
+                  @endforeach
+                </tr>                
                 </tbody>
               </table>
             </div>
@@ -169,12 +153,12 @@
 <!-- page script -->
 <script>
 $(function() {
-    $('#plate').DataTable({
-          "paging": false,
-          "lengthChange": false,
+    $('#tabel').DataTable({
+          "paging": true,
+          "lengthChange": true,
           "searching": true,
-          "ordering": false,
-          "info": false,
+          "ordering": true,
+          "info": true,
           "autoWidth": true
     });
   });

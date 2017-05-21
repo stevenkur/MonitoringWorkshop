@@ -58,7 +58,7 @@
         <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="plate" class="table table-bordered table-striped">
+              <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Name of Block</th>
@@ -76,7 +76,6 @@
                     @if($flagProject && $prog->ID_PROJECT==$_GET['project'])
                     <tr>
                       <td>{{$prog->BLOCK_NAME}}</td>
-<!--                      <td>{{$prog->ID_PROJECT}}</td>-->
                       <td>{{$prog->NUM-$prog->MARKING}}</td>
                       <td>{{$prog->MARKING}}</td>
                       <td>{{($prog->NUM-$prog->CUTTING)}}</td>
@@ -88,7 +87,6 @@
                     @elseif(!$flagProject)
                     <tr>
                       <td>{{$prog->BLOCK_NAME}}</td>
-<!--                      <td>{{$prog->ID_PROJECT}}</td>-->
                       <td>{{$prog->NUM-$prog->MARKING}}</td>
                       <td>{{$prog->MARKING}}</td>
                       <td>{{($prog->NUM-$prog->CUTTING)}}</td>
@@ -129,7 +127,7 @@
 <!-- page script -->
 <script>
 $(function() {
-    $('#plate').DataTable({
+    $('#tabel').DataTable({
           "paging": false,
           "lengthChange": false,
           "searching": false,

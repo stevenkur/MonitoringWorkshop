@@ -80,13 +80,15 @@ class UserBBSController extends Controller
     {
         $ship=ShipProject::all();
         $block=Block::all();
-        return view('user/bbs_recap_material_process')->with('ship', $ship)->with('block', $block);
+        $room=Room::all();
+        return view('user/bbs_recap_material_process')->with('ship', $ship)->with('block', $block)->with('room', $room);
     }
 
     public function bbs_recap_worker()
     {
         $ship=ShipProject::all();
         $block=Block::all();
-        return view('user/bbs_recap_worker')->with('ship', $ship)->with('block', $block);
+        $bbs=BBS::all();
+        return view('user/bbs_recap_worker')->with('ship', $ship)->with('block', $block)->with('bbs', $bbs);
     }
 }

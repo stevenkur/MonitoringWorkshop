@@ -52,17 +52,16 @@
                 if(isset($_GET['project']) && $_GET['project']!='#') 
                    $flagProject=true;
                 else $flagProject=false;
-            ?>
+          ?>
           
         <div class="col-md-12">
         <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="plate" class="table table-bordered table-striped">
+              <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Name of Block</th>
-<!--                  <th>Last Date of Work</th>-->
                   <th>Straightening Unfinished</th>
                   <th>Straightening Finished</th>
                   <th>Blasting & Shop Primer Unfinished</th>
@@ -75,7 +74,6 @@
                     @if($flagProject && $prog->ID_PROJECT==$_GET['project'])
                     <tr>
                       <td>{{$prog->BLOCK_NAME}}</td>
-<!--                      <td>{{$prog->ID_PROJECT}}</td>-->
                       <td>{{$prog->NUM-$prog->STR}}</td>
                       <td>{{$prog->STR}}</td>
                       <td>{{($prog->NUM-$prog->BLAST)}}</td>
@@ -85,7 +83,6 @@
                     @elseif(!$flagProject)
                     <tr>
                       <td>{{$prog->BLOCK_NAME}}</td>
-<!--                      <td>{{$prog->ID_PROJECT}}</td>-->
                       <td>{{$prog->NUM-$prog->STR}}</td>
                       <td>{{$prog->STR}}</td>
                       <td>{{($prog->NUM-$prog->BLAST)}}</td>
@@ -124,7 +121,7 @@
 <!-- page script -->
 <script>
 $(function() {
-    $('#plate').DataTable({
+    $('#tabel').DataTable({
           "paging": false,
           "lengthChange": false,
           "searching": false,

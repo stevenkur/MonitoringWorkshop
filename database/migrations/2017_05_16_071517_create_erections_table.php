@@ -19,6 +19,8 @@ class CreateErectionsTable extends Migration
             $table->integer('ID_WORKER');
             $table->string('WORKER_NAME', 25);
             $table->string('ATTENDANCE', 18);
+            $table->double('WORKING_HOURS', 6,2);
+            $table->double('ADD_WORKING_HOURS', 6,2);
             $table->string('PROBLEM', 50);
             $table->double('WASTE_TIME', 6,2);
             $table->integer('SHIFT');

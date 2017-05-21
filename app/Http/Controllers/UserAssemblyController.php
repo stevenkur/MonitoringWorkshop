@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
@@ -47,7 +48,8 @@ class UserAssemblyController extends Controller
         $block=Block::all();
         $panel=Panel::all();
         $machine=Machine::all();
-        return view('user/assembly_recap_progress_activity')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('machine', $machine);
+        $progress=Panel::select('ID_PROJECT', 'ID', DB::raw('sum(FITTING) as FIT'), DB::raw('count(ID) as NUM'), DB::raw('sum(WELDING) as WELD'), DB::raw('sum(GRINDING) as GRIND'), DB::raw('sum(FAIRING) as FAIR'))->groupBy('ID', 'ID_PROJECT')->get();
+        return view('user/assembly_recap_progress_activity')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('machine', $machine)->with('progress', $progress);
     }  
 
     public function assembly_recap_join_panel_process()

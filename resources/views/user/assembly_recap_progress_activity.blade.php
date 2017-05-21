@@ -19,18 +19,22 @@
     <section class="content">
       <div class="row">
 
-            <section class="col-md-6">
+            <section class="col-md-12">
             <div class="box box-primary">
             
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" name="ShipProject">
+            <form role="form">
               <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
                   <select class="form-control" name="project">
                     <option value="#">-- Ship Project List --</option>
-                    
+                    <?php $i=1;?>
+                    @foreach($ship as $data)
+                        <?php $shipData[$i] = $data; $i++;?>
+                        <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
+                    @endforeach
                   </select>
                 </div>
                
@@ -44,68 +48,62 @@
             </div>
             </section>
 
-            <section class="col-md-6">
-            <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" name="ShipBlock">
-              <div class="box-body">
-              <label for="inputActivity">Select Block:</label>
-                <div class="form-group">
-                  <select class="form-control" name="block">
-                    <option id="#">-- Block List --</option>
-                    <option id="1">Block 1</option>
-                    <option id="2">Block 2</option>
-                    <option id="3">Block 3</option>
-                    <option id="4">Block 4</option>
-                  </select>
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Choose</button>
-              </div>
-            </form>
-            </div>
-            </section>
+          <?php 
+                if(isset($_GET['project']) && $_GET['project']!='#') 
+                   $flagProject=true;
+                else $flagProject=false;
+          ?>
           
         <div class="col-md-12">
         <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="plate" class="table table-bordered table-striped">
+              <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>ID Panel 1</th>
-                  <th>ID Panel 2</th>
-                  <th>Dimension Panel 1</th>
-                  <th>Dimension Panel 2</th>
-                  <th>Total Weight</th>
-                  <th>Date of Work</th>
-                  <th>Fitting</th>
-                  <th>Welding</th>
-                  <th>Finishing</th>
+                  <th>Name of Panel</th>
+                  <th>Unfinished Fitting</th>
+                  <th>Finished Fitting</th>
+                  <th>Unfinished Welding</th>
+                  <th>Finished Welding</th>
+                  <th>Unfinished Grinding</th>
+                  <th>Finished Grinding</th>
+                  <th>Unfinished Fairing</th>
+                  <th>Finished Fairing</th>
+                  <th>Progress Activity</th>
                 </tr>
                 </thead>
                 <tbody>
-                
+                @foreach($progress as $prog)
+                    @if($flagProject && $prog->ID_PROJECT==$_GET['project'])
+                    <tr>
+                      <td>{{$prog->ID}}</td>
+                      <td>{{$prog->NUM-$prog->FIT}}</td>
+                      <td>{{$prog->FIT}}</td>
+                      <td>{{($prog->NUM-$prog->WELD)}}</td>
+                      <td>{{$prog->WELD}}</td>
+                      <td>{{($prog->NUM-$prog->GRIND)}}</td>
+                      <td>{{$prog->GRIND}}</td>
+                      <td>{{($prog->NUM-$prog->FAIR)}}</td>
+                      <td>{{$prog->FAIR}}</td>
+                      <td>{{($prog->FIT+$prog->WELD+$prog->GRIND+$prog->FAIR)/(4*$prog->NUM).'%'}}</td>
+                    </tr>
+                    @elseif(!$flagProject)
+                    <tr>
+                      <td>{{$prog->ID}}</td>
+                      <td>{{$prog->NUM-$prog->FIT}}</td>
+                      <td>{{$prog->FIT}}</td>
+                      <td>{{($prog->NUM-$prog->WELD)}}</td>
+                      <td>{{$prog->WELD}}</td>
+                      <td>{{($prog->NUM-$prog->GRIND)}}</td>
+                      <td>{{$prog->GRIND}}</td>
+                      <td>{{($prog->NUM-$prog->FAIR)}}</td>
+                      <td>{{$prog->FAIR}}</td>
+                      <td>{{($prog->FIT+$prog->WELD+$prog->GRIND+$prog->FAIR)/(4*$prog->NUM).'%'}}</td>
+                    </tr>
+                    @endif
+                @endforeach
                 </tbody>
-                <tfoot>
-                <tr>
-                  <th>ID Panel 1</th>
-                  <th>ID Panel 2</th>
-                  <th>Dimension Panel 1</th>
-                  <th>Dimension Panel 2</th>
-                  <th>Total Weight</th>
-                  <th>Date of Work</th>
-                  <th>Fitting</th>
-                  <th>Welding</th>
-                  <th>Finishing</th>
-                </tr>
-                </tfoot>
               </table>
             </div>
             <!-- /.box-body -->
@@ -135,11 +133,11 @@
 <!-- page script -->
 <script>
 $(function() {
-    $('#plate').DataTable({
+    $('#tabel').DataTable({
           "paging": false,
-          "lengthChange": true,
-          "searching": true,
-          "ordering": true,
+          "lengthChange": false,
+          "searching": false,
+          "ordering": false,
           "info": false,
           "autoWidth": true
     });

@@ -91,7 +91,7 @@
             <!-- /.box-header -->
             <div class="box-body">
             <h3>List Worker</h3>
-              <table id="plate" class="table table-bordered table-striped">
+              <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Name of Worker</th>
@@ -143,7 +143,7 @@
 <!-- page script -->
 <script>
 $(function() {
-    $('#plate').DataTable({
+    $('#tabel').DataTable({
           "paging": true,
           "lengthChange": true,
           "searching": true,
