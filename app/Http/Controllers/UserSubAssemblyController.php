@@ -67,7 +67,8 @@ class UserSubAssemblyController extends Controller
         for($i=0; $i<$count; $i++)
         {
             $subassembly = new SubAssembly();        
-            $subassembly->ID_MATERIAL = $input['id_material'];  
+            $subassembly->ID_PART = $input['id_material'];  
+            $subassembly->PROGRESS = $input['progress'];  
             $subassembly->ID_WORKER = $input['id'.$i];        
             $subassembly->WORKER_NAME = $input['name'.$i];      
             $subassembly->ATTENDANCE = $input['attendance'.$i];   
@@ -84,16 +85,16 @@ class UserSubAssemblyController extends Controller
         }
         
         if($input['process']=='Fitting'){
-            $part = Part::where('ID', $input['id_material'])->update(['FITTING'=>1, 'FITTING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $part = Part::where('ID', $input['id_material'])->update(['FITTING'=>$input['progress']/100, 'FITTING_DATE'=>Carbon::today()->format('Y-m-d')]);
         }
         else if($input['process']=='Welding'){
-            $part = Part::where('ID', $input['id_material'])->update(['WELDING'=>1, 'WELDING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $part = Part::where('ID', $input['id_material'])->update(['WELDING'=>$input['progress']/100, 'WELDING_DATE'=>Carbon::today()->format('Y-m-d')]);
         }
         else if($input['process']=='Grinding'){
-            $part = Part::where('ID', $input['id_material'])->update(['GRINDING'=>1, 'GRINDING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $part = Part::where('ID', $input['id_material'])->update(['GRINDING'=>$input['progress']/100, 'GRINDING_DATE'=>Carbon::today()->format('Y-m-d')]);
         }
         else {
-            $part = Part::where('ID', $input['id_material'])->update(['FAIRING'=>1, 'FAIRING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $part = Part::where('ID', $input['id_material'])->update(['FAIRING'=>$input['progress']/100, 'FAIRING_DATE'=>Carbon::today()->format('Y-m-d')]);
         }
         
         $ship=ShipProject::all();

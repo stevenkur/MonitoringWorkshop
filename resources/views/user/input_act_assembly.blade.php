@@ -120,13 +120,13 @@
                 <tbody>
                 @foreach($panel as $panels)
                     <?php 
-                    if($panels->FITTING==0) $flagFit = false;
+                    if($panels->FITTING<1) $flagFit = false;
                     else $flagFit = true;
-                    if($panels->WELDING==0) $flagWeld = false;
+                    if($panels->WELDING<1) $flagWeld = false;
                     else $flagWeld = true;
-                    if($panels->GRINDING==0) $flagGrind = false;
+                    if($panels->GRINDING<1) $flagGrind = false;
                     else $flagGrind = true;
-                    if($panels->FAIRING==0) $flagFair = false;
+                    if($panels->FAIRING<1) $flagFair = false;
                     else $flagFair = true;
 
                     if($flagBlock && $panels->ID_BLOCK == $_GET['block']){
@@ -317,21 +317,28 @@
             <!-- /.box-body -->
 
             <div class="col-lg-3">
-            <div class="box box-primary">
-            <div class="box box-body">
-            <div class="form-group">
-            <label style="font-size: 16px">Select Machine: </label><br>
-            <select class="form-control" name="machine">
-<!--                <option value="#">-- Machine List --</option>-->
-                <?php $i=1;?>
-                @foreach($machine as $machines)
-                    <?php $blockMachine[$i] = $machines; $i++;?>
-                    <option id="{{$machines->ID}}">{{$machines->NAME}}</option>
-                @endforeach
-            </select>
-            </div>
-            </div>
-            </div>
+                <div class="box box-primary">
+                    <div class="box box-body">
+                    <div class="form-group">
+                        <label style="font-size: 16px">Select Machine: </label><br>
+                        <select class="form-control" name="machine">
+            <!--                <option value="#">-- Machine List --</option>-->
+                            <?php $i=1;?>
+                            @foreach($machine as $machines)
+                                <?php $blockMachine[$i] = $machines; $i++;?>
+                                <option id="{{$machines->ID}}">{{$machines->NAME}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    </div>
+                    <div class="box box-body">
+                        <div class="form-group">
+                            <label style="font-size: 16px">Input Progress </label><br>
+                            <input type="text" id="progress" name="progress" placeholder="" value="0">
+                            <label> %</label> 
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <input name="num" type="hidden" value="{{ $worker->count() }}">

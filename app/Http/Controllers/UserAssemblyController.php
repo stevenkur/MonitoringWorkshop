@@ -63,7 +63,8 @@ class UserAssemblyController extends Controller
         for($i=0; $i<$count; $i++)
         {
             $assembly = new Assembly();        
-            $assembly->ID_MATERIAL = $input['id_material'];  
+            $assembly->ID_PANEL = $input['id_material'];  
+            $assembly->PROGRESS = $input['progress'];  
             $assembly->ID_WORKER = $input['id'.$i];        
             $assembly->WORKER_NAME = $input['name'.$i];      
             $assembly->ATTENDANCE = $input['attendance'.$i];   
@@ -80,16 +81,16 @@ class UserAssemblyController extends Controller
         }
         
         if($input['process']=='Fitting'){
-            $panel = Panel::where('ID', $input['id_material'])->update(['FITTING'=>1, 'FITTING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $panel = Panel::where('ID', $input['id_material'])->update(['FITTING'=>$input['progress']/100, 'FITTING_DATE'=>Carbon::today()->format('Y-m-d')]);
         }
         else if($input['process']=='Welding'){
-            $panel = Panel::where('ID', $input['id_material'])->update(['WELDING'=>1, 'WELDING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $panel = Panel::where('ID', $input['id_material'])->update(['WELDING'=>$input['progress']/100, 'WELDING_DATE'=>Carbon::today()->format('Y-m-d')]);
         }
         else if($input['process']=='Grinding'){
-            $panel = Panel::where('ID', $input['id_material'])->update(['GRINDING'=>1, 'GRINDING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $panel = Panel::where('ID', $input['id_material'])->update(['GRINDING'=>$input['progress']/100, 'GRINDING_DATE'=>Carbon::today()->format('Y-m-d')]);
         }
         else {
-            $panel = Panel::where('ID', $input['id_material'])->update(['FAIRING'=>1, 'FAIRING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $panel = Panel::where('ID', $input['id_material'])->update(['FAIRING'=>$input['progress']/100, 'FAIRING_DATE'=>Carbon::today()->format('Y-m-d')]);
         }
         
         $ship=ShipProject::all();
