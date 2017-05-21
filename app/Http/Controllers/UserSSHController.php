@@ -66,9 +66,16 @@ class UserSSHController extends Controller
     {
         $ship=ShipProject::all();
         $block=Block::all();
-        $plate=Plate::all();
-        
+        $plate=Plate::all();        
         return view('user/ssh_recap_material_process')->with('ship', $ship)->with('block', $block)->with('plate', $plate);
+    }
+
+    public function ssh_recap_worker()
+    {
+        $ship=ShipProject::all();
+        $block=Block::all();
+        $ssh=SSH::all();
+        return view('user/ssh_recap_worker')->with('ship', $ship)->with('block', $block)->with('ssh', $ssh);
     }
 
     public function ssh_recap_progress_activity()
@@ -105,10 +112,10 @@ class UserSSHController extends Controller
         }
         
         if($input['process']=='Straightening'){
-            $plate = Plate::where('ID', $input['id_material'])->update(['STRAIGHTENING'=>1, 'STRAIGHTENING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $plate = Plate::where('ID', $input['id_material'])->update(['STRAIGHTENING'=>1, 'STRAIGHTENING_DATE'=>Carbon::today()->format('Y-m-d'), 'STRAIGHTENING_MACHINE'=>$input['machine']]);
         }
         else{
-            $plate = Plate::where('ID', $input['id_material'])->update(['BLASTING'=>1, 'BLASTING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $plate = Plate::where('ID', $input['id_material'])->update(['BLASTING'=>1, 'BLASTING_DATE'=>Carbon::today()->format('Y-m-d'), 'BLASTING_MACHINE'=>$input['machine']]);
         }
         
         $ship=ShipProject::all();

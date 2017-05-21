@@ -44,6 +44,7 @@ Route::any('input_act_ssh', ['as'=>'input_act_ssh', 'uses'=>'UserSSHController@i
 Route::any('input_works_ssh', ['as'=>'input_works_ssh', 'uses'=>'UserSSHController@works']);
 Route::any('ssh_recap_material_coming', ['as'=>'ssh_recap_material_coming', 'uses'=>'UserSSHController@ssh_recap_material_coming']);
 Route::any('ssh_recap_material_process', ['as'=>'ssh_recap_material_process', 'uses'=>'UserSSHController@ssh_recap_material_process']);
+Route::any('ssh_recap_worker', ['as'=>'ssh_recap_worker', 'uses'=>'UserSSHController@ssh_recap_worker']);
 Route::any('ssh_recap_progress_activity', ['as'=>'ssh_recap_progress_activity', 'uses'=>'UserSSHController@ssh_recap_progress_activity']);
 
 Route::any('input_act_fabrication', ['as'=>'input_act_fabrication', 'uses'=>'UserFabricationController@input_act_fabrication']);

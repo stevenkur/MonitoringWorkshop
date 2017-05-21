@@ -99,6 +99,7 @@
             <li><a href="{{ route('input_act_ssh')}}"><i class="fa fa-circle-o"></i> Input Activities and Worker</a></li>
             <li><a href="{{ route('ssh_recap_material_coming')}}"><i class="fa fa-circle-o"></i> Recap Material Coming</a></li>
             <li><a href="{{ route('ssh_recap_material_process')}}"><i class="fa fa-circle-o"></i> Recap Material Process</a></li>
+            <li><a href="{{ route('ssh_recap_worker')}}"><i class="fa fa-circle-o"></i> Recap Worker & Time</a></li>
             <li><a href="{{ route('ssh_recap_progress_activity')}}"><i class="fa fa-circle-o"></i> Recap Progress & Activity</a></li>
           </ul>
         </li>
@@ -131,7 +132,7 @@
           
           <ul class="treeview-menu">
             <li><a href="{{ route('input_act_subassembly')}}"><i class="fa fa-circle-o"></i> Input Activities and Worker</a></li>
-            <li><a href="{{ route('subassembly_recap_join_part_process')}}"><i class="fa fa-circle-o"></i> Recap Join Part Process</a></li>
+            <!-- <li><a href="{{ route('subassembly_recap_join_part_process')}}"><i class="fa fa-circle-o"></i> Recap Join Part Process</a></li> -->
             <li><a href="{{ route('subassembly_recap_worker')}}"><i class="fa fa-circle-o"></i> Recap Worker & Time</a></li>
             <li><a href="{{ route('subassembly_recap_progress_activity')}}"><i class="fa fa-circle-o"></i> Recap Progress & Activity</a></li>
           </ul>
@@ -148,7 +149,7 @@
           
           <ul class="treeview-menu">
             <li><a href="{{ route('input_act_assembly')}}"><i class="fa fa-circle-o"></i> Input Activities and Worker</a></li>
-            <li><a href="{{ route('assembly_recap_join_panel_process')}}"><i class="fa fa-circle-o"></i> Recap Join Panel Process</a></li>
+            <!-- <li><a href="{{ route('assembly_recap_join_panel_process')}}"><i class="fa fa-circle-o"></i> Recap Join Panel Process</a></li> -->
             <li><a href="{{ route('assembly_recap_worker')}}"><i class="fa fa-circle-o"></i> Recap Worker & Time</a></li>
             <li><a href="{{ route('assembly_recap_progress_activity')}}"><i class="fa fa-circle-o"></i> Recap Progress & Activity</a></li>
           </ul>
