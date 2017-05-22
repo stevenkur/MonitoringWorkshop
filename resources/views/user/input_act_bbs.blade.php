@@ -39,13 +39,22 @@
                
               </div>
               <!-- /.box-body -->
-
+              
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Choose</button>
               </div>
             </form>
             </div>
             </section>
+
+            <?php 
+                if(isset($_GET['project']) && $_GET['project']!='#') 
+                   $flagProject=true;
+                else $flagProject=false;
+                if(isset($_GET['block']) && $_GET['block']!='#') 
+                   $flagBlock=true;
+                else $flagBlock=false;
+            ?>
 
             <section class="col-lg-6">
             <div class="box box-primary">
@@ -80,9 +89,9 @@
             if(isset($_GET['process'])){
                 $proc = explode('|', $_GET['process']);
                 $flagProcess = true;
-//                echo $proc[0];
-//                echo '<br>';
-//                echo $proc[1];
+                if($proc[0]==1) $process = 'Blasting';
+                else if($proc[0]==2) $process = 'Painting';
+                $idMaterial = $proc[1];
             }
             else $flagProcess = false;
         ?>
@@ -99,50 +108,114 @@
                   <th>Side</th>
                   <th>Frame</th>
                   <th>Deck</th>
-                  <th>Area (m2)</th>
+                  <th>Area (m<sup>2</sup>)</th>
                   <th>Total Layer</th>
                   <th>Room Process</th>
                 </tr>
                 </thead>
                 <tbody>
-                
+                @foreach($room as $rooms)
+                    <?php 
+                    if($rooms->BLASTING<1) $flagBlast = false;
+                    else $flagBlast = true;
+                    if($rooms->PAINTING<1) $flagPaint = false;
+                    else $flagPaint = true;
+
+                    if($flagBlock && $panels->ID_BLOCK == $_GET['block']){
+                    echo '
+                    <tr>
+                        <td>'.$rooms['ID'].'</td>
+                        <td>'.$rooms['SIDE'].'</td>
+                        <td>'.$rooms['FRAME'].'</td>
+                        <td>'.$rooms['DECK'].'</td>
+                        <td>'.$rooms['AREA'].'</td>
+                        <td>'.$rooms['TOTAL_LAYER'];?></td>
+                        <td>
+                          @if(!$flagBlast)
+                            <form action="./input_act_bbs" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Room Process List --</option>
+                                    <option value="1|<?php echo $rooms['ID'];?>">Blasting</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagPaint)
+                            <form action="./input_act_bbs" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Room Process List --</option>
+                                    <option value="2|<?php echo $rooms['ID'];?>">Painting</option>
+                                </select>
+                            </form>                            
+                            @else
+                            Finished
+                            @endif
+                        </td>
+                    <?php echo '</tr>';
+                    }
+                    else if($flagProject && $panels->ID_PROJECT == $_GET['project']){
+                    echo '
+                    <tr>
+                        <td>'.$rooms['ID'].'</td>
+                        <td>'.$rooms['SIDE'].'</td>
+                        <td>'.$rooms['FRAME'].'</td>
+                        <td>'.$rooms['DECK'].'</td>
+                        <td>'.$rooms['AREA'].'</td>
+                        <td>'.$rooms['TOTAL_LAYER'];?></td>
+                        <td>
+                          @if(!$flagBlast)
+                            <form action="./input_act_bbs" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Room Process List --</option>
+                                    <option value="1|<?php echo $rooms['ID'];?>">Blasting</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagPaint)
+                            <form action="./input_act_bbs" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Room Process List --</option>
+                                    <option value="2|<?php echo $rooms['ID'];?>">Painting</option>
+                                </select>
+                            </form>                            
+                            @else
+                            Finished
+                            @endif
+                        </td>
+                    <?php echo '</tr>';
+                    }
+                    else if(!$flagBlock && !$flagProject){
+                    echo '
+                    <tr>
+                        <td>'.$rooms['ID'].'</td>
+                        <td>'.$rooms['SIDE'].'</td>
+                        <td>'.$rooms['FRAME'].'</td>
+                        <td>'.$rooms['DECK'].'</td>
+                        <td>'.$rooms['AREA'].'</td>
+                        <td>'.$rooms['TOTAL_LAYER'];?></td>
+                        <td>
+                          @if(!$flagBlast)
+                            <form action="./input_act_bbs" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Room Process List --</option>
+                                    <option value="1|<?php echo $rooms['ID'];?>">Blasting</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagPaint)
+                            <form action="./input_act_bbs" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Room Process List --</option>
+                                    <option value="2|<?php echo $rooms['ID'];?>">Painting</option>
+                                </select>
+                            </form>                            
+                            @else
+                            Finished
+                            @endif
+                        </td>
+                    <?php echo '</tr>';
+                    }?>
+                @endforeach
                 </tbody>
               </table>
             </div>
             <!-- /.box-body -->
-
-            <section class="col-lg-4">
-              <div class="box box-primary">
-              
-              <!-- /.box-header -->
-              <!-- form start -->
-              <form role="form" name="ShipProject">
-                <div class="box-body">
-                <label>Select Activities:</label>
-                  <div class="form-group">
-                    <select class="form-control">
-                      <option id="#">-- Activities List --</option>
-                      <option id="1">Blasting</option>
-                      <option id="2">Painting</option>
-                    </select>
-                  </div>
-                 
-                </div>
-                <!-- /.box-body -->
-              </form>
-              </div>
-              </section>
-
-              <section class="col-lg-4">
-              <div class="box box-primary">
-              
-              <label style="font-size: 16px">Total Layer of Paint: </label>
-              <label>12 Layer(s)</label><br>
-              <label style="font-size: 16px">Finish Layer: </label>
-              <input type="text" id="finish" placeholder=""><br><br>
-
-              </div>
-              </section>
 
             <div class="box-footer" align="right">
               <button type="reset" class="btn btn-primary">Reset</button>
@@ -151,7 +224,10 @@
           </div>
         </div>
 
+        @if($flagProcess)
         <div class="col-md-12">
+            <form action="{{route('input_works_bbs')}}" role="form" method="post">
+            {{csrf_field()}}
         <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
@@ -166,74 +242,84 @@
                 </tr>
                 </thead>
                 <tbody>
+                <?php $i=0;?>
                 @foreach($worker as $workers)
                 <tr>
                   <td>{{$workers->NAME}}</td>
                   <td>{{$workers->NIK}}</td>
                   <td>{{$workers->POSITION.'/'.$workers->DIVISION}}</td>
                   <td>
-                    <select class="form-control" name="process">
-                      <option id="#">-- Attendance List --</option>
+                    <input name="<?php echo 'id'.$i;?>" type="hidden" value="{{ $workers->ID }}">
+                    <input name="<?php echo 'name'.$i;?>" type="hidden" value="{{ $workers->NAME }}">
+                    <select class="form-control" name="<?php echo 'attendance'.$i;?>">
+<!--                      <option value="#">-- Attendance List --</option>-->
                       <option id="1">Present</option>
                       <option id="2">Was Sick/Accident</option>
                       <option id="3">Was Absent</option>
                     </select>
                   </td>
                 </tr>
+                <?php $i++;?> 
                 @endforeach
                 </tbody>
               </table>
             </div>
             <!-- /.box-body -->
 
+            <input name="num" type="hidden" value="{{ $worker->count() }}">
+            <input name="id_material" type="hidden" value="{{ $idMaterial }}">
+            <input name="process" type="hidden" value="{{ $process }}">
             <div class="col-lg-3">
-            <div class="box box-primary">
-            <div class="box box-body">
-            <div class="form-group">
-              <label style="font-size: 16px">Input Work Hours: </label><br>
-              <input type="text" id="machinehours" placeholder="">
-              <label>hours</label>    
-              <label style="font-size: 16px">Additional Hours: </label><br>
-              <input type="text" id="additionalhours" placeholder="">
-              <label>hours</label>
+                <div class="box box-primary">
+                    <div class="box box-body">
+                        <div class="form-group">
+                          <label style="font-size: 16px">Remaining Layer: XXX</label><br>
+                          <label style="font-size: 16px">Finished Layer: </label><br>
+                          <input type="text" id="finishedlayer" name="finishedlayer" placeholder="" value="0">
+                          <label style="font-size: 16px">Input Working Hours: </label><br>
+                          <input type="text" id="machinehours" name="workinghours" placeholder="" value="0">
+                          <label>hours</label>              
+                          <label style="font-size: 16px">Additional Working Hours: </label><br>
+                          <input type="text" id="additionalhours" NAME="workingaddhours" placeholder="" value="0">
+                          <label>hours</label>
+                        </div>
+                    </div>
+                </div>
             </div>
+                <div class="col-lg-4">
+                    <div class="box box-primary">
+                        <div class="box box-body">
+                            <div class="form-group">
+                              <label style="font-size: 16px">Problem: </label>
+                              <select class="form-control" name="problem">
+                                <option id="1">No Problem</option>
+                                <option id="2">Broken Machine</option>
+                                <option id="3">Worker Sick/Acident</option>
+                                <option id="4">Power Failure</option>
+                                <option id="5">Worker Absent</option>
+                              </select>
+                              <br>
+                              <label style="font-size: 16px">Waste Time (If any): </label>
+                              <input type="text" id="wastetime" name="wastetime" placeholder="" value="0">
+                              <label>hours</label>
+                              <br>
+                              <label style="font-size: 16px">Shift: </label>
+                              <select class="form-control" name="shift">
+                                <option id="1">Shift 1</option>
+                                <option id="2">Shift 2</option>
+                              </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer" align="right">
+                  <button type="reset" class="btn btn-primary">Reset</button>
+                  <button type="submit" class="btn btn-primary">Input</button>
+                </div>
             </div>
-            </div>
-            </div>
-
-            <div class="col-lg-4">
-            <div class="box box-primary">
-            <div class="box box-body">
-            <div class="form-group">
-              <label style="font-size: 16px">Problem: </label>
-              <select class="form-control" name="problem">
-                <option id="1">No Problem</option>
-                <option id="2">Broken Machine</option>
-                <option id="3">Worker Sick/Acident</option>
-                <option id="4">Power Failure</option>
-                <option id="5">Worker Absent</option>
-              </select>
-              <br>
-              <label style="font-size: 16px">Waste Time (If any): </label>
-              <input type="text" id="wastetime" placeholder="">
-              <label>hours</label>
-              <br>
-              <label style="font-size: 16px">Shift: </label>
-              <select class="form-control" name="shift">
-                <option id="1">Shift 1</option>
-                <option id="2">Shift 2</option>
-              </select>
-            </div>
-            </div>
-            </div>
-            </div>
-
-            <div class="box-footer" align="right">
-              <button type="reset" class="btn btn-primary">Reset</button>
-              <button type="submit" class="btn btn-primary">Input</button>
-            </div>
-          </div>
+            </form>
         </div>
+        @endif
 
         </div>
     </section>

@@ -8,6 +8,7 @@ use App\Block;
 use App\Worker;
 use App\BBS;
 use App\Room;
+use Carbon\Carbon;
 
 class UserBBSController extends Controller
 {
@@ -24,13 +25,7 @@ class UserBBSController extends Controller
         return view('user/bbs_calculate_paint_needs')->with('ship', $ship)->with('block', $block)->with('room', $room);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function bbs_add_rooms(Request $request)
+    public function add_rooms()
     {
         dd(Input::all());
         $input = Input::all();
@@ -65,7 +60,8 @@ class UserBBSController extends Controller
         $room->PAINT_NEEDS = $input['area'] * $input['dft'] * $input['lf'] / $input['vs']; 
         $room->save(); 
         
-//        return redirect()->route('bbs_calculate_paint_needs')->with('alert-success', 'Data Berhasil Disimpan.');
+        return redirect()->route('bbs_calculate_paint_needs')->with('alert-success', 'Data Berhasil Disimpan.');
+
     }
     
     public function input_act_bbs()
@@ -73,7 +69,8 @@ class UserBBSController extends Controller
         $ship=ShipProject::all();
         $block=Block::all();
         $worker=Worker::where('DIVISION', 'BBS')->get();
-        return view('user/input_act_bbs')->with('ship', $ship)->with('block', $block)->with('worker', $worker);
+        $room=Room::all();
+        return view('user/input_act_bbs')->with('ship', $ship)->with('block', $block)->with('worker', $worker)->with('room', $room);
     }   
 
     public function bbs_recap_material_process()
@@ -91,4 +88,42 @@ class UserBBSController extends Controller
         $bbs=BBS::all();
         return view('user/bbs_recap_worker')->with('ship', $ship)->with('block', $block)->with('bbs', $bbs);
     }
+
+    public function works(Request $request)
+    {
+//        dd(Input::all());
+        $input = Input::all();
+        $count = $input['num'];
+        
+        for($i=0; $i<$count; $i++)
+        {
+            $bbs = new BBS();        
+            $bbs->ID_MATERIAL = $input['id_material'];  
+            $bbs->PROGRESS = $input['finishedlayer'];  
+            $bbs->ID_WORKER = $input['id'.$i];        
+            $bbs->WORKER_NAME = $input['name'.$i];      
+            $bbs->ATTENDANCE = $input['attendance'.$i];   
+            $bbs->PROCESS = $input['process'];     
+            $bbs->WORKING_HOURS = $input['workinghours'];   
+            $bbs->ADD_WORKING_HOURS = $input['workingaddhours'];   
+            $bbs->PROBLEM = $input['problem']; 
+            $bbs->WASTE_TIME = $input['wastetime']; 
+            $bbs->SHIFT = substr($input['shift'], 6); 
+            $bbs->USER = 'admin'; 
+            $bbs->save();
+        }
+        
+        if($input['process']=='Blasting'){
+            $room = Room::where('ID', $input['id_material'])->update(['BLASTING'=>$input['finishedlayer'], 'BLASTING_DATE'=>Carbon::today()->format('Y-m-d')]);
+        }
+        else {
+            $room = Room::where('ID', $input['id_material'])->update(['PAINTING'=>$input['finishedlayer'], 'PAINTING_DATE'=>Carbon::today()->format('Y-m-d')]);
+        }
+        
+        $ship=ShipProject::all();
+        $block=Block::all();
+        $worker=Worker::where('DIVISION', 'BBS')->get();
+        $room=Room::all();
+        return view('user/input_act_bbs')->with('ship', $ship)->with('block', $block)->with('worker', $worker)->with('room', $room);
+    }  
 }

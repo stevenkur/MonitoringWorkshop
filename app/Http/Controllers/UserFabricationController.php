@@ -79,13 +79,13 @@ class UserFabricationController extends Controller
         }
         
         if($input['process']=='Marking'){
-            $plate = Plate::where('ID', $input['id_material'])->update(['MARKING'=>1, 'MARKING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $plate = Plate::where('ID', $input['id_material'])->update(['MARKING'=>1, 'MARKING_DATE'=>Carbon::today()->format('Y-m-d'), 'MARKING_MACHINE'=>$input['machine']]);
         }
         else if($input['process']=='Cutting'){
-            $plate = Plate::where('ID', $input['id_material'])->update(['CUTTING'=>1, 'CUTTING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $plate = Plate::where('ID', $input['id_material'])->update(['CUTTING'=>1, 'CUTTING_DATE'=>Carbon::today()->format('Y-m-d'), 'CUTTING_MACHINE'=>$input['machine']]);
         }
         else{
-            $plate = Plate::where('ID', $input['id_material'])->update(['BLENDING'=>1, 'BLENDING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $plate = Plate::where('ID', $input['id_material'])->update(['BLENDING'=>1, 'BLENDING_DATE'=>Carbon::today()->format('Y-m-d'), 'BENDING_MACHINE'=>$input['machine']]);
         }
         
         $ship=ShipProject::all();

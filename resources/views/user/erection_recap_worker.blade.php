@@ -84,8 +84,8 @@
               <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Name of Worker</th>
                   <th>NIP</th>
+                  <th>Name of Worker</th>
                   <th>Shift</th>
                   <th>Activity</th>
                   <th>Problem</th>
@@ -95,6 +95,7 @@
                 <tbody>
                 @foreach($erection as $erections)
                 <tr>
+                  <td>{{$erections->ID_WORKER}}</td>
                   <td>{{$erections->WORKER_NAME}}</td>
                   <td>{{$erections->SHIFT}}</td>
                   <td>{{$erections->PROCESS.' '.$erections->ID_MATERIAL}}</td>
