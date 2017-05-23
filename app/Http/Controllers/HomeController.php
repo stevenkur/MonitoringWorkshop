@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -11,10 +15,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -23,27 +27,29 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('auth/login');
     }
 
     public function loginvalidate()
     {
-        $var = array(
-            'USERNAME'  => 'required',
-            'PASSWORD'  => 'required',
-        );
-        $validator = Validator::make(Input::all(), $var);
-        if($validator->fails())
-        {
-            return Redirect::to('home')
-                ->withErrors($validator)
-                ->withInput(Input::except('password'));
-        }
-        else
-        {
+        //dd(Input::all());
+        // $var = array(
+        //     'USERNAME'  => 'Required',
+        //     'PASSWORD'  => 'Required'
+        // );
+        // $validator = Validator::make(Input::all(), $var);
+        // if($validator->fails())
+        // {
+        //     dd($validator);
+        //     // return Redirect::to('worker')
+        //     //     ->withErrors($validator)
+        //     //     ->withInput(Input::except('password'));
+        // }
+        // else
+        // {
             $userdata = array(
                 'USERNAME'  => Input::get('username'),
-                'PASSWORD'  => Input::get('password'),
+                'PASSWORD'  => Input::get('password')
             );
             $remember=Input::get('remember');
             if($remember=='remember')
@@ -52,7 +58,7 @@ class HomeController extends Controller
                     return Redirect::to('admins');
                 }
                 else{
-                    return Redirect::to('home');
+                    return Redirect::to('users');
                 }
             }
             else
@@ -61,15 +67,15 @@ class HomeController extends Controller
                     return Redirect::to('admins');
                     }
                 else{
-                    return Redirect::to('home');
+                    return Redirect::to('ship_project');
                 }
             }
-        }
+        // }
     }
 
     public function logout()
     {
         Auth::logout();
-        return Redirect::to('admin.login');
+        return Redirect::to('/');
     }
 }

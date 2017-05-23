@@ -13,7 +13,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><center>Name Of Company</center></div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="login">
+                    <form class="form-horizontal" role="form" method="post" action="loginvalidate">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
@@ -48,16 +48,13 @@
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                        <input type="checkbox" name="remember" value="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
                                     </label>
                                   
                                     <button type="submit" class="btn btn-primary pull-right">
                                         Login
                                     </button>
 
-                                        <!-- <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            Forgot Your Password?
-                                        </a> -->
                                 </div>
                             </div>
                         </div>

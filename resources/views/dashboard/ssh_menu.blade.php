@@ -31,6 +31,8 @@
                     <option value="#">--Select Activity--</option>
                     <option value="1">Recap Material Coming</option>
                     <option value="2">Recap Material Process (Straightening, Blasting & Shop Primer)</option>
+                    <option value="3">Workshop Productivity</option>
+                    <option value="4">Working Machine Productivity</option>
                   </select>
                 </div>
                
@@ -323,8 +325,163 @@
               </table>
              </div>  
               
-           </div>
-        </div>
+            </div>
+            </div>
+
+            @elseif($_GET['activity']==3)  
+            <div class="col-md-3">
+            <div class="box box-primary">
+                
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form role="form">
+                  <div class="box-body">
+                  <label for="MonthOutputWorkshop">View Month Output:</label>
+                    <div class="form-group">
+                      <select class="form-control" name="MonthOutputWorkshop">
+                        <option value="#">-- Month List --</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>                        
+                      </select>
+                    </div>
+                   
+                  </div>
+                  <!-- /.box-body -->
+
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Choose</button>
+                  </div>
+                </form>
+            
+            </div>
+            </div>
+
+            <?php 
+                if(isset($_GET['MonthOutputWorkshop'])!='#') 
+                   $flagMonthWorkshop=true;
+                else $flagMonthWorkshop=false;
+            ?>
+
+            <div class="col-md-9">
+            <div class="box box-primary">
+  
+              <div class="box-body">
+              <h1>Workshop Productivity</h1>  
+              <table id="workshopproductivity" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Output/Day (Ton/Sheet)</th>
+                  <th>Target Output/Day (Ton/Sheet)</th>
+                  <th>Productivity</th>
+                  <th>Productivity Target</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Date</th>
+                  <th>Output/Day (Ton/Sheet)</th>
+                  <th>Target Output/Day (Ton/Sheet)</th>
+                  <th>Productivity</th>
+                  <th>Productivity Target</th>
+                </tr>
+                </tfoot>
+              </table>
+             </div>  
+              
+            </div>
+            </div>
+
+            @elseif($_GET['activity']==4)  
+            <div class="col-md-3">
+            <div class="box box-primary">
+                
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form role="form">
+                  <div class="box-body">
+                  <label for="MonthOutputMachine">View Month Output:</label>
+                    <div class="form-group">
+                      <select class="form-control" name="MonthOutputMachine">
+                        <option value="#">-- Month List --</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>                        
+                      </select>
+                    </div>
+                   
+                  </div>
+                  <!-- /.box-body -->
+
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Choose</button>
+                  </div>
+                </form>
+            
+            </div>
+            </div>
+
+            <?php 
+                if(isset($_GET['MonthOutputMachine'])!='#') 
+                   $flagMonthMachine=true;
+                else $flagMonthMachine=false;
+            ?>
+
+            <div class="col-md-9">
+            <div class="box box-primary">
+  
+              <div class="box-body">
+              <h1>Working Machine Productivity</h1>  
+              <table id="machineproductivity" class="table table-bordered table-striped">
+                <thead>
+                <tr>                 
+                  <th>Date</th>
+                  <th>Straightening Machine</th>
+                  <th>Normal/Realization Hours</th>
+                  <th>Blasting & Shop Primer Machine</th>
+                  <th>Productivity Target</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                </tbody>
+                <tfoot>
+                <tr>                 
+                  <th>Date</th>
+                  <th>Straightening Machine</th>
+                  <th>Normal/Realization Hours</th>
+                  <th>Blasting & Shop Primer Machine</th>
+                  <th>Productivity Target</th>
+                </tr>
+                </tfoot>
+              </table>
+             </div>  
+              
+            </div>
+            </div>
+
           @endif
         @endif
 
@@ -376,6 +533,22 @@ $(function() {
           "autoWidth": true
     });
     $('#plate_process').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    });    
+    $('#workshopproductivity').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    });
+    $('#machineproductivity').DataTable({
           "paging": true,
           "lengthChange": true,
           "searching": true,
