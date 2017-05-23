@@ -27,7 +27,7 @@ class UserBBSController extends Controller
 
     public function add_rooms()
     {
-        dd(Input::all());
+//        dd(Input::all());
         $input = Input::all();
         
         $project = explode('|', $input['project']);
@@ -50,6 +50,7 @@ class UserBBSController extends Controller
         $room->AREA = $input['area']; 
         $room->TOTAL_LAYER = $input['layer']; 
         $room->PAINT_TYPE = $input['painttype'];
+        
 //        $area = $input['area'];
 //        $dft = $input['dft'];
 //        $vs = $input['vs'];
@@ -57,6 +58,7 @@ class UserBBSController extends Controller
 //        $hasil = $area * $dft * $cb / $vs;   
 //        $hasil = $input['area'] * $input['dft'] * $input['lf'] / $input['vs'];   
 //        $room->PAINT_NEEDS = $hasil;  
+        
         $room->PAINT_NEEDS = $input['area'] * $input['dft'] * $input['lf'] / $input['vs']; 
         $room->save(); 
         

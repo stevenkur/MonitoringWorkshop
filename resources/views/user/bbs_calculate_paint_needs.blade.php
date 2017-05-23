@@ -72,16 +72,15 @@
             </div>
             <!-- /.box-body -->
         </div>
-        </div>
-
+        </div> 
         <section class="col-lg-8">
         <div class="box box-primary">
 
-        <div class="box-body">
-        <form role="form" href="{{route('add_rooms')}}" method="post">
+        <form role="form" action="{{route('add_rooms')}}" method="post">
         {{csrf_field()}}
         <h3>Insert Rooms</h3>
                 <br>
+        <div class="box-body">
                 <div class="form-group">
                   <label class="col-lg-3"> Ship Project </label>
                   <label class="col-lg-1"> : </label>
@@ -203,8 +202,8 @@
               <button type="reset" class="btn btn-ok">Reset</button>
               <button type="submit" class="btn btn-primary">Input</button>
             </div>
-        </form>
         </div>
+        </form>
         
         </div>
         </section>

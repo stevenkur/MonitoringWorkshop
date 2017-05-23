@@ -122,11 +122,11 @@
 <script>
 $(function() {
     $('#tabel').DataTable({
-          "paging": false,
-          "lengthChange": false,
-          "searching": false,
-          "ordering": false,
-          "info": false,
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
           "autoWidth": true
     });
   });
