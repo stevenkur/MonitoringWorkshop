@@ -29,8 +29,10 @@ class CreatePlatesTable extends Migration
             $table->date('DATE_COMING')->nullable();
             $table->integer('STRAIGHTENING')->default(0);
             $table->date('STRAIGHTENING_DATE')->nullable();
+            $table->string('STRAIGHTENING_MACHINE')->nullable();
             $table->integer('BLASTING')->default(0);
             $table->date('BLASTING_DATE')->nullable();
+            $table->string('BLASTING_MACHINE')->nullable();
             $table->integer('MARKING')->default(0);
             $table->date('MARKING_DATE')->nullable();
             $table->string('MARKING_MACHINE')->nullable();
