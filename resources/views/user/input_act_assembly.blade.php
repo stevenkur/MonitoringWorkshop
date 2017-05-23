@@ -113,10 +113,10 @@
               <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>ID Part</th>
-                  <th>Name</th>
-                  <th>Weight</th>
-                  <th>Material Process</th>
+                    <th>ID Part</th>
+                    <th>Name</th>
+                    <th>Weight</th>
+                    <th>Material Process</th>
                 </tr>
                 </thead>
                 <tbody>

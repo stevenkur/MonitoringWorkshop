@@ -74,7 +74,7 @@ class UserSSHController extends Controller
     {
         $ship=ShipProject::all();
         $block=Block::all();
-        $ssh=SSH::all();
+        $ssh=SSH::latest()->get();
         return view('user/ssh_recap_worker')->with('ship', $ship)->with('block', $block)->with('ssh', $ssh);
     }
 

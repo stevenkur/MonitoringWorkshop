@@ -97,12 +97,13 @@
               <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Name of Worker</th>
-                  <th>Shift</th>
-                  <th>Activity</th>
-                  <th>Problem</th>
-                  <th>Many Hours Machine</th>
-                  <th>Many Hours Realitation</th>
+                    <th>Name of Worker</th>
+                    <th>Shift</th>
+                    <th>Activity</th>
+                    <th>Problem</th>
+                    <th>Many Hours Machine</th>
+                    <th>Many Hours Realitation</th>
+                    <th>Time</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -114,6 +115,7 @@
                   <td>{{$subasss->PROBLEM}}</td>
                   <td>{{$subasss->MACHINE_WORKING}}</td>
                   <td>{{$subasss->MACHINE_WORKING+$subasss->MACHINE_ADD_HOURS}}</td>
+                  <td>{{$subasss->created_at}}</td>
                 </tr>
                 @endforeach
                 </tbody>
@@ -150,7 +152,7 @@ $(function() {
           "paging": true,
           "lengthChange": true,
           "searching": true,
-          "ordering": true,
+          "ordering": false,
           "info": true,
           "autoWidth": true
     });

@@ -94,12 +94,13 @@
               <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Name of Worker</th>
-                  <th>Shift</th>
-                  <th>Activity</th>
-                  <th>Problem</th>
-                  <th>Many Hours Machine</th>
-                  <th>Many Hours Realitation</th>
+                    <th>Name of Worker</th>
+                    <th>Shift</th>
+                    <th>Activity</th>
+                    <th>Problem</th>
+                    <th>Many Hours Machine</th>
+                    <th>Many Hours Realitation</th>
+                    <th>Time</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -111,6 +112,7 @@
                   <td>{{$sshs->PROBLEM}}</td>
                   <td>{{$sshs->MACHINE_WORKING}}</td>
                   <td>{{$sshs->MACHINE_WORKING+$sshs->MACHINE_ADD_HOURS}}</td>
+                  <td>{{$sshs->created_at}}</td>
                 </tr>
                 @endforeach
                 </tbody>
@@ -147,7 +149,7 @@ $(function() {
           "paging": true,
           "lengthChange": true,
           "searching": true,
-          "ordering": true,
+          "ordering": false,
           "info": true,
           "autoWidth": true
     });

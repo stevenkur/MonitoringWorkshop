@@ -85,13 +85,14 @@
               <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>NIP</th>
-                  <th>Name of Worker</th>
-                  <th>Shift</th>
-                  <th>Activity</th>
-                  <th>Problem</th>
-                  <th>Many Hours Work</th>
-                  <th>Many Hours Work Realitation</th>
+                    <th>NIP</th>
+                    <th>Name of Worker</th>
+                    <th>Shift</th>
+                    <th>Activity</th>
+                    <th>Problem</th>
+                    <th>Many Hours Work</th>
+                    <th>Many Hours Work Realitation</th>
+                    <th>Time</th>
                 </tr>
                 </thead>
                 <tbody>                
@@ -104,6 +105,7 @@
                   <td>{{$bbss->PROBLEM}}</td>
                   <td>{{$bbss->WORKING_HOURS}}</td>
                   <td>{{$bbss->WORKING_HOURS+$bbss->ADD_WORKING_HOURS}}</td>
+                  <td>{{$bbss->created_at}}</td>
                 </tr>
                 @endforeach
                 </tbody>
@@ -140,7 +142,7 @@ $(function() {
           "paging": true,
           "lengthChange": true,
           "searching": true,
-          "ordering": true,
+          "ordering": false,
           "info": true,
           "autoWidth": true
     });

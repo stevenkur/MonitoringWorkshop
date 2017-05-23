@@ -37,7 +37,7 @@ class UserSubAssemblyController extends Controller
         $ship=ShipProject::all();
         $block=Block::all();
         $panel=Panel::all();
-        $subassembly=SubAssembly::all();
+        $subassembly=SubAssembly::latest()->get();
         
         return view('user/subassembly_recap_worker')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('subass',$subassembly);
     }  

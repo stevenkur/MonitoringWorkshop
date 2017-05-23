@@ -33,7 +33,7 @@ class UserErectionController extends Controller
     {
         $ship=ShipProject::all();
         $block=Block::all();
-        $erection=Erection::all();
+        $erection=Erection::latest()->get();
         return view('user/erection_recap_worker')->with('ship', $ship)->with('block', $block)->with('erection', $erection);
     }
 

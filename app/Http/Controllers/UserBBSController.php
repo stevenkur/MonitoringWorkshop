@@ -87,7 +87,7 @@ class UserBBSController extends Controller
     {
         $ship=ShipProject::all();
         $block=Block::all();
-        $bbs=BBS::all();
+        $bbs=BBS::latest()->get();
         return view('user/bbs_recap_worker')->with('ship', $ship)->with('block', $block)->with('bbs', $bbs);
     }
 

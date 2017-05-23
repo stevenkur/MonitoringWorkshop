@@ -36,7 +36,7 @@ class UserAssemblyController extends Controller
         $block=Block::all();
         $panel=Panel::all();
         $machine=Machine::all();
-        $assembly=Assembly::all();
+        $assembly=Assembly::latest()->get();
         
         
         return view('user/assembly_recap_worker')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('ass',$assembly);
