@@ -47,7 +47,7 @@
           </div>
 
         @if(isset($_GET['activity']) || isset($_GET['project_come']) || isset($_GET['block_come']))
-          @if(isset($_GET['project_come']) || isset($_GET['block_come']) || $_GET['activity']==1 )
+        @if(isset($_GET['project_come']) || isset($_GET['block_come']) || $_GET['activity']==1 )
         <div class="col-md-12">
         <div class="box box-primary">
             
