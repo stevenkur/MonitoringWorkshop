@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\ShipProject;
+use App\Block;
+use App\Erection;
 
 class ErectionController extends Controller
 {
@@ -15,7 +17,9 @@ class ErectionController extends Controller
     public function index(Request $request)
     {
         $ship=ShipProject::all();
-        return view('dashboard/erection_menu')->with('ship', $ship);
+        $block=Block::all();
+        $erection=Erection::all();
+        return view('dashboard/erection_menu')->with('ship', $ship)->with('block', $block)->with('erection', $erection);
     }
 
     /**

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
 use App\Panel;
+use App\Assembly;
 
 class AssemblyController extends Controller
 {
@@ -21,8 +22,8 @@ class AssemblyController extends Controller
         $block=Block::all();
         $progress=Panel::select('id_block', DB::raw('sum(FAIRING+FITTING+GRINDING+WELDING)/3 as sum'))->groupBy('id_block')->get();
         $panel=Panel::all();
-                
-        return view('dashboard/assembly_menu')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('progress', $progress);
+        $ass=Assembly::all();                
+        return view('dashboard/assembly_menu')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('progress', $progress)->with('ass', $ass);
     }
 
     /**

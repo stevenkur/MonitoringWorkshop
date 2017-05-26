@@ -48,6 +48,15 @@
             </div>
             </section>
 
+            <?php 
+                if(isset($_GET['project']) && $_GET['project']!='#') 
+                   $flagProject=true;
+                else $flagProject=false;
+                if(isset($_GET['block']) && $_GET['block']!='#') 
+                   $flagBlock=true;
+                else $flagBlock=false;
+            ?>
+
             <section class="col-lg-6">
             <div class="box box-primary">
             

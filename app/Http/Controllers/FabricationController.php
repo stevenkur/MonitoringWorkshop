@@ -7,6 +7,7 @@ use App\ShipProject;
 use App\Block;
 use App\Profile;
 use App\Plate;
+use App\Fabrication;
 
 class FabricationController extends Controller
 {
@@ -21,7 +22,8 @@ class FabricationController extends Controller
         $block=Block::all();
         $profile=Profile::all();
         $plate=Plate::all();
-        return view('dashboard/fabrication_menu')->with('ship', $ship)->with('block', $block)->with('profile', $profile)->with('plate', $plate);
+        $fabrication=Fabrication::all();
+        return view('dashboard/fabrication_menu')->with('ship', $ship)->with('block', $block)->with('profile', $profile)->with('plate', $plate)->with('fabrication', $fabrication);
     }
 
     /**

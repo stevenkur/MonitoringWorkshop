@@ -30,9 +30,10 @@
                   <select class="form-control" name="activity">
                     <option value="#">--Select Activity--</option>
                     <option value="1">Recap Material Coming</option>
-                    <option value="2">Recap Material Process (Straightening, Blasting & Shop Primer)</option>
+                    <option value="2">Recap Activities</option>
                     <option value="3">Workshop Productivity</option>
                     <option value="4">Working Machine Productivity</option>
+                    <option value="5">View Workers</option>
                   </select>
                 </div>
                
@@ -269,9 +270,9 @@
              </div>
               
            </div>
-        </div>
+          </div>
 
-        @elseif($_GET['activity']==2)  
+          @elseif($_GET['activity']==2)  
             <div class="col-md-12">
             <div class="box box-primary">
   
@@ -482,6 +483,110 @@
             </div>
             </div>
 
+            @elseif($_GET['activity']==5) 
+            <section class="col-lg-6">
+            <div class="box box-primary">
+            
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form role="form" name="ShipProject">
+                  <div class="box-body">
+                  <label for="inputActivity">Select Project of Ship:</label>
+                    <div class="form-group">
+                      <select class="form-control" name="project">
+                        <option value="#">-- Ship Project List --</option>
+                        <?php $i=1;?>
+                        @foreach($ship as $data)
+                            <?php $shipData[$i] = $data; $i++;?>
+                            <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                   
+                  </div>
+                  <!-- /.box-body -->
+
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Choose</button>
+                  </div>
+                </form>
+                </div>
+                </section>
+
+              <?php 
+                    if(isset($_GET['project']) && $_GET['project']!='#') 
+                       $flagProject=true;
+                    else $flagProject=false;
+                    if(isset($_GET['block']) && $_GET['block']!='#') 
+                       $flagBlock=true;
+                    else $flagBlock=false;
+                ?>
+              
+                <section class="col-lg-6">
+                <div class="box box-primary">
+                
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form role="form" name="ShipBlock">
+                  <div class="box-body">
+                  <label for="inputActivity">Select BLock:</label>
+                    <div class="form-group">
+                      <select class="form-control" name="block">
+                        <option value="#">-- Block List --</option>
+                        <?php $i=1;?>
+                        @foreach($block as $data)
+                            <?php $blockData[$i] = $data; $i++;?>
+                            <option value="{{$data->ID}}">{{$data->NAME}}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                   
+                  </div>
+                  <!-- /.box-body -->
+
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Choose</button>
+                  </div>
+                </form>
+                </div>
+                </section>
+            
+            <div class="col-md-12">
+            <div class="box box-primary">
+                <!-- /.box-header -->
+                <div class="box-body">
+                <h3>List Worker</h3>
+                  <table id="tabel" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Name of Worker</th>
+                        <th>Shift</th>
+                        <th>Activity</th>
+                        <th>Problem</th>
+                        <th>Many Hours Machine</th>
+                        <th>Many Hours Realitation</th>
+                        <th>Time</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($ssh as $sshs)
+                    <tr>
+                      <td>{{$sshs->WORKER_NAME}}</td>
+                      <td>{{$sshs->SHIFT}}</td>
+                      <td>{{$sshs->PROCESS.' '.$sshs->ID_MATERIAL}}</td>
+                      <td>{{$sshs->PROBLEM}}</td>
+                      <td>{{$sshs->MACHINE_WORKING}}</td>
+                      <td>{{$sshs->MACHINE_WORKING+$sshs->MACHINE_ADD_HOURS}}</td>
+                      <td>{{$sshs->created_at}}</td>
+                    </tr>
+                    @endforeach
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.box-body -->
+              </div>
+            </div>
+
           @endif
         @endif
 
@@ -549,6 +654,14 @@ $(function() {
           "autoWidth": true
     });
     $('#machineproductivity').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    });
+    $('#tabel').DataTable({
           "paging": true,
           "lengthChange": true,
           "searching": true,

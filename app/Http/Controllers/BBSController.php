@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\ShipProject;
+use App\BBS;
 
 class BBSController extends Controller
 {
@@ -15,7 +16,8 @@ class BBSController extends Controller
     public function index(Request $request)
     {
         $ship=ShipProject::all();
-        return view('dashboard/bbs_menu')->with('ship', $ship);
+        $bbs=BBS::all();
+        return view('dashboard/bbs_menu')->with('ship', $ship)->with('bbs', $bbs);
     }
 
     /**

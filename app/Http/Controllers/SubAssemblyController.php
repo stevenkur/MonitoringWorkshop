@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
 use App\Part;
+use App\SubAssembly;
 
 class SubAssemblyController extends Controller
 {
@@ -21,8 +22,8 @@ class SubAssemblyController extends Controller
         $block=Block::all();
         $progress=Part::select('id_block', DB::raw('sum(FAIRING+FITTING+GRINDING+WELDING)/3 as sum'))->groupBy('id_block')->get();
         $part=Part::all();
-                
-        return view('dashboard/subassembly_menu')->with('ship', $ship)->with('block', $block)->with('part', $part)->with('progress', $progress);
+        $subass=SubAssembly::all();                
+        return view('dashboard/subassembly_menu')->with('ship', $ship)->with('block', $block)->with('part', $part)->with('progress', $progress)->with('subass', $subass);
     }
     
     /**
