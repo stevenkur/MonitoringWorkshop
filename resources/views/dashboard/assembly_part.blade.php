@@ -202,6 +202,7 @@
                   <th>DIMENSION</th>
                   <th>QUANTITY</th>
                   <th>WEIGHT</th>
+                  <th>FORM</th>
                   <th>EDIT</th>
                   <th>DELETE</th>
                 </tr>
@@ -216,6 +217,7 @@
                         <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
+                        <td>'.$parts['FORM'].'</td>
                         <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
                         <td>';?>
                             {{ Form::open(array('url' => 'assembly_part/' . $parts->ID)) }}
@@ -233,6 +235,7 @@
                         <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
+                        <td>'.$parts['FORM'].'</td>
                         <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
                         <td>';?>
                             {{ Form::open(array('url' => 'assembly_part/' . $parts->ID)) }}
@@ -250,6 +253,7 @@
                         <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
+                        <td>'.$parts['FORM'].'</td>
                         <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
                         <td>';?>
                             {{ Form::open(array('url' => 'assembly_part/' . $parts->ID)) }}
@@ -267,6 +271,7 @@
                         <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
+                        <td>'.$parts['FORM'].'</td>
                         <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
                         <td>';?>
                             {{ Form::open(array('url' => 'assembly_part/' . $parts->ID)) }}
@@ -285,6 +290,7 @@
                   <th>DIMENSION</th>
                   <th>QUANTITY</th>
                   <th>WEIGHT</th>
+                  <th>FORM</th>
                   <th>EDIT</th>
                   <th>DELETE</th>
                 </tr>
