@@ -453,10 +453,14 @@
                 <thead>
                 <tr>                 
                   <th>Date</th>
-                  <th>Straightening Machine</th>
+                  <th>Fitting Machine</th>
                   <th>Normal/Realization Hours</th>
-                  <th>Blasting & Shop Primer Machine</th>
-                  <th>Productivity Target</th>
+                  <th>Welding Machine</th>
+                  <th>Normal/Realization Hours</th>
+                  <th>Grinding Machine</th>
+                  <th>Normal/Realization Hours</th>
+                  <th>Fairing Machine</th>
+                  <th>Normal/Realization Hours</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -465,10 +469,14 @@
                 <tfoot>
                 <tr>                 
                   <th>Date</th>
-                  <th>Straightening Machine</th>
+                  <th>Fitting Machine</th>
                   <th>Normal/Realization Hours</th>
-                  <th>Blasting & Shop Primer Machine</th>
-                  <th>Productivity Target</th>
+                  <th>Welding Machine</th>
+                  <th>Normal/Realization Hours</th>
+                  <th>Grinding Machine</th>
+                  <th>Normal/Realization Hours</th>
+                  <th>Fairing Machine</th>
+                  <th>Normal/Realization Hours</th>
                 </tr>
                 </tfoot>
               </table>
@@ -545,10 +553,10 @@
                 <thead>
                 <tr>
                     <th>Name of Worker</th>
+                    <th>NIK</th>
                     <th>Shift</th>
                     <th>Activity</th>
                     <th>Problem</th>
-                    <th>Many Hours Machine</th>
                     <th>Many Hours Realitation</th>
                     <th>Time</th>
                 </tr>
@@ -557,10 +565,10 @@
                 @foreach($ass as $asss)
                 <tr>
                   <td>{{$asss->WORKER_NAME}}</td>
+                  <td>{{$asss->ID_WORKER}}</td>
                   <td>{{$asss->SHIFT}}</td>
                   <td>{{$asss->PROCESS.' '.$asss->ID_PART}}</td>
                   <td>{{$asss->PROBLEM}}</td>
-                  <td>{{$asss->MACHINE_WORKING}}</td>
                   <td>{{$asss->MACHINE_WORKING+$asss->MACHINE_ADD_HOURS}}</td>
                   <td>{{$asss->created_at}}</td>
                 </tr>

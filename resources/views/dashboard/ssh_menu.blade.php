@@ -462,7 +462,7 @@
                   <th>Straightening Machine</th>
                   <th>Normal/Realization Hours</th>
                   <th>Blasting & Shop Primer Machine</th>
-                  <th>Productivity Target</th>
+                  <th>Normal/Realization Hours</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -474,7 +474,7 @@
                   <th>Straightening Machine</th>
                   <th>Normal/Realization Hours</th>
                   <th>Blasting & Shop Primer Machine</th>
-                  <th>Productivity Target</th>
+                  <th>Normal/Realization Hours</th>
                 </tr>
                 </tfoot>
               </table>
@@ -560,10 +560,10 @@
                     <thead>
                     <tr>
                         <th>Name of Worker</th>
+                        <th>NIK</th>
                         <th>Shift</th>
                         <th>Activity</th>
                         <th>Problem</th>
-                        <th>Many Hours Machine</th>
                         <th>Many Hours Realitation</th>
                         <th>Time</th>
                     </tr>
@@ -572,10 +572,10 @@
                     @foreach($ssh as $sshs)
                     <tr>
                       <td>{{$sshs->WORKER_NAME}}</td>
+                      <td>{{$sshs->ID_WORKER}}</td>
                       <td>{{$sshs->SHIFT}}</td>
                       <td>{{$sshs->PROCESS.' '.$sshs->ID_MATERIAL}}</td>
                       <td>{{$sshs->PROBLEM}}</td>
-                      <td>{{$sshs->MACHINE_WORKING}}</td>
                       <td>{{$sshs->MACHINE_WORKING+$sshs->MACHINE_ADD_HOURS}}</td>
                       <td>{{$sshs->created_at}}</td>
                     </tr>

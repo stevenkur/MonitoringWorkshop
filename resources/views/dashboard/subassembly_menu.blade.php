@@ -396,22 +396,30 @@
                 <thead>
                 <tr>                 
                   <th>Date</th>
-                  <th>Straightening Machine</th>
+                  <th>Fitting Machine</th>
                   <th>Normal/Realization Hours</th>
-                  <th>Blasting & Shop Primer Machine</th>
-                  <th>Productivity Target</th>
+                  <th>Welding Machine</th>
+                  <th>Normal/Realization Hours</th>
+                  <th>Grinding Machine</th>
+                  <th>Normal/Realization Hours</th>
+                  <th>Fairing Machine</th>
+                  <th>Normal/Realization Hours</th>
                 </tr>
                 </thead>
                 <tbody>
                 
                 </tbody>
                 <tfoot>
-                <tr>                 
+                <tr>                  
                   <th>Date</th>
-                  <th>Straightening Machine</th>
+                  <th>Fitting Machine</th>
                   <th>Normal/Realization Hours</th>
-                  <th>Blasting & Shop Primer Machine</th>
-                  <th>Productivity Target</th>
+                  <th>Welding Machine</th>
+                  <th>Normal/Realization Hours</th>
+                  <th>Grinding Machine</th>
+                  <th>Normal/Realization Hours</th>
+                  <th>Fairing Machine</th>
+                  <th>Normal/Realization Hours</th>
                 </tr>
                 </tfoot>
               </table>
@@ -499,11 +507,11 @@
               <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>Name of Worker</th>
+                    <th>Name of Worker</th>                    
+                    <th>NIK</th>
                     <th>Shift</th>
                     <th>Activity</th>
                     <th>Problem</th>
-                    <th>Many Hours Machine</th>
                     <th>Many Hours Realitation</th>
                     <th>Time</th>
                 </tr>
@@ -512,10 +520,10 @@
                 @foreach($subass as $subasss)
                 <tr>
                   <td>{{$subasss->WORKER_NAME}}</td>
+                  <td>{{$subasss->ID_WORKER}}</td>
                   <td>{{$subasss->SHIFT}}</td>
                   <td>{{$subasss->PROCESS.' '.$subasss->ID_PANEL}}</td>
                   <td>{{$subasss->PROBLEM}}</td>
-                  <td>{{$subasss->MACHINE_WORKING}}</td>
                   <td>{{$subasss->MACHINE_WORKING+$subasss->MACHINE_ADD_HOURS}}</td>
                   <td>{{$subasss->created_at}}</td>
                 </tr>

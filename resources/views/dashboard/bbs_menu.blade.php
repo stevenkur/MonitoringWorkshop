@@ -289,12 +289,11 @@
               <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>NIP</th>
                     <th>Name of Worker</th>
+                    <th>NIK</th>
                     <th>Shift</th>
                     <th>Activity</th>
                     <th>Problem</th>
-                    <th>Many Hours Work</th>
                     <th>Many Hours Work Realitation</th>
                     <th>Time</th>
                 </tr>
@@ -302,12 +301,11 @@
                 <tbody>                
                 @foreach($bbs as $bbss)
                 <tr>
-                  <td>{{$bbss->ID_WORKER}}</td>
                   <td>{{$bbss->WORKER_NAME}}</td>
+                  <td>{{$bbss->ID_WORKER}}</td>
                   <td>{{$bbss->SHIFT}}</td>
                   <td>{{$bbss->PROCESS.' '.$bbss->ID_MATERIAL}}</td>
                   <td>{{$bbss->PROBLEM}}</td>
-                  <td>{{$bbss->WORKING_HOURS}}</td>
                   <td>{{$bbss->WORKING_HOURS+$bbss->ADD_WORKING_HOURS}}</td>
                   <td>{{$bbss->created_at}}</td>
                 </tr>

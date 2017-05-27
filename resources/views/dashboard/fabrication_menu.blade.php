@@ -383,22 +383,26 @@
                 <thead>
                 <tr>                 
                   <th>Date</th>
-                  <th>Straightening Machine</th>
+                  <th>Marking Machine</th>
                   <th>Normal/Realization Hours</th>
-                  <th>Blasting & Shop Primer Machine</th>
-                  <th>Productivity Target</th>
+                  <th>Cutting Machine</th>
+                  <th>Normal/Realization Hours</th>
+                  <th>Bending Machine</th>
+                  <th>Normal/Realization Hours</th>
                 </tr>
                 </thead>
                 <tbody>
                 
                 </tbody>
                 <tfoot>
-                <tr>                 
+                <tr>              
                   <th>Date</th>
-                  <th>Straightening Machine</th>
+                  <th>Marking Machine</th>
                   <th>Normal/Realization Hours</th>
-                  <th>Blasting & Shop Primer Machine</th>
-                  <th>Productivity Target</th>
+                  <th>Cutting Machine</th>
+                  <th>Normal/Realization Hours</th>
+                  <th>Bending Machine</th>
+                  <th>Normal/Realization Hours</th>
                 </tr>
                 </tfoot>
               </table>
@@ -484,10 +488,10 @@
                 <thead>
                 <tr>
                     <th>Name of Worker</th>
+                    <th>NIK</th>
                     <th>Shift</th>
                     <th>Activity</th>
                     <th>Problem</th>
-                    <th>Many Hours Machine</th>
                     <th>Many Hours Realitation</th>
                     <th>Time</th>
                 </tr>
@@ -496,10 +500,10 @@
                 @foreach($fabrication as $fabrications)
                 <tr>
                   <td>{{$fabrications->WORKER_NAME}}</td>
+                  <td>{{$fabrications->ID_WORKER}}</td>
                   <td>{{$fabrications->SHIFT}}</td>
                   <td>{{$fabrications->PROCESS.' '.$fabrications->ID_MATERIAL}}</td>
                   <td>{{$fabrications->PROBLEM}}</td>
-                  <td>{{$fabrications->MACHINE_WORKING}}</td>
                   <td>{{$fabrications->MACHINE_WORKING+$fabrications->MACHINE_ADD_HOURS}}</td>
                   <td>{{$fabrications->created_at}}</td>
                 </tr>
