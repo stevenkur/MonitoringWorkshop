@@ -53,7 +53,43 @@
                    $flagProject=true;
                 else $flagProject=false;
             ?>
-          
+        
+        <div class="col-md-12">
+        <div class="box box-primary">
+        
+        <form role="form" action="" method="post">
+        {{csrf_field()}}
+        <div class="box-body">
+        <h3>Progress Percentage</h3>
+                <div class="form-group">
+                  <label class="col-md-2"> Marking </label>
+                  <label> : </label>
+                  <input type="text" id="marking" name="marking" placeholder="">
+                  <label> % </label>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-2"> Cutting </label>
+                  <label> : </label>
+                  <input type="text" id="cutting" name="cutting" placeholder="">
+                  <label> % </label>
+                </div>    
+                <div class="form-group">
+                  <label class="col-md-2"> Bending </label>
+                  <label> : </label>
+                  <input type="text" id="bending" name="bending" placeholder="">
+                  <label> % </label>
+                </div>             
+
+            <div class="box-footer">
+              <button type="reset" class="btn btn-ok">Reset</button>
+              <button type="submit" class="btn btn-primary">Check</button>
+            </div>
+        </div>
+        </form>
+
+        </div>
+        </div>
+
         <div class="col-md-12">
         <div class="box box-primary">
             <!-- /.box-header -->

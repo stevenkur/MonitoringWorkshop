@@ -37,7 +37,7 @@ class UserFabricationController extends Controller
         return view('user/fabrication_recap_material_process')->with('ship', $ship)->with('block', $block)->with('plate', $plate);
     }
 
-    public function Fabrication_recap_worker()
+    public function fabrication_recap_worker()
     {
         $ship=ShipProject::all();
         $block=Block::all();

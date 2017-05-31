@@ -47,30 +47,50 @@ class HomeController extends Controller
         // }
         // else
         // {
-            $userdata = array(
-                'USERNAME'  => Input::get('username'),
-                'PASSWORD'  => Input::get('password')
-            );
-            $remember=Input::get('remember');
-            if($remember=='remember')
+            // $userdata = array(
+            //     'USERNAME'  => Input::get('username'),
+            //     'PASSWORD'  => Input::get('password')
+            // );
+            // $remember=Input::get('remember');
+            // if($remember=='remember')
+            // {
+            //     if (Auth::attempt(array('USERNAME'=>$userdata['USERNAME'],'PASSWORD'=>$userdata['PASSWORD']),true)){
+            //         return Redirect::to('admins');
+            //     }
+            //     else{
+            //         return Redirect::to('users');
+            //     }
+            // }
+            // else
+            // {
+            //     if (Auth::attempt(array('USERNAME'=>$userdata['USERNAME'],'PASSWORD'=>$userdata['PASSWORD']),false)){
+            //         return Redirect::to('admins');
+            //         }
+            //     else{
+            //         return Redirect::to('ship_project');
+            //     }
+            // }
+        // }
+
+        
+            $email = Input::get('username');
+            $password = Input::get('password');
+       
+            if (Auth::attempt(['USERNAME' => $email, 'PASSWORD' => $password])) 
             {
-                if (Auth::attempt(array('USERNAME'=>$userdata['USERNAME'],'PASSWORD'=>$userdata['PASSWORD']),true)){
-                    return Redirect::to('admins');
-                }
-                else{
-                    return Redirect::to('users');
-                }
+                return json_encode([
+                    'status' => 1,
+                    'message' => 'Login Berhasil.'
+                    ]);
             }
             else
             {
-                if (Auth::attempt(array('USERNAME'=>$userdata['USERNAME'],'PASSWORD'=>$userdata['PASSWORD']),false)){
-                    return Redirect::to('admins');
-                    }
-                else{
-                    return Redirect::to('ship_project');
-                }
+                return json_encode([
+                    'status' => -1,
+                    'message' => 'Email atau password salah. Login gagal.'
+                    ]);
             }
-        // }
+        
     }
 
     public function logout()

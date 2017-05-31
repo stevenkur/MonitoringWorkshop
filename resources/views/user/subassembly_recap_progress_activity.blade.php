@@ -56,6 +56,48 @@
           
         <div class="col-md-12">
         <div class="box box-primary">
+        
+        <form role="form" action="" method="post">
+        {{csrf_field()}}
+        <div class="box-body">
+        <h3>Progress Percentage</h3>
+                <div class="form-group">
+                  <label class="col-md-2"> Fitting </label>
+                  <label> : </label>
+                  <input type="text" id="fitting" name="fitting" placeholder="">
+                  <label> % </label>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-2"> Welding </label>
+                  <label> : </label>
+                  <input type="text" id="welding" name="welding" placeholder="">
+                  <label> % </label>
+                </div>    
+                <div class="form-group">
+                  <label class="col-md-2"> Grinding </label>
+                  <label> : </label>
+                  <input type="text" id="grinding" name="grinding" placeholder="">
+                  <label> % </label>
+                </div>       
+                <div class="form-group">
+                  <label class="col-md-2"> Fairing </label>
+                  <label> : </label>
+                  <input type="text" id="fairing" name="fairing" placeholder="">
+                  <label> % </label>
+                </div>            
+
+            <div class="box-footer">
+              <button type="reset" class="btn btn-ok">Reset</button>
+              <button type="submit" class="btn btn-primary">Check</button>
+            </div>
+        </div>
+        </form>
+
+        </div>
+        </div>
+
+        <div class="col-md-12">
+        <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
               <table id="tabel" class="table table-bordered table-striped">
