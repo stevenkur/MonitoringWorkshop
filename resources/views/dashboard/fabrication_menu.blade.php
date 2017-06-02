@@ -29,6 +29,7 @@
                 <div class="form-group">
                   <select class="form-control" name="activity">
                     <option value="#">--Select Activity--</option>
+                    <option value="0">Recap Progress Block Activity</option>
                     <option value="2">Recap Activities</option>
                     <option value="3">Workshop Productivity</option>
                     <option value="4">Working Machine Productivity</option>
@@ -253,6 +254,37 @@
            </div>
           </div>
           
+          @elseif($_GET['activity']==0) 
+        <div class="col-md-12">
+        <div class="box box-primary">
+            
+          <div class="box-body">
+              <h1>Recap Progress Block Activity</h1>
+              <table id="progress" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Block Name</th>
+                  <th>Total Progress</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>Block Name</td>
+                  <td>Total Progress</td>
+                </tr>                
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Block Name</th>
+                  <th>Total Progress</th>
+                </tr>
+                </tfoot>
+              </table>
+          </div>
+          
+        </div>
+        </div>
+
           @elseif($_GET['activity']==3)  
             <div class="col-md-3">
             <div class="box box-primary">
@@ -542,6 +574,14 @@
 <script>
 $(function() {
     $('#block').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    });
+    $('#progress').DataTable({
           "paging": true,
           "lengthChange": true,
           "searching": true,
