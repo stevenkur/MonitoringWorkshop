@@ -36,6 +36,7 @@
                   <th>Total Layer</th>
                   <th>Paint Type</th>
                   <th>Paint Needs</th>
+                  <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -51,6 +52,12 @@
                     <td>{{$rooms->TOTAL_LAYER}}</td>
                     <td>{{$rooms->PAINT_TYPE}}</td>
                     <td>{{$rooms->PAINT_NEEDS}}</td>
+                    <td>
+                        {{ Form::open(array('url' => 'bbs_delete_paint_needs/' . $rooms->ID)) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
+                        {{ Form::close() }}
+                    </td>
                 </tr>
                 @endforeach
                 </tbody>
@@ -66,6 +73,7 @@
                   <th>Total Layer</th>
                   <th>Paint Type</th>
                   <th>Paint Needs</th>
+                  <th>Delete</th>
                 </tr>
                 </tfoot>
               </table>

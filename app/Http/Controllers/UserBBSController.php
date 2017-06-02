@@ -128,4 +128,12 @@ class UserBBSController extends Controller
         $room=Room::all();
         return view('user/input_act_bbs')->with('ship', $ship)->with('block', $block)->with('worker', $worker)->with('room', $room);
     }  
+
+    public function destroy($id)
+    {
+        //
+        $room = Room::where('ID', $id)->delete();
+        return redirect()->route('bbs_calculate_paint_needs')
+            ->with('alert-success', 'Data Berhasil Dihapus.');
+    }
 }
