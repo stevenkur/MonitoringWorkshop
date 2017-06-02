@@ -73,9 +73,7 @@ class BlockController extends Controller
     public function show($id)
     {
         //
-        $block=Block::findOrFail($id);
-        $ship=ShipProject::all();
-        return view('dashboard/block_list')->with('ship', $ship)->with('block', $block);
+        
     }
     
     /**
@@ -87,6 +85,7 @@ class BlockController extends Controller
     public function edit($id)
     {
         //
+        
     }
 
     /**
@@ -98,21 +97,22 @@ class BlockController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $blocks = Block::find($id);        
-        $blocks->NAME = $request->name;        
-        $blocks->ID_PROJECT = $request->project_id;		
-        $blocks->PROJECT_NAME = $request->PROJECT_NAME;   
-        $blocks->MATERIAL = $request->MATERIAL;   
-        $blocks->MATERIAL_COMING = $request->MATERIAL_COMING;   
-        $blocks->PART = $request->PART;   
-        $blocks->PART_COMING = $request->PART_COMING;   
-        $blocks->PANEL = $request->PANEL;   
-        $blocks->PANEL_DONE = $request->PANEL_COMING;   
-        $blocks->save();
+        $ships=ShipProject::where('ID', $request->project_id)->first();
+//        dd($ships);
         
-        return redirect()->route('block.index')
-            ->with('alert-success', 'Data Berhasil Disimpan.');
+        $blocks = Block::where('ID',$id)->update(
+        [
+            'NAME' => $request->name,      
+            'ID_PROJECT' => $request->project_id,		
+            'PROJECT_NAME' => $ships->PROJECT_NAME
+        ]
+        );        
+        
+        $panel = Panel::where('ID_BLOCK',$id)->update(['BLOCK_NAME' => $request->name]);
+        $part = Part::where('ID_BLOCK',$id)->update(['BLOCK_NAME' => $request->name]);
+        $profile = Profile::where('ID_BLOCK',$id)->update(['BLOCK_NAME' => $request->name]);
+        
+        return redirect()->route('block.index')->with('alert-success', 'Data Berhasil Disimpan.');
     }
 
     /**

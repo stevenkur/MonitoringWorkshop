@@ -15,6 +15,26 @@
       </ol>
     </section>
 
+      
+          <?php 
+            if(isset($_GET['id']) && $_GET['id']!='#') 
+               $flag=true;
+            else $flag=false;
+            if(isset($_GET['id_block']) && $_GET['id_block']!='#') {
+                foreach($block as $blocks){
+                    if($blocks['ID']==$_GET['id_block']){
+                        $id_block = $_GET['id_block'];
+                        $block_name = $blocks['NAME'];
+                        $block_project = $blocks['PROJECT_NAME'];
+                        $block_id_project = $blocks['ID_PROJECT'];
+                        $flagBlock=true;
+                        break;
+                    }
+                }
+            }
+            else $flagBlock=false;
+            ?>
+      
     <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -52,12 +72,32 @@
             </form>
             </div>
             
-            <div class="box box-primary">      
-            <form action="{{route('block.store')}}" role="form" method="post">
+            <div class="box box-primary">   
+                @if($flagBlock)
+                    <form role="form" action="{{route('block.update', $id_block)}}" method="post">
+                    <input name="_method" type="hidden" value="PATCH">
+                @else 
+                    <form role="form" action="{{route('block.store')}}" method="post">
+                    <input name="_method" type="hidden" value="POST">
+                @endif
                 {{csrf_field()}}
               <div class="box-body">
-                  <h4> New Block </h4>
+                @if($flagBlock)
+                  <h4> Update Block </h4>
                 <div class="form-group">
+                  <label for="inputBlock">Name of Block:</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{$block_name}}">
+                </div>
+                <div class="form-group">
+                  <label for="projectID">Select Project:</label>
+                  <input type="text" value="{{$block_project}}" class="form-control" name="project_name" disabled>
+                </div>
+                <div class="form-group">
+                <input type="text" value="{{$block_id_project}}" class="form-control" name="project_id" style="visibility:hidden">
+                </div>
+                @else 
+                  <h4> New Block </h4>
+                  <div class="form-group">
                   <label for="inputBlock">Name of Block:</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="Enter name of block">   
                 </div>
@@ -71,6 +111,7 @@
                     @endforeach
                   </select>
                 </div>
+                @endif
                 </div>
                 
               <!-- /.box-body -->
@@ -82,10 +123,6 @@
             </form>
           </div>
           </div>          
-          
-          <?php if(isset($_GET['id']) && $_GET['id']!='#') 
-                   $flag=true;
-                else $flag=false;?>
           
             <!-- /.box-header -->
             <!-- form start -->  
@@ -109,9 +146,9 @@
                     echo '<tr>
                         <td>'.$blocks['ID'].'</td>
                         <td>'.$blocks['NAME'].'</td>
-                        <td>'.$blocks['PROJECT_NAME'].'</td>
-                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                        <td>';?>
+                        <td>'.$blocks['PROJECT_NAME'].'</td>';?>
+                        <td><a class="btn btn-primary" type="submit" href="./block?id_block={{$blocks->ID}}">Edit</a></td>
+                        <td>
                             {{ Form::open(array('url' => 'block/' . $blocks->ID)) }}
                             {{ Form::hidden('_method', 'DELETE') }}
                             {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
@@ -124,9 +161,9 @@
                     <tr>
                         <td>'.$blocks['ID'].'</td>
                         <td>'.$blocks['NAME'].'</td>
-                        <td>'.$blocks['PROJECT_NAME'].'</td>
-                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                        <td>';?>
+                        <td>'.$blocks['PROJECT_NAME'].'</td>';?>
+                        <td><a class="btn btn-primary" type="submit" href="./block?id_block={{$blocks->ID}}">Edit</a></td>
+                        <td>
                             {{ Form::open(array('url' => 'block/' . $blocks->ID)) }}
                             {{ Form::hidden('_method', 'DELETE') }}
                             {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
