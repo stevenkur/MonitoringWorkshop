@@ -15,6 +15,28 @@
       </ol>
     </section>
 
+        
+        <?php 
+            if(isset($_GET['project']) && $_GET['project']!='#') 
+               $flagProject=true;
+            else $flagProject=false;
+            if(isset($_GET['block']) && $_GET['block']!='#') 
+               $flagBlock=true;
+            else $flagBlock=false;
+            if(isset($_GET['id']) && $_GET['id']!='#'){ 
+                foreach($panel as $panels){
+                    if($panels['ID']==$_GET['id']){
+                        $id_panel = $_GET['id'];
+                        $panel_name = $panels['NAME'];
+                        $panel_block = $panels['BLOCK_NAME'];
+                        $flagPanel=true;
+                        break;
+                    }
+                }
+            }
+            else $flagPanel=false;
+        ?>
+      
     <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -46,17 +68,7 @@
             </form>
             </div>
         </div>
-            
-            
-                <?php 
-                if(isset($_GET['project']) && $_GET['project']!='#') 
-                   $flagProject=true;
-                else $flagProject=false;
-                if(isset($_GET['block']) && $_GET['block']!='#') 
-                   $flagBlock=true;
-                else $flagBlock=false;
-                ?>
-            
+                        
         <div class="col-md-6">
         <div class="box box-primary">
          
@@ -92,10 +104,27 @@
         </div>
             
         <div class="col-md-4">
-        <div class="box box-primary">      
-            <form action="{{route('panel.store')}}" role="form" method="post">
-                {{csrf_field()}}
+        <div class="box box-primary">  
+            @if($flagPanel)
+                <form role="form" action="{{route('panel.update', $id_panel)}}" method="post">
+                <input name="_method" type="hidden" value="PATCH">
+            @else 
+                <form role="form" action="{{route('panel.store')}}" method="post">
+                <input name="_method" type="hidden" value="POST">
+            @endif
+            {{csrf_field()}}
               <div class="box-body">
+            @if($flagPanel)      
+                  <h4> Update Panel </h4>
+                <div class="form-group">
+                  <label for="inputPanel">Name of Panel:</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{$panel_name}}">
+                </div>
+                <div class="form-group">
+                  <label for="projectID">Block Name:</label>
+                  <input class="form-control" name="block_id" value="{{$panel_block}}" disabled>
+                </div>
+            @else
                   <h4> New Panel </h4>
                 <div class="form-group">
                   <label for="inputPanel">Name of Panel:</label>
@@ -112,6 +141,7 @@
                     @endforeach
                   </select>
                 </div>
+            @endif
                 </div>
                 
               <!-- /.box-body -->
@@ -149,9 +179,9 @@
                             <td>'.$panels['ID'].'</td>
                             <td>'.$panels['NAME'].'</td>
                             <td>'.$panels['PROJECT_NAME'].'</td>
-                            <td>'.$panels['BLOCK_NAME'].'</td>
-                            <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                            <td>';?>
+                            <td>'.$panels['BLOCK_NAME'].'</td>';?>
+                            <td><a class="btn btn-primary" type="submit" href="./panel?id={{$panels->ID}}">Edit</a></td>
+                            <td>
                                 {{ Form::open(array('url' => 'panel/' . $panels->ID)) }}
                                 {{ Form::hidden('_method', 'DELETE') }}
                                 {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
@@ -165,9 +195,9 @@
                             <td>'.$panels['ID'].'</td>
                             <td>'.$panels['NAME'].'</td>
                             <td>'.$panels['PROJECT_NAME'].'</td>
-                            <td>'.$panels['BLOCK_NAME'].'</td>
-                            <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                            <td>';?>
+                            <td>'.$panels['BLOCK_NAME'].'</td>';?>
+                            <td><a class="btn btn-primary" type="submit" href="./panel?id={{$panels->ID}}">Edit</a></td>
+                            <td>
                                 {{ Form::open(array('url' => 'panel/' . $panels->ID)) }}
                                 {{ Form::hidden('_method', 'DELETE') }}
                                 {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
@@ -181,9 +211,9 @@
                             <td>'.$panels['ID'].'</td>
                             <td>'.$panels['NAME'].'</td>
                             <td>'.$panels['PROJECT_NAME'].'</td>
-                            <td>'.$panels['BLOCK_NAME'].'</td>
-                            <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
-                            <td>';?>
+                            <td>'.$panels['BLOCK_NAME'].'</td>';?>
+                            <td><a class="btn btn-primary" type="submit" href="./panel?id={{$panels->ID}}">Edit</a></td>
+                            <td>
                                 {{ Form::open(array('url' => 'panel/' . $panels->ID)) }}
                                 {{ Form::hidden('_method', 'DELETE') }}
                                 {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}

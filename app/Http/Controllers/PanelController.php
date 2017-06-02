@@ -92,17 +92,10 @@ class PanelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //        
-        $panel = Panel::where('ID', $id);        
-        $panel->NAME = $request->name;        
-        $panel->ID_PROJECT = $request->ID_PROJECT;		
-        $panel->PROJECT_NAME = $request->PROJECT_NAME;   
-        $panel->ID_BLOCK = $request->ID_BLOCK;		
-        $panel->BLOCK_NAME = $request->BLOCK_NAME;
-        $panel->save();
-                
-        return redirect()->route('panel.index')
-            ->with('alert-success', 'Data Berhasil Disimpan.');
+        $panel = Panel::where('ID',$id)->update(['NAME' => $request->name]);
+        $part = Part::where('ID_PANEL',$id)->update(['PANEL_NAME' => $request->name]);
+        
+        return redirect()->route('panel.index')->with('alert-success', 'Data Berhasil Disimpan.');
     }
 
     /**

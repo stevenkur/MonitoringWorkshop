@@ -110,6 +110,7 @@ class BlockController extends Controller
         
         $panel = Panel::where('ID_BLOCK',$id)->update(['BLOCK_NAME' => $request->name]);
         $part = Part::where('ID_BLOCK',$id)->update(['BLOCK_NAME' => $request->name]);
+        $plate = Plate::where('ID_BLOCK',$id)->update(['BLOCK_NAME' => $request->name]);
         $profile = Profile::where('ID_BLOCK',$id)->update(['BLOCK_NAME' => $request->name]);
         
         return redirect()->route('block.index')->with('alert-success', 'Data Berhasil Disimpan.');
