@@ -11,6 +11,7 @@ use App\Profile;
 use App\Worker;
 use App\Machine;
 use App\SSH;
+use App\Percentage;
 use Carbon\Carbon;
 
 class UserSSHController extends Controller
@@ -82,8 +83,10 @@ class UserSSHController extends Controller
     {
         $ship=ShipProject::all();
         $progress=Plate::select('ID_BLOCK', 'BLOCK_NAME', 'ID_PROJECT', DB::raw('sum(STRAIGHTENING) as STR'), DB::raw('count(ID) as NUM'), DB::raw('sum(BLASTING) as BLAST'))->groupBy('ID_BLOCK', 'BLOCK_NAME', 'ID_PROJECT')->get();
+        $straightening=Percentage::where('WORKSHOP', 'SSH')->where('ACTIVITY', 'STRAIGHTENING')->first();
+        $blasting=Percentage::where('WORKSHOP', 'SSH')->where('ACTIVITY', 'BLASTING')->first();
         
-        return view('user/ssh_recap_progress_activity')->with('ship', $ship)->with('progress', $progress);
+        return view('user/ssh_recap_progress_activity')->with('ship', $ship)->with('progress', $progress)->with('straightening', $straightening)->with('blasting', $blasting);
     }
 
     public function works(Request $request)

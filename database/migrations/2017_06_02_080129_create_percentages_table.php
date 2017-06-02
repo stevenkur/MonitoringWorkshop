@@ -14,8 +14,9 @@ class CreatePercentagesTable extends Migration
     public function up()    
     {
         Schema::create('percentages', function (Blueprint $table) {
-            $table->increments('id');            
-            $table->string('WORKSHOP_ACTIVITY', 55);
+            $table->increments('id');  
+            $table->string('WORKSHOP', 55);          
+            $table->string('ACTIVITY', 55);
             $table->integer('PERCENT');
             $table->timestamps();
         });

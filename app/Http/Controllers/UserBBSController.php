@@ -8,6 +8,7 @@ use App\Block;
 use App\Worker;
 use App\BBS;
 use App\Room;
+use App\Percentage;
 use Carbon\Carbon;
 
 class UserBBSController extends Controller

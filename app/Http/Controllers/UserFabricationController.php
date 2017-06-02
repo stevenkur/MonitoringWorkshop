@@ -10,6 +10,7 @@ use App\Plate;
 use App\Worker;
 use App\Machine;
 use App\Fabrication;
+use App\Percentage;
 use Carbon\Carbon;
 
 class UserFabricationController extends Controller
@@ -49,8 +50,9 @@ class UserFabricationController extends Controller
     {
         $ship=ShipProject::all();
         $progress=Plate::select('ID_BLOCK', 'BLOCK_NAME', 'ID_PROJECT', DB::raw('sum(MARKING) as MARKING'), DB::raw('count(ID) as NUM'), DB::raw('sum(CUTTING) as CUTTING'), DB::raw('sum(BLENDING) as BLENDING'))->groupBy('ID_BLOCK', 'BLOCK_NAME', 'ID_PROJECT')->get();
+        $percentage=Percentage::where('WORKSHOP', 'FABRICATION')->get();
         
-        return view('user/fabrication_recap_progress_activity')->with('ship', $ship)->with('progress', $progress);
+        return view('user/fabrication_recap_progress_activity')->with('ship', $ship)->with('progress', $progress)->with('percentage', $percentage);
     }
 
     public function works(Request $request)

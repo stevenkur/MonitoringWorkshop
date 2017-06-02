@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 02 Jun 2017 pada 10.15
+-- Generation Time: 02 Jun 2017 pada 11.14
 -- Versi Server: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -280,7 +280,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (192, '2017_05_16_071343_create_b_b_s_table', 2),
 (193, '2017_05_16_071517_create_erections_table', 2),
 (194, '2017_05_16_082438_create_rooms_table', 2),
-(196, '2017_06_02_080129_create_percentages_table', 3);
+(197, '2017_06_02_080129_create_percentages_table', 3);
 
 -- --------------------------------------------------------
 
@@ -390,7 +390,8 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `percentages` (
   `id` int(10) UNSIGNED NOT NULL,
-  `WORKSHOP_ACTIVITY` varchar(55) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `WORKSHOP` varchar(55) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ACTIVITY` varchar(55) COLLATE utf8mb4_unicode_ci NOT NULL,
   `PERCENT` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -400,20 +401,20 @@ CREATE TABLE `percentages` (
 -- Dumping data untuk tabel `percentages`
 --
 
-INSERT INTO `percentages` (`id`, `WORKSHOP_ACTIVITY`, `PERCENT`, `created_at`, `updated_at`) VALUES
-(1, 'SSH_STRAIGHTENING', 50, NULL, NULL),
-(2, 'SSH_BLASTING', 50, NULL, NULL),
-(3, 'FABRICATION_MARKING', 40, NULL, NULL),
-(4, 'FABRICATION_CUTTING', 40, NULL, NULL),
-(5, 'FABRICATION_BENDING', 20, NULL, NULL),
-(6, 'SUBASSEMBLY_FITTING', 25, NULL, NULL),
-(7, 'SUBASSEMBLY_WELDING', 25, NULL, NULL),
-(8, 'SUBASSEMBLY_GRINDING', 25, NULL, NULL),
-(9, 'SUBASSEMBLY_FAIRING', 25, NULL, NULL),
-(10, 'ASSEMBLY_FITTING', 25, NULL, NULL),
-(11, 'ASSEMBLY_WELDING', 25, NULL, NULL),
-(12, 'ASSEMBLY_GRINDING', 25, NULL, NULL),
-(13, 'ASSEMBLY_FAIRING', 25, NULL, NULL);
+INSERT INTO `percentages` (`id`, `WORKSHOP`, `ACTIVITY`, `PERCENT`, `created_at`, `updated_at`) VALUES
+(1, 'SSH', 'STRAIGHTENING', 50, NULL, NULL),
+(2, 'SSH', 'BLASTING', 50, NULL, NULL),
+(3, 'FABRICATION', 'MARKING', 40, NULL, NULL),
+(4, 'FABRICATION', 'CUTTING', 40, NULL, NULL),
+(5, 'FABRICATION', 'BENDING', 20, NULL, NULL),
+(6, 'SUBASSEMBLY', 'FITTING', 25, NULL, NULL),
+(7, 'SUBASSEMBLY', 'WELDING', 25, NULL, NULL),
+(8, 'SUBASSEMBLY', 'GRINDING', 25, NULL, NULL),
+(9, 'SUBASSEMBLY', 'FAIRING', 25, NULL, NULL),
+(10, 'ASSEMBLY', 'FITTING', 25, NULL, NULL),
+(11, 'ASSEMBLY', 'WELDING', 25, NULL, NULL),
+(12, 'ASSEMBLY', 'GRINDING', 25, NULL, NULL),
+(13, 'ASSEMBLY', 'FAIRING', 25, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -920,7 +921,7 @@ ALTER TABLE `machines`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=197;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
 --
 -- AUTO_INCREMENT for table `panels`
 --
@@ -935,7 +936,7 @@ ALTER TABLE `percentages`
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `ship_projects`
 --

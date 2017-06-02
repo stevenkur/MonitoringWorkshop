@@ -7,6 +7,8 @@ use App\ShipProject;
 use App\Block;
 use App\Worker;
 use App\Erection;
+use App\Percentage;
+use Carbon\Carbon;
 
 class UserErectionController extends Controller
 {

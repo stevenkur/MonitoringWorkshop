@@ -64,17 +64,16 @@
                 <div class="form-group">
                   <label class="col-md-2"> Straightening </label>
                   <label> : </label>
-                  <input type="text" id="straightening" name="straightening" placeholder="">
+                  <input type="text" id="straightening" name="straightening" value="{{$straightening->PERCENT}}">
                   <label> % </label>
                 </div>
                 <div class="form-group">
                   <label class="col-md-2"> Blasting&Shop Primer </label>
                   <label> : </label>
-                  <input type="text" id="blasting" name="blasting" placeholder="">
+                  <input type="text" id="blasting" name="blasting" value="{{$blasting->PERCENT}}">
                   <label> % </label>
                 </div>
                 
-
             <div class="box-footer">
               <button type="reset" class="btn btn-ok">Reset</button>
               <button type="submit" class="btn btn-primary">Check</button>
@@ -109,7 +108,7 @@
                       <td>{{$prog->STR}}</td>
                       <td>{{($prog->NUM-$prog->BLAST)}}</td>
                       <td>{{$prog->BLAST}}</td>
-                      <td>{{($prog->STR+$prog->BLAST)/(2*$prog->NUM).'%'}}</td>
+                      <td>{{(($prog->STR/$prog->NUM)*($straightening->PERCENT/100))+(($prog->BLAST/$prog->NUM)*($blasting->PERCENT/100)).'%'}}</td>
                     </tr>
                     @elseif(!$flagProject)
                     <tr>
@@ -118,7 +117,7 @@
                       <td>{{$prog->STR}}</td>
                       <td>{{($prog->NUM-$prog->BLAST)}}</td>
                       <td>{{$prog->BLAST}}</td>
-                      <td>{{($prog->STR+$prog->BLAST)/(2*$prog->NUM).'%'}}</td>
+                      <td>{{(($prog->STR/$prog->NUM)*($straightening->PERCENT/100))+(($prog->BLAST/$prog->NUM)*($blasting->PERCENT/100)).'%'}}</td>
                     </tr>
                     @endif
                 @endforeach
