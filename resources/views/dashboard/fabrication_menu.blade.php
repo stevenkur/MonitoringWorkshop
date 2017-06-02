@@ -164,8 +164,8 @@
                   <th>Marking Machine</th>
                   <th>Cutting</th>
                   <th>Cutting Machine</th>
-                  <th>Blending</th>
-                  <th>Blending Machine</th>
+                  <th>Bending</th>
+                  <th>Bending Machine</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -181,10 +181,10 @@
                         $cut='unfinished';
                         $plates['CUTTING_MACHINE'] = "-";
                     }
-                    if($plates['BLENDING']==1) $blend= 'finished '.$plates['BLENDING_DATE'];
+                    if($plates['BENDING']==1) $blend= 'finished '.$plates['BENDING_DATE'];
                     else{
                         $blend='unfinished';
-                        $plates['BLENDING_MACHINE'] = "-";
+                        $plates['BENDING_MACHINE'] = "-";
                     }
                     if($flagBlock && $plates->ID_BLOCK == $_GET['block']){
                     echo '
@@ -198,7 +198,7 @@
                         <td>'.$cut.'</td>
                         <td>'.$plates['CUTTING_MACHINE'].'</td>
                         <td>'.$blend.'</td>
-                        <td>'.$plates['BLENDING_MACHINE'].'</td>
+                        <td>'.$plates['BENDING_MACHINE'].'</td>
                     </tr>';
                     }
                     else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
@@ -213,7 +213,7 @@
                         <td>'.$cut.'</td>
                         <td>'.$plates['CUTTING_MACHINE'].'</td>
                         <td>'.$blend.'</td>
-                        <td>'.$plates['BLENDING_MACHINE'].'</td>
+                        <td>'.$plates['BENDING_MACHINE'].'</td>
                     </tr>';
                     }
                     else if(!$flagBlock && !$flagProject){
@@ -228,7 +228,7 @@
                         <td>'.$cut.'</td>
                         <td>'.$plates['CUTTING_MACHINE'].'</td>
                         <td>'.$blend.'</td>
-                        <td>'.$plates['BLENDING_MACHINE'].'</td>
+                        <td>'.$plates['BENDING_MACHINE'].'</td>
                     </tr>';
                         }?>
                     @endforeach
@@ -243,8 +243,8 @@
                   <th>Marking Machine</th>
                   <th>Cutting</th>
                   <th>Cutting Machine</th>
-                  <th>Blending</th>
-                  <th>Blending Machine</th>
+                  <th>Bending</th>
+                  <th>Bending Machine</th>
                 </tr>
                 </tfoot>
               </table>

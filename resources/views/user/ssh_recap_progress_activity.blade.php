@@ -95,8 +95,8 @@
                   <th>Name of Block</th>
                   <th>Straightening Unfinished</th>
                   <th>Straightening Finished</th>
-                  <th>Blasting & Shop Primer Unfinished</th>
-                  <th>Blasting & Shop Primer Finished</th>
+                  <th>Blasting&Shop Primer Unfinished</th>
+                  <th>Blasting&Shop Primer Finished</th>
                   <th>Progress Activity</th>
                 </tr>
                 </thead>

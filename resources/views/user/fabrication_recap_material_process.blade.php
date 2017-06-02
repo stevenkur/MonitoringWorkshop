@@ -111,8 +111,8 @@
                   <th>Marking Machine</th>
                   <th>Cutting</th>
                   <th>Cutting Machine</th>
-                  <th>Blending</th>
-                  <th>Blending Machine</th>
+                  <th>Bending</th>
+                  <th>Bending Machine</th>
                 </tr>
                 </thead>
                 <tbody>
