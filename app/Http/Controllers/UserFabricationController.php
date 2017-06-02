@@ -50,9 +50,11 @@ class UserFabricationController extends Controller
     {
         $ship=ShipProject::all();
         $progress=Plate::select('ID_BLOCK', 'BLOCK_NAME', 'ID_PROJECT', DB::raw('sum(MARKING) as MARKING'), DB::raw('count(ID) as NUM'), DB::raw('sum(CUTTING) as CUTTING'), DB::raw('sum(BLENDING) as BLENDING'))->groupBy('ID_BLOCK', 'BLOCK_NAME', 'ID_PROJECT')->get();
-        $percentage=Percentage::where('WORKSHOP', 'FABRICATION')->get();
+        $marking=Percentage::where('WORKSHOP', 'FABRICATION')->where('ACTIVITY', 'MARKING')->first();
+        $cutting=Percentage::where('WORKSHOP', 'FABRICATION')->where('ACTIVITY', 'CUTTING')->first();
+        $bending=Percentage::where('WORKSHOP', 'FABRICATION')->where('ACTIVITY', 'BENDING')->first();
         
-        return view('user/fabrication_recap_progress_activity')->with('ship', $ship)->with('progress', $progress)->with('percentage', $percentage);
+        return view('user/fabrication_recap_progress_activity')->with('ship', $ship)->with('progress', $progress)->with('marking', $marking)->with('cutting', $cutting)->with('bending', $bending);
     }
 
     public function works(Request $request)

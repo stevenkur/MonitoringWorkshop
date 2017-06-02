@@ -64,19 +64,19 @@
                 <div class="form-group">
                   <label class="col-md-2"> Marking </label>
                   <label> : </label>
-                  <input type="text" id="marking" name="marking" placeholder="">
+                  <input type="text" id="marking" name="marking" value="{{$marking->PERCENT}}">
                   <label> % </label>
                 </div>
                 <div class="form-group">
                   <label class="col-md-2"> Cutting </label>
                   <label> : </label>
-                  <input type="text" id="cutting" name="cutting" placeholder="">
+                  <input type="text" id="cutting" name="cutting" value="{{$cutting->PERCENT}}">
                   <label> % </label>
                 </div>    
                 <div class="form-group">
                   <label class="col-md-2"> Bending </label>
                   <label> : </label>
-                  <input type="text" id="bending" name="bending" placeholder="">
+                  <input type="text" id="bending" name="bending" value="{{$bending->PERCENT}}">
                   <label> % </label>
                 </div>             
 
@@ -118,7 +118,7 @@
                       <td>{{$prog->CUTTING}}</td>
                       <td>{{($prog->NUM-$prog->BLENDING)}}</td>
                       <td>{{$prog->BLENDING}}</td>
-                      <td>{{($prog->MARKING+$prog->CUTTING+$prog->BLENDING)/(3*$prog->NUM).'%'}}</td>
+                      <td>{{(($prog->MARKING/$prog->NUM)*($marking->PERCENT/100)+($prog->CUTTING/$prog->NUM)*($cutting->PERCENT/100)+($prog->BLENDING/$prog->NUM)*($bending->PERCENT/100)).'%'}}</td>
                     </tr>
                     @elseif(!$flagProject)
                     <tr>
@@ -129,7 +129,7 @@
                       <td>{{$prog->CUTTING}}</td>
                       <td>{{($prog->NUM-$prog->BLENDING)}}</td>
                       <td>{{$prog->BLENDING}}</td>
-                      <td>{{($prog->MARKING+$prog->CUTTING+$prog->BLENDING)/(3*$prog->NUM).'%'}}</td>
+                      <td>{{(($prog->MARKING/$prog->NUM)*($marking->PERCENT/100)+($prog->CUTTING/$prog->NUM)*($cutting->PERCENT/100)+($prog->BLENDING/$prog->NUM)*($bending->PERCENT/100)).'%'}}</td>
                     </tr>
                     @endif
                 @endforeach
