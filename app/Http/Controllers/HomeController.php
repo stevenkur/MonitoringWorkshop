@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -30,66 +31,47 @@ class HomeController extends Controller
         return view('auth/login');
     }
 
-    public function loginvalidate()
+    public function login()
     {
-        //dd(Input::all());
-        // $var = array(
-        //     'USERNAME'  => 'Required',
-        //     'PASSWORD'  => 'Required'
-        // );
-        // $validator = Validator::make(Input::all(), $var);
-        // if($validator->fails())
-        // {
-        //     dd($validator);
-        //     // return Redirect::to('worker')
-        //     //     ->withErrors($validator)
-        //     //     ->withInput(Input::except('password'));
-        // }
-        // else
-        // {
-            // $userdata = array(
-            //     'USERNAME'  => Input::get('username'),
-            //     'PASSWORD'  => Input::get('password')
-            // );
-            // $remember=Input::get('remember');
-            // if($remember=='remember')
-            // {
-            //     if (Auth::attempt(array('USERNAME'=>$userdata['USERNAME'],'PASSWORD'=>$userdata['PASSWORD']),true)){
-            //         return Redirect::to('admins');
-            //     }
-            //     else{
-            //         return Redirect::to('users');
-            //     }
-            // }
-            // else
-            // {
-            //     if (Auth::attempt(array('USERNAME'=>$userdata['USERNAME'],'PASSWORD'=>$userdata['PASSWORD']),false)){
-            //         return Redirect::to('admins');
-            //         }
-            //     else{
-            //         return Redirect::to('ship_project');
-            //     }
-            // }
-        // }
+        $username = Input::get('username');
+        $password = Input::get('password');
+        $user = User::where('USERNAME', '=', $username)->where('PASSWORD', '=', $password)->first();
 
-        
-            $email = Input::get('username');
-            $password = Input::get('password');
-       
-            if (Auth::attempt(['USERNAME' => $email, 'PASSWORD' => $password])) 
-            {
-                return json_encode([
-                    'status' => 1,
-                    'message' => 'Login Berhasil.'
-                    ]);
+        if (empty($user)) 
+        {
+            return view('auth/login');
+        }
+        else
+        {
+            if($user->DIVITION='PPC/Admin')
+            {                
+                return redirect('admins');
             }
-            else
-            {
-                return json_encode([
-                    'status' => -1,
-                    'message' => 'Email atau password salah. Login gagal.'
-                    ]);
+            else if($user->DIVITION='Steel Stock House')
+            {                
+                return redirect('usermain');
             }
+            else if($user->DIVITION='Fabrication')
+            {                
+                return redirect('usermain');
+            }
+            else if($user->DIVITION='Sub Assembly')
+            {                
+                return redirect('usermain');
+            }
+            else if($user->DIVITION='Assembly')
+            {                
+                return redirect('usermain');
+            }
+            else if($user->DIVITION='Block Blasting Structure')
+            {                
+                return redirect('usermain');
+            }
+            else if($user->DIVITION='Erection')
+            {                
+                return redirect('usermain');
+            }
+        }
         
     }
 
