@@ -64,25 +64,25 @@
                 <div class="form-group">
                   <label class="col-md-2"> Fitting </label>
                   <label> : </label>
-                  <input type="text" id="fitting" name="fitting" placeholder="">
+                  <input type="text" id="fitting" name="fitting" value="{{$fitting->PERCENT}}">
                   <label> % </label>
                 </div>
                 <div class="form-group">
                   <label class="col-md-2"> Welding </label>
                   <label> : </label>
-                  <input type="text" id="welding" name="welding" placeholder="">
+                  <input type="text" id="welding" name="welding" value="{{$welding->PERCENT}}">
                   <label> % </label>
                 </div>    
                 <div class="form-group">
                   <label class="col-md-2"> Grinding </label>
                   <label> : </label>
-                  <input type="text" id="grinding" name="grinding" placeholder="">
+                  <input type="text" id="grinding" name="grinding" value="{{$grinding->PERCENT}}">
                   <label> % </label>
                 </div>       
                 <div class="form-group">
                   <label class="col-md-2"> Fairing </label>
                   <label> : </label>
-                  <input type="text" id="fairing" name="fairing" placeholder="">
+                  <input type="text" id="fairing" name="fairing" value="{{$fairing->PERCENT}}">
                   <label> % </label>
                 </div>            
 
