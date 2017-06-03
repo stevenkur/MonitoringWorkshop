@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 02 Jun 2017 pada 11.14
+-- Generation Time: 03 Jun 2017 pada 09.12
 -- Versi Server: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -89,7 +89,17 @@ INSERT INTO `bbs` (`ID`, `ID_MATERIAL`, `PROGRESS`, `ID_WORKER`, `WORKER_NAME`, 
 (12, '1', 6.00, 22, 'Worker BBS 2', 'Present', 'Blasting', 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-05-22 07:42:31', '2017-05-22 07:42:31'),
 (13, '1', 6.00, 23, 'Worker BBS 3', 'Present', 'Blasting', 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-05-22 07:42:31', '2017-05-22 07:42:31'),
 (14, '1', 6.00, 24, 'Worker BBS 4', 'Present', 'Blasting', 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-05-22 07:42:31', '2017-05-22 07:42:31'),
-(15, '1', 6.00, 25, 'Worker BBS 5', 'Present', 'Blasting', 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-05-22 07:42:31', '2017-05-22 07:42:31');
+(15, '1', 6.00, 25, 'Worker BBS 5', 'Present', 'Blasting', 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-05-22 07:42:31', '2017-05-22 07:42:31'),
+(16, '1', 10.00, 21, 'Worker BBS 1', 'Present', 'Blasting', 8.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-02 23:51:53', '2017-06-02 23:51:53'),
+(17, '1', 10.00, 22, 'Worker BBS 2', 'Present', 'Blasting', 8.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-02 23:51:53', '2017-06-02 23:51:53'),
+(18, '1', 10.00, 23, 'Worker BBS 3', 'Present', 'Blasting', 8.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-02 23:51:53', '2017-06-02 23:51:53'),
+(19, '1', 10.00, 24, 'Worker BBS 4', 'Present', 'Blasting', 8.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-02 23:51:53', '2017-06-02 23:51:53'),
+(20, '1', 10.00, 25, 'Worker BBS 5', 'Present', 'Blasting', 8.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-02 23:51:53', '2017-06-02 23:51:53'),
+(21, '1', 10.00, 21, 'Worker BBS 1', 'Present', 'Painting', 8.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-03 00:07:26', '2017-06-03 00:07:26'),
+(22, '1', 10.00, 22, 'Worker BBS 2', 'Present', 'Painting', 8.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-03 00:07:26', '2017-06-03 00:07:26'),
+(23, '1', 10.00, 23, 'Worker BBS 3', 'Present', 'Painting', 8.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-03 00:07:26', '2017-06-03 00:07:26'),
+(24, '1', 10.00, 24, 'Worker BBS 4', 'Present', 'Painting', 8.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-03 00:07:26', '2017-06-03 00:07:26'),
+(25, '1', 10.00, 25, 'Worker BBS 5', 'Present', 'Painting', 8.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-03 00:07:26', '2017-06-03 00:07:26');
 
 -- --------------------------------------------------------
 
@@ -402,19 +412,21 @@ CREATE TABLE `percentages` (
 --
 
 INSERT INTO `percentages` (`id`, `WORKSHOP`, `ACTIVITY`, `PERCENT`, `created_at`, `updated_at`) VALUES
-(1, 'SSH', 'STRAIGHTENING', 50, NULL, NULL),
-(2, 'SSH', 'BLASTING', 50, NULL, NULL),
-(3, 'FABRICATION', 'MARKING', 40, NULL, NULL),
+(1, 'SSH', 'STRAIGHTENING', 50, NULL, '2017-06-02 23:35:53'),
+(2, 'SSH', 'BLASTING', 50, NULL, '2017-06-02 23:35:53'),
+(3, 'FABRICATION', 'MARKING', 40, NULL, '2017-06-02 23:38:53'),
 (4, 'FABRICATION', 'CUTTING', 40, NULL, NULL),
-(5, 'FABRICATION', 'BENDING', 20, NULL, NULL),
-(6, 'SUBASSEMBLY', 'FITTING', 25, NULL, NULL),
-(7, 'SUBASSEMBLY', 'WELDING', 25, NULL, NULL),
-(8, 'SUBASSEMBLY', 'GRINDING', 25, NULL, NULL),
-(9, 'SUBASSEMBLY', 'FAIRING', 25, NULL, NULL),
-(10, 'ASSEMBLY', 'FITTING', 25, NULL, NULL),
-(11, 'ASSEMBLY', 'WELDING', 25, NULL, NULL),
-(12, 'ASSEMBLY', 'GRINDING', 25, NULL, NULL),
-(13, 'ASSEMBLY', 'FAIRING', 25, NULL, NULL);
+(5, 'FABRICATION', 'BENDING', 20, NULL, '2017-06-02 23:38:53'),
+(6, 'SUBASSEMBLY', 'FITTING', 30, NULL, '2017-06-02 23:46:10'),
+(7, 'SUBASSEMBLY', 'WELDING', 30, NULL, '2017-06-02 23:46:10'),
+(8, 'SUBASSEMBLY', 'GRINDING', 30, NULL, '2017-06-02 23:46:11'),
+(9, 'SUBASSEMBLY', 'FAIRING', 10, NULL, '2017-06-02 23:46:11'),
+(10, 'ASSEMBLY', 'FITTING', 30, NULL, '2017-06-02 23:46:27'),
+(11, 'ASSEMBLY', 'WELDING', 30, NULL, '2017-06-02 23:46:27'),
+(12, 'ASSEMBLY', 'GRINDING', 30, NULL, '2017-06-02 23:46:27'),
+(13, 'ASSEMBLY', 'FAIRING', 10, NULL, '2017-06-02 23:46:27'),
+(14, 'BBS', 'BLASTING', 50, NULL, NULL),
+(15, 'BBS', 'PAINTING', 50, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -593,6 +605,14 @@ CREATE TABLE `rooms` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `rooms`
+--
+
+INSERT INTO `rooms` (`ID`, `ID_PROJECT`, `PROJECT_NAME`, `ID_BLOCK`, `BLOCK_NAME`, `ROOM`, `SIDE`, `FRAME`, `DECK`, `AREA`, `TOTAL_LAYER`, `PAINT_TYPE`, `PAINT_NEEDS`, `BLASTING`, `BLASTING_DATE`, `PAINTING`, `PAINTING_DATE`, `created_at`, `updated_at`) VALUES
+(1, 2, 'SSV 293', 4, 'FU-(P/S)', 'R001', '1', '1', '1', 1, 10, 'DULUX', 0.09, 10.00, '2017-06-03', 10.00, '2017-06-03', '2017-06-02 23:47:25', '2017-06-03 00:07:26'),
+(2, 2, 'SSV 293', 1, 'NV1', 'R002', '2', '2', '2', 2, 20, 'NIPPONPAINT', 4.00, 0.00, NULL, 0.00, NULL, '2017-06-02 23:47:56', '2017-06-02 23:47:56');
 
 -- --------------------------------------------------------
 
@@ -896,7 +916,7 @@ ALTER TABLE `assembly`
 -- AUTO_INCREMENT for table `bbs`
 --
 ALTER TABLE `bbs`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `blocks`
 --
@@ -931,12 +951,12 @@ ALTER TABLE `panels`
 -- AUTO_INCREMENT for table `percentages`
 --
 ALTER TABLE `percentages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `ship_projects`
 --

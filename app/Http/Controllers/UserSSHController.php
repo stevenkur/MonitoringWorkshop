@@ -89,6 +89,21 @@ class UserSSHController extends Controller
         return view('user/ssh_recap_progress_activity')->with('ship', $ship)->with('progress', $progress)->with('straightening', $straightening)->with('blasting', $blasting);
     }
 
+    public function update(Request $request)
+    {
+        $straightening=Percentage::where('WORKSHOP', 'SSH')->where('ACTIVITY', 'STRAIGHTENING')->first();
+        $blasting=Percentage::where('WORKSHOP', 'SSH')->where('ACTIVITY', 'BLASTING')->first();
+        $straightening->update([
+            'PERCENT' => $request->straightening
+        ]);
+        $blasting->update([
+            'PERCENT' => $request->blasting
+        ]);
+        
+        return redirect()->route('ssh_recap_progress_activity')
+            ->with('alert-success', 'Data Berhasil Diupdate.');
+    }
+
     public function works(Request $request)
     {
 //        dd(Input::all());

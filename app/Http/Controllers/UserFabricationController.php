@@ -57,6 +57,25 @@ class UserFabricationController extends Controller
         return view('user/fabrication_recap_progress_activity')->with('ship', $ship)->with('progress', $progress)->with('marking', $marking)->with('cutting', $cutting)->with('bending', $bending);
     }
 
+    public function update(Request $request)
+    {
+        $marking=Percentage::where('WORKSHOP', 'FABRICATION')->where('ACTIVITY', 'MARKING')->first();
+        $cutting=Percentage::where('WORKSHOP', 'FABRICATION')->where('ACTIVITY', 'CUTTING')->first();
+        $bending=Percentage::where('WORKSHOP', 'FABRICATION')->where('ACTIVITY', 'BENDING')->first();
+        $marking->update([
+            'PERCENT' => $request->marking
+        ]);
+        $cutting->update([
+            'PERCENT' => $request->cutting
+        ]);
+        $bending->update([
+            'PERCENT' => $request->bending
+        ]);
+        
+        return redirect()->route('fabrication_recap_progress_activity')
+            ->with('alert-success', 'Data Berhasil Diupdate.');
+    }
+
     public function works(Request $request)
     {
 //        dd(Input::all());

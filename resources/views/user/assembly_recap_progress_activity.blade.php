@@ -57,7 +57,7 @@
         <div class="col-md-12">
         <div class="box box-primary">
         
-        <form role="form" action="" method="post">
+        <form role="form" action="{{route('assembly_update_percentage')}}" method="post">
         {{csrf_field()}}
         <div class="box-body">
         <h3>Progress Percentage</h3>
@@ -128,7 +128,7 @@
                       <td>{{$prog->GRIND}}</td>
                       <td>{{($prog->NUM-$prog->FAIR)}}</td>
                       <td>{{$prog->FAIR}}</td>
-                      <td>{{($prog->FIT+$prog->WELD+$prog->GRIND+$prog->FAIR)/(4*$prog->NUM).'%'}}</td>
+                      <td>{{(($prog->FIT/$prog->NUM)*($fitting->PERCENT/100)+($prog->WELD/$prog->NUM)*($welding->PERCENT/100)+($prog->GRIND/$prog->NUM)*($grinding->PERCENT/100)+($prog->FAIR/$prog->NUM)*($fairing->PERCENT/100)).'%'}}</td>
                     </tr>
                     @elseif(!$flagProject)
                     <tr>
@@ -141,7 +141,7 @@
                       <td>{{$prog->GRIND}}</td>
                       <td>{{($prog->NUM-$prog->FAIR)}}</td>
                       <td>{{$prog->FAIR}}</td>
-                      <td>{{($prog->FIT+$prog->WELD+$prog->GRIND+$prog->FAIR)/(4*$prog->NUM).'%'}}</td>
+                      <td>{{(($prog->FIT/$prog->NUM)*($fitting->PERCENT/100)+($prog->WELD/$prog->NUM)*($welding->PERCENT/100)+($prog->GRIND/$prog->NUM)*($grinding->PERCENT/100)+($prog->FAIR/$prog->NUM)*($fairing->PERCENT/100)).'%'}}</td>
                     </tr>
                     @endif
                 @endforeach

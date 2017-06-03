@@ -10,7 +10,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
-        <li>Fabrication</li>
+        <li>BBS</li>
         <li class="active">Recap Progress & Activity</li>
       </ol>
     </section>
@@ -24,7 +24,7 @@
             
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" name="ShipProject">
+            <form role="form">
               <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
@@ -52,34 +52,28 @@
                 if(isset($_GET['project']) && $_GET['project']!='#') 
                    $flagProject=true;
                 else $flagProject=false;
-            ?>
-        
+          ?>
+          
         <div class="col-md-12">
         <div class="box box-primary">
         
-        <form role="form" action="{{route('fabrication_update_percentage')}}" method="post">
+        <form role="form" action="{{route('bbs_update_percentage')}}" method="post">
         {{csrf_field()}}
         <div class="box-body">
         <h3>Progress Percentage</h3>
                 <div class="form-group">
-                  <label class="col-md-2"> Marking </label>
+                  <label class="col-md-2"> Blasting </label>
                   <label> : </label>
-                  <input type="text" id="marking" name="marking" value="{{$marking->PERCENT}}">
+                  <input type="text" id="blasting" name="blasting" value="{{$blasting->PERCENT}}">
                   <label> % </label>
                 </div>
                 <div class="form-group">
-                  <label class="col-md-2"> Cutting </label>
+                  <label class="col-md-2"> Painting </label>
                   <label> : </label>
-                  <input type="text" id="cutting" name="cutting" value="{{$cutting->PERCENT}}">
+                  <input type="text" id="painting" name="painting" value="{{$painting->PERCENT}}">
                   <label> % </label>
-                </div>    
-                <div class="form-group">
-                  <label class="col-md-2"> Bending </label>
-                  <label> : </label>
-                  <input type="text" id="bending" name="bending" value="{{$bending->PERCENT}}">
-                  <label> % </label>
-                </div>             
-
+                </div>
+                
             <div class="box-footer">
               <button type="reset" class="btn btn-ok">Reset</button>
               <button type="submit" class="btn btn-primary">Check</button>
@@ -97,13 +91,11 @@
               <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Name of Block</th>
-                  <th>Unfinished Marking</th>
-                  <th>Finished Marking</th>
-                  <th>Unfinished Cutting</th>
-                  <th>Finished Cutting</th>
-                  <th>Unfinished Bending</th>
-                  <th>Finished Bending</th>
+                  <th>Name of Room</th>
+                  <th>Blasting Unfinished</th>
+                  <th>Blasting Finished</th>
+                  <th>Painting Unfinished</th>
+                  <th>Painting Finished</th>
                   <th>Progress Activity</th>
                 </tr>
                 </thead>
@@ -111,25 +103,21 @@
                 @foreach($progress as $prog)
                     @if($flagProject && $prog->ID_PROJECT==$_GET['project'])
                     <tr>
-                      <td>{{$prog->BLOCK_NAME}}</td>
-                      <td>{{$prog->NUM-$prog->MARKING}}</td>
-                      <td>{{$prog->MARKING}}</td>
-                      <td>{{($prog->NUM-$prog->CUTTING)}}</td>
-                      <td>{{$prog->CUTTING}}</td>
-                      <td>{{($prog->NUM-$prog->BLENDING)}}</td>
-                      <td>{{$prog->BLENDING}}</td>
-                      <td>{{(($prog->MARKING/$prog->NUM)*($marking->PERCENT/100)+($prog->CUTTING/$prog->NUM)*($cutting->PERCENT/100)+($prog->BLENDING/$prog->NUM)*($bending->PERCENT/100)).'%'}}</td>
+                      <td>{{$prog->ROOM}}</td>
+                      <td>{{$prog->TOTAL_LAYER-$prog->BLAST}}</td>
+                      <td>{{$prog->BLAST}}</td>
+                      <td>{{($prog->TOTAL_LAYER-$prog->PAINT)}}</td>
+                      <td>{{$prog->PAINT}}</td>
+                      <td>{{(((($prog->BLAST/$prog->TOTAL_LAYER)*($blasting->PERCENT/100))+(($prog->PAINT/$prog->TOTAL_LAYER)*($painting->PERCENT/100)))*100).'%'}}</td>
                     </tr>
                     @elseif(!$flagProject)
                     <tr>
-                      <td>{{$prog->BLOCK_NAME}}</td>
-                      <td>{{$prog->NUM-$prog->MARKING}}</td>
-                      <td>{{$prog->MARKING}}</td>
-                      <td>{{($prog->NUM-$prog->CUTTING)}}</td>
-                      <td>{{$prog->CUTTING}}</td>
-                      <td>{{($prog->NUM-$prog->BLENDING)}}</td>
-                      <td>{{$prog->BLENDING}}</td>
-                      <td>{{(($prog->MARKING/$prog->NUM)*($marking->PERCENT/100)+($prog->CUTTING/$prog->NUM)*($cutting->PERCENT/100)+($prog->BLENDING/$prog->NUM)*($bending->PERCENT/100)).'%'}}</td>
+                      <td>{{$prog->ROOM}}</td>
+                      <td>{{$prog->TOTAL_LAYER-$prog->BLAST}}</td>
+                      <td>{{$prog->BLAST}}</td>
+                      <td>{{($prog->TOTAL_LAYER-$prog->PAINT)}}</td>
+                      <td>{{$prog->PAINT}}</td>
+                      <td>{{(((($prog->BLAST/$prog->TOTAL_LAYER)*($blasting->PERCENT/100))+(($prog->PAINT/$prog->TOTAL_LAYER)*($painting->PERCENT/100)))*100).'%'}}</td>
                     </tr>
                     @endif
                 @endforeach

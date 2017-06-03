@@ -273,9 +273,9 @@
                 <div class="box box-primary">
                     <div class="box box-body">
                         <div class="form-group">
-                          <label style="font-size: 16px">Remaining Layer: XXX</label><br>
+                          <label style="font-size: 16px">Remaining Layer: xXx</label><br>
                           <label style="font-size: 16px">Finished Layer: </label><br>
-                          <input type="text" id="finishedlayer" name="finishedlayer" placeholder="" value="0">
+                          <input type="text" id="finishedlayer" name="finishedlayer" placeholder="" value="0"><br>
                           <label style="font-size: 16px">Input Working Hours: </label><br>
                           <input type="text" id="machinehours" name="workinghours" placeholder="" value="0">
                           <label>hours</label>              

@@ -57,7 +57,7 @@
         <div class="col-md-12">
         <div class="box box-primary">
         
-        <form role="form" action="" method="post">
+        <form role="form" action="{{route('ssh_update_percentage')}}" method="post">
         {{csrf_field()}}
         <div class="box-body">
         <h3>Progress Percentage</h3>

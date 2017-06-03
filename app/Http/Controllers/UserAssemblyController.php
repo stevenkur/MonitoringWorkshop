@@ -41,7 +41,14 @@ class UserAssemblyController extends Controller
         
         
         return view('user/assembly_recap_worker')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('ass',$assembly);
-    }   
+    } 
+
+    public function assembly_recap_join_panel_process()
+    {
+        $ship=ShipProject::all();
+        $block=Block::all();
+        return view('user/assembly_recap_join_panel_process')->with('ship', $ship)->with('block', $block);
+    }  
 
     public function assembly_recap_progress_activity()
     {
@@ -57,12 +64,28 @@ class UserAssemblyController extends Controller
         return view('user/assembly_recap_progress_activity')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('machine', $machine)->with('progress', $progress)->with('fitting', $fitting)->with('welding', $welding)->with('grinding', $grinding)->with('fairing', $fairing);
     }  
 
-    public function assembly_recap_join_panel_process()
+    public function update(Request $request)
     {
-        $ship=ShipProject::all();
-        $block=Block::all();
-        return view('user/assembly_recap_join_panel_process')->with('ship', $ship)->with('block', $block);
-    }
+        $fitting=Percentage::where('WORKSHOP', 'ASSEMBLY')->where('ACTIVITY', 'FITTING')->first();
+        $welding=Percentage::where('WORKSHOP', 'ASSEMBLY')->where('ACTIVITY', 'WELDING')->first();
+        $grinding=Percentage::where('WORKSHOP', 'ASSEMBLY')->where('ACTIVITY', 'GRINDING')->first();
+        $fairing=Percentage::where('WORKSHOP', 'ASSEMBLY')->where('ACTIVITY', 'FAIRING')->first();
+        $fitting->update([
+            'PERCENT' => $request->fitting
+        ]);
+        $welding->update([
+            'PERCENT' => $request->welding
+        ]);
+        $grinding->update([
+            'PERCENT' => $request->grinding
+        ]);
+        $fairing->update([
+            'PERCENT' => $request->fairing
+        ]);
+        
+        return redirect()->route('assembly_recap_progress_activity')
+            ->with('alert-success', 'Data Berhasil Diupdate.');
+    }   
 
     public function works(Request $request)
     {

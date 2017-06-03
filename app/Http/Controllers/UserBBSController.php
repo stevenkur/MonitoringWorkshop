@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
@@ -90,6 +91,16 @@ class UserBBSController extends Controller
         $block=Block::all();
         $bbs=BBS::latest()->get();
         return view('user/bbs_recap_worker')->with('ship', $ship)->with('block', $block)->with('bbs', $bbs);
+    }
+
+    public function bbs_recap_progress_activity()
+    {
+        $ship=ShipProject::all();
+        $block=Block::all();
+        $progress=Room::select('ID_BLOCK', 'BLOCK_NAME', 'ID_PROJECT', 'ROOM', 'TOTAL_LAYER', DB::raw('sum(BLASTING) as BLAST'), DB::raw('count(ROOM) as NUM'), DB::raw('sum(PAINTING) as PAINT'))->groupBy('ID_BLOCK', 'BLOCK_NAME', 'ID_PROJECT', 'ROOM', 'TOTAL_LAYER')->get();
+        $blasting=Percentage::where('WORKSHOP', 'BBS')->where('ACTIVITY', 'BLASTING')->first();
+        $painting=Percentage::where('WORKSHOP', 'BBS')->where('ACTIVITY', 'PAINTING')->first();
+        return view('user/bbs_recap_progress_activity')->with('ship', $ship)->with('block', $block)->with('progress', $progress)->with('blasting', $blasting)->with('painting', $painting);
     }
 
     public function works(Request $request)

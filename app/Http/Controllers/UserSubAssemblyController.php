@@ -41,7 +41,16 @@ class UserSubAssemblyController extends Controller
         $subassembly=SubAssembly::latest()->get();
         
         return view('user/subassembly_recap_worker')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('subass',$subassembly);
-    }  
+    }
+
+    public function subassembly_recap_join_part_process()
+    {
+        $ship=ShipProject::all();
+        $block=Block::all();
+        $panel=Panel::all();
+        $machine=Machine::all();
+        return view('user/subassembly_recap_join_part_process')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('machine', $machine);
+    }     
 
     public function subassembly_recap_progress_activity()
     {
@@ -55,15 +64,29 @@ class UserSubAssemblyController extends Controller
         $fairing=Percentage::where('WORKSHOP', 'SUBASSEMBLY')->where('ACTIVITY', 'FAIRING')->first();
         $progress=Part::select('ID_PROJECT', 'ID', DB::raw('sum(FITTING) as FIT'), DB::raw('count(ID) as NUM'), DB::raw('sum(WELDING) as WELD'), DB::raw('sum(GRINDING) as GRIND'), DB::raw('sum(FAIRING) as FAIR'))->groupBy('ID', 'ID_PROJECT')->get();
         return view('user/subassembly_recap_progress_activity')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('machine', $machine)->with('progress', $progress)->with('fitting', $fitting)->with('welding', $welding)->with('grinding', $grinding)->with('fairing', $fairing);
-    }   
+    }
 
-    public function subassembly_recap_join_part_process()
+    public function update(Request $request)
     {
-        $ship=ShipProject::all();
-        $block=Block::all();
-        $panel=Panel::all();
-        $machine=Machine::all();
-        return view('user/subassembly_recap_join_part_process')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('machine', $machine);
+        $fitting=Percentage::where('WORKSHOP', 'SUBASSEMBLY')->where('ACTIVITY', 'FITTING')->first();
+        $welding=Percentage::where('WORKSHOP', 'SUBASSEMBLY')->where('ACTIVITY', 'WELDING')->first();
+        $grinding=Percentage::where('WORKSHOP', 'SUBASSEMBLY')->where('ACTIVITY', 'GRINDING')->first();
+        $fairing=Percentage::where('WORKSHOP', 'SUBASSEMBLY')->where('ACTIVITY', 'FAIRING')->first();
+        $fitting->update([
+            'PERCENT' => $request->fitting
+        ]);
+        $welding->update([
+            'PERCENT' => $request->welding
+        ]);
+        $grinding->update([
+            'PERCENT' => $request->grinding
+        ]);
+        $fairing->update([
+            'PERCENT' => $request->fairing
+        ]);
+        
+        return redirect()->route('subassembly_recap_progress_activity')
+            ->with('alert-success', 'Data Berhasil Diupdate.');
     }   
 
     public function works(Request $request)
