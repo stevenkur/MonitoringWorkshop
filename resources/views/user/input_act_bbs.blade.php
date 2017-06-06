@@ -108,7 +108,7 @@
             <!-- /.box-header -->
             <div class="box-body">
             <h4 align="right"><b>Target Quantity per Day: [TARGET] Plate</b></h4>
-              <table id="plate" class="table table-bordered table-striped">
+              <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Room</th>
@@ -122,7 +122,7 @@
                 </thead>
                 <tbody>
                 @foreach($room as $rooms)
-                    <?php 
+                <?php 
                     if($rooms->BLASTING<$rooms->TOTAL_LAYER) $flagBlast = false;
                     else $flagBlast = true;
                     if($rooms->PAINTING<$rooms->TOTAL_LAYER) $flagPaint = false;
@@ -228,8 +228,8 @@
 
         @if($flagProcess)
         <div class="col-md-12">
-            <form action="{{route('input_works_bbs')}}" role="form" method="post">
-            {{csrf_field()}}
+        <form action="{{route('input_works_bbs')}}" role="form" method="post">
+        {{csrf_field()}}
         <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
@@ -352,6 +352,14 @@
 <!-- page script -->
 <script>
 $(function() {
+    $('#tabel').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    });
     $('#tabel2').DataTable({
           "paging": false,
           "lengthChange": true,

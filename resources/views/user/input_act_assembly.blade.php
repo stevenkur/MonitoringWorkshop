@@ -97,9 +97,7 @@
                 else if($proc[0]==3) $process = 'Grinding';
                 else if($proc[0]==4) $process = 'Fairing';
                 $idMaterial = $proc[1];
-                $progress = $proc[2];
-                
-//                echo 'process '.$process.' id '.$idMaterial.' progress '.$progress;
+                $progress = $proc[2];                
             }
             else $flagProcess = false;
         ?>
@@ -258,8 +256,7 @@
                 </tbody>
               </table>
             </div>
-            <!-- /.box-body -->
-          
+            <!-- /.box-body -->          
         </div>
         </div>
 
