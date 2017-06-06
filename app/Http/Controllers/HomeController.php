@@ -47,7 +47,7 @@ class HomeController extends Controller
             {   
                 $request->session()->put('username', $username);
                 $request->session()->put('division', $user->DIVISION);
-                return redirect('admins');
+                return redirect('dashboard');
             }
             elseif($user->DIVISION=='Steel Stock House')
             {                
