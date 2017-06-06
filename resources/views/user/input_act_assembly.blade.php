@@ -258,8 +258,7 @@
                 </tbody>
               </table>
             </div>
-            <!-- /.box-body -->
-          
+            <!-- /.box-body -->          
         </div>
         </div>
 
