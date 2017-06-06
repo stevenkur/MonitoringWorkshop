@@ -113,12 +113,11 @@
                   <th>Blasting Date</th>
                   <th>Painting</th>
                   <th>Painting Date</th>
-                  <th>Total Process</th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($room as $rooms)
                 <tr>
-                  @foreach($room as $rooms)
                   <td>{{$rooms->ID}}</td>
                   <td>{{$rooms->SIDE}}</td>
                   <td>{{$rooms->FRAME}}</td>
@@ -126,12 +125,23 @@
                   <td>{{$rooms->AREA}}</td>
                   <td>{{$rooms->TOTAL_LAYER}}</td>
                   <td>{{$rooms->BLASTING}}</td>
-                  <td>{{$rooms->BLASTING_DATE}}</td>
+                  <td>
+                    @if(empty($rooms->BLASTING_DATE))
+                    -----
+                    @else
+                    {{$rooms->BLASTING_DATE}}
+                    @endif
+                  </td>
                   <td>{{$rooms->PAINTING}}</td>
-                  <td>{{$rooms->PAINTING_DATE}}</td>
-                  <td>Process</td>
-                  @endforeach
-                </tr>                
+                  <td>
+                    @if(empty($rooms->PAINTING_DATE))
+                    -----
+                    @else
+                    {{$rooms->PAINTING_DATE}}
+                    @endif
+                  </td>
+                </tr>   
+                @endforeach             
                 </tbody>
               </table>
             </div>
