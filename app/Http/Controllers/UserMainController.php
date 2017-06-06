@@ -13,9 +13,34 @@ class UserMainController extends Controller
 //        $this->middleware('auth'); 
 //    } 
         
-    public function index()
+    public function indexssh()
     {
-        return view('user/index');
+        return view('user/indexssh');
+    }   
+
+    public function indexfabrication()
+    {
+        return view('user/indexfabrication');
+    }   
+
+    public function indexsubassembly()
+    {
+        return view('user/indexsubassembly');
+    }   
+
+    public function indexassembly()
+    {
+        return view('user/indexassembly');
+    }   
+
+    public function indexbbs()
+    {
+        return view('user/indexbbs');
+    }   
+
+    public function indexerection()
+    {
+        return view('user/indexerection');
     }   
 
 }

@@ -21,6 +21,15 @@ Route::post('login','HomeController@login');
 Route::get('logout','HomeController@logout');
 Route::resource('admins', 'AdminController');
 Route::resource('usermain', 'UserMainController');
+
+
+Route::any('userssh', ['as'=>'userssh', 'uses'=>'UserMainController@indexssh']);
+Route::any('userfabrication', ['as'=>'userfabrication', 'uses'=>'UserMainController@indexfabrication']);
+Route::any('usersubassembly', ['as'=>'usersubassembly', 'uses'=>'UserMainController@indexsubassembly']);
+Route::any('userassembly', ['as'=>'userassembly', 'uses'=>'UserMainController@indexassembly']);
+Route::any('userbbs', ['as'=>'userbbs', 'uses'=>'UserMainController@indexbbs']);
+Route::any('usererection', ['as'=>'usererection', 'uses'=>'UserMainController@indexerection']);
+
 Route::resource('users', 'UserController');
 Route::resource('ship_project', 'ShipProjectController');
 Route::resource('worker', 'WorkerController');

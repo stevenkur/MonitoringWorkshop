@@ -1,4 +1,4 @@
-@extends('layouts.backend-user')
+@extends('layouts.backend-userassembly')
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->

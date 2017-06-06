@@ -43,47 +43,47 @@ class HomeController extends Controller
         }
         else
         {
-            if($user->DIVITION='PPC/Admin')
+            if($user->DIVISION=='PPC/Admin')
             {   
                 $request->session()->put('username', $username);
-                $request->session()->put('divition', $user->DIVITION);
+                $request->session()->put('division', $user->DIVISION);
                 return redirect('admins');
             }
-            else if($user->DIVITION='Steel Stock House')
+            elseif($user->DIVISION=='Steel Stock House')
             {                
                 $request->session()->put('username', $username);
-                $request->session()->put('divition', $user->DIVITION);
-                return redirect('usermain');
+                $request->session()->put('division', $user->DIVISION);
+                return redirect('userssh');
             }
-            else if($user->DIVITION='Fabrication')
+            elseif($user->DIVISION=='Fabrication')
             {                
                 $request->session()->put('username', $username);
-                $request->session()->put('divition', $user->DIVITION);
-                return redirect('usermain');
+                $request->session()->put('division', $user->DIVISION);
+                return redirect('userfabrication');
             }
-            else if($user->DIVITION='Sub Assembly')
+            elseif($user->DIVISION=='Sub Assembly')
             {               
                 $request->session()->put('username', $username);
-                $request->session()->put('divition', $user->DIVITION); 
-                return redirect('usermain');
+                $request->session()->put('division', $user->DIVISION); 
+                return redirect('usersubassembly');
             }
-            else if($user->DIVITION='Assembly')
+            elseif($user->DIVISION=='Assembly')
             {            
                 $request->session()->put('username', $username);
-                $request->session()->put('divition', $user->DIVITION);    
-                return redirect('usermain');
+                $request->session()->put('division', $user->DIVISION);    
+                return redirect('userassembly');
             }
-            else if($user->DIVITION='Block Blasting Structure')
+            elseif($user->DIVISION=='Block Blasting Structure')
             {           
                 $request->session()->put('username', $username);
-                $request->session()->put('divition', $user->DIVITION);     
-                return redirect('usermain');
+                $request->session()->put('division', $user->DIVISION);     
+                return redirect('userbbs');
             }
-            else if($user->DIVITION='Erection')
+            elseif($user->DIVISION=='Erection')
             {            
                 $request->session()->put('username', $username);
-                $request->session()->put('divition', $user->DIVITION);    
-                return redirect('usermain');
+                $request->session()->put('division', $user->DIVISION);    
+                return redirect('usererection');
             }
         }
         
