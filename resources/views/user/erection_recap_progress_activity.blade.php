@@ -6,12 +6,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Recap Worker & Time
+        Recap Join Block
       </h1>
       <ol class="breadcrumb">
         <li><i class="fa fa-dashboard"></i> Home</li>
         <li>Erection</li>
-        <li class="active">Recap Worker & Time</li>
+        <li class="active">Recap Progress Activity</li>
       </ol>
     </section>
 
@@ -19,7 +19,7 @@
     <section class="content">
       <div class="row">
 
-            <section class="col-lg-6">
+            <section class="col-lg-12">
             <div class="box box-primary">
             
             <!-- /.box-header -->
@@ -48,73 +48,65 @@
             </div>
             </section>
 
-            <?php 
-                if(isset($_GET['project']) && $_GET['project']!='#') 
-                   $flagProject=true;
-                else $flagProject=false;
-                if(isset($_GET['block']) && $_GET['block']!='#') 
-                   $flagBlock=true;
-                else $flagBlock=false;
-            ?>
-
-            <section class="col-lg-6">
-            <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" name="ShipBlock">
-              <div class="box-body">
-              <label for="inputActivity">Select BLock:</label>
-                <div class="form-group">
-                  <select class="form-control" name="block">
-                    <option id="#">-- Block List --</option>
-                    <?php $i=1;?>
-                    @foreach($block as $data)
-                        <?php $blockData[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->NAME}}</option>
-                    @endforeach
-                  </select>
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Choose</button>
-              </div>
-            </form>
-            </div>
-            </section>
+        <?php 
+          if(isset($_GET['project']) && $_GET['project']!='#') 
+             $flagProject=true;
+          else $flagProject=false;
+        ?>
 
         <div class="col-md-12">
         <div class="box">
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="tabel" class="table table-bordered table-striped">
+              <table id="machine" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>Name of Worker</th>
-                    <th>NIK</th>
-                    <th>Shift</th>
-                    <th>Activity</th>
-                    <th>Problem</th>
-                    <th>Many hours Realitation</th>
-                    <th>Time</th>
+                  <th>Block</th>
+                  <th>Loading</th>
+                  <th>Adjusting</th>
+                  <th>Fitting</th>
+                  <th>Welding</th>
+                  <th>Total Progress</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($erection as $erections)
-                <tr>
-                  <td>{{$erections->WORKER_NAME}}</td>
-                  <td>{{$erections->ID_WORKER}}</td>
-                  <td>{{$erections->SHIFT}}</td>
-                  <td>{{$erections->PROCESS.' '.$erections->ID_MATERIAL}}</td>
-                  <td>{{$erections->PROBLEM}}</td>
-                  <td>{{$erections->WORKING_HOURS+$erections->ADD_WORKING_HOURS}}</td>
-                  <td>{{$erections->created_at}}</td>
-                </tr>
+                @foreach($block as $blocks)
+                <?php 
+                  if($flagProject && $blocks->ID_PROJECT == $_GET['project']){
+                  echo '
+                  <tr>
+                    <td>'.$blocks['NAME'].'</td>
+                    <td>'.$blocks['LOADING'].'</td>
+                    <td>'.$blocks['ADJUSTING'].'</td>
+                    <td>'.$blocks['FITTING'].'</td>
+                    <td>'.$blocks['WELDING'].'</td>
+                    <td>'.$blocks['NUM'].'</td>
+                  </tr>';}
+                  else if(!$flagProject){
+                  echo '
+                  <tr>
+                    <td>'.$blocks['NAME'].'</td>
+                    <td>'.$blocks['LOADING'].'</td>
+                    <td>'.$blocks['ADJUSTING'].'</td>
+                    <td>'.$blocks['FITTING'].'</td>
+                    <td>'.$blocks['WELDING'].'</td>
+                    <td>'.$blocks['NUM'].'</td>
+                  </tr>';}
+                ?>
+
+                  
                 @endforeach
                 </tbody>
+                <tfoot>
+                <tr>
+                  <th>Block</th>
+                  <th>Loading</th>
+                  <th>Adjusting</th>
+                  <th>Fitting</th>
+                  <th>Welding</th>
+                  <th>Total Progress</th>
+                </tr>
+                </tfoot>
               </table>
             </div>
             <!-- /.box-body -->
@@ -144,11 +136,11 @@
 <!-- page script -->
 <script>
 $(function() {
-    $('#tabel').DataTable({
+    $('#machine').DataTable({
           "paging": true,
           "lengthChange": true,
           "searching": true,
-          "ordering": false,
+          "ordering": true,
           "info": true,
           "autoWidth": true
     });

@@ -48,6 +48,12 @@
             </div>
             </section>
 
+        <?php 
+          if(isset($_GET['project']) && $_GET['project']!='#') 
+             $flagProject=true;
+          else $flagProject=false;
+        ?>
+
         <div class="col-md-12">
         <div class="box">
             <!-- /.box-header -->
@@ -55,74 +61,57 @@
               <table id="machine" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Block 1</th>
-                  <th>Block 2</th>
+                  <th>Block</th>
                   <th>Loading</th>
+                  <th>Loading Date</th>
                   <th>Adjusting</th>
+                  <th>Adjusting Date</th>
                   <th>Fitting</th>
-                  <th>Welding<br>Finish/Total (m)</th>
-                  <th>Date of Start</th>
-                  <th>Date of Finish</th>
-                  <th>Total Process</th>
+                  <th>Fitting Date</th>
+                  <th>Welding</th>
+                  <th>Welding Date</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Block 1</td>
-                  <td>Block 2</td>
-                  <td>Loading</td>
-                  <td>Adjusting</td>
-                  <td>Fitting</td>
-                  <td>Welding<br>Finish/Total (m)</td>
-                  <td>Date of Start</td>
-                  <td>Date of Finish</td>
-                  <td>Total Process</td>
-                </tr>
-                <tr>
-                  <td>Block 1</td>
-                  <td>Block 2</td>
-                  <td>Loading</td>
-                  <td>Adjusting</td>
-                  <td>Fitting</td>
-                  <td>Welding<br>Finish/Total (m)</td>
-                  <td>Date of Start</td>
-                  <td>Date of Finish</td>
-                  <td>Total Process</td>
-                </tr>
-                <tr>
-                  <td>Block 1</td>
-                  <td>Block 2</td>
-                  <td>Loading</td>
-                  <td>Adjusting</td>
-                  <td>Fitting</td>
-                  <td>Welding<br>Finish/Total (m)</td>
-                  <td>Date of Start</td>
-                  <td>Date of Finish</td>
-                  <td>Total Process</td>
-                </tr>
-                <tr>
-                  <td>Block 1</td>
-                  <td>Block 2</td>
-                  <td>Loading</td>
-                  <td>Adjusting</td>
-                  <td>Fitting</td>
-                  <td>Welding<br>Finish/Total (m)</td>
-                  <td>Date of Start</td>
-                  <td>Date of Finish</td>
-                  <td>Total Process</td>
-                </tr>
+                @foreach($block as $blocks)                
+                  @if($flagProject && $blocks->ID_PROJECT == $_GET['project'])
+                  <tr>
+                    <td>{{$blocks->NAME}}</td>
+                    <td>{{$blocks->LOADING}}</td>
+                    <td>{{$blocks->LOADING_DATE}}</td>
+                    <td>{{$blocks->ADJUSTING}}</td>
+                    <td>{{$blocks->ADJUSTING_DATE}}</td>
+                    <td>{{$blocks->FITTING}}</td>
+                    <td>{{$blocks->FITTING_DATE}}</td>
+                    <td>{{$blocks->WELDING}}</td>
+                    <td>{{$blocks->WELDING_DATE}}</td>
+                  </tr>
+                  @elseif(!$flagProject)
+                  <tr>
+                    <td>{{$blocks->NAME}}</td>
+                    <td>{{$blocks->LOADING}}</td>
+                    <td>{{$blocks->LOADING_DATE}}</td>
+                    <td>{{$blocks->ADJUSTING}}</td>
+                    <td>{{$blocks->ADJUSTING_DATE}}</td>
+                    <td>{{$blocks->FITTING}}</td>
+                    <td>{{$blocks->FITTING_DATE}}</td>
+                    <td>{{$blocks->WELDING}}</td>
+                    <td>{{$blocks->WELDING_DATE}}</td>
+                  </tr>
+                  @endif                  
+                @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Block 1</th>
-                  <th>Block 2</th>
+                  <th>Block</th>
                   <th>Loading</th>
+                  <th>Loading Date</th>
                   <th>Adjusting</th>
+                  <th>Adjusting Date</th>
                   <th>Fitting</th>
-                  <th>Welding<br>Finish/Total (m)</th>
-                  <th>Date of Start</th>
-                  <th>Date of Finish</th>
-                  <th>Total Process</th>
+                  <th>Fitting Date</th>
+                  <th>Welding</th>
+                  <th>Welding Date</th>
                 </tr>
                 </tfoot>
               </table>

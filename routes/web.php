@@ -89,8 +89,10 @@ Route::any('bbs_recap_progress_activity', ['as'=>'bbs_recap_progress_activity', 
 Route::any('bbs_update_percentage', ['as'=>'bbs_update_percentage', 'uses'=>'UserBBSController@update']);
 
 Route::any('input_act_erection', ['as'=>'input_act_erection', 'uses'=>'UserErectionController@input_act_erection']);
+Route::any('input_works_erection', ['as'=>'input_works_erection', 'uses'=>'UserErectionController@works']);
 Route::any('erection_recap_block', ['as'=>'erection_recap_block', 'uses'=>'UserErectionController@erection_recap_block']);
 Route::any('erection_recap_worker', ['as'=>'erection_recap_worker', 'uses'=>'UserErectionController@erection_recap_worker']);
+Route::any('erection_recap_progress_activity', ['as'=>'erection_recap_progress_activity', 'uses'=>'UserErectionController@erection_recap_progress_activity']);
 
 Route::any('total_ship_progress', ['as'=>'total_ship_progress', 'uses'=>'AdminController@total_ship_progress']);
 Route::any('planning_workload', ['as'=>'planning_workload', 'uses'=>'AdminController@planning_workload']);

@@ -98,6 +98,7 @@
             <li><a href="{{ route('input_act_erection')}}"><i class="fa fa-circle-o"></i> Input Activities and Worker</a></li>
             <li><a href="{{ route('erection_recap_block')}}"><i class="fa fa-circle-o"></i> Recap Join Block</a></li>
             <li><a href="{{ route('erection_recap_worker')}}"><i class="fa fa-circle-o"></i> Recap Worker & Time</a></li>
+            <li><a href="{{ route('erection_recap_progress_activity')}}"><i class="fa fa-circle-o"></i> Recap Progress Activity</a></li>
           </ul>
         </li>
 

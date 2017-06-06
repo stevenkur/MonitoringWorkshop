@@ -47,155 +47,152 @@
             </div>
             </section>
 
-            <?php 
-                if(isset($_GET['project']) && $_GET['project']!='#') 
-                   $flagProject=true;
-                else $flagProject=false;
-                if(isset($_GET['block1']) && $_GET['block1']!='#') 
-                   $flagBlock1=true;
-                else $flagBlock1=false;
-                if(isset($_GET['block2']) && $_GET['block2']!='#') 
-                   $flagBlock2=true;
-                else $flagBlock2=false;
-            ?>
-
-      <section class="col-lg-12">
-        <div class="box box-primary">
-            <!-- /.box-header -->
-            <!-- form start -->
-
-            <form role="form" name="joinblock">
-              <div class="box-body">
-              <label>Select Block to Join:</label>
-              <div class="row">
-                <div class="col-lg-6">
-                  <select class="form-control" name="block1">
-                    <option id="#">-- Block List --</option>
-                    <?php $i=1;?>
-                    @foreach($block as $data)
-                        <?php $blockData[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->NAME}}</option>
-                    @endforeach
-                  </select>
-                </div>
-                <div class="col-lg-6">
-                  <select class="form-control" name="block2">
-                    <option id="#">-- Block List --</option>
-                    <?php $i=1;?>
-                    @foreach($block as $data)
-                        <?php $blockData[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->NAME}}</option>
-                    @endforeach
-                  </select>
-                </div>  
-                </div>
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Choose</button>
-              </div>
-            </form>
-        </div>
-      </section>
+        <?php 
+          if(isset($_GET['project']) && $_GET['project']!='#') 
+             $flagProject=true;
+          else $flagProject=false;
+        ?>
 
         <?php
             if(isset($_GET['process'])){
                 $proc = explode('|', $_GET['process']);
                 $flagProcess = true;
-//                echo $proc[0];
-//                echo '<br>';
-//                echo $proc[1];
+                if($proc[0]==1) $process = 'Loading';
+                else if($proc[0]==2) $process = 'Adjusting';
+                else if($proc[0]==3) $process = 'Fitting';
+                else if($proc[0]==4) $process = 'Welding';
+                $idMaterial = $proc[1];
+                $progress = $proc[2];                
             }
             else $flagProcess = false;
         ?>
-
-        <section class="col-lg-12">
-            <div class="box box-primary">
-            <form role="form">
-            <section class="col-lg-6">
-              <div class="box-body">
-                <h4> Percentage Progress:</h4>
-                <div class="form-group">
-                  <label class="col-lg-3"> Loading: </label>
-                  <input type="text" id="loading" placeholder="">
-                  <label> % </label>
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-3"> Adjusting: </label>
-                  <input type="text" id="adjusting" placeholder="">
-                  <label> % </label>
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-3"> Fitting: </label>
-                  <input type="text" id="fitting" placeholder="">
-                  <label> % </label>
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-3"> Welding: </label>
-                  <input type="text" id="welding" placeholder="">
-                  <label> % </label>
-                </div>
-
-              <h4> Finished Process:</h4>
-              <div class="form-group">
-                  <label class="col-lg-3"> Loading: </label>
-                  <input type="checkbox" id="loading_finished" placeholder="">
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-3"> Adjusting: </label>
-                  <input type="checkbox" id="adjusting_finished" placeholder="">
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-3"> Fitting: </label>
-                  <input type="checkbox" id="fitting_finished" placeholder="">
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-3"> Welding: </label>
-                  <input type="checkbox" id="welding_finished" placeholder="">
-                </div>
-                </div>
-            </section>
-                <br>
-                
-            <section class="col-lg-6">
-                <h4> Welding Process:</h4>
-                <div class="form-group">
-                  <label class="col-lg-3"> Total Weld: </label>
-                  <input type="text" id="lengthjoin" placeholder="">
-                  <label> m </label>
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-3"> Finished Weld: </label>
-                  <input type="text" id="finishedwield" placeholder="">
-                  <label> m </label>
-                </div>
-
-                <h4> Duration:</h4>
-                <div class="form-group">
-                  <label class="col-lg-3"> Day of Start Work: </label>
-                  <input type="date" id="start" placeholder="">
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-3"> Day of Finish Work: </label>
-                  <input type="date" id="finish" placeholder="">
-                </div>
-            </section>
-
-            <div class="box-footer" align="right">
-              <button type="reset" class="btn btn-primary">Reset</button>
-              <button type="submit" class="btn btn-primary">Finish</button>
-            </div>
-          </form>
-            </div>
-        </section>
 
         <div class="col-md-12">
         <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
+            <h4 align="right"><b>Target Quantity per Day: [TARGET] Ton</b></h4>
+            <h3>Blocks</h3>
+              <table id="tabel" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>ID Blocks</th>
+                    <th>Name</th>
+                    <th>Material</th>
+                    <th>Material Process</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($block as $blocks)
+                    <?php 
+                    if($blocks->LOADING<1) $flagLoad = false;
+                    else $flagLoad = true;
+                    if($blocks->ADJUSTING<1) $flagAdjust = false;
+                    else $flagAdjust = true;
+                    if($blocks->FITTING<1) $flagFit = false;
+                    else $flagFit = true;
+                    if($blocks->WELDING<1) $flagWeld = false;
+                    else $flagWeld = true;
+
+                    if($flagProject && $blocks->ID_PROJECT == $_GET['project']){
+                    echo '
+                    <tr>
+                        <td>'.$blocks['ID'].'</td>
+                        <td>'.$blocks['NAME'].'</td>
+                        <td>'.$blocks['MATERIAL'];?></td>
+                        <td>
+                          @if(!$flagLoad)
+                            <form action="./input_act_erection" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="1|<?php echo $blocks['ID'].'|'.$blocks['LOADING'];?>">Loading</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagWeld)
+                            <form action="./input_act_erection" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $blocks['ID'].'|'.$blocks['ADJUSTING'];?>">Adjusting</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagGrind)
+                            <form action="./input_act_erection" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="3|<?php echo $blocks['ID'].'|'.$blocks['FITTING'];?>">Fitting</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagFair)
+                            <form action="./input_act_erection" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="4|<?php echo $blocks['ID'].'|'.$blocks['WELDING'];?>">Welding</option>
+                                </select>
+                            </form>
+                            @else
+                            Finished
+                            @endif
+                        </td>
+                    <?php echo '</tr>';
+                    }
+                    else if(!$flagProject){
+                    echo '
+                    <tr>
+                        <td>'.$blocks['ID'].'</td>
+                        <td>'.$blocks['NAME'].'</td>
+                        <td>'.$blocks['MATERIAL'];?></td>
+                        <td>
+                          @if(!$flagLoad)
+                            <form action="./input_act_erection" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="1|<?php echo $blocks['ID'].'|'.$blocks['LOADING'];?>">Loading</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagWeld)
+                            <form action="./input_act_erection" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="2|<?php echo $blocks['ID'].'|'.$blocks['ADJUSTING'];?>">Adjusting</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagGrind)
+                            <form action="./input_act_erection" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="3|<?php echo $blocks['ID'].'|'.$blocks['FITTING'];?>">Fitting</option>
+                                </select>
+                            </form>
+                            @elseif(!$flagFair)
+                            <form action="./input_act_erection" class="form" method="get">
+                                <select class="form-control" name="process" onChange="this.form.submit();">
+                                    <option value="#">-- Material Process List --</option>
+                                    <option value="4|<?php echo $blocks['ID'].'|'.$blocks['WELDING'];?>">Welding</option>
+                                </select>
+                            </form>
+                            @else
+                            Finished
+                            @endif
+                        </td>
+                    <?php echo '</tr>';
+                    }?>
+                @endforeach
+                </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->          
+        </div>
+        </div>
+
+        @if($flagProcess)
+        <div class="col-md-12">
+        <form action="{{route('input_works_erection')}}" role="form" method="post">
+        {{csrf_field()}}
+        <div class="box box-primary">
+            <!-- /.box-header -->
+            <div class="box-body">
             <h3>Worker & Time</h3>
-              <table id="plate" class="table table-bordered table-striped">
+              <table id="tabel2" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Name of Worker</th>
@@ -205,74 +202,84 @@
                 </tr>
                 </thead>
                 <tbody>
+                <?php $i=0;?>
                 @foreach($worker as $workers)
                 <tr>
                   <td>{{$workers->NAME}}</td>
                   <td>{{$workers->NIK}}</td>
                   <td>{{$workers->POSITION.'/'.$workers->DIVISION}}</td>
                   <td>
-                    <select class="form-control" name="process">
-                      <option id="#">-- Attendance List --</option>
+                    <input name="<?php echo 'id'.$i;?>" type="hidden" value="{{ $workers->ID }}">
+                    <input name="<?php echo 'name'.$i;?>" type="hidden" value="{{ $workers->NAME }}">
+                    <select class="form-control" name="<?php echo 'attendance'.$i;?>">
+<!--                      <option value="#">-- Attendance List --</option>-->
                       <option id="1">Present</option>
                       <option id="2">Was Sick/Accident</option>
                       <option id="3">Was Absent</option>
                     </select>
                   </td>
                 </tr>
+                <?php $i++;?> 
                 @endforeach
                 </tbody>
               </table>
             </div>
             <!-- /.box-body -->
 
+            <input name="num" type="hidden" value="{{ $worker->count() }}">
+            <input name="id_material" type="hidden" value="{{ $idMaterial }}">
+            <input name="process" type="hidden" value="{{ $process }}">
             <div class="col-lg-3">
-            <div class="box box-primary">
-            <div class="box box-body">
-            <div class="form-group">
-              <label style="font-size: 16px">Input Work Hours: </label><br>
-              <input type="text" id="machinehours" placeholder="">
-              <label>hours</label>       
-              <label style="font-size: 16px">Additional Hours: </label><br>
-              <input type="text" id="additionalhours" placeholder="">
-              <label>hours</label>
+                <div class="box box-primary">
+                    <div class="box box-body">
+                        <div class="form-group">
+                          <label style="font-size: 16px">Input Progress </label><br>
+                          <input type="text" id="progress" name="progress" placeholder="" value="{{$progress*100}}">
+                          <label> %</label><br> 
+                          <label style="font-size: 16px">Input Working Hours: </label><br>
+                          <input type="text" id="machinehours" name="workinghours" placeholder="" value="0">
+                          <label>hours</label>              
+                          <label style="font-size: 16px">Additional Working Hours: </label><br>
+                          <input type="text" id="additionalhours" NAME="workingaddhours" placeholder="" value="0">
+                          <label>hours</label>
+                        </div>
+                    </div>
+                </div>
             </div>
+                <div class="col-lg-4">
+                    <div class="box box-primary">
+                        <div class="box box-body">
+                            <div class="form-group">
+                              <label style="font-size: 16px">Problem: </label>
+                              <select class="form-control" name="problem">
+                                <option id="1">No Problem</option>
+                                <option id="2">Broken Machine</option>
+                                <option id="3">Worker Sick/Acident</option>
+                                <option id="4">Power Failure</option>
+                                <option id="5">Worker Absent</option>
+                              </select>
+                              <br>
+                              <label style="font-size: 16px">Waste Time (If any): </label>
+                              <input type="text" id="wastetime" name="wastetime" placeholder="" value="0">
+                              <label>hours</label>
+                              <br>
+                              <label style="font-size: 16px">Shift: </label>
+                              <select class="form-control" name="shift">
+                                <option id="1">Shift 1</option>
+                                <option id="2">Shift 2</option>
+                              </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer" align="right">
+                  <button type="reset" class="btn btn-primary">Reset</button>
+                  <button type="submit" class="btn btn-primary">Input</button>
+                </div>
             </div>
-            </div>
-            </div>
-
-            <div class="col-lg-4">
-            <div class="box box-primary">
-            <div class="box box-body">
-            <div class="form-group">
-              <label style="font-size: 16px">Problem: </label>
-              <select class="form-control" name="problem">
-                <option id="1">No Problem</option>
-                <option id="2">Broken Machine</option>
-                <option id="3">Worker Sick/Acident</option>
-                <option id="4">Power Failure</option>
-                <option id="5">Worker Absent</option>
-              </select>
-              <br>
-              <label style="font-size: 16px">Waste Time (If any): </label>
-              <input type="text" id="wastetime" placeholder="">
-              <label>hours</label>
-              <br>
-              <label style="font-size: 16px">Shift: </label>
-              <select class="form-control" name="shift">
-                <option id="1">Shift 1</option>
-                <option id="2">Shift 2</option>
-              </select>
-            </div>
-            </div>
-            </div>
-            </div>
-
-            <div class="box-footer" align="right">
-              <button type="reset" class="btn btn-primary">Reset</button>
-              <button type="submit" class="btn btn-primary">Input</button>
-            </div>
-          </div>
+            </form>
         </div>
+        @endif
 
         </div>
     </section>
@@ -297,8 +304,16 @@
 <!-- page script -->
 <script>
 $(function() {
-    $('#assemblypart').DataTable({
+    $('#tabel').DataTable({
           "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    });
+    $('#tabel2').DataTable({
+          "paging": false,
           "lengthChange": true,
           "searching": true,
           "ordering": true,
