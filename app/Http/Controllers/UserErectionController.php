@@ -42,7 +42,7 @@ class UserErectionController extends Controller
         $adjusting=Percentage::where('WORKSHOP', 'ERECTION')->where('ACTIVITY', 'ADJUSTING')->first();
         $fitting=Percentage::where('WORKSHOP', 'ERECTION')->where('ACTIVITY', 'FITTING')->first();
         $welding=Percentage::where('WORKSHOP', 'ERECTION')->where('ACTIVITY', 'WELDING')->first();
-        return view('user/erection_recap_progress_activity')->with('ship', $ship)->with('block', $block);
+        return view('user/erection_recap_progress_activity')->with('ship', $ship)->with('loading', $loading)->with('adjusting', $adjusting)->with('fitting', $fitting)->with('welding', $welding)->with('block', $block);
     }
 
     public function erection_recap_worker()
