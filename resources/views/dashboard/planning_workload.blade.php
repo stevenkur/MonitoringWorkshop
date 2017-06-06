@@ -21,56 +21,65 @@
 
         <div class="col-md-12">
         <div class="box box-primary">
-         
-            <!-- /.box-header -->
-            <!-- form start -->            
-            <form class="form">
-            <div class="box-body">
+                  
+            <form role="form" name="ShipProject">
+              <div class="box-body">
               <label for="inputActivity">Select Project of Ship:</label>
                 <div class="form-group">
-                  <select class="form-control" name="id">
-                    <option value="#">-- Ship Project List --</option>
+                  <select class="form-control" name="project">
+                    <option id="#">-- Ship Project List --</option>
                     <?php $i=1;?>
                     @foreach($ship as $data)
-                        <?php $datas[$i] = $data; $i++;?>
+                        <?php $shipData[$i] = $data; $i++;?>
                         <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
                     @endforeach
                   </select>
-                </div>
-               
+                </div>               
               </div>
-              <!-- /.box-body -->
+              
               <div class="box-footer">
-                <button method="post" class="btn btn-primary">Choose</button>
+                <button type="submit" class="btn btn-primary">Choose</button>
               </div>
             </form>
 
         </div>
         </div>
 
+        <?php 
+          if(isset($_GET['project']) && $_GET['project']!='#') 
+              $flagProject=true;
+          else $flagProject=false;
+
+          for($j=1; $j<$i; $j++){
+            if($shipData[$j]->ID == $_GET['project']){
+                $ship = $shipData[$j];
+                break;
+            }
+          }
+        ?>
+
+        @if($flagProject)
         <div class="col-lg-12">
         <div class="box box-primary">
+        <div class="box-body">
             
-            <div class="col-lg-6">
             <div class="form-group">
               <label class="col-lg-3"> Project Name </label>
               <label class="col-lg-1"> : </label>
-              <label> Project Name </label>
+              <label> {{ $ship->PROJECT_NAME }} </label>
             </div>
             <div class="form-group">
               <label class="col-lg-3"> Start Project </label>
               <label class="col-lg-1"> : </label>
-              <label> Start Project </label>
+              <label> {{ date('d-m-Y', strtotime($ship->START)) }} </label>
             </div>
 
             <div class="form-group">
               <label class="col-lg-3"> Target Finish Project </label>
               <label class="col-lg-1"> : </label>
-              <label> Target Finish Project </label>
-            </div>
+              <label> {{ date('d-m-Y', strtotime($ship->FINISH)) }} </label>
             </div>
 
-            <div class="col-lg-6">
             <div class="form-group">
               <label class="col-lg-3"> Total Day </label>
               <label class="col-lg-1"> : </label>
@@ -82,18 +91,132 @@
               <label class="col-lg-1"> : </label>
               <label> Total Workload </label>
             </div>
-            </div>
-
         </div>
         </div>
+        </div>
 
-        <div class="col-lg-12">
+        <div class="col-lg-6">
         <div class="box box-primary">
-         
+        <div class="box-body">
+        <h3>SSH Workshop</h3>
+        <table id="ssh" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Machine</th>
+              <th>Capacity Max per-Day</th>
+              <th>Workload Calculate per-Day</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($ssh as $sshs)
+            <tr>
+                <td>{{ $sshs->NAME }}</td>
+                <td></td>
+                <td></td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+        </div>            
+        </div>
+        </div>
 
-            
+        <div class="col-lg-6">
+        <div class="box box-primary">
+        <div class="box-body">
+        <h3>Fabrication Workshop</h3>
+        <table id="fabrication" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Machine</th>
+              <th>Capacity Max per-Day</th>
+              <th>Workload Calculate per-Day</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($fabrication as $fab)
+            <tr>
+                <td>{{ $fab->NAME }}</td>
+                <td></td>
+                <td></td>
+            </tr>
+            @endforeach  
+          </tbody>
+        </table>
+        </div>            
         </div>
         </div>
+
+        <div class="col-lg-6">
+        <div class="box box-primary">
+        <div class="box-body">
+        <h3>Sub Assembly Workshop</h3>
+        <table id="subassembly" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Machine</th>
+              <th>Capacity Max per-Day</th>
+              <th>Workload Calculate per-Day</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($subassembly as $subass)
+            <tr>
+                <td>{{ $subass->NAME }}</td>
+                <td></td>
+                <td></td>
+            </tr>
+            @endforeach  
+          </tbody>
+        </table>
+        </div>            
+        </div>
+        </div>
+
+        <div class="col-lg-6">
+        <div class="box box-primary">
+        <div class="box-body">
+        <h3>Assembly Workshop</h3>
+        <table id="assembly" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Machine</th>
+              <th>Capacity Max per-Day</th>
+              <th>Workload Calculate per-Day</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($assembly as $assemblys)
+            <tr>
+                <td>{{ $assemblys->NAME }}</td>
+                <td></td>
+                <td></td>
+            </tr>
+            @endforeach    
+          </tbody>
+        </table>
+        </div>            
+        </div>
+        </div>
+
+        <div class="col-lg-6">
+        <div class="box box-primary">
+        <div class="box-body">
+        <h3>BBS Workshop</h3>
+        
+        </div>            
+        </div>
+        </div>
+
+        <div class="col-lg-6">
+        <div class="box box-primary">
+        <div class="box-body">
+        <h3>Erection Workshop</h3>
+        
+        </div>            
+        </div>
+        </div>
+        @endif
             
         </div>
     </section>
@@ -115,3 +238,40 @@
 <script src="public/adminlte/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="public/adminlte/dist/js/demo.js"></script>
+
+<script>
+$(function() {
+    $('#ssh').DataTable({
+          "paging": false,
+          "lengthChange": true,
+          "searching": false,
+          "ordering": true,
+          "info": false,
+          "autoWidth": true
+    });
+    $('#fabrication').DataTable({
+          "paging": false,
+          "lengthChange": true,
+          "searching": false,
+          "ordering": true,
+          "info": false,
+          "autoWidth": true
+    });
+    $('#subassembly').DataTable({
+          "paging": false,
+          "lengthChange": true,
+          "searching": false,
+          "ordering": true,
+          "info": false,
+          "autoWidth": true
+    });
+    $('#assembly').DataTable({
+          "paging": false,
+          "lengthChange": true,
+          "searching": false,
+          "ordering": true,
+          "info": false,
+          "autoWidth": true
+    });
+  });
+</script>

@@ -5,7 +5,12 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
+use App\Panel;
+use App\Part;
 use App\User;
+use App\Machine;
+use Carbon\Carbon;
+
 use App\SSH;
 use App\Fabrication;
 use App\SubAssembly;
@@ -38,8 +43,13 @@ class AdminController extends Controller
     public function planning_workload()
     {
         $ship = ShipProject::all();
-
-        return view('dashboard/planning_workload')->with('ship', $ship);
+        $now = Carbon::now()->toDateString();
+        $ssh = Machine::where('WORKSHOP', 'SSH')->get();
+        $fabrication = Machine::where('WORKSHOP', 'Fabrication')->get();
+        $subassembly = Machine::where('WORKSHOP', 'Sub Assembly')->get();
+        $assembly = Machine::where('WORKSHOP', 'Assembly')->get();
+        
+        return view('dashboard/planning_workload')->with('ship', $ship)->with('now', $now)->with('ssh', $ssh)->with('fabrication', $fabrication)->with('subassembly', $subassembly)->with('assembly', $assembly);
     }
 
     public function conclusion_all_project()

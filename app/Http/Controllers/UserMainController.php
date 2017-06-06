@@ -3,8 +3,19 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+
 use App\ShipProject;
 use App\Block;
+use App\Panel;
+use App\Part;
+
+use App\SSH;
+use App\Fabrication;
+use App\SubAssembly;
+use App\Assembly;
+use App\SSH;
+use App\Erection;
+
 
 class UserMainController extends Controller
 {
