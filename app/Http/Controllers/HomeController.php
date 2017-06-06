@@ -31,7 +31,7 @@ class HomeController extends Controller
         return view('auth/login');
     }
 
-    public function login()
+    public function login(Request $request)
     {
         $username = Input::get('username');
         $password = Input::get('password');
@@ -44,40 +44,55 @@ class HomeController extends Controller
         else
         {
             if($user->DIVITION='PPC/Admin')
-            {                
+            {   
+                $request->session()->put('username', $username);
+                $request->session()->put('divition', $user->DIVITION);
                 return redirect('admins');
             }
             else if($user->DIVITION='Steel Stock House')
             {                
+                $request->session()->put('username', $username);
+                $request->session()->put('divition', $user->DIVITION);
                 return redirect('usermain');
             }
             else if($user->DIVITION='Fabrication')
             {                
+                $request->session()->put('username', $username);
+                $request->session()->put('divition', $user->DIVITION);
                 return redirect('usermain');
             }
             else if($user->DIVITION='Sub Assembly')
-            {                
+            {               
+                $request->session()->put('username', $username);
+                $request->session()->put('divition', $user->DIVITION); 
                 return redirect('usermain');
             }
             else if($user->DIVITION='Assembly')
-            {                
+            {            
+                $request->session()->put('username', $username);
+                $request->session()->put('divition', $user->DIVITION);    
                 return redirect('usermain');
             }
             else if($user->DIVITION='Block Blasting Structure')
-            {                
+            {           
+                $request->session()->put('username', $username);
+                $request->session()->put('divition', $user->DIVITION);     
                 return redirect('usermain');
             }
             else if($user->DIVITION='Erection')
-            {                
+            {            
+                $request->session()->put('username', $username);
+                $request->session()->put('divition', $user->DIVITION);    
                 return redirect('usermain');
             }
         }
         
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        Auth::logout();
+        // Auth::logout();
+        $request->session()->flush();
         return Redirect::to('/');
     }
 }
