@@ -46,16 +46,17 @@
         </div>
 
         <?php 
-          if(isset($_GET['project']) && $_GET['project']!='#') 
-              $flagProject=true;
-          else $flagProject=false;
-
+          if(isset($_GET['project']) && $_GET['project']!='#') {
           for($j=1; $j<$i; $j++){
             if($shipData[$j]->ID == $_GET['project']){
-                $ship = $shipData[$j];
+                $ships = $shipData[$j];
                 break;
             }
           }
+          $flagProject=true;
+          }
+          else $flagProject=false;
+
         ?>
 
         @if($flagProject)
@@ -66,18 +67,18 @@
             <div class="form-group">
               <label class="col-lg-3"> Project Name </label>
               <label class="col-lg-1"> : </label>
-              <label> {{ $ship->PROJECT_NAME }} </label>
+              <label> {{ $ships->PROJECT_NAME }} </label>
             </div>
             <div class="form-group">
               <label class="col-lg-3"> Start Project </label>
               <label class="col-lg-1"> : </label>
-              <label> {{ date('d-m-Y', strtotime($ship->START)) }} </label>
+              <label> {{ date('d-m-Y', strtotime($ships->START)) }} </label>
             </div>
 
             <div class="form-group">
               <label class="col-lg-3"> Target Finish Project </label>
               <label class="col-lg-1"> : </label>
-              <label> {{ date('d-m-Y', strtotime($ship->FINISH)) }} </label>
+              <label> {{ date('d-m-Y', strtotime($ships->FINISH)) }} </label>
             </div>
 
             <div class="form-group">
