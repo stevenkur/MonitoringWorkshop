@@ -71,30 +71,25 @@
                 </thead>
                 <tbody>
                 @foreach($block as $blocks)
-                <?php 
-                  if($flagProject && $blocks->ID_PROJECT == $_GET['project']){
-                  echo '
+                  @if($flagProject && $blocks->ID_PROJECT == $_GET['project'])
                   <tr>
-                    <td>'.$blocks['NAME'].'</td>
-                    <td>'.$blocks['LOADING'].'</td>
-                    <td>'.$blocks['ADJUSTING'].'</td>
-                    <td>'.$blocks['FITTING'].'</td>
-                    <td>'.$blocks['WELDING'].'</td>
-                    <td>'.$blocks['NUM'].'</td>
-                  </tr>';}
-                  else if(!$flagProject){
-                  echo '
+                    <td>{{$blocks->NAME}}</td>
+                    <td>{{$blocks->LOADING}}</td>
+                    <td>{{$blocks->ADJUSTING}}</td>
+                    <td>{{$blocks->FITTING}}</td>
+                    <td>{{$blocks->WELDING}}</td>
+                    <td>{{($blocks->LOADING*$loading->PERCENT)+($blocks->ADJUSTING*$adjusting->PERCENT)+($blocks->FITTING*$fitting->PERCENT)+($blocks->WELDING*$welding->PERCENT)}}</td>
+                  </tr>
+                  @elseif(!$flagProject)
                   <tr>
-                    <td>'.$blocks['NAME'].'</td>
-                    <td>'.$blocks['LOADING'].'</td>
-                    <td>'.$blocks['ADJUSTING'].'</td>
-                    <td>'.$blocks['FITTING'].'</td>
-                    <td>'.$blocks['WELDING'].'</td>
-                    <td>'.$blocks['NUM'].'</td>
-                  </tr>';}
-                ?>
-
-                  
+                    <td>{{$blocks->NAME}}</td>
+                    <td>{{$blocks->LOADING}}</td>
+                    <td>{{$blocks->ADJUSTING}}</td>
+                    <td>{{$blocks->FITTING}}</td>
+                    <td>{{$blocks->WELDING}}</td>
+                    <td>{{($blocks->LOADING*$loading->PERCENT)+($blocks->ADJUSTING*$adjusting->PERCENT)+($blocks->FITTING*$fitting->PERCENT)+($blocks->WELDING*$welding->PERCENT)}}</td>
+                  </tr>
+                  @endif
                 @endforeach
                 </tbody>
                 <tfoot>
