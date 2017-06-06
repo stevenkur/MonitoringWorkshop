@@ -19,7 +19,7 @@
     <section class="content">
       <div class="row">
 
-        <div class="col-md-12">
+        <div class="col-lg-6">
         <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->            
@@ -37,25 +37,23 @@
                     <option value="6">Erection Process</option>                    
                   </select>
                 </div>
-               
-              </div>
-              <!-- /.box-body -->
+
               <div class="box-footer">
                 <button method="post" class="btn btn-primary">Choose</button>
-              </div>
+              </div>   
+            </div>
             </form>
 
         </div>
         </div>
 
-        <div class="col-lg-12">
+        <div class="col-lg-6">
         <div class="box box-primary">
         <div class="box-body">
          
-          <div class="form-group" align="right">
-            <label class="col-lg-10"> <h3><b>Total Workload All Project</b></h3> </label>
-            <label class="col-lg-1"> <h3><b>:</b></h3> </label>
-            <label> <h3><b>XXX ton</b></h3> </label>
+          <div class="form-group"><br><br>
+            <label> <h3>Total Workload All Project :</h3> </label>
+            <label> <h3><b>XXX ton</b></h3> </label><br><br>
           </div>      
 
         </div>
@@ -63,7 +61,6 @@
         </div>
 
         @if(isset($_GET['workshop']))
-        @if($_GET['workshop']==1)
         <div class="col-lg-6">
         <div class="box box-primary">
         <div class="box-body">
@@ -90,6 +87,7 @@
         </div>
         </div>
 
+        @if($_GET['workshop']==1)
         <div class="col-lg-6">
         <div class="box box-primary">
         <div class="box-body">        
@@ -99,145 +97,15 @@
         </div>
         </div>
         @elseif($_GET['workshop']==2)
-        <div class="col-lg-6">
-        <div class="box box-primary">
-        <div class="box-body">
-        <h3>Divided of Workload</h3> 
-        <table id="ship" class="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <th>Project</th>
-              <th>Start Project</th>
-              <th>Target Finish</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach($ship as $ships)
-            <tr>
-                <td>{{ $ships->PROJECT_NAME }}</td>
-                <td>{{ date('d-m-Y', strtotime($ships->START)) }}</td>
-                <td>{{ date('d-m-Y', strtotime($ships->FINISH)) }}</td>
-            </tr>
-            @endforeach    
-          </tbody>
-        </table>
-        </div>
-        </div>
-        </div>
-
-
+        
         @elseif($_GET['workshop']==3)
-        <div class="col-lg-6">
-        <div class="box box-primary">
-        <div class="box-body">
-        <h3>Divided of Workload</h3> 
-        <table id="ship" class="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <th>Project</th>
-              <th>Start Project</th>
-              <th>Target Finish</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach($ship as $ships)
-            <tr>
-                <td>{{ $ships->PROJECT_NAME }}</td>
-                <td>{{ date('d-m-Y', strtotime($ships->START)) }}</td>
-                <td>{{ date('d-m-Y', strtotime($ships->FINISH)) }}</td>
-            </tr>
-            @endforeach   
-          </tbody>
-        </table>
-        </div>
-        </div>
-        </div>
-
-
+        
         @elseif($_GET['workshop']==4)
-        <div class="col-lg-6">
-        <div class="box box-primary">
-        <div class="box-body">
-        <h3>Divided of Workload</h3> 
-        <table id="ship" class="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <th>Project</th>
-              <th>Start Project</th>
-              <th>Target Finish</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach($ship as $ships)
-            <tr>
-                <td>{{ $ships->PROJECT_NAME }}</td>
-                <td>{{ date('d-m-Y', strtotime($ships->START)) }}</td>
-                <td>{{ date('d-m-Y', strtotime($ships->FINISH)) }}</td>
-            </tr>
-            @endforeach  
-          </tbody>
-        </table>
-        </div>
-        </div>
-        </div>
-
-
+        
         @elseif($_GET['workshop']==5)
-        <div class="col-lg-6">
-        <div class="box box-primary">
-        <div class="box-body">
-        <h3>Divided of Workload</h3> 
-        <table id="ship" class="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <th>Project</th>
-              <th>Start Project</th>
-              <th>Target Finish</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach($ship as $ships)
-            <tr>
-                <td>{{ $ships->PROJECT_NAME }}</td>
-                <td>{{ date('d-m-Y', strtotime($ships->START)) }}</td>
-                <td>{{ date('d-m-Y', strtotime($ships->FINISH)) }}</td>
-            </tr>
-            @endforeach  
-          </tbody>
-        </table>
-        </div>
-        </div>
-        </div>
-
-
+        
         @elseif($_GET['workshop']==6)
-        <div class="col-lg-6">
-        <div class="box box-primary">
-        <div class="box-body">
-        <h3>Divided of Workload</h3> 
-        <table id="ship" class="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <th>Project</th>
-              <th>Start Project</th>
-              <th>Target Finish</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach($ship as $ships)
-            <tr>
-                <td>{{ $ships->PROJECT_NAME }}</td>
-                <td>{{ date('d-m-Y', strtotime($ships->START)) }}</td>
-                <td>{{ date('d-m-Y', strtotime($ships->FINISH)) }}</td>
-            </tr>
-            @endforeach  
-          </tbody>
-        </table>
-        </div>
-        </div>
-        </div>
-
-
+        
         @endif
         @endif
               

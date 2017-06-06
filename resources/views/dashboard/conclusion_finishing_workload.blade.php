@@ -19,7 +19,7 @@
     <section class="content">
       <div class="row">
 
-        <div class="col-md-12">
+        <div class="col-lg-6">
         <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->            
@@ -27,7 +27,7 @@
             <div class="box-body">
               <label for="inputActivity">Select Workshop:</label>
                 <div class="form-group">
-                  <select class="form-control" name="id">
+                  <select class="form-control" name="workshop">
                     <option value="#">-- Workshop List --</option>
                     <option value="1">SSH Workshop</option>
                     <option value="2">Fabrication Workshop</option>
@@ -37,31 +37,30 @@
                     <option value="6">Erection Process</option>                    
                   </select>
                 </div>
-               
-              </div>
-              <!-- /.box-body -->
+
               <div class="box-footer">
                 <button method="post" class="btn btn-primary">Choose</button>
-              </div>
+              </div>   
+            </div>
             </form>
 
         </div>
         </div>
 
-        <div class="col-lg-12">
+        <div class="col-lg-6">
         <div class="box box-primary">
+        <div class="box-body">
          
-            <div class="form-group" align="right">
-              <label class="col-lg-10"> <h3><b>Total Workload All Project</b></h3> </label>
-              <label class="col-lg-1"> <h3><b>:</b></h3> </label>
-              <label> <h3><b>XXX ton</b></h3> </label>
-            </div>
-            
+          <div class="form-group"><br><br>
+            <label> <h3>Total Workload All Project :</h3> </label>
+            <label> <h3><b>XXX ton</b></h3> </label><br><br>
+          </div>     
 
         </div>
         </div>
-              
         </div>
+              
+      </div>
     </section>
   </div>
 

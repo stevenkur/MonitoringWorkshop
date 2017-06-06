@@ -13,7 +13,7 @@ use App\SSH;
 use App\Fabrication;
 use App\SubAssembly;
 use App\Assembly;
-use App\SSH;
+use App\BBS;
 use App\Erection;
 
 
