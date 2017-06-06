@@ -74,7 +74,8 @@ class UserBBSController extends Controller
         $block=Block::all();
         $worker=Worker::where('DIVISION', 'BBS')->get();
         $room=Room::all();
-        return view('user/input_act_bbs')->with('ship', $ship)->with('block', $block)->with('worker', $worker)->with('room', $room);
+        $count=Room::count();
+        return view('user/input_act_bbs')->with('ship', $ship)->with('block', $block)->with('worker', $worker)->with('room', $room)->with('count', $count);
     }   
 
     public function bbs_recap_material_process()

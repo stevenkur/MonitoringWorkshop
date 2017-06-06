@@ -92,6 +92,13 @@
                 if($proc[0]==1) $process = 'Blasting';
                 else if($proc[0]==2) $process = 'Painting';
                 $idMaterial = $proc[1];
+
+                for($j=1; $j<$count; $j++){
+                  if($room[$j]->ID == $idMaterial){
+                      $data = $room[$j];
+                      break;
+                  }
+                }
             }
             else $flagProcess = false;
         ?>
@@ -116,9 +123,9 @@
                 <tbody>
                 @foreach($room as $rooms)
                     <?php 
-                    if($rooms->BLASTING<1) $flagBlast = false;
+                    if($rooms->BLASTING<$rooms->TOTAL_LAYER) $flagBlast = false;
                     else $flagBlast = true;
-                    if($rooms->PAINTING<1) $flagPaint = false;
+                    if($rooms->PAINTING<$rooms->TOTAL_LAYER) $flagPaint = false;
                     else $flagPaint = true;
 
                     if($flagBlock && $panels->ID_BLOCK == $_GET['block']){
@@ -216,11 +223,6 @@
               </table>
             </div>
             <!-- /.box-body -->
-
-            <div class="box-footer" align="right">
-              <button type="reset" class="btn btn-primary">Reset</button>
-              <button type="submit" class="btn btn-primary">Input</button>
-            </div>
           </div>
         </div>
 
@@ -273,7 +275,13 @@
                 <div class="box box-primary">
                     <div class="box box-body">
                         <div class="form-group">
-                          <label style="font-size: 16px">Remaining Layer: xXx</label><br>
+                          <label style="font-size: 16px">Remaining Layer: 
+                            @if($process == 'Blasting')
+                            {{ $data->TOTAL_LAYER-$data->BLASTING }}
+                            @else
+                            {{ $data->TOTAL_LAYER-$data->PAINTING }}
+                            @endif
+                          </label><br>
                           <label style="font-size: 16px">Finished Layer: </label><br>
                           <input type="text" id="finishedlayer" name="finishedlayer" placeholder="" value="0"><br>
                           <label style="font-size: 16px">Input Working Hours: </label><br>
