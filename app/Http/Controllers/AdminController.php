@@ -48,15 +48,19 @@ class AdminController extends Controller
         $fabrication = Machine::where('WORKSHOP', 'Fabrication')->get();
         $subassembly = Machine::where('WORKSHOP', 'Sub Assembly')->get();
         $assembly = Machine::where('WORKSHOP', 'Assembly')->get();
-        
+
         return view('dashboard/planning_workload')->with('ship', $ship)->with('now', $now)->with('ssh', $ssh)->with('fabrication', $fabrication)->with('subassembly', $subassembly)->with('assembly', $assembly);
     }
 
     public function conclusion_all_project()
     {
         $ship = ShipProject::all();
+        $ssh = Machine::where('WORKSHOP', 'SSH')->get();
+        $fabrication = Machine::where('WORKSHOP', 'Fabrication')->get();
+        $subassembly = Machine::where('WORKSHOP', 'Sub Assembly')->get();
+        $assembly = Machine::where('WORKSHOP', 'Assembly')->get();
 
-        return view('dashboard/conclusion_all_project')->with('ship', $ship);
+        return view('dashboard/conclusion_all_project')->with('ship', $ship)->with('ssh', $ssh)->with('fabrication', $fabrication)->with('subassembly', $subassembly)->with('assembly', $assembly);
     }
 
     public function conclusion_finishing_workload()
