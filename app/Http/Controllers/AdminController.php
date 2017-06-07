@@ -72,7 +72,10 @@ class AdminController extends Controller
         $subassembly = Machine::where('WORKSHOP', 'Sub Assembly')->get();
         $assembly = Machine::where('WORKSHOP', 'Assembly')->get();
 
-        return view('dashboard/planning_workload')->with('ship', $ship)->with('now', $now)->with('ssh', $ssh)->with('fabrication', $fabrication)->with('subassembly', $subassembly)->with('assembly', $assembly);
+        $count = DB::select(DB::raw("SELECT WORKSHOP, ACTIVITY, COUNT(ID) AS COUNT FROM machines GROUP BY WORKSHOP, ACTIVITY"));
+//        dd($count);
+        
+        return view('dashboard/planning_workload')->with('ship', $ship)->with('now', $now)->with('ssh', $ssh)->with('fabrication', $fabrication)->with('subassembly', $subassembly)->with('assembly', $assembly)->with('count', $count);
     }
 
     public function conclusion_all_project()

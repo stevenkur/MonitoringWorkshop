@@ -81,16 +81,21 @@
               <label> {{ date('d-m-Y', strtotime($ships->FINISH)) }} </label>
             </div>
 
+            <?php
+                $date1 = new DateTime($ships->START);
+                $date2 = new DateTime($ships->FINISH);
+                $diff = $date1->diff($date2);
+            ?>
             <div class="form-group">
               <label class="col-lg-3"> Total Day </label>
               <label class="col-lg-1"> : </label>
-              <label> Total Day </label>
+              <label> {{$diff->days.' days'}} </label>
             </div>
 
             <div class="form-group">
               <label class="col-lg-3"> Total Workload </label>
               <label class="col-lg-1"> : </label>
-              <label> Total Workload </label>
+              <label> {{ $ships->DISPLACEMENT.' ton' }} </label>
             </div>
         </div>
         </div>
@@ -108,12 +113,23 @@
               <th>Workload Calculate per-Day</th>
             </tr>
           </thead>
+            <?php
+//                echo $count[13]->COUNT;
+                $workloadBlasting = ($ships['DISPLACEMENT']/$count[13]->COUNT)/$diff->days;
+                $workloadStraightening = ($ships['DISPLACEMENT']/$count[14]->COUNT)/$diff->days;
+            ?>
           <tbody>
             @foreach($ssh as $sshs)
             <tr>
                 <td>{{ $sshs->NAME }}</td>
-                <td></td>
-                <td></td>
+                <td>{{ $sshs->CAPACITY.' ton' }}</td>
+                <td>
+                    @if($sshs->ACTIVITY=="Blasting")
+                        {{$workloadBlasting.' ton'}}
+                    @elseif($sshs->ACTIVITY=="Straightening")
+                        {{$workloadStraightening.' ton'}}
+                    @endif
+                </td>
             </tr>
             @endforeach
           </tbody>
@@ -138,7 +154,7 @@
             @foreach($fabrication as $fab)
             <tr>
                 <td>{{ $fab->NAME }}</td>
-                <td></td>
+                <td>{{ $fab->CAPACITY }}</td>
                 <td></td>
             </tr>
             @endforeach  
@@ -164,7 +180,7 @@
             @foreach($subassembly as $subass)
             <tr>
                 <td>{{ $subass->NAME }}</td>
-                <td></td>
+                <td>{{ $subass->CAPACITY }}</td>
                 <td></td>
             </tr>
             @endforeach  
@@ -190,7 +206,7 @@
             @foreach($assembly as $assemblys)
             <tr>
                 <td>{{ $assemblys->NAME }}</td>
-                <td></td>
+                <td>{{ $assemblys->CAPACITY }}</td>
                 <td></td>
             </tr>
             @endforeach    
