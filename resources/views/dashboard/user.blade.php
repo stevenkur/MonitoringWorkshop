@@ -112,6 +112,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <label for="viewUser">User</label>
+              <div class="table-responsive" style="overflow: auto">
               <table id="user" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -162,6 +163,7 @@
                 </tr>
                 </tfoot>
               </table>
+              </div>
             </div>
             <!-- /.box-body -->
           </div>

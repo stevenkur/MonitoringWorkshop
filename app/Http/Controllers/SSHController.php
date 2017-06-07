@@ -8,6 +8,8 @@ use App\Block;
 use App\Plate;
 use App\Profile;
 use App\SSH;
+use App\Percentage;
+use DB;
 
 class SSHController extends Controller
 {
@@ -23,7 +25,16 @@ class SSHController extends Controller
         $plate=Plate::all();
         $profile=Profile::all();
         $ssh=SSH::all();
-        return view('dashboard/ssh_menu')->with('ship', $ship)->with('block', $block)->with('plate', $plate)->with('profile', $profile)->with('ssh', $ssh);
+
+        $straightening=Percentage::where("WORKSHOP","SSH")->where("ACTIVITY", "STRAIGHTENING")->first();
+        $blasting=Percentage::where("WORKSHOP","SSH")->where("ACTIVITY", "BLASTING")->first();
+
+        $str = $straightening->PERCENT;
+        $blast = $blasting->PERCENT;
+
+        $progress=DB::select(DB::raw("SELECT ID_BLOCK, BLOCK_NAME, ($str*SUM(STRAIGHTENING)/COUNT(ID))+($blast*SUM(BLASTING)/COUNT(ID)) AS PROGRESS FROM `plates` GROUP BY ID_BLOCK, BLOCK_NAME"));
+        
+        return view('dashboard/ssh_menu')->with('ship', $ship)->with('block', $block)->with('plate', $plate)->with('profile', $profile)->with('ssh', $ssh)->with('progress',$progress);
     }
 
     /**

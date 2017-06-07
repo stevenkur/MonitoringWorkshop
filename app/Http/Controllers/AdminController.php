@@ -47,6 +47,7 @@ class AdminController extends Controller
         $erec = Percentage::where('WORKSHOP', 'ERECTION')->get();
         
         $i=0;
+        $progress[0]=0;
         foreach($query as $queries)
         {                  
             $sshPercentage = (($ssh[0]->PERCENT*$queries->S_STRAIGHTENING)+($ssh[1]->PERCENT*$queries->S_BLASTING));
