@@ -126,7 +126,7 @@
                     if($plates->BENDING==0) $flagBend = false;
                     else $flagBend = true;
 
-                    if($flagBlock && $plates->ID_BLOCK == $_GET['block']){
+                    if($flagBlock && $plates->ID_BLOCK == $_GET['block'] && $plates->STRAIGHTENING >= 1 && $plates->BLASTING == 1){
                     echo '
                     <tr>
                         <td>'.$plates['ID'].'</td>                            
@@ -161,7 +161,7 @@
                         </td>
                     <?php echo '</tr>';
                     }
-                    else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
+                    else if($flagProject && $plates->ID_PROJECT == $_GET['project'] && $plates->STRAIGHTENING >= 1 && $plates->BLASTING == 1){
                     echo '
                     <tr>
                         <td>'.$plates['ID'].'</td>                            
@@ -196,7 +196,7 @@
                         </td>
                     <?php echo '</tr>';
                     }
-                    else if(!$flagBlock && !$flagProject){
+                    else if(!$flagBlock && !$flagProject && $plates->STRAIGHTENING >= 1 && $plates->BLASTING == 1){
                     echo '
                     <tr>
                         <td>'.$plates['ID'].'</td>                            

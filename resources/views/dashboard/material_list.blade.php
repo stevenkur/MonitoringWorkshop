@@ -166,7 +166,6 @@
                   <th>DIMENSION</th>
                   <th>QUANTITY</th>
                   <th>WEIGHT</th>
-                  <th>EDIT</th>
                   <th>DELETE</th>
                 </tr>
                 </thead>
@@ -179,7 +178,6 @@
                         <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
-                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
                         <td>';?>
                             {{ Form::open(array('url' => 'material_list/' . $plates->ID)) }}
                             {{ Form::hidden('_method', 'DELETE') }}
@@ -195,7 +193,6 @@
                         <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
-                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
                         <td>';?>
                             {{ Form::open(array('url' => 'material_list/' . $plates->ID)) }}
                             {{ Form::hidden('_method', 'DELETE') }}
@@ -211,7 +208,6 @@
                         <td>'.'l='.$plates['LENGTH'].', b='.$plates['BREADTH'].', t='.$plates['THICKNESS'].'</td>
                         <td>p='.$plates['PORT'].', c='.$plates['CENTER'].', s='.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
-                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
                         <td>';?>
                             {{ Form::open(array('url' => 'material_list/' . $plates->ID)) }}
                             {{ Form::hidden('_method', 'DELETE') }}
@@ -228,7 +224,6 @@
                   <th>DIMENSION</th>
                   <th>QUANTITY</th>
                   <th>WEIGHT</th>
-                  <th>EDIT</th>
                   <th>DELETE</th>
                 </tr>
                 </tfoot>

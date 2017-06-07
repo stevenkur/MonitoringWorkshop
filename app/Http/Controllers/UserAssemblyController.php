@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\ShipProject;
+use App\Part;
 use App\Block;
 use App\Panel;
 use App\Plate;
@@ -26,9 +27,10 @@ class UserAssemblyController extends Controller
         $ship=ShipProject::all();
         $block=Block::all();
         $panel=Panel::all();
+        $part=Part::all();
         $machine=Machine::where('WORKSHOP', 'Assembly')->get();
         $worker=Worker::where('DIVISION', 'Assembly')->get();
-        return view('user/input_act_assembly')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('machine', $machine)->with('worker', $worker);
+        return view('user/input_act_assembly')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('part', $part)->with('machine', $machine)->with('worker', $worker);
     }   
     
     public function assembly_recap_worker()

@@ -105,41 +105,6 @@
                    $flagBlock=true;
                 else $flagBlock=false;
             ?>
-          
-        <div class="col-md-12">
-        <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form">
-              <div class="box-body">
-              <label for="inputBlck">Select Block of [Ship_Name]:</label>
-                <div class="form-group">
-                  <select class="form-control" name="block_come">
-                    <option value="#">-- Block List --</option>
-                    <?php $i=1;?>
-                    @foreach($block as $blocks)
-                      <?php 
-                        $data_block[$i] = $blocks; $i++;
-                        if($flagProject && $blocks['ID_PROJECT']==$_GET['project_come']){
-                            echo '<option value="'.$blocks['ID'].'">'.$blocks['NAME'].'</option>';
-                        }
-                        else if(!$flagProject){
-                            echo '<option value="'.$blocks['ID'].'">'.$blocks['NAME'].'</option>';
-                        }?>
-                    @endforeach
-                  </select>
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Choose</button>
-              </div>
-            </form>
-            </div>
-          </div>
 
           <div class="col-md-12">
           <div class="box box-primary">
@@ -224,7 +189,7 @@
                 <tbody>
                 @foreach($profile as $profiles)
                     <?php 
-                    if($profiles['DATE_COMING']=null) $status = 'pending';
+                    if($profiles['DATE_COMING']==null) $status = 'pending';
                     else $status = 'Received '.$profiles['DATE_COMING'];
                     if($flagBlock && $plates->ID_BLOCK == $_GET['block_come']){
                     echo '

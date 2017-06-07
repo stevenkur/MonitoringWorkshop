@@ -202,8 +202,7 @@
                   <th>DIMENSION</th>
                   <th>QUANTITY</th>
                   <th>WEIGHT</th>
-                  <th>FORM</th>
-                  <th>EDIT</th>
+                  <th>STAGE</th>
                   <th>DELETE</th>
                 </tr>
                 </thead>
@@ -217,8 +216,7 @@
                         <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
-                        <td>'.$parts['FORM'].'</td>
-                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                        <td>'.$parts['STAGE'].'</td>
                         <td>';?>
                             {{ Form::open(array('url' => 'assembly_part/' . $parts->ID)) }}
                             {{ Form::hidden('_method', 'DELETE') }}
@@ -235,7 +233,7 @@
                         <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
-                        <td>'.$parts['FORM'].'</td>
+                        <td>'.$parts['STAGE'].'</td>
                         <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
                         <td>';?>
                             {{ Form::open(array('url' => 'assembly_part/' . $parts->ID)) }}
@@ -253,8 +251,7 @@
                         <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
-                        <td>'.$parts['FORM'].'</td>
-                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                        <td>'.$parts['STAGE'].'</td>
                         <td>';?>
                             {{ Form::open(array('url' => 'assembly_part/' . $parts->ID)) }}
                             {{ Form::hidden('_method', 'DELETE') }}
@@ -271,8 +268,7 @@
                         <td>'.$parts['LENGTH'].','.$parts['BREADTH'].','.$parts['THICKNESS'].'</td>
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
-                        <td>'.$parts['FORM'].'</td>
-                        <td><a class="btn btn-primary" type="submit" href="">Edit</a></td>
+                        <td>'.$parts['STAGE'].'</td>
                         <td>';?>
                             {{ Form::open(array('url' => 'assembly_part/' . $parts->ID)) }}
                             {{ Form::hidden('_method', 'DELETE') }}
@@ -290,8 +286,7 @@
                   <th>DIMENSION</th>
                   <th>QUANTITY</th>
                   <th>WEIGHT</th>
-                  <th>FORM</th>
-                  <th>EDIT</th>
+                  <th>STAGE</th>
                   <th>DELETE</th>
                 </tr>
                 </tfoot>
