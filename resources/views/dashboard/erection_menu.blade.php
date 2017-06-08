@@ -164,10 +164,12 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($progr as $prog)
                 <tr>
-                  <td>Block Name</td>
-                  <td>Total Progress</td>
-                </tr>                
+                  <td>{{$prog->NAME}}</td>
+                  <td>{{$prog->PROGRESS.'%'}}</td>
+                </tr>  
+                @endforeach               
                 </tbody>
                 <tfoot>
                 <tr>

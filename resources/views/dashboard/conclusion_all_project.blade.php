@@ -33,8 +33,8 @@
                     <option value="2">Fabrication Workshop</option>
                     <option value="3">Sub Assembly Workshop</option>
                     <option value="4">Assembly Workshop</option>
-                    <option value="5">BBS Workshop</option>
-                    <option value="6">Erection Process</option>                    
+                    <option value="5">BBS Workshop</option>       
+                    <!-- <option value="6">Erection Process</option> -->           
                   </select>
                 </div>
 
@@ -92,19 +92,86 @@
         <div class="box box-primary">
         <div class="box-body">        
         <h3>SSH Workshop</h3>    
+        <table id="ssh" class="table table-bordered table-striped">
+          <thead>           
+            <tr>
+              <th>Machine</th>
+            @foreach($ship as $ships)
+              <th>{{ $ships->PROJECT_NAME }}</th>
+            @endforeach  
+            </tr>
+          </thead>
+          <tbody>
 
+          </tbody>
+        </table>
         </div>
         </div>
         </div>
         @elseif($_GET['workshop']==2)
-        
+        <div class="col-lg-6">
+        <div class="box box-primary">
+        <div class="box-body">        
+        <h3>Fabrication Workshop</h3>    
+        <table id="fabrication" class="table table-bordered table-striped">
+          <thead>            
+            <tr>
+              <th>Machine</th>
+            @foreach($ship as $ships)
+              <th>{{ $ships->PROJECT_NAME }}</th>
+            @endforeach  
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+        </div>
+        </div>
+        </div>
         @elseif($_GET['workshop']==3)
-        
+        <div class="col-lg-6">
+        <div class="box box-primary">
+        <div class="box-body">        
+        <h3>Sub Assembly Workshop</h3>    
+        <table id="subassembly" class="table table-bordered table-striped">
+          <thead>           
+            <tr>
+              <th>Machine</th>
+            @foreach($ship as $ships)
+              <th>{{ $ships->PROJECT_NAME }}</th>
+            @endforeach  
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+        </div>
+        </div>
+        </div>
         @elseif($_GET['workshop']==4)
-        
+        <div class="col-lg-6">
+        <div class="box box-primary">
+        <div class="box-body">        
+        <h3>Assembly Workshop</h3>    
+        <table id="assembly" class="table table-bordered table-striped">
+          <thead>           
+            <tr>
+              <th>Machine</th>
+            @foreach($ship as $ships)
+              <th>{{ $ships->PROJECT_NAME }}</th>
+            @endforeach  
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+        </div>
+        </div>
+        </div>
         @elseif($_GET['workshop']==5)
-        
-        @elseif($_GET['workshop']==6)
         
         @endif
         @endif
@@ -133,6 +200,38 @@
 <script>
 $(function() {
     $('#ship').DataTable({
+          "paging": false,
+          "lengthChange": true,
+          "searching": false,
+          "ordering": true,
+          "info": false,
+          "autoWidth": true
+    });
+    $('#ssh').DataTable({
+          "paging": false,
+          "lengthChange": true,
+          "searching": false,
+          "ordering": true,
+          "info": false,
+          "autoWidth": true
+    });
+    $('#fabrication').DataTable({
+          "paging": false,
+          "lengthChange": true,
+          "searching": false,
+          "ordering": true,
+          "info": false,
+          "autoWidth": true
+    });
+    $('#subassembly').DataTable({
+          "paging": false,
+          "lengthChange": true,
+          "searching": false,
+          "ordering": true,
+          "info": false,
+          "autoWidth": true
+    });
+    $('#assembly').DataTable({
           "paging": false,
           "lengthChange": true,
           "searching": false,

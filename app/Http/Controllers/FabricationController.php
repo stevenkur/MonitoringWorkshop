@@ -8,6 +8,8 @@ use App\Block;
 use App\Profile;
 use App\Plate;
 use App\Fabrication;
+use App\Percentage;
+use DB;
 
 class FabricationController extends Controller
 {
@@ -23,7 +25,18 @@ class FabricationController extends Controller
         $profile=Profile::all();
         $plate=Plate::all();
         $fabrication=Fabrication::all();
-        return view('dashboard/fabrication_menu')->with('ship', $ship)->with('block', $block)->with('profile', $profile)->with('plate', $plate)->with('fabrication', $fabrication);
+
+        $marking=Percentage::where("WORKSHOP","FABRICATION")->where("ACTIVITY", "MARKING")->first();
+        $cutting=Percentage::where("WORKSHOP","FABRICATION")->where("ACTIVITY", "CUTTING")->first();
+        $bending=Percentage::where("WORKSHOP","FABRICATION")->where("ACTIVITY", "BENDING")->first();
+
+        $mark = $marking->PERCENT;
+        $cut = $cutting->PERCENT;
+        $bend = $bending->PERCENT;
+
+        $progr=DB::select(DB::raw("SELECT ID_BLOCK, BLOCK_NAME, ($mark*SUM(MARKING)/COUNT(ID))+($cut*SUM(CUTTING)/COUNT(ID))+($bend*SUM(BLENDING)/COUNT(ID)) AS PROGRESS FROM `plates` GROUP BY ID_BLOCK, BLOCK_NAME"));
+
+        return view('dashboard/fabrication_menu')->with('ship', $ship)->with('block', $block)->with('profile', $profile)->with('plate', $plate)->with('fabrication', $fabrication)->with('progr', $progr);
     }
 
     /**

@@ -252,7 +252,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($progress as $prog)
+                @foreach($progr as $prog)
                 <tr>
                   <td>{{$prog->BLOCK_NAME}}</td>
                   <td>{{$prog->PROGRESS.'%'}}</td>

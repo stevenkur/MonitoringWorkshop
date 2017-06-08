@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
 use App\Part;
 use App\SubAssembly;
+use App\Percentage;
+use DB;
 
 class SubAssemblyController extends Controller
 {
@@ -22,8 +23,21 @@ class SubAssemblyController extends Controller
         $block=Block::all();
         $progress=Part::select('id_block', DB::raw('sum(FAIRING+FITTING+GRINDING+WELDING)/3 as sum'))->groupBy('id_block')->get();
         $part=Part::all();
-        $subass=SubAssembly::all();                
-        return view('dashboard/subassembly_menu')->with('ship', $ship)->with('block', $block)->with('part', $part)->with('progress', $progress)->with('subass', $subass);
+        $subass=SubAssembly::all();     
+
+        $fitting=Percentage::where("WORKSHOP","SUBASSEMBLY")->where("ACTIVITY", "FITTING")->first();
+        $welding=Percentage::where("WORKSHOP","SUBASSEMBLY")->where("ACTIVITY", "WELDING")->first();
+        $grinding=Percentage::where("WORKSHOP","SUBASSEMBLY")->where("ACTIVITY", "GRINDING")->first();
+        $fairing=Percentage::where("WORKSHOP","SUBASSEMBLY")->where("ACTIVITY", "FAIRING")->first();
+
+        $fit = $fitting->PERCENT;
+        $weld = $welding->PERCENT;
+        $grind = $grinding->PERCENT;
+        $fair = $fairing->PERCENT;
+
+        $progr=DB::select(DB::raw("SELECT ID_BLOCK, BLOCK_NAME, ($fit*SUM(FITTING)/COUNT(ID))+($weld*SUM(WELDING)/COUNT(ID))+($grind*SUM(GRINDING)/COUNT(ID))+($fair*SUM(FAIRING)/COUNT(ID)) AS PROGRESS FROM `parts` GROUP BY ID_BLOCK, BLOCK_NAME"));
+
+        return view('dashboard/subassembly_menu')->with('ship', $ship)->with('block', $block)->with('part', $part)->with('progress', $progress)->with('progr', $progr)->with('subass', $subass);
     }
     
     /**

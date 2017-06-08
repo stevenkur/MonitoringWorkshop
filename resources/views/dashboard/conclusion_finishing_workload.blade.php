@@ -34,7 +34,7 @@
                     <option value="3">Sub Assembly Workshop</option>
                     <option value="4">Assembly Workshop</option>
                     <option value="5">BBS Workshop</option>
-                    <option value="6">Erection Process</option>                    
+                    <!-- <option value="6">Erection Process</option> -->                    
                   </select>
                 </div>
 
@@ -59,6 +59,20 @@
         </div>
         </div>
         </div>
+
+        @if(isset($_GET['workshop']))        
+        @if($_GET['workshop']==1)
+
+        @elseif($_GET['workshop']==2)
+
+        @elseif($_GET['workshop']==3)
+
+        @elseif($_GET['workshop']==4)
+
+        @elseif($_GET['workshop']==5)
+        
+        @endif
+        @endif
               
       </div>
     </section>

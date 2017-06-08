@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
 use App\BBS;
+use App\Percentage;
+use DB;
 
 class BBSController extends Controller
 {
@@ -19,7 +21,16 @@ class BBSController extends Controller
         $ship=ShipProject::all();
         $block=Block::all();
         $bbs=BBS::all();
-        return view('dashboard/bbs_menu')->with('ship', $ship)->with('bbs', $bbs)->with('block', $block);
+
+        $blasting=Percentage::where("WORKSHOP","BBS")->where("ACTIVITY", "BLASTING")->first();
+        $painting=Percentage::where("WORKSHOP","BBS")->where("ACTIVITY", "PAINTING")->first();
+
+        $blast = $blasting->PERCENT;
+        $paint = $painting->PERCENT;
+
+        $progr=DB::select(DB::raw("SELECT ID_BLOCK, BLOCK_NAME, ($blast*SUM(BLASTING)/COUNT(ID))+($paint*SUM(PAINTING)/COUNT(ID)) AS PROGRESS FROM `rooms` GROUP BY ID_BLOCK, BLOCK_NAME"));
+        
+        return view('dashboard/bbs_menu')->with('ship', $ship)->with('bbs', $bbs)->with('block', $block)->with('progr',$progr);
     }
 
     /**

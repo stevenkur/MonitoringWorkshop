@@ -32,9 +32,9 @@ class SSHController extends Controller
         $str = $straightening->PERCENT;
         $blast = $blasting->PERCENT;
 
-        $progress=DB::select(DB::raw("SELECT ID_BLOCK, BLOCK_NAME, ($str*SUM(STRAIGHTENING)/COUNT(ID))+($blast*SUM(BLASTING)/COUNT(ID)) AS PROGRESS FROM `plates` GROUP BY ID_BLOCK, BLOCK_NAME"));
+        $progr=DB::select(DB::raw("SELECT ID_BLOCK, BLOCK_NAME, ($str*SUM(STRAIGHTENING)/COUNT(ID))+($blast*SUM(BLASTING)/COUNT(ID)) AS PROGRESS FROM `plates` GROUP BY ID_BLOCK, BLOCK_NAME"));
         
-        return view('dashboard/ssh_menu')->with('ship', $ship)->with('block', $block)->with('plate', $plate)->with('profile', $profile)->with('ssh', $ssh)->with('progress',$progress);
+        return view('dashboard/ssh_menu')->with('ship', $ship)->with('block', $block)->with('plate', $plate)->with('profile', $profile)->with('ssh', $ssh)->with('progr',$progr);
     }
 
     /**
