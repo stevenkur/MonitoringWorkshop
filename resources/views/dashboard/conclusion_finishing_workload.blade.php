@@ -62,15 +62,139 @@
 
         @if(isset($_GET['workshop']))        
         @if($_GET['workshop']==1)
+        <div class="col-md-12">
+        <div class="box box-primary">
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="ssh" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Target Output Machine</th>
+                  <th>Capacity Max</th>
+                </tr>
+                </thead>
+                <tbody>
 
+                </tbody>
+              </table>
+            </div>            
+            <div class="box-footer">
+            <h3>Productivity Per-Month:</h3>
+            <h3>Target Production Per-Month:</h3>
+            <h3>Conclusion:</h3>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        </div>
         @elseif($_GET['workshop']==2)
 
+        <div class="col-md-12">
+        <div class="box box-primary">
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="fabrication" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Target Output Machine</th>
+                  <th>Capacity Max</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+            </div>            
+            <div class="box-footer">
+            <h3>Productivity Per-Month:</h3>
+            <h3>Target Production Per-Month:</h3>
+            <h3>Conclusion:</h3>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        </div>
         @elseif($_GET['workshop']==3)
 
+        <div class="col-md-12">
+        <div class="box box-primary">
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="subassembly" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Target Output Machine</th>
+                  <th>Capacity Max</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+            </div>            
+            <div class="box-footer">
+            <h3>Productivity Per-Month:</h3>
+            <h3>Target Production Per-Month:</h3>
+            <h3>Conclusion:</h3>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        </div>
         @elseif($_GET['workshop']==4)
 
+        <div class="col-md-12">
+        <div class="box box-primary">
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="assembly" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Target Output Machine</th>
+                  <th>Capacity Max</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+            </div>            
+            <div class="box-footer">
+            <h3>Productivity Per-Month:</h3>
+            <h3>Target Production Per-Month:</h3>
+            <h3>Conclusion:</h3>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        </div>
         @elseif($_GET['workshop']==5)
         
+        <div class="col-md-12">
+        <div class="box box-primary">
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="bbs" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Target Output Machine</th>
+                  <th>Capacity Max</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+            </div>            
+            <div class="box-footer">
+            <h3>Productivity Per-Month:</h3>
+            <h3>Target Production Per-Month:</h3>
+            <h3>Conclusion:</h3>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        </div>
         @endif
         @endif
               
@@ -94,3 +218,48 @@
 <script src="public/adminlte/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="public/adminlte/dist/js/demo.js"></script>
+
+<script>
+$(function() {
+    $('#ssh').DataTable({
+          "paging": false,
+          "lengthChange": true,
+          "searching": false,
+          "ordering": true,
+          "info": false,
+          "autoWidth": true
+    });
+    $('#fabrication').DataTable({
+          "paging": false,
+          "lengthChange": true,
+          "searching": false,
+          "ordering": true,
+          "info": false,
+          "autoWidth": true
+    });
+    $('#subassembly').DataTable({
+          "paging": false,
+          "lengthChange": true,
+          "searching": false,
+          "ordering": true,
+          "info": false,
+          "autoWidth": true
+    });
+    $('#assembly').DataTable({
+          "paging": false,
+          "lengthChange": true,
+          "searching": false,
+          "ordering": true,
+          "info": false,
+          "autoWidth": true
+    });
+    $('#bbs').DataTable({
+          "paging": false,
+          "lengthChange": true,
+          "searching": false,
+          "ordering": true,
+          "info": false,
+          "autoWidth": true
+    });
+  });
+</script>
