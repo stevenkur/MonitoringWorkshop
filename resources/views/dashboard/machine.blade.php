@@ -99,6 +99,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <label for="viewMachine">Machine</label>
+              <div class="table-responsive" style="overflow: auto">
               <table id="machineTable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -143,6 +144,7 @@
                 </tr>
                 </tfoot>
               </table>
+              </div>
             </div>
             <!-- /.box-body -->
           </div>

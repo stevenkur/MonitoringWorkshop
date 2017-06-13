@@ -158,8 +158,9 @@
             <!-- form start -->  
             <div class="col-md-8">
             <div class="box box-primary">
-          <div class="box-body">
+            <div class="box-body">
               <label for="viewPanel">Panel</label>
+              <div class="table-responsive" style="overflow: auto">
               <table id="panel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -234,6 +235,7 @@
                 </tr>
                 </tfoot>
               </table>
+              </div>
             </div>
             </div>
           </div>

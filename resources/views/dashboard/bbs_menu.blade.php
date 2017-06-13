@@ -82,6 +82,7 @@
             <!-- /.box-header -->
             <div class="box-body">
             <h3>Recap Process</h3>
+              <div class="table-responsive" style="overflow: auto">
               <table id="bbs" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -90,48 +91,57 @@
                   <th>Frame</th>
                   <th>Deck</th>
                   <th>Area (m<sup>2</sup>)</th>
+                  <th>Total Layer</th>
                   <th>Blasting</th>
-                  <th>FInished Layer Painting</th>
-                  <th>Date of Work</th>
-                  <th>Total Process</th>
+                  <th>Blasting Date</th>
+                  <th>Painting</th>
+                  <th>Painting Date</th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($room as $rooms)
                 <tr>
-                  <td>Room</td>
-                  <td>Side</td>
-                  <td>Frame</td>
-                  <td>Deck</td>
-                  <td>Area (m2)</td>
-                  <td>Blasting</td>
-                  <td>FInished Layer Painting</td>
-                  <td>Date of Work</td>
-                  <td>Total Process</td>
-                </tr>
-                <tr>
-                  <td>Room</td>
-                  <td>Side</td>
-                  <td>Frame</td>
-                  <td>Deck</td>
-                  <td>Area (m2)</td>
-                  <td>Blasting</td>
-                  <td>FInished Layer Painting</td>
-                  <td>Date of Work</td>
-                  <td>Total Process</td>
-                </tr>
-                <tr>
-                  <td>Room</td>
-                  <td>Side</td>
-                  <td>Frame</td>
-                  <td>Deck</td>
-                  <td>Area (m2)</td>
-                  <td>Blasting</td>
-                  <td>FInished Layer Painting</td>
-                  <td>Date of Work</td>
-                  <td>Total Process</td>
-                </tr>
+                  <td>{{$rooms->ID}}</td>
+                  <td>{{$rooms->SIDE}}</td>
+                  <td>{{$rooms->FRAME}}</td>
+                  <td>{{$rooms->DECK}}</td>
+                  <td>{{$rooms->AREA}}</td>
+                  <td>{{$rooms->TOTAL_LAYER}}</td>
+                  <td>{{$rooms->BLASTING}}</td>
+                  <td>
+                    @if(empty($rooms->BLASTING_DATE))
+                    -----
+                    @else
+                    {{$rooms->BLASTING_DATE}}
+                    @endif
+                  </td>
+                  <td>{{$rooms->PAINTING}}</td>
+                  <td>
+                    @if(empty($rooms->PAINTING_DATE))
+                    -----
+                    @else
+                    {{$rooms->PAINTING_DATE}}
+                    @endif
+                  </td>
+                </tr>   
+                @endforeach
                 </tbody>
+                <tfoot>
+                <tr>
+                  <th>Room</th>
+                  <th>Side</th>
+                  <th>Frame</th>
+                  <th>Deck</th>
+                  <th>Area (m<sup>2</sup>)</th>
+                  <th>Total Layer</th>
+                  <th>Blasting</th>
+                  <th>Blasting Date</th>
+                  <th>Painting</th>
+                  <th>Painting Date</th>
+                </tr>
+                </tfoot>
               </table>
+              </div>
             </div>
             <!-- /.box-body -->
           </div>
@@ -143,6 +153,7 @@
             
           <div class="box-body">
               <h1>Recap Progress Block Activity</h1>
+              <div class="table-responsive" style="overflow: auto">
               <table id="progress" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -165,6 +176,7 @@
                 </tr>
                 </tfoot>
               </table>
+              </div>
           </div>
           
         </div>
@@ -218,7 +230,8 @@
             <div class="box box-primary">
   
               <div class="box-body">
-              <h1>Workshop Productivity</h1>  
+              <h1>Workshop Productivity</h1>
+              <div class="table-responsive" style="overflow: auto">  
               <table id="workshopproductivity" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -242,6 +255,7 @@
                 </tr>
                 </tfoot>
               </table>
+              </div>
              </div>  
               
             </div>
@@ -320,6 +334,7 @@
             <!-- /.box-header -->
             <div class="box-body">
             <h3>List Worker</h3>
+              <div class="table-responsive" style="overflow: auto">
               <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -346,6 +361,7 @@
                 @endforeach
                 </tbody>
               </table>
+              </div>
             </div>
             <!-- /.box-body -->
           </div>

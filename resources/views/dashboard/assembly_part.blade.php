@@ -194,6 +194,7 @@
             <div class="box box-primary">
             <div class="box-body">
               <label for="viewAssemblyPart">Assembly Part</label>
+              <div class="table-responsive" style="overflow: auto">
               <table id="assemblypart" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -291,6 +292,7 @@
                 </tr>
                 </tfoot>
               </table>
+              </div>
             </div>
             </div>
             </section>

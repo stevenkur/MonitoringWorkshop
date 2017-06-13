@@ -96,6 +96,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <label for="viewWorker">Worker</label>
+              <div class="table-responsive" style="overflow: auto">
               <table id="workerTable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -137,6 +138,7 @@
                 </tr>
                 </tfoot>
               </table>
+              </div>
             </div>
             <!-- /.box-body -->
           </div>

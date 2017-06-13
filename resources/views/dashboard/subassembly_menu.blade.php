@@ -93,6 +93,7 @@
             
           <div class="box-body">
               <h1>Recap Block's Sub Assembly Process</h1>
+              <div class="table-responsive" style="overflow: auto">
               <table id="block" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -138,6 +139,7 @@
                 </tr>
                 </tfoot>
               </table>
+              </div>
              </div>
            </div>
           </div>
@@ -146,7 +148,8 @@
             <div class="box box-primary">
   
               <div class="box-body">
-              <h1>Parts</h1>  
+              <h1>Parts</h1> 
+              <div class="table-responsive" style="overflow: auto"> 
               <table id="part" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -262,6 +265,7 @@
                 </tr>
                 </tfoot>
               </table>
+              </div>
              </div>  
               
            </div>
@@ -273,6 +277,7 @@
             
           <div class="box-body">
               <h1>Recap Progress Block Activity</h1>
+              <div class="table-responsive" style="overflow: auto">
               <table id="panel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -295,6 +300,7 @@
                 </tr>
                 </tfoot>
               </table>
+              </div>
           </div>
           
         </div>
@@ -349,6 +355,7 @@
   
               <div class="box-body">
               <h1>Workshop Productivity</h1>  
+              <div class="table-responsive" style="overflow: auto">
               <table id="workshopproductivity" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -372,6 +379,7 @@
                 </tr>
                 </tfoot>
               </table>
+              </div>
              </div>  
               
             </div>
@@ -425,7 +433,8 @@
             <div class="box box-primary">
   
               <div class="box-body">
-              <h1>Working Machine Productivity</h1>  
+              <h1>Working Machine Productivity</h1>
+              <div class="table-responsive" style="overflow: auto">  
               <table id="machineproductivity" class="table table-bordered table-striped">
                 <thead>
                 <tr>                 
@@ -457,6 +466,7 @@
                 </tr>
                 </tfoot>
               </table>
+              </div>
              </div>  
               
             </div>
@@ -538,6 +548,7 @@
             <!-- /.box-header -->
             <div class="box-body">
             <h3>List Worker</h3>
+              <div class="table-responsive" style="overflow: auto">
               <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -564,6 +575,7 @@
                 @endforeach
                 </tbody>
               </table>
+              </div>
             </div>
             <!-- /.box-body -->
           </div>

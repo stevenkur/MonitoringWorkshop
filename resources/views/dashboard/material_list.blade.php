@@ -156,9 +156,10 @@
           </section>    
 
         <section class="col-lg-8">
-            <div class="box box-primary">
+          <div class="box box-primary">
           <div class="box-body">
               <label for="viewPlate">Plate</label>
+              <div class="table-responsive" style="overflow: auto">
               <table id="materialPlate" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -228,12 +229,14 @@
                 </tr>
                 </tfoot>
               </table>
+              </div>
             </div>
             </div>
                 
             <div class="box box-primary">
             <div class="box-body">
               <label for="viewProfile">Profile</label>
+              <div class="table-responsive" style="overflow: auto">
               <table id="materialProfile" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -313,6 +316,7 @@
                 </tr>
                 </tfoot>
               </table>
+              </div>
             </div>
             </div>
         </section>

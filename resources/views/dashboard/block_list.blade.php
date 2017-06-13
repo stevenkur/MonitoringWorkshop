@@ -128,8 +128,9 @@
             <!-- form start -->  
             <div class="col-md-6">
             <div class="box box-primary">
-          <div class="box-body">
+            <div class="box-body">
               <label for="viewBlock">Block</label>
+              <div class="table-responsive" style="overflow: auto">
               <table id="block" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -182,6 +183,7 @@
                 </tr>
                 </tfoot>
               </table>
+              </div>
             </div>
             </div>
           </div>

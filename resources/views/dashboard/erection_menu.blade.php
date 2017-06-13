@@ -82,6 +82,7 @@
             
           <div class="box-body">
               <h1>Recap Process</h1>
+              <div class="table-responsive" style="overflow: auto">
               <table id="panel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -145,6 +146,7 @@
                 </tr>
                 </tfoot>
               </table>
+              </div>
           </div>
 
         </div>
@@ -156,6 +158,7 @@
             
           <div class="box-body">
               <h1>Recap Progress Block Activity</h1>
+              <div class="table-responsive" style="overflow: auto">
               <table id="progress" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -178,6 +181,7 @@
                 </tr>
                 </tfoot>
               </table>
+              </div>
           </div>
           
         </div>
@@ -232,6 +236,7 @@
   
               <div class="box-body">
               <h1>Workshop Productivity</h1>  
+              <div class="table-responsive" style="overflow: auto">
               <table id="workshopproductivity" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -255,6 +260,7 @@
                 </tr>
                 </tfoot>
               </table>
+              </div>
              </div>  
               
             </div>
@@ -332,6 +338,7 @@
         <div class="box">
             <!-- /.box-header -->
             <div class="box-body">
+              <div class="table-responsive" style="overflow: auto">
               <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -358,6 +365,7 @@
                 @endforeach
                 </tbody>
               </table>
+              </div>
             </div>
             <!-- /.box-body -->
           </div>
