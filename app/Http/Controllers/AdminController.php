@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\ShipProject;
 use App\Block;
 use App\Panel;
+use App\Plate;
 use App\Part;
 use App\User;
 use App\Machine;
@@ -29,9 +30,16 @@ class AdminController extends Controller
     public function index()
     {
         $ship = ShipProject::where('FINISHED', null);
+        $ssh=DB::select(DB::raw("SELECT SUM(P.WEIGHT) AS WEIGHT FROM ssh S, plates P WHERE (S.PROCESS='Blasting & Shop Primer' AND S.ID_MATERIAL=P.ID AND MONTH(CURRENT_TIMESTAMP))"));
+        $fabrication=DB::select(DB::raw("SELECT SUM(P.WEIGHT) AS WEIGHT FROM fabrications F, plates P WHERE (F.PROCESS='Bending' AND F.ID_MATERIAL=P.ID AND MONTH(CURRENT_TIMESTAMP))"));
+        $subassembly=DB::select(DB::raw("SELECT SUM(P.WEIGHT) AS WEIGHT FROM sub_assembly S, parts P WHERE (S.PROCESS='Fairing' AND S.ID_PART=P.ID AND MONTH(CURRENT_TIMESTAMP))"));
+        $assembly=DB::select(DB::raw("SELECT SUM(PN.WEIGHT) AS WEIGHT FROM assembly S, panels P, parts PN WHERE (S.PROCESS='Fairing' AND S.ID_PANEL=P.ID AND MONTH(CURRENT_TIMESTAMP) AND PN.ID_PANEL=P.ID)"));
+        $bbs=DB::select(DB::raw("SELECT SUM(R.AREA) AS WEIGHT FROM bbs B, rooms R WHERE (B.PROCESS='PAINTING' AND B.ID_MATERIAL=R.ROOM AND MONTH(CURRENT_TIMESTAMP))"));
+        $erection=DB::select(DB::raw("SELECT SUM(P.WEIGHT) AS WEIGHT FROM erections E, blocks B, parts P WHERE (E.PROCESS='WELDING' AND E.ID_BLOCK=B.ID AND MONTH(CURRENT_TIMESTAMP) AND P.ID_BLOCK=B.ID)"));
+
         $user = User::all();
         
-        return view('dashboard/index')->with('ship', $ship)->with('user', $user);
+        return view('dashboard/index')->with('ship', $ship)->with('user', $user)->with('ssh', $ssh)->with('fabrication', $fabrication)->with('subassembly', $subassembly)->with('assembly', $assembly)->with('bbs', $bbs)->with('erection', $erection);
     }   
 
     public function total_ship_progress()

@@ -19,35 +19,11 @@
     <section class="content">
       <div class="row">
 
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-6 col-xs-6">
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>{{$ship->count()}}</h3>
               <p>Unfinished Project</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3>XXX ton</h3>
-              <p>Daily Productivity</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-red">
-            <div class="inner">
-              <h3>XXX ton</h3>
-              <p>Monthly Productivity</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
@@ -55,7 +31,7 @@
           </div>
         </div>
         
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-6 col-xs-6">
           <div class="small-box bg-yellow">
             <div class="inner">
               <h3>{{$user->count()}}</h3>
@@ -70,7 +46,7 @@
         <div class="col-lg-4 col-xs-6">
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3>XxX</h3>
+              <h3>{{$ssh[0]->WEIGHT}} ton</h3>
               <p>SSH Output</p>
             </div>
             <div class="icon">
@@ -82,7 +58,7 @@
         <div class="col-lg-4 col-xs-6">
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3>XxX</h3>
+              <h3>{{$fabrication[0]->WEIGHT}} ton</h3>
               <p>Fabrication Output</p>
             </div>
             <div class="icon">
@@ -94,7 +70,7 @@
         <div class="col-lg-4 col-xs-6">
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3>XxX</h3>
+              <h3>{{$subassembly[0]->WEIGHT}} ton</h3>
               <p>Sub Assembly Output</p>
             </div>
             <div class="icon">
@@ -106,7 +82,7 @@
         <div class="col-lg-4 col-xs-6">
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3>XxX</h3>
+              <h3>{{$assembly[0]->WEIGHT}} ton</h3>
               <p>Assembly Output</p>
             </div>
             <div class="icon">
@@ -118,7 +94,7 @@
         <div class="col-lg-4 col-xs-6">
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3>XxX</h3>
+              <h3>{{$bbs[0]->WEIGHT}} ton</h3>
               <p>BBS Output</p>
             </div>
             <div class="icon">
@@ -130,7 +106,7 @@
         <div class="col-lg-4 col-xs-6">
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3>XxX</h3>
+              <h3>{{$erection[0]->WEIGHT}} ton</h3>
               <p>Erection Output</p>
             </div>
             <div class="icon">
