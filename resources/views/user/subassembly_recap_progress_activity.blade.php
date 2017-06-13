@@ -128,7 +128,7 @@
                       <td>{{$prog->GRIND}}</td>
                       <td>{{($prog->NUM-$prog->FAIR)}}</td>
                       <td>{{$prog->FAIR}}</td>
-                      <td>{{(($prog->FIT/$prog->NUM)*($fitting->PERCENT/100)+($prog->WELD/$prog->NUM)*($welding->PERCENT/100)+($prog->GRIND/$prog->NUM)*($grinding->PERCENT/100)+($prog->FAIR/$prog->NUM)*($fairing->PERCENT/100)).'%'}}</td>
+                      <td>{{(((($prog->FIT/$prog->NUM)*($fitting->PERCENT/100)+($prog->WELD/$prog->NUM)*($welding->PERCENT/100)+($prog->GRIND/$prog->NUM)*($grinding->PERCENT/100)+($prog->FAIR/$prog->NUM)*($fairing->PERCENT/100)))*100).'%'}}</td>
                     </tr>
                     @elseif(!$flagProject)
                     <tr>
@@ -141,7 +141,7 @@
                       <td>{{$prog->GRIND}}</td>
                       <td>{{($prog->NUM-$prog->FAIR)}}</td>
                       <td>{{$prog->FAIR}}</td>
-                      <td>{{(($prog->FIT/$prog->NUM)*($fitting->PERCENT/100)+($prog->WELD/$prog->NUM)*($welding->PERCENT/100)+($prog->GRIND/$prog->NUM)*($grinding->PERCENT/100)+($prog->FAIR/$prog->NUM)*($fairing->PERCENT/100)).'%'}}</td>
+                      <td>{{(((($prog->FIT/$prog->NUM)*($fitting->PERCENT/100)+($prog->WELD/$prog->NUM)*($welding->PERCENT/100)+($prog->GRIND/$prog->NUM)*($grinding->PERCENT/100)+($prog->FAIR/$prog->NUM)*($fairing->PERCENT/100)))*100).'%'}}</td>
                     </tr>
                     @endif
                 @endforeach

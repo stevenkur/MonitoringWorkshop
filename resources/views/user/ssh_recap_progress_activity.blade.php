@@ -108,7 +108,7 @@
                       <td>{{$prog->STR}}</td>
                       <td>{{($prog->NUM-$prog->BLAST)}}</td>
                       <td>{{$prog->BLAST}}</td>
-                      <td>{{(($prog->STR/$prog->NUM)*($straightening->PERCENT/100))+(($prog->BLAST/$prog->NUM)*($blasting->PERCENT/100)).'%'}}</td>
+                      <td>{{(((($prog->STR/$prog->NUM)*($straightening->PERCENT/100))+(($prog->BLAST/$prog->NUM)*($blasting->PERCENT/100)))*100).'%'}}</td>
                     </tr>
                     @elseif(!$flagProject)
                     <tr>
@@ -117,7 +117,7 @@
                       <td>{{$prog->STR}}</td>
                       <td>{{($prog->NUM-$prog->BLAST)}}</td>
                       <td>{{$prog->BLAST}}</td>
-                      <td>{{(($prog->STR/$prog->NUM)*($straightening->PERCENT/100))+(($prog->BLAST/$prog->NUM)*($blasting->PERCENT/100)).'%'}}</td>
+                      <td>{{(((($prog->STR/$prog->NUM)*($straightening->PERCENT/100))+(($prog->BLAST/$prog->NUM)*($blasting->PERCENT/100)))*100).'%'}}</td>
                     </tr>
                     @endif
                 @endforeach

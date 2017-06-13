@@ -118,7 +118,7 @@
                       <td>{{$prog->CUTTING}}</td>
                       <td>{{($prog->NUM-$prog->BLENDING)}}</td>
                       <td>{{$prog->BLENDING}}</td>
-                      <td>{{(($prog->MARKING/$prog->NUM)*($marking->PERCENT/100)+($prog->CUTTING/$prog->NUM)*($cutting->PERCENT/100)+($prog->BLENDING/$prog->NUM)*($bending->PERCENT/100)).'%'}}</td>
+                      <td>{{(((($prog->MARKING/$prog->NUM)*($marking->PERCENT/100)+($prog->CUTTING/$prog->NUM)*($cutting->PERCENT/100)+($prog->BLENDING/$prog->NUM)*($bending->PERCENT/100)))*100).'%'}}</td>
                     </tr>
                     @elseif(!$flagProject)
                     <tr>
@@ -129,7 +129,7 @@
                       <td>{{$prog->CUTTING}}</td>
                       <td>{{($prog->NUM-$prog->BLENDING)}}</td>
                       <td>{{$prog->BLENDING}}</td>
-                      <td>{{(($prog->MARKING/$prog->NUM)*($marking->PERCENT/100)+($prog->CUTTING/$prog->NUM)*($cutting->PERCENT/100)+($prog->BLENDING/$prog->NUM)*($bending->PERCENT/100)).'%'}}</td>
+                      <td>{{(((($prog->MARKING/$prog->NUM)*($marking->PERCENT/100)+($prog->CUTTING/$prog->NUM)*($cutting->PERCENT/100)+($prog->BLENDING/$prog->NUM)*($bending->PERCENT/100)))*100).'%'}}</td>
                     </tr>
                     @endif
                 @endforeach

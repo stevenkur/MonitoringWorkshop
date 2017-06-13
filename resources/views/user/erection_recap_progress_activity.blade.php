@@ -78,7 +78,7 @@
                     <td>{{$blocks->ADJUSTING}}</td>
                     <td>{{$blocks->FITTING}}</td>
                     <td>{{$blocks->WELDING}}</td>
-                    <td>{{($blocks->LOADING*$loading->PERCENT)+($blocks->ADJUSTING*$adjusting->PERCENT)+($blocks->FITTING*$fitting->PERCENT)+($blocks->WELDING*$welding->PERCENT)}}</td>
+                    <td>{{(($blocks->LOADING*$loading->PERCENT)+($blocks->ADJUSTING*$adjusting->PERCENT)+($blocks->FITTING*$fitting->PERCENT)+($blocks->WELDING*$welding->PERCENT)).'%'}}</td>
                   </tr>
                   @elseif(!$flagProject)
                   <tr>
@@ -87,7 +87,7 @@
                     <td>{{$blocks->ADJUSTING}}</td>
                     <td>{{$blocks->FITTING}}</td>
                     <td>{{$blocks->WELDING}}</td>
-                    <td>{{($blocks->LOADING*$loading->PERCENT)+($blocks->ADJUSTING*$adjusting->PERCENT)+($blocks->FITTING*$fitting->PERCENT)+($blocks->WELDING*$welding->PERCENT)}}</td>
+                    <td>{{(($blocks->LOADING*$loading->PERCENT)+($blocks->ADJUSTING*$adjusting->PERCENT)+($blocks->FITTING*$fitting->PERCENT)+($blocks->WELDING*$welding->PERCENT)).'%'}}</td>
                   </tr>
                   @endif
                 @endforeach
