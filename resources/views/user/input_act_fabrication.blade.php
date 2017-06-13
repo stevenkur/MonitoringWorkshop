@@ -94,7 +94,7 @@
                 $flagProcess = true;
                 if($proc[0]==1) $process = 'Marking';
                 else if($proc[0]==2) $process = 'Cutting';
-                else if($proc[0]==3) $process = 'Blending';
+                else if($proc[0]==3) $process = 'Bending';
                 $idMaterial = $proc[1];
             }
             else $flagProcess = false;
@@ -123,7 +123,7 @@
                     else $flagMark = true;
                     if($plates->CUTTING==0) $flagCut = false;
                     else $flagCut = true;
-                    if($plates->BENDING==0) $flagBend = false;
+                    if($plates->BLENDING==0) $flagBend = false;
                     else $flagBend = true;
 
                     if($flagBlock && $plates->ID_BLOCK == $_GET['block'] && $plates->STRAIGHTENING >= 1 && $plates->BLASTING == 1){
@@ -152,7 +152,7 @@
                             <form action="./input_act_fabrication" class="form" method="get">
                                 <select class="form-control" name="process" onChange="this.form.submit();">
                                     <option value="#">-- Material Process List --</option>
-                                    <option value="2|<?php echo $plates['ID'];?>">Bending</option>
+                                    <option value="3|<?php echo $plates['ID'];?>">Bending</option>
                                 </select>
                             </form>
                             @else
@@ -187,7 +187,7 @@
                             <form action="./input_act_fabrication" class="form" method="get">
                                 <select class="form-control" name="process" onChange="this.form.submit();">
                                     <option value="#">-- Material Process List --</option>
-                                    <option value="2|<?php echo $plates['ID'];?>">Bending</option>
+                                    <option value="3|<?php echo $plates['ID'];?>">Bending</option>
                                 </select>
                             </form>
                             @else
@@ -222,7 +222,7 @@
                             <form action="./input_act_fabrication" class="form" method="get">
                                 <select class="form-control" name="process" onChange="this.form.submit();">
                                     <option value="#">-- Material Process List --</option>
-                                    <option value="2|<?php echo $plates['ID'];?>">Bending</option>
+                                    <option value="3|<?php echo $plates['ID'];?>">Bending</option>
                                 </select>
                             </form>
                             @else

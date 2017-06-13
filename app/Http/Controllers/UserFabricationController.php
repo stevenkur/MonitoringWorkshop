@@ -108,7 +108,7 @@ class UserFabricationController extends Controller
             $plate = Plate::where('ID', $input['id_material'])->update(['CUTTING'=>1, 'CUTTING_DATE'=>Carbon::today()->format('Y-m-d'), 'CUTTING_MACHINE'=>$input['machine']]);
         }
         else{
-            $plate = Plate::where('ID', $input['id_material'])->update(['BLENDING'=>1, 'BLENDING_DATE'=>Carbon::today()->format('Y-m-d'), 'BENDING_MACHINE'=>$input['machine']]);
+            $plate = Plate::where('ID', $input['id_material'])->update(['BLENDING'=>1, 'BLENDING_DATE'=>Carbon::today()->format('Y-m-d'), 'BLENDING_MACHINE'=>$input['machine']]);
         }
         
         $ship=ShipProject::all();
