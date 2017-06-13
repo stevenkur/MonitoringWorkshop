@@ -82,7 +82,9 @@
             <div class="box-footer">
             <h3>Productivity Per-Month:</h3>
             <h3>Target Production Per-Month:</h3>
-            <h3>Conclusion:</h3>
+            <h3>Conclusion:
+
+            </h3>
             </div>
             <!-- /.box-body -->
         </div>
@@ -109,7 +111,9 @@
             <div class="box-footer">
             <h3>Productivity Per-Month:</h3>
             <h3>Target Production Per-Month:</h3>
-            <h3>Conclusion:</h3>
+            <h3>Conclusion:
+
+            </h3>
             </div>
             <!-- /.box-body -->
         </div>
@@ -136,7 +140,9 @@
             <div class="box-footer">
             <h3>Productivity Per-Month:</h3>
             <h3>Target Production Per-Month:</h3>
-            <h3>Conclusion:</h3>
+            <h3>Conclusion:
+
+            </h3>
             </div>
             <!-- /.box-body -->
         </div>
@@ -163,7 +169,9 @@
             <div class="box-footer">
             <h3>Productivity Per-Month:</h3>
             <h3>Target Production Per-Month:</h3>
-            <h3>Conclusion:</h3>
+            <h3>Conclusion:
+
+            </h3>
             </div>
             <!-- /.box-body -->
         </div>
@@ -190,7 +198,9 @@
             <div class="box-footer">
             <h3>Productivity Per-Month:</h3>
             <h3>Target Production Per-Month:</h3>
-            <h3>Conclusion:</h3>
+            <h3>Conclusion:
+
+            </h3>
             </div>
             <!-- /.box-body -->
         </div>

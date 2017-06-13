@@ -66,6 +66,78 @@
             </div>
           </div>
         </div>
+
+        <div class="col-lg-4 col-xs-6">
+          <div class="small-box bg-blue">
+            <div class="inner">
+              <h3>XxX</h3>
+              <p>SSH Output</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-xs-6">
+          <div class="small-box bg-blue">
+            <div class="inner">
+              <h3>XxX</h3>
+              <p>Fabrication Output</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-xs-6">
+          <div class="small-box bg-blue">
+            <div class="inner">
+              <h3>XxX</h3>
+              <p>Sub Assembly Output</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-xs-6">
+          <div class="small-box bg-blue">
+            <div class="inner">
+              <h3>XxX</h3>
+              <p>Assembly Output</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-xs-6">
+          <div class="small-box bg-blue">
+            <div class="inner">
+              <h3>XxX</h3>
+              <p>BBS Output</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-xs-6">
+          <div class="small-box bg-blue">
+            <div class="inner">
+              <h3>XxX</h3>
+              <p>Erection Output</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+          </div>
+        </div>
                 
       </div>
     </section>
