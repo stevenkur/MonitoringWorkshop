@@ -46,7 +46,13 @@
         <div class="col-lg-4 col-xs-6">
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3>{{$ssh[0]->WEIGHT}} ton</h3>
+              <h3>
+                @if($ssh[0]->WEIGHT!=NULL)
+                {{$ssh[0]->WEIGHT}} ton
+                @else
+                0 ton
+                @endif
+              </h3>
               <p>SSH Output</p>
             </div>
             <div class="icon">
@@ -58,7 +64,13 @@
         <div class="col-lg-4 col-xs-6">
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3>{{$fabrication[0]->WEIGHT}} ton</h3>
+              <h3>                
+                @if($fabrication[0]->WEIGHT!=NULL)
+                {{$fabrication[0]->WEIGHT}} ton
+                @else
+                0 ton
+                @endif
+              </h3>
               <p>Fabrication Output</p>
             </div>
             <div class="icon">
@@ -70,7 +82,13 @@
         <div class="col-lg-4 col-xs-6">
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3>{{$subassembly[0]->WEIGHT}} ton</h3>
+              <h3>
+                @if($subassembly[0]->WEIGHT!=NULL)
+                {{$subassembly[0]->WEIGHT}} ton
+                @else
+                0 ton
+                @endif
+              </h3>
               <p>Sub Assembly Output</p>
             </div>
             <div class="icon">
@@ -82,7 +100,13 @@
         <div class="col-lg-4 col-xs-6">
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3>{{$assembly[0]->WEIGHT}} ton</h3>
+              <h3>
+                @if($assembly[0]->WEIGHT!=NULL)                
+                {{$assembly[0]->WEIGHT}} ton
+                @else
+                0 ton
+                @endif
+              </h3>
               <p>Assembly Output</p>
             </div>
             <div class="icon">
@@ -94,7 +118,13 @@
         <div class="col-lg-4 col-xs-6">
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3>{{$bbs[0]->WEIGHT}} ton</h3>
+              <h3>
+                @if($bbs[0]->WEIGHT!=NULL) 
+                {{$bbs[0]->WEIGHT}} ton
+                @else
+                0 ton
+                @endif
+              </h3>
               <p>BBS Output</p>
             </div>
             <div class="icon">
@@ -106,7 +136,13 @@
         <div class="col-lg-4 col-xs-6">
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3>{{$erection[0]->WEIGHT}} ton</h3>
+              <h3>
+                @if($erection[0]->WEIGHT!=NULL) 
+                {{$erection[0]->WEIGHT}} ton
+                @else
+                0 ton
+                @endif
+              </h3>
               <p>Erection Output</p>
             </div>
             <div class="icon">
