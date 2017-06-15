@@ -275,6 +275,7 @@
                   <th>NIK</th>
                   <th>Position/Division</th>
                   <th>Attendance</th>
+                  <th>Machine</th>
                   <th>Operator Machine</th>
                 </tr>
                 </thead>
@@ -289,13 +290,21 @@
                     <input name="<?php echo 'id'.$i;?>" type="hidden" value="{{ $workers->ID }}">
                     <input name="<?php echo 'name'.$i;?>" type="hidden" value="{{ $workers->NAME }}">
                     <select class="form-control" name="<?php echo 'attendance'.$i;?>">
-<!--                      <option value="#">-- Attendance List --</option>-->
                       <option id="1">Present</option>
                       <option id="2">Was Sick/Accident</option>
                       <option id="3">Was Absent</option>
                     </select>
                     <input type="text" id="workinghours" name="<?php echo 'workinghours'.$i;?>" placeholder="" value="0" style="width: 10%">
                     <label>hours</label>
+                  </td>
+                  <td>
+                    <select class="form-control" name="<?php echo 'machine'.$i;?>">
+                        <?php $j=1;?>
+                        @foreach($machine as $machines)
+                            <?php $blockMachine[$j] = $machines; $j++;?>
+                            <option id="{{$machines->ID}}">{{$machines->NAME}}</option>
+                        @endforeach
+                    </select>
                   </td>
                   <td>
                       <select class="form-control" id="checklistoperator" name="<?php echo 'operator'.$i;?>" placeholder="">
@@ -313,19 +322,6 @@
 
             <div class="col-lg-3">
                 <div class="box box-primary">
-                    <div class="box box-body">
-                    <div class="form-group">
-                        <label style="font-size: 16px">Select Machine: </label><br>
-                        <select class="form-control" name="machine">
-            <!--                <option value="#">-- Machine List --</option>-->
-                            <?php $i=1;?>
-                            @foreach($machine as $machines)
-                                <?php $blockMachine[$i] = $machines; $i++;?>
-                                <option id="{{$machines->ID}}">{{$machines->NAME}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    </div>
                     <div class="box box-body">
                         <div class="form-group">
                             <label style="font-size: 16px">Input Progress </label><br>

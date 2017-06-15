@@ -91,7 +91,7 @@ class UserAssemblyController extends Controller
 
     public function works(Request $request)
     {
-//        dd(Input::all());
+       // dd(Input::all());
         $input = Input::all();
         $count = $input['num'];
         
@@ -103,9 +103,9 @@ class UserAssemblyController extends Controller
             $assembly->ID_WORKER = $input['id'.$i];        
             $assembly->WORKER_NAME = $input['name'.$i];      
             $assembly->ATTENDANCE = $input['attendance'.$i];   
-            $assembly->PROCESS = $input['process'];   
-            $assembly->OPERATOR = $input['operator'.$i];   
-            $assembly->MACHINE = $input['machine'];   
+            $assembly->PROCESS = $input['process'];      
+            $assembly->OPERATOR = $input['operator'.$i];
+            $assembly->MACHINE = $input['machine'.$i];   
             $assembly->MACHINE_WORKING = $input['machinehours'];   
             $assembly->MACHINE_ADD_HOURS = $input['machineaddhours'];  
             $assembly->WORKING_HOURS = $input['workinghours'.$i];   

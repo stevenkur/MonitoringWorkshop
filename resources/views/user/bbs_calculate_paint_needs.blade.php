@@ -35,6 +35,7 @@
                   <th>Area(m<sup>2</sup>)</th>
                   <th>Total Layer</th>
                   <th>Paint Type</th>
+                  <th>Volume Solid (%)</th>
                   <th>Paint Needs (litre(s))</th>
                   <th>Delete</th>
                 </tr>
@@ -51,7 +52,8 @@
                     <td>{{$rooms->AREA}}</td>
                     <td>{{$rooms->TOTAL_LAYER}}</td>
                     <td>{{$rooms->PAINT_TYPE}}</td>
-                    <td>{{$rooms->PAINT_NEEDS}}</td>
+                    <td>{{$rooms->VOLUME_SOLID}}</td>
+                    <td>{{$rooms->PAINT_NEEDS}}/{{$rooms->PAINT_NEEDS*$rooms->TOTAL_LAYER}}</td>
                     <td>
                         {{ Form::open(array('url' => 'bbs_delete_paint_needs/' . $rooms->ID)) }}
                             {{ Form::hidden('_method', 'DELETE') }}
@@ -72,6 +74,7 @@
                   <th>Area(m<sup>2</sup>)</th>
                   <th>Total Layer</th>
                   <th>Paint Type</th>
+                  <th>Volume Solid (%)</th>
                   <th>Paint Needs (litre(s))</th>
                   <th>Delete</th>
                 </tr>

@@ -51,7 +51,8 @@ class UserBBSController extends Controller
         $room->DECK = $input['deck']; 
         $room->AREA = $input['area']; 
         $room->TOTAL_LAYER = $input['layer']; 
-        $room->PAINT_TYPE = $input['painttype'];        
+        $room->PAINT_TYPE = $input['painttype']; 
+        $room->VOLUME_SOLID = $input['vs'];       
         $room->PAINT_NEEDS = $input['area'] * $input['dft'] * $input['lf'] / $input['vs']; 
         $room->save(); 
         
