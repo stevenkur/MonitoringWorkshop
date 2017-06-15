@@ -137,7 +137,7 @@
             <form action="{{route('assembly_part.store')}}" role="form" method="post">
                 {{csrf_field()}}
               <div class="box-body">
-                  <h4> Input Assembly Part List for [Ship_Name] [Block_Name]</h4>
+                  <h4> Input Assembly Part List</h4>
                 <div class="form-group">
                   <label for="inputID">ID:</label>
                   <input type="text" class="form-control" id="part_id" name="id" placeholder="Enter id of part">

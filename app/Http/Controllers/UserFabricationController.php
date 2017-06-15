@@ -84,21 +84,22 @@ class UserFabricationController extends Controller
         
         for($i=0; $i<$count; $i++)
         {
-            $ssh = new Fabrication();        
-            $ssh->ID_MATERIAL = $input['id_material'];  
-            $ssh->ID_WORKER = $input['id'.$i];        
-            $ssh->WORKER_NAME = $input['name'.$i];		
-            $ssh->ATTENDANCE = $input['attendance'.$i];   
-            $ssh->PROCESS = $input['process'];   
-            $ssh->OPERATOR = $input['operator'.$i];   
-            $ssh->MACHINE = $input['machine'];   
-            $ssh->MACHINE_WORKING = $input['machinehours'];   
-            $ssh->MACHINE_ADD_HOURS = $input['machineaddhours'];   
-            $ssh->PROBLEM = $input['problem']; 
-            $ssh->WASTE_TIME = $input['wastetime']; 
-            $ssh->SHIFT = substr($input['shift'], 6); 
-            $ssh->USER = 'admin'; 
-            $ssh->save();
+            $fab = new Fabrication();        
+            $fab->ID_MATERIAL = $input['id_material'];  
+            $fab->ID_WORKER = $input['id'.$i];        
+            $fab->WORKER_NAME = $input['name'.$i];		
+            $fab->ATTENDANCE = $input['attendance'.$i];   
+            $fab->PROCESS = $input['process'];   
+            $fab->OPERATOR = $input['operator'.$i];   
+            $fab->MACHINE = $input['machine'];   
+            $fab->MACHINE_WORKING = $input['machinehours'];   
+            $fab->MACHINE_ADD_HOURS = $input['machineaddhours'];  
+            $fab->WORKING_HOURS = $input['workinghours'.$i]; 
+            $fab->PROBLEM = $input['problem']; 
+            $fab->WASTE_TIME = $input['wastetime']; 
+            $fab->SHIFT = substr($input['shift'], 6); 
+            $fab->USER = 'admin'; 
+            $fab->save();
         }
         
         if($input['process']=='Marking'){

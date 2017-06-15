@@ -97,7 +97,7 @@
             <form action="{{route('material_list.store')}}" role="form" method="post">
                 {{csrf_field()}}
               <div class="box-body">
-                <h3> Input Material List for <br>[Ship_Name] [Block_Name]</h3>
+                <h3> Input Material List</h3>
                 <div class="form-group">
                   <label for="inputID">ID:</label>
                   <input type="text" class="form-control" id="material_id" name="id" placeholder="Enter id of material">
@@ -251,7 +251,7 @@
                 </thead>
                 <tbody>
                     @foreach($profile as $profiles)
-                    <?php if($flagBlock && $plates->ID_BLOCK == $_GET['block']){
+                    <?php if($flagBlock && $profiles->ID_BLOCK == $_GET['block']){
                     echo '
                     <tr>
                         <td>'.$profiles['ID'].'</td>       
@@ -268,7 +268,7 @@
                         <?php echo '</td>
                     </tr>';
                     }
-                    else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
+                    else if($flagProject && $profiles->ID_PROJECT == $_GET['project']){
                     echo '
                     <tr>
                         <td>'.$profiles['ID'].'</td>       

@@ -106,7 +106,7 @@ class UserSSHController extends Controller
 
     public function works(Request $request)
     {
-//        dd(Input::all());
+       // dd(Input::all());
         $input = Input::all();
         $count = $input['num'];
         
@@ -121,7 +121,8 @@ class UserSSHController extends Controller
             $ssh->OPERATOR = $input['operator'.$i];   
             $ssh->MACHINE = $input['machine'];   
             $ssh->MACHINE_WORKING = $input['machinehours'];   
-            $ssh->MACHINE_ADD_HOURS = $input['machineaddhours'];   
+            $ssh->MACHINE_ADD_HOURS = $input['machineaddhours'];
+            $ssh->WORKING_HOURS = $input['workinghours'.$i];
             $ssh->PROBLEM = $input['problem']; 
             $ssh->WASTE_TIME = $input['wastetime']; 
             $ssh->SHIFT = substr($input['shift'], 6); 

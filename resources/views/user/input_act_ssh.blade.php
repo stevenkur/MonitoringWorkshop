@@ -246,6 +246,8 @@
                       <option id="2">Was Sick/Accident</option>
                       <option id="3">Was Absent</option>
                     </select>
+                    <input type="text" id="workinghours" name="<?php echo 'workinghours'.$i;?>" placeholder="" value="0" style="width: 10%">
+                    <label>hours</label>
                   </td>
                   <td>
                       <select class="form-control" id="checklistoperator" name="<?php echo 'operator'.$i;?>" placeholder="">

@@ -107,7 +107,8 @@ class UserSubAssemblyController extends Controller
             $subassembly->OPERATOR = $input['operator'.$i];   
             $subassembly->MACHINE = $input['machine'];   
             $subassembly->MACHINE_WORKING = $input['machinehours'];   
-            $subassembly->MACHINE_ADD_HOURS = $input['machineaddhours'];   
+            $subassembly->MACHINE_ADD_HOURS = $input['machineaddhours'];  
+            $subassembly->WORKING_HOURS = $input['workinghours'.$i];  
             $subassembly->PROBLEM = $input['problem']; 
             $subassembly->WASTE_TIME = $input['wastetime']; 
             $subassembly->SHIFT = substr($input['shift'], 6); 

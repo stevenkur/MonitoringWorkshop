@@ -24,6 +24,7 @@ class CreateSSHsTable extends Migration
             $table->string('MACHINE', 20);
             $table->double('MACHINE_WORKING', 6,2);
             $table->double('MACHINE_ADD_HOURS', 6,2);
+            $table->double('WORKING_HOURS', 6,2);
             $table->string('PROBLEM', 50);
             $table->double('WASTE_TIME', 6,2);
             $table->integer('SHIFT');

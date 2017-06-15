@@ -107,7 +107,8 @@ class UserAssemblyController extends Controller
             $assembly->OPERATOR = $input['operator'.$i];   
             $assembly->MACHINE = $input['machine'];   
             $assembly->MACHINE_WORKING = $input['machinehours'];   
-            $assembly->MACHINE_ADD_HOURS = $input['machineaddhours'];   
+            $assembly->MACHINE_ADD_HOURS = $input['machineaddhours'];  
+            $assembly->WORKING_HOURS = $input['workinghours'.$i];   
             $assembly->PROBLEM = $input['problem']; 
             $assembly->WASTE_TIME = $input['wastetime']; 
             $assembly->SHIFT = substr($input['shift'], 6); 
