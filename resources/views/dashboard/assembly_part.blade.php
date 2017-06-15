@@ -160,10 +160,10 @@
                 </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputDimension">Dimension:</label>
-                  <input type="text" class="form-control" id="part_length" name="length" placeholder="Enter length"><br>
-                  <input type="text" class="form-control" id="part_breadth" name="breadth" placeholder="Enter breadth"><br>
-                  <input type="text" class="form-control" id="part_thickness" name="thickness"  placeholder="Enter thickness">
+                  <label for="inputDimension">Dimension: (mm)</label>
+                  <input type="text" class="form-control" id="part_length" name="length" placeholder="Enter length (mm)"><br>
+                  <input type="text" class="form-control" id="part_breadth" name="breadth" placeholder="Enter breadth (mm)"><br>
+                  <input type="text" class="form-control" id="part_thickness" name="thickness"  placeholder="Enter thickness (mm)">
                 </div>
                 <div class="form-group">
                   <label for="inputQuantity">Quantity:</label>
@@ -172,8 +172,8 @@
                   <input type="text" class="form-control" id="material_quantitys" name="s"  placeholder="Enter quantity of material (s)">
                 </div>
                 <div class="form-group">
-                  <label for="inputWeight">Weight:</label>
-                  <input type="text" class="form-control" id="part_weight" name="weight"  placeholder="Enter weight">
+                  <label for="inputWeight">Weight: (kg)</label>
+                  <input type="text" class="form-control" id="part_weight" name="weight"  placeholder="Enter weight (kg)">
                 </div>
                 <div class="form-group">
                   <label for="inputStage">Form:</label>
@@ -200,9 +200,9 @@
                 <tr>
                   <th>ID</th>
                   <th>NAME</th>
-                  <th>DIMENSION</th>
+                  <th>DIMENSION (mm)</th>
                   <th>QUANTITY</th>
-                  <th>WEIGHT</th>
+                  <th>WEIGHT (kg)</th>
                   <th>STAGE</th>
                   <th>DELETE</th>
                 </tr>
@@ -284,9 +284,9 @@
                 <tr>
                   <th>ID</th>
                   <th>NAME</th>
-                  <th>DIMENSION</th>
+                  <th>DIMENSION (mm)</th>
                   <th>QUANTITY</th>
-                  <th>WEIGHT</th>
+                  <th>WEIGHT (kg)</th>
                   <th>STAGE</th>
                   <th>DELETE</th>
                 </tr>

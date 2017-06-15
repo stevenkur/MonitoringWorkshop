@@ -392,8 +392,8 @@
                 <thead>
                 <tr>
                   <th>Date</th>
-                  <th>Output/Day (Ton/Sheet)</th>
-                  <th>Target Output/Day (Ton/Sheet)</th>
+                  <th>Output/Day (Ton/JO)</th>
+                  <th>Target Output/Day (Ton/JO)</th>
                   <th>Productivity</th>
                   <th>Productivity Target</th>
                 </tr>
@@ -404,8 +404,8 @@
                 <tfoot>
                 <tr>
                   <th>Date</th>
-                  <th>Output/Day (Ton/Sheet)</th>
-                  <th>Target Output/Day (Ton/Sheet)</th>
+                  <th>Output/Day (Ton/JO)</th>
+                  <th>Target Output/Day (Ton/JO)</th>
                   <th>Productivity</th>
                   <th>Productivity Target</th>
                 </tr>

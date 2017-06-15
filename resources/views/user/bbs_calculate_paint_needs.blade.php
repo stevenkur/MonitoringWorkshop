@@ -35,7 +35,7 @@
                   <th>Area(m<sup>2</sup>)</th>
                   <th>Total Layer</th>
                   <th>Paint Type</th>
-                  <th>Paint Needs</th>
+                  <th>Paint Needs (litre(s))</th>
                   <th>Delete</th>
                 </tr>
                 </thead>
@@ -72,7 +72,7 @@
                   <th>Area(m<sup>2</sup>)</th>
                   <th>Total Layer</th>
                   <th>Paint Type</th>
-                  <th>Paint Needs</th>
+                  <th>Paint Needs (litre(s))</th>
                   <th>Delete</th>
                 </tr>
                 </tfoot>

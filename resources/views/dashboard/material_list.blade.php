@@ -137,8 +137,8 @@
                   <input type="text" class="form-control" id="material_quantitys" name="s"  placeholder="Enter quantity of material (s)">
                 </div>
                 <div class="form-group">
-                  <label for="inputWeight">Weight:</label>
-                  <input type="text" class="form-control" id="part_weight" name="weight" placeholder="Enter weight">
+                  <label for="inputWeight">Weight: (kg)</label>
+                  <input type="text" class="form-control" id="part_weight" name="weight" placeholder="Enter weight (kg)">
                 </div>
                 <div class="form-group">
                   <label for="inputForm">Profile form:</label>
@@ -164,9 +164,9 @@
                 <thead>
                 <tr>
                   <th>ID</th>
-                  <th>DIMENSION</th>
+                  <th>DIMENSION (mm)</th>
                   <th>QUANTITY</th>
-                  <th>WEIGHT</th>
+                  <th>WEIGHT (kg)</th>
                   <th>DELETE</th>
                 </tr>
                 </thead>
@@ -222,9 +222,9 @@
                 <tfoot>
                 <tr>
                   <th>ID</th>
-                  <th>DIMENSION</th>
+                  <th>DIMENSION (mm)</th>
                   <th>QUANTITY</th>
-                  <th>WEIGHT</th>
+                  <th>WEIGHT (kg)</th>
                   <th>DELETE</th>
                 </tr>
                 </tfoot>
@@ -241,9 +241,9 @@
                 <thead>
                 <tr>
                   <th>ID</th>
-                  <th>DIMENSION</th>
+                  <th>DIMENSION (mm)</th>
                   <th>QUANTITY</th>
-                  <th>WEIGHT</th>
+                  <th>WEIGHT (kg)</th>
                   <th>FORM</th>
                   <th>EDIT</th>
                   <th>DELETE</th>
@@ -307,9 +307,9 @@
                 <tfoot>
                 <tr>
                   <th>ID</th>
-                  <th>DIMENSION</th>
+                  <th>DIMENSION (mm)</th>
                   <th>QUANTITY</th>
-                  <th>WEIGHT</th>
+                  <th>WEIGHT (kg)</th>
                   <th>FORM</th>
                   <th>EDIT</th>
                   <th>DELETE</th>

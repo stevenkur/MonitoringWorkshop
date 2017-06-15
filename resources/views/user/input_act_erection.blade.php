@@ -78,7 +78,6 @@
                 <tr>
                     <th>ID Blocks</th>
                     <th>Name</th>
-                    <th>Material</th>
                     <th>Material Process</th>
                 </tr>
                 </thead>
@@ -98,8 +97,7 @@
                     echo '
                     <tr>
                         <td>'.$blocks['ID'].'</td>
-                        <td>'.$blocks['NAME'].'</td>
-                        <td>'.$blocks['MATERIAL'];?></td>
+                        <td>'.$blocks['NAME'];?></td>
                         <td>
                           @if(!$flagLoad)
                             <form action="./input_act_erection" class="form" method="get">
@@ -139,8 +137,7 @@
                     echo '
                     <tr>
                         <td>'.$blocks['ID'].'</td>
-                        <td>'.$blocks['NAME'].'</td>
-                        <td>'.$blocks['MATERIAL'];?></td>
+                        <td>'.$blocks['NAME'];?></td>
                         <td>
                           @if(!$flagLoad)
                             <form action="./input_act_erection" class="form" method="get">
