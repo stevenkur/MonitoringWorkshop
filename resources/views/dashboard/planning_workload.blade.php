@@ -113,8 +113,8 @@
               <th>Workload Calculate per-Day</th>
             </tr>
           </thead>
+          <!-- INI YANG BIKIN ERROR PRAS -->
             <?php
-//                echo $count[13]->COUNT;
                 $workloadBlasting = ($ships['DISPLACEMENT']/$count[13]->COUNT)/$diff->days;
                 $workloadStraightening = ($ships['DISPLACEMENT']/$count[14]->COUNT)/$diff->days;
             ?>
