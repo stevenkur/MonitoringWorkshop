@@ -81,7 +81,7 @@ class AdminController extends Controller
         $assembly = Machine::where('WORKSHOP', 'Assembly')->get();
 
         $count = DB::select(DB::raw("SELECT WORKSHOP, ACTIVITY, COUNT(ID) AS COUNT FROM machines GROUP BY WORKSHOP, ACTIVITY"));
-//        dd($count);
+       // dd($count);
         
         return view('dashboard/planning_workload')->with('ship', $ship)->with('now', $now)->with('ssh', $ssh)->with('fabrication', $fabrication)->with('subassembly', $subassembly)->with('assembly', $assembly)->with('count', $count);
     }

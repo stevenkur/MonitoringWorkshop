@@ -113,10 +113,9 @@
               <th>Workload Calculate per-Day</th>
             </tr>
           </thead>
-          <!-- INI YANG BIKIN ERROR PRAS -->
             <?php
-                $workloadBlasting = ($ships['DISPLACEMENT']/$count[13]->COUNT)/$diff->days;
-                $workloadStraightening = ($ships['DISPLACEMENT']/$count[14]->COUNT)/$diff->days;
+                $workloadBlasting = ($ships['DISPLACEMENT']/$count[3]->COUNT)/$diff->days;
+                $workloadStraightening = ($ships['DISPLACEMENT']/$count[4]->COUNT)/$diff->days;
             ?>
           <tbody>
             @foreach($ssh as $sshs)
@@ -150,12 +149,25 @@
               <th>Workload Calculate per-Day</th>
             </tr>
           </thead>
+            <?php
+                $workloadMarking = ($ships['DISPLACEMENT']/$count[3]->COUNT)/$diff->days;
+                $workloadCutting = ($ships['DISPLACEMENT']/$count[4]->COUNT)/$diff->days;
+                $workloadBending = ($ships['DISPLACEMENT']/$count[4]->COUNT)/$diff->days;
+            ?>
           <tbody>
             @foreach($fabrication as $fab)
             <tr>
                 <td>{{ $fab->NAME }}</td>
                 <td>{{ $fab->CAPACITY }}</td>
-                <td></td>
+                <td>                  
+                    @if($fab->ACTIVITY=="Marking")
+                        {{$workloadMarking.' ton'}}
+                    @elseif($fab->ACTIVITY=="Cutting")
+                        {{$workloadCutting.' ton'}}
+                    @elseif($fab->ACTIVITY=="Bending")
+                        {{$workloadBending.' ton'}}
+                    @endif
+                </td>
             </tr>
             @endforeach  
           </tbody>
@@ -176,12 +188,28 @@
               <th>Workload Calculate per-Day</th>
             </tr>
           </thead>
+            <?php
+                $workloadFitting = ($ships['DISPLACEMENT']/$count[3]->COUNT)/$diff->days;
+                $workloadWelding = ($ships['DISPLACEMENT']/$count[4]->COUNT)/$diff->days;
+                $workloadGrinding = ($ships['DISPLACEMENT']/$count[4]->COUNT)/$diff->days;
+                $workloadFairing = ($ships['DISPLACEMENT']/$count[4]->COUNT)/$diff->days;
+            ?>
           <tbody>
             @foreach($subassembly as $subass)
             <tr>
                 <td>{{ $subass->NAME }}</td>
                 <td>{{ $subass->CAPACITY }}</td>
-                <td></td>
+                <td>            
+                    @if($subass->ACTIVITY=="Fitting")
+                        {{$workloadFitting.' ton'}}
+                    @elseif($subass->ACTIVITY=="Welding")
+                        {{$workloadWelding.' ton'}}
+                    @elseif($subass->ACTIVITY=="Grinding")
+                        {{$workloadGrinding.' ton'}}
+                    @elseif($subass->ACTIVITY=="Fairing")
+                        {{$workloadFairing.' ton'}}
+                    @endif                  
+                </td>
             </tr>
             @endforeach  
           </tbody>
@@ -202,12 +230,28 @@
               <th>Workload Calculate per-Day</th>
             </tr>
           </thead>
+            <?php
+                $workloadFitting = ($ships['DISPLACEMENT']/$count[3]->COUNT)/$diff->days;
+                $workloadWelding = ($ships['DISPLACEMENT']/$count[4]->COUNT)/$diff->days;
+                $workloadGrinding = ($ships['DISPLACEMENT']/$count[4]->COUNT)/$diff->days;
+                $workloadFairing = ($ships['DISPLACEMENT']/$count[4]->COUNT)/$diff->days;
+            ?>
           <tbody>
             @foreach($assembly as $assemblys)
             <tr>
                 <td>{{ $assemblys->NAME }}</td>
                 <td>{{ $assemblys->CAPACITY }}</td>
-                <td></td>
+                <td>           
+                    @if($assemblys->ACTIVITY=="Fitting")
+                        {{$workloadFitting.' ton'}}
+                    @elseif($assemblys->ACTIVITY=="Welding")
+                        {{$workloadWelding.' ton'}}
+                    @elseif($assemblys->ACTIVITY=="Grinding")
+                        {{$workloadGrinding.' ton'}}
+                    @elseif($assemblys->ACTIVITY=="Fairing")
+                        {{$workloadFairing.' ton'}}
+                    @endif                     
+                </td>
             </tr>
             @endforeach    
           </tbody>
@@ -216,7 +260,7 @@
         </div>
         </div>
 
-        <div class="col-lg-6">
+        <!-- <div class="col-lg-6">
         <div class="box box-primary">
         <div class="box-body">
         <h3>BBS Workshop</h3>
@@ -232,7 +276,7 @@
         
         </div>            
         </div>
-        </div>
+        </div> -->
         @endif
             
         </div>
