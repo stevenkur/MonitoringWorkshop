@@ -70,8 +70,10 @@
                 <thead>
                 <tr>
                   <th>Date</th>
-                  <th>Target Output Machine</th>
-                  <th>Capacity Max</th>
+                  @foreach($ssh as $sshs)
+                    <th>Capacity Max Machine <br> {{ $sshs->NAME }}</th>
+                    <th>Target Output Machine <br> {{ $sshs->NAME }}</th>
+                  @endforeach
                 </tr>
                 </thead>
                 <tbody>
@@ -99,8 +101,10 @@
                 <thead>
                 <tr>
                   <th>Date</th>
-                  <th>Target Output Machine</th>
-                  <th>Capacity Max</th>
+                  @foreach($fabrication as $fab)
+                    <th>Capacity Max Machine <br> {{ $fab->NAME }}</th>
+                    <th>Target Output Machine <br> {{ $fab->NAME }}</th>
+                  @endforeach
                 </tr>
                 </thead>
                 <tbody>
@@ -128,8 +132,10 @@
                 <thead>
                 <tr>
                   <th>Date</th>
-                  <th>Target Output Machine</th>
-                  <th>Capacity Max</th>
+                  @foreach($subassembly as $subass)
+                    <th>Capacity Max Machine <br> {{ $subass->NAME }}</th>
+                    <th>Target Output Machine <br> {{ $subass->NAME }}</th>
+                  @endforeach
                 </tr>
                 </thead>
                 <tbody>
@@ -157,8 +163,10 @@
                 <thead>
                 <tr>
                   <th>Date</th>
-                  <th>Target Output Machine</th>
-                  <th>Capacity Max</th>
+                  @foreach($assembly as $ass)
+                    <th>Capacity Max Machine <br> {{ $ass->NAME }}</th>
+                    <th>Target Output Machine <br> {{ $ass->NAME }}</th>
+                  @endforeach
                 </tr>
                 </thead>
                 <tbody>

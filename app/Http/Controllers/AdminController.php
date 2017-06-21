@@ -105,9 +105,13 @@ class AdminController extends Controller
     public function conclusion_finishing_workload()
     {
         $ship = ShipProject::all();
+        $ssh = Machine::where('WORKSHOP', 'SSH')->get();
+        $fabrication = Machine::where('WORKSHOP', 'Fabrication')->get();
+        $subassembly = Machine::where('WORKSHOP', 'Sub Assembly')->get();
+        $assembly = Machine::where('WORKSHOP', 'Assembly')->get();
         $total_workload = DB::select(DB::raw("SELECT SUM(DISPLACEMENT) AS TOTAL FROM `ship_projects`"));
 
-        return view('dashboard/conclusion_finishing_workload')->with('ship', $ship)->with('total_workload', $total_workload);
+        return view('dashboard/conclusion_finishing_workload')->with('ship', $ship)->with('ssh', $ssh)->with('fabrication', $fabrication)->with('subassembly', $subassembly)->with('assembly', $assembly)->with('total_workload', $total_workload);
     }
 
     public function destroy()
