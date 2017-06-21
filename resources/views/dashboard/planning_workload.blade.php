@@ -123,7 +123,7 @@
                 <td>{{ $sshs->NAME }}</td>
                 <td>{{ $sshs->CAPACITY.' ton' }}</td>
                 <td>
-                    @if($sshs->ACTIVITY=="Blasting")
+                    @if($sshs->ACTIVITY=="Blasting&ShopPrimer")
                         {{$workloadBlasting.' ton'}}
                     @elseif($sshs->ACTIVITY=="Straightening")
                         {{$workloadStraightening.' ton'}}

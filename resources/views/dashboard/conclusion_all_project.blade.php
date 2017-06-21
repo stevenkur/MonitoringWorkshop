@@ -110,7 +110,7 @@
                     @for($i=0; $i<count($ship);$i++)
                         @if($sshs->ACTIVITY=='Straightening')
                             <td>{{$ship[$i]->DISPLACEMENT/$count[8]->COUNT}}</td>
-                        @elseif($sshs->ACTIVITY=='Blasting')
+                        @elseif($sshs->ACTIVITY=='Blasting&ShopPrimer')
                             <td>{{$ship[$i]->DISPLACEMENT/$count[7]->COUNT}}</td>
                         @endif
                     @endfor
