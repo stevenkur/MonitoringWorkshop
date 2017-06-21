@@ -53,8 +53,8 @@
          
           <div class="form-group"><br><br>
             <label> <h3>Total Workload All Project :</h3> </label>
-            <label> <h3><b>XXX ton</b></h3> </label><br><br>
-          </div>     
+            <label> <h3><b>{{$total_workload[0]->TOTAL}} ton</b></h3> </label><br><br>
+          </div>      
 
         </div>
         </div>

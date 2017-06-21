@@ -114,8 +114,8 @@
             </tr>
           </thead>
             <?php
-                $workloadBlasting = ($ships['DISPLACEMENT']/$count[13]->COUNT)/$diff->days;
-                $workloadStraightening = ($ships['DISPLACEMENT']/$count[14]->COUNT)/$diff->days;
+                $workloadBlasting = ($ships['DISPLACEMENT']/$count[8]->COUNT)/$diff->days;
+                $workloadStraightening = ($ships['DISPLACEMENT']/$count[7]->COUNT)/$diff->days;
             ?>
           <tbody>
             @foreach($ssh as $sshs)
@@ -150,9 +150,9 @@
             </tr>
           </thead>
             <?php
-                $workloadMarking = ($ships['DISPLACEMENT']/$count[10]->COUNT)/$diff->days;
-                $workloadCutting = ($ships['DISPLACEMENT']/$count[11]->COUNT)/$diff->days;
-                $workloadBending = ($ships['DISPLACEMENT']/$count[12]->COUNT)/$diff->days;
+                $workloadMarking = ($ships['DISPLACEMENT']/$count[6]->COUNT)/$diff->days;
+                $workloadCutting = ($ships['DISPLACEMENT']/$count[5]->COUNT)/$diff->days;
+                $workloadBending = ($ships['DISPLACEMENT']/$count[4]->COUNT)/$diff->days;
             ?>
           <tbody>
             @foreach($fabrication as $fab)
@@ -189,10 +189,10 @@
             </tr>
           </thead>
             <?php
-                $workloadFitting = ($ships['DISPLACEMENT']/$count[15]->COUNT)/$diff->days;
-                $workloadWelding = ($ships['DISPLACEMENT']/$count[16]->COUNT)/$diff->days;
-                $workloadGrinding = ($ships['DISPLACEMENT']/$count[17]->COUNT)/$diff->days;
-                $workloadFairing = ($ships['DISPLACEMENT']/$count[18]->COUNT)/$diff->days;
+                $workloadFitting = ($ships['DISPLACEMENT']/$count[10]->COUNT)/$diff->days;
+                $workloadWelding = ($ships['DISPLACEMENT']/$count[12]->COUNT)/$diff->days;
+                $workloadGrinding = ($ships['DISPLACEMENT']/$count[9]->COUNT)/$diff->days;
+                $workloadFairing = ($ships['DISPLACEMENT']/$count[11]->COUNT)/$diff->days;
             ?>
           <tbody>
             @foreach($subassembly as $subass)
@@ -231,10 +231,10 @@
             </tr>
           </thead>
             <?php
-                $workloadFitting = ($ships['DISPLACEMENT']/$count[0]->COUNT)/$diff->days;
-                $workloadWelding = ($ships['DISPLACEMENT']/$count[1]->COUNT)/$diff->days;
+                $workloadFitting = ($ships['DISPLACEMENT']/$count[1]->COUNT)/$diff->days;
+                $workloadWelding = ($ships['DISPLACEMENT']/$count[3]->COUNT)/$diff->days;
                 $workloadGrinding = ($ships['DISPLACEMENT']/$count[2]->COUNT)/$diff->days;
-                $workloadFairing = ($ships['DISPLACEMENT']/$count[3]->COUNT)/$diff->days;
+                $workloadFairing = ($ships['DISPLACEMENT']/$count[0]->COUNT)/$diff->days;
             ?>
           <tbody>
             @foreach($assembly as $assemblys)
@@ -260,16 +260,33 @@
         </div>
         </div>
 
-        <!-- <div class="col-lg-6">
+        <div class="col-lg-6">
         <div class="box box-primary">
         <div class="box-body">
         <h3>BBS Workshop</h3>
-        
+        <table id="assembly" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Room</th>
+              <th>Workload Calculate per-Day</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($room as $rooms)
+            <tr>
+                <td>{{ $rooms->ROOM }}</td>
+                <td>           
+                    {{$ships->DISPLACEMENT/$rooms->AREA.' ton'}}
+                </td>
+            </tr>
+            @endforeach    
+          </tbody>
+        </table>
         </div>            
         </div>
         </div>
 
-        <div class="col-lg-6">
+        <!-- <div class="col-lg-6">
         <div class="box box-primary">
         <div class="box-body">
         <h3>Erection Workshop</h3>

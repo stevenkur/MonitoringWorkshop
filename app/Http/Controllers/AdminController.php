@@ -8,6 +8,7 @@ use App\Block;
 use App\Panel;
 use App\Plate;
 use App\Part;
+use App\Room;
 use App\User;
 use App\Machine;
 use Carbon\Carbon;
@@ -79,11 +80,12 @@ class AdminController extends Controller
         $fabrication = Machine::where('WORKSHOP', 'Fabrication')->get();
         $subassembly = Machine::where('WORKSHOP', 'Sub Assembly')->get();
         $assembly = Machine::where('WORKSHOP', 'Assembly')->get();
+        $room = Room::all();
 
         $count = DB::select(DB::raw("SELECT WORKSHOP, ACTIVITY, COUNT(ID) AS COUNT FROM machines GROUP BY WORKSHOP, ACTIVITY"));
 //        dd($count);
         
-        return view('dashboard/planning_workload')->with('ship', $ship)->with('now', $now)->with('ssh', $ssh)->with('fabrication', $fabrication)->with('subassembly', $subassembly)->with('assembly', $assembly)->with('count', $count);
+        return view('dashboard/planning_workload')->with('ship', $ship)->with('now', $now)->with('ssh', $ssh)->with('fabrication', $fabrication)->with('subassembly', $subassembly)->with('assembly', $assembly)->with('count', $count)->with('room', $room);
     }
 
     public function conclusion_all_project()
@@ -95,15 +97,17 @@ class AdminController extends Controller
         $assembly = Machine::where('WORKSHOP', 'Assembly')->get();
         $total_workload = DB::select(DB::raw("SELECT SUM(DISPLACEMENT) AS TOTAL FROM `ship_projects`"));
         $count = DB::select(DB::raw("SELECT WORKSHOP, ACTIVITY, COUNT(ID) AS COUNT FROM machines GROUP BY WORKSHOP, ACTIVITY"));
+        $room = Room::all();
         
-        return view('dashboard/conclusion_all_project')->with('ship', $ship)->with('ssh', $ssh)->with('fabrication', $fabrication)->with('subassembly', $subassembly)->with('assembly', $assembly)->with('total_workload', $total_workload)->with('count', $count);
+        return view('dashboard/conclusion_all_project')->with('ship', $ship)->with('ssh', $ssh)->with('fabrication', $fabrication)->with('subassembly', $subassembly)->with('assembly', $assembly)->with('total_workload', $total_workload)->with('count', $count)->with('room', $room);
     }
 
     public function conclusion_finishing_workload()
     {
         $ship = ShipProject::all();
+        $total_workload = DB::select(DB::raw("SELECT SUM(DISPLACEMENT) AS TOTAL FROM `ship_projects`"));
 
-        return view('dashboard/conclusion_finishing_workload')->with('ship', $ship);
+        return view('dashboard/conclusion_finishing_workload')->with('ship', $ship)->with('total_workload', $total_workload);
     }
 
     public function destroy()

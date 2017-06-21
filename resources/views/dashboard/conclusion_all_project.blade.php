@@ -109,9 +109,9 @@
                 <td>{{$sshs->NAME}}</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($sshs->ACTIVITY=='Straightening')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[13]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[8]->COUNT}}</td>
                         @elseif($sshs->ACTIVITY=='Blasting')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[14]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[7]->COUNT}}</td>
                         @endif
                     @endfor
                 </tr>
@@ -141,11 +141,11 @@
                 <td>{{$fabrications->NAME}}</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($fabrications->ACTIVITY=='Bending')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[10]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[6]->COUNT}}</td>
                         @elseif($fabrications->ACTIVITY=='Cutting')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[11]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[5]->COUNT}}</td>
                         @elseif($fabrications->ACTIVITY=='Marking')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[12]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[4]->COUNT}}</td>
                         @endif
                     @endfor
                 </tr>
@@ -175,13 +175,13 @@
                 <td>{{$subasss->NAME}}</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($subasss->ACTIVITY=='Fairing')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[15]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[10]->COUNT}}</td>
                         @elseif($subasss->ACTIVITY=='Fitting')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[16]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[12]->COUNT}}</td>
                         @elseif($subasss->ACTIVITY=='Grinding')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[17]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[9]->COUNT}}</td>
                         @elseif($subasss->ACTIVITY=='Welding')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[18]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[11]->COUNT}}</td>
                         @endif
                     @endfor
                 </tr>
@@ -211,13 +211,13 @@
                 <td>{{$asss->NAME}}</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($asss->ACTIVITY=='Fairing')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[0]->COUNT}}</td>
-                        @elseif($asss->ACTIVITY=='Fitting')
                             <td>{{$ship[$i]->DISPLACEMENT/$count[1]->COUNT}}</td>
+                        @elseif($asss->ACTIVITY=='Fitting')
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[3]->COUNT}}</td>
                         @elseif($asss->ACTIVITY=='Grinding')
                             <td>{{$ship[$i]->DISPLACEMENT/$count[2]->COUNT}}</td>
                         @elseif($asss->ACTIVITY=='Welding')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[3]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[10]->COUNT}}</td>
                         @endif
                     @endfor
                 </tr>
@@ -228,7 +228,32 @@
         </div>
         </div>
         @elseif($_GET['workshop']==5)
-        
+        <div class="col-lg-6">
+        <div class="box box-primary">
+        <div class="box-body">        
+        <h3>BBS Workshop</h3>    
+        <table id="bbs" class="table table-bordered table-striped">          
+          <thead>
+            <tr>
+              <th>Room</th>
+              <th>Workload Calculate per-Day</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($room as $rooms)
+            <tr>
+                <td>{{ $rooms->ROOM }}</td>
+                <td>           
+                    {{$ships->DISPLACEMENT/$rooms->AREA.' ton'}}
+                </td>
+            </tr>
+            @endforeach    
+          </tbody>
+        </table>
+        </table>
+        </div>
+        </div>
+        </div>
         @endif
         @endif
               
@@ -288,6 +313,14 @@ $(function() {
           "autoWidth": true
     });
     $('#assembly').DataTable({
+          "paging": false,
+          "lengthChange": true,
+          "searching": false,
+          "ordering": true,
+          "info": false,
+          "autoWidth": true
+    });
+    $('#bbs').DataTable({
           "paging": false,
           "lengthChange": true,
           "searching": false,
