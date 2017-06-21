@@ -77,7 +77,11 @@
                 </tr>
                 </thead>
                 <tbody>
-
+                <td>Tanggal</td>
+                  @foreach($ssh as $sshs)
+                  <td>{{ $sshs->CAPACITY.' ton' }}</td>
+                  <td>Realisasi</td>
+                  @endforeach
                 </tbody>
               </table>
             </div>            
@@ -108,7 +112,11 @@
                 </tr>
                 </thead>
                 <tbody>
-
+                <td>Tanggal</td>
+                  @foreach($fabrication as $fab)
+                  <td>{{ $fab->CAPACITY.' ton' }}</td>
+                  <td>Realisasi</td>
+                  @endforeach
                 </tbody>
               </table>
             </div>            
@@ -139,7 +147,11 @@
                 </tr>
                 </thead>
                 <tbody>
-
+                <td>Tanggal</td>
+                  @foreach($subassembly as $subass)
+                  <td>{{ $subass->CAPACITY.' ton' }}</td>
+                  <td>Realisasi</td>
+                  @endforeach
                 </tbody>
               </table>
             </div>            
@@ -170,7 +182,11 @@
                 </tr>
                 </thead>
                 <tbody>
-
+                <td>Tanggal</td>
+                  @foreach($assembly as $ass)
+                  <td>{{ $ass->CAPACITY.' ton' }}</td>
+                  <td>Realisasi</td>
+                  @endforeach
                 </tbody>
               </table>
             </div>            
