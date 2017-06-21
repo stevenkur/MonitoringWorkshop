@@ -53,7 +53,7 @@
          
           <div class="form-group"><br><br>
             <label> <h3>Total Workload All Project :</h3> </label>
-            <label> <h3><b>XXX ton</b></h3> </label><br><br>
+            <label> <h3><b>{{$total_workload[0]->TOTAL}} ton</b></h3> </label><br><br>
           </div>      
 
         </div>
@@ -71,6 +71,7 @@
               <th>Project</th>
               <th>Start Project</th>
               <th>Target Finish</th>
+              <th>Workload</th>
             </tr>
           </thead>
           <tbody>
@@ -79,6 +80,7 @@
                 <td>{{ $ships->PROJECT_NAME }}</td>
                 <td>{{ date('d-m-Y', strtotime($ships->START)) }}</td>
                 <td>{{ date('d-m-Y', strtotime($ships->FINISH)) }}</td>
+                <td>{{ $ships->DISPLACEMENT.' ton' }}</td>
             </tr>
             @endforeach  
           </tbody>
@@ -93,17 +95,28 @@
         <div class="box-body">        
         <h3>SSH Workshop</h3>    
         <table id="ssh" class="table table-bordered table-striped">
-          <thead>           
-            <tr>
-              <th>Machine</th>
-            @foreach($ship as $ships)
-              <th>{{ $ships->PROJECT_NAME }}</th>
-            @endforeach  
-            </tr>
-          </thead>
-          <tbody>
-
-          </tbody>
+            <thead>           
+                <tr>
+                    <th>Machine</th>
+                @foreach($ship as $ships)
+                    <th>{{ $ships->PROJECT_NAME }}</th>
+                @endforeach  
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($ssh as $sshs)
+                <tr>    
+                <td>{{$sshs->NAME}}</td>
+                    @for($i=0; $i<count($ship);$i++)
+                        @if($sshs->ACTIVITY=='Straightening')
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[13]->COUNT}}</td>
+                        @elseif($sshs->ACTIVITY=='Blasting')
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[14]->COUNT}}</td>
+                        @endif
+                    @endfor
+                </tr>
+                @endforeach
+            </tbody>
         </table>
         </div>
         </div>
@@ -122,9 +135,22 @@
             @endforeach  
             </tr>
           </thead>
-          <tbody>
-
-          </tbody>
+              <tbody>
+                @foreach($fabrication as $fabrications)
+                <tr>    
+                <td>{{$fabrications->NAME}}</td>
+                    @for($i=0; $i<count($ship);$i++)
+                        @if($fabrications->ACTIVITY=='Bending')
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[10]->COUNT}}</td>
+                        @elseif($fabrications->ACTIVITY=='Cutting')
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[11]->COUNT}}</td>
+                        @elseif($fabrications->ACTIVITY=='Marking')
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[12]->COUNT}}</td>
+                        @endif
+                    @endfor
+                </tr>
+                @endforeach
+            </tbody>
         </table>
         </div>
         </div>
@@ -143,9 +169,24 @@
             @endforeach  
             </tr>
           </thead>
-          <tbody>
-
-          </tbody>
+            <tbody>
+                @foreach($subassembly as $subasss)
+                <tr>    
+                <td>{{$subasss->NAME}}</td>
+                    @for($i=0; $i<count($ship);$i++)
+                        @if($subasss->ACTIVITY=='Fairing')
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[15]->COUNT}}</td>
+                        @elseif($subasss->ACTIVITY=='Fitting')
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[16]->COUNT}}</td>
+                        @elseif($subasss->ACTIVITY=='Grinding')
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[17]->COUNT}}</td>
+                        @elseif($subasss->ACTIVITY=='Welding')
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[18]->COUNT}}</td>
+                        @endif
+                    @endfor
+                </tr>
+                @endforeach
+            </tbody>
         </table>
         </div>
         </div>
@@ -164,9 +205,24 @@
             @endforeach  
             </tr>
           </thead>
-          <tbody>
-
-          </tbody>
+            <tbody>
+                @foreach($assembly as $asss)
+                <tr>    
+                <td>{{$asss->NAME}}</td>
+                    @for($i=0; $i<count($ship);$i++)
+                        @if($asss->ACTIVITY=='Fairing')
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[0]->COUNT}}</td>
+                        @elseif($asss->ACTIVITY=='Fitting')
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[1]->COUNT}}</td>
+                        @elseif($asss->ACTIVITY=='Grinding')
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[2]->COUNT}}</td>
+                        @elseif($asss->ACTIVITY=='Welding')
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[3]->COUNT}}</td>
+                        @endif
+                    @endfor
+                </tr>
+                @endforeach
+            </tbody>
         </table>
         </div>
         </div>

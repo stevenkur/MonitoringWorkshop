@@ -81,7 +81,7 @@ class AdminController extends Controller
         $assembly = Machine::where('WORKSHOP', 'Assembly')->get();
 
         $count = DB::select(DB::raw("SELECT WORKSHOP, ACTIVITY, COUNT(ID) AS COUNT FROM machines GROUP BY WORKSHOP, ACTIVITY"));
-       // dd($count);
+//        dd($count);
         
         return view('dashboard/planning_workload')->with('ship', $ship)->with('now', $now)->with('ssh', $ssh)->with('fabrication', $fabrication)->with('subassembly', $subassembly)->with('assembly', $assembly)->with('count', $count);
     }
@@ -93,8 +93,10 @@ class AdminController extends Controller
         $fabrication = Machine::where('WORKSHOP', 'Fabrication')->get();
         $subassembly = Machine::where('WORKSHOP', 'Sub Assembly')->get();
         $assembly = Machine::where('WORKSHOP', 'Assembly')->get();
-
-        return view('dashboard/conclusion_all_project')->with('ship', $ship)->with('ssh', $ssh)->with('fabrication', $fabrication)->with('subassembly', $subassembly)->with('assembly', $assembly);
+        $total_workload = DB::select(DB::raw("SELECT SUM(DISPLACEMENT) AS TOTAL FROM `ship_projects`"));
+        $count = DB::select(DB::raw("SELECT WORKSHOP, ACTIVITY, COUNT(ID) AS COUNT FROM machines GROUP BY WORKSHOP, ACTIVITY"));
+        
+        return view('dashboard/conclusion_all_project')->with('ship', $ship)->with('ssh', $ssh)->with('fabrication', $fabrication)->with('subassembly', $subassembly)->with('assembly', $assembly)->with('total_workload', $total_workload)->with('count', $count);
     }
 
     public function conclusion_finishing_workload()
