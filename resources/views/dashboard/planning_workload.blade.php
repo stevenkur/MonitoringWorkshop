@@ -121,7 +121,7 @@
             @foreach($ssh as $sshs)
             <tr>
                 <td>{{ $sshs->NAME }}</td>
-                <td>{{ $sshs->CAPACITY.' ton' }}</td>
+                <td>{{ $sshs->OPERATIONAL_HOUR*60*$sshs->CAPACITY.' ton' }}</td>
                 <td>
                     @if($sshs->ACTIVITY=="Blasting&ShopPrimer")
                         {{$workloadBlasting.' ton'}}
@@ -158,7 +158,7 @@
             @foreach($fabrication as $fab)
             <tr>
                 <td>{{ $fab->NAME }}</td>
-                <td>{{ $fab->CAPACITY }}</td>
+                <td>{{ $fab->OPERATIONAL_HOUR*60*$fab->CAPACITY.' ton' }}</td>
                 <td>                  
                     @if($fab->ACTIVITY=="Marking")
                         {{$workloadMarking.' ton'}}
@@ -198,7 +198,7 @@
             @foreach($subassembly as $subass)
             <tr>
                 <td>{{ $subass->NAME }}</td>
-                <td>{{ $subass->CAPACITY }}</td>
+                <td>{{ $subass->OPERATIONAL_HOUR*60*$subass->CAPACITY.' ton' }}</td>
                 <td>            
                     @if($subass->ACTIVITY=="Fitting")
                         {{$workloadFitting.' ton'}}
@@ -240,7 +240,7 @@
             @foreach($assembly as $assemblys)
             <tr>
                 <td>{{ $assemblys->NAME }}</td>
-                <td>{{ $assemblys->CAPACITY }}</td>
+                <td>{{ $assemblys->OPERATIONAL_HOUR*60*$assemblys->CAPACITY.' ton' }}</td>
                 <td>           
                     @if($assemblys->ACTIVITY=="Fitting")
                         {{$workloadFitting.' ton'}}

@@ -109,9 +109,9 @@
                 <td>{{$sshs->NAME}}</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($sshs->ACTIVITY=='Straightening')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[8]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[8]->COUNT.' ton'}}</td>
                         @elseif($sshs->ACTIVITY=='Blasting&ShopPrimer')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[7]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[7]->COUNT.' ton'}}</td>
                         @endif
                     @endfor
                 </tr>
@@ -141,11 +141,11 @@
                 <td>{{$fabrications->NAME}}</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($fabrications->ACTIVITY=='Bending')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[6]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[6]->COUNT.' ton'}}</td>
                         @elseif($fabrications->ACTIVITY=='Cutting')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[5]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[5]->COUNT.' ton'}}</td>
                         @elseif($fabrications->ACTIVITY=='Marking')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[4]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[4]->COUNT.' ton'}}</td>
                         @endif
                     @endfor
                 </tr>
@@ -175,13 +175,13 @@
                 <td>{{$subasss->NAME}}</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($subasss->ACTIVITY=='Fairing')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[10]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[10]->COUNT.' ton'}}</td>
                         @elseif($subasss->ACTIVITY=='Fitting')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[12]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[12]->COUNT.' ton'}}</td>
                         @elseif($subasss->ACTIVITY=='Grinding')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[9]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[9]->COUNT.' ton'}}</td>
                         @elseif($subasss->ACTIVITY=='Welding')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[11]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[11]->COUNT.' ton'}}</td>
                         @endif
                     @endfor
                 </tr>
@@ -211,13 +211,13 @@
                 <td>{{$asss->NAME}}</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($asss->ACTIVITY=='Fairing')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[1]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[1]->COUNT.' ton'}}</td>
                         @elseif($asss->ACTIVITY=='Fitting')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[3]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[3]->COUNT.' ton'}}</td>
                         @elseif($asss->ACTIVITY=='Grinding')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[2]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[2]->COUNT.' ton'}}</td>
                         @elseif($asss->ACTIVITY=='Welding')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[10]->COUNT}}</td>
+                            <td>{{$ship[$i]->DISPLACEMENT/$count[10]->COUNT.' ton'}}</td>
                         @endif
                     @endfor
                 </tr>

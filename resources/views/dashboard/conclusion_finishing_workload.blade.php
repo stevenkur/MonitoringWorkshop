@@ -86,10 +86,12 @@
               </table>
             </div>            
             <div class="box-footer">
-            <h3>Productivity Per-Month:</h3>
-            <h3>Target Production Per-Month:</h3>
-            <h3>Conclusion:
-
+            <h3><b>Productivity Per-Month:</b></h3>
+            <h3><b>Target Production Per-Month:</b></h3>
+            <h3><b>Conclusion:</b>
+            <br>Unfinished: XXX ton or m<sup>2</sup>
+            <br>Add More JO: XXX
+            <br>or Add More Machine: XXX
             </h3>
             </div>
             <!-- /.box-body -->
@@ -121,10 +123,12 @@
               </table>
             </div>            
             <div class="box-footer">
-            <h3>Productivity Per-Month:</h3>
-            <h3>Target Production Per-Month:</h3>
-            <h3>Conclusion:
-
+            <h3><b>Productivity Per-Month:</b></h3>
+            <h3><b>Target Production Per-Month:</b></h3>
+            <h3><b>Conclusion:</b>
+            <br>Unfinished: XXX ton or m<sup>2</sup>
+            <br>Add More JO: XXX
+            <br>or Add More Machine: XXX
             </h3>
             </div>
             <!-- /.box-body -->
@@ -156,10 +160,12 @@
               </table>
             </div>            
             <div class="box-footer">
-            <h3>Productivity Per-Month:</h3>
-            <h3>Target Production Per-Month:</h3>
-            <h3>Conclusion:
-
+            <h3><b>Productivity Per-Month:</b></h3>
+            <h3><b>Target Production Per-Month:</b></h3>
+            <h3><b>Conclusion:</b>
+            <br>Unfinished: XXX ton or m<sup>2</sup>
+            <br>Add More JO: XXX
+            <br>or Add More Machine: XXX
             </h3>
             </div>
             <!-- /.box-body -->
@@ -191,10 +197,12 @@
               </table>
             </div>            
             <div class="box-footer">
-            <h3>Productivity Per-Month:</h3>
-            <h3>Target Production Per-Month:</h3>
-            <h3>Conclusion:
-
+            <h3><b>Productivity Per-Month:</b></h3>
+            <h3><b>Target Production Per-Month:</b></h3>
+            <h3><b>Conclusion:</b>
+            <br>Unfinished: XXX ton or m<sup>2</sup>
+            <br>Add More JO: XXX
+            <br>or Add More Machine: XXX
             </h3>
             </div>
             <!-- /.box-body -->
@@ -220,10 +228,12 @@
               </table>
             </div>            
             <div class="box-footer">
-            <h3>Productivity Per-Month:</h3>
-            <h3>Target Production Per-Month:</h3>
-            <h3>Conclusion:
-
+            <h3><b>Productivity Per-Month:</b></h3>
+            <h3><b>Target Production Per-Month:</b></h3>
+            <h3><b>Conclusion:</b>
+            <br>Unfinished: XXX ton or m<sup>2</sup>
+            <br>Add More JO: XXX
+            <br>or Add More Machine: XXX
             </h3>
             </div>
             <!-- /.box-body -->
