@@ -97,16 +97,18 @@
         <table id="ssh" class="table table-bordered table-striped">
             <thead>           
                 <tr>
-                    <th>Machine</th>
+                  <th>Machine</th>
+                  <th>Capacity Max</th>
                 @foreach($ship as $ships)
-                    <th>{{ $ships->PROJECT_NAME }}</th>
+                  <th>{{ $ships->PROJECT_NAME }}</th>
                 @endforeach  
                 </tr>
             </thead>
             <tbody>
                 @foreach($ssh as $sshs)
-                <tr>    
+                <tr>
                 <td>{{$sshs->NAME}}</td>
+                <td>{{$sshs->OPERATIONAL_HOUR*60*$sshs->CAPACITY.' ton'}}</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($sshs->ACTIVITY=='Straightening')
                             <td>{{$ship[$i]->DISPLACEMENT/$count[8]->COUNT.' ton'}}</td>
@@ -130,6 +132,7 @@
           <thead>            
             <tr>
               <th>Machine</th>
+              <th>Capacity Max</th>
             @foreach($ship as $ships)
               <th>{{ $ships->PROJECT_NAME }}</th>
             @endforeach  
@@ -139,6 +142,7 @@
                 @foreach($fabrication as $fabrications)
                 <tr>    
                 <td>{{$fabrications->NAME}}</td>
+                <td>{{$fabrications->OPERATIONAL_HOUR*60*$fabrications->CAPACITY.' ton'}}</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($fabrications->ACTIVITY=='Bending')
                             <td>{{$ship[$i]->DISPLACEMENT/$count[6]->COUNT.' ton'}}</td>
@@ -164,6 +168,7 @@
           <thead>           
             <tr>
               <th>Machine</th>
+              <th>Capacity Max</th>
             @foreach($ship as $ships)
               <th>{{ $ships->PROJECT_NAME }}</th>
             @endforeach  
@@ -173,6 +178,7 @@
                 @foreach($subassembly as $subasss)
                 <tr>    
                 <td>{{$subasss->NAME}}</td>
+                <td>{{$subasss->OPERATIONAL_HOUR*60*$subasss->CAPACITY.' ton'}}</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($subasss->ACTIVITY=='Fairing')
                             <td>{{$ship[$i]->DISPLACEMENT/$count[10]->COUNT.' ton'}}</td>
@@ -200,15 +206,17 @@
           <thead>           
             <tr>
               <th>Machine</th>
+              <th>Capacity Max</th>
             @foreach($ship as $ships)
               <th>{{ $ships->PROJECT_NAME }}</th>
-            @endforeach  
+            @endforeach
             </tr>
           </thead>
             <tbody>
                 @foreach($assembly as $asss)
                 <tr>    
                 <td>{{$asss->NAME}}</td>
+                <td>{{$asss->OPERATIONAL_HOUR*60*$asss->CAPACITY.' ton'}}</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($asss->ACTIVITY=='Fairing')
                             <td>{{$ship[$i]->DISPLACEMENT/$count[1]->COUNT.' ton'}}</td>
