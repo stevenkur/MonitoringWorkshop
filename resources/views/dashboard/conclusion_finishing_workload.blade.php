@@ -66,6 +66,7 @@
         <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
+              <h1>SSH Workshop</h1>
               <table id="ssh" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -105,6 +106,7 @@
         <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
+              <h1>Fabrication Workshop</h1>
               <table id="fabrication" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -144,6 +146,7 @@
         <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
+              <h1>Sub Assembly Workshop</h1>
               <table id="subassembly" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -183,6 +186,7 @@
         <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
+              <h1>Assembly Workshop</h1>
               <table id="assembly" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -222,6 +226,7 @@
         <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
+              <h1>BBS Workshop</h1>
               <table id="bbs" class="table table-bordered table-striped">
                 <thead>
                 <tr>
