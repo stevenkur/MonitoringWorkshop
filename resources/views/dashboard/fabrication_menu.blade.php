@@ -347,8 +347,8 @@
                 <thead>
                 <tr>
                   <th>Date</th>
-                  <th>Output/Day (Ton/JO)</th>
-                  <th>Target Output/Day (Ton/JO)</th>
+                  <th>Output/Day (ton)</th>
+                  <th>Target Output/Day (ton)</th>
                   <th>Productivity</th>
                   <th>Productivity Target</th>
                 </tr>
@@ -365,8 +365,8 @@
                 <tfoot>
                 <tr>
                   <th>Date</th>
-                  <th>Output/Day (Ton/JO)</th>
-                  <th>Target Output/Day (Ton/JO)</th>
+                  <th>Output/Day (ton)</th>
+                  <th>Target Output/Day (ton)</th>
                   <th>Productivity</th>
                   <th>Productivity Target</th>
                 </tr>
@@ -430,30 +430,22 @@
               <div class="table-responsive" style="overflow: auto">
               <table id="machineproductivity" class="table table-bordered table-striped">
                 <thead>
-                <tr>                 
+                <tr>     
                   <th>Date</th>
-                  @foreach($machine as $machines)
-                    <th>Capacity Max<br>{{ $machines->NAME }}</th>
-                    <th>Normal/Realization Hours</th>
-                  @endforeach
+                  <th>Machine</th>
+                  <th>Capacity Max</th>
+                  <th>Normal/Realization Hours</th>
                 </tr>
                 </thead>
-                <tbody>                
-                <tr>                                               
-                  <td>Date</td>
-                  @foreach($machine as $machines)
-                    <td>{{ $machines->OPERATIONAL_HOUR*60*$machines->CAPACITY.' ton' }}</td>
-                    <td>Normal/Realization Hours</td>
-                  @endforeach
-                </tr>
+                <tbody>      
+                
                 </tbody>
                 <tfoot>
-                <tr>              
+                <tr>        
                   <th>Date</th>
-                  @foreach($machine as $machines)
-                    <th>Capacity Max<br>{{ $machines->NAME }}</th>
-                    <th>Normal/Realization Hours</th>
-                  @endforeach
+                  <th>Machine</th>
+                  <th>Capacity Max</th>
+                  <th>Normal/Realization Hours</th>
                 </tr>
                 </tfoot>
               </table>

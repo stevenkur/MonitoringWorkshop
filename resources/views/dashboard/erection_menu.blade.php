@@ -241,8 +241,8 @@
                 <thead>
                 <tr>
                   <th>Date</th>
-                  <th>Output/Day (Ton/JO)</th>
-                  <th>Target Output/Day (Ton/JO)</th>
+                  <th>Output/Day (ton)</th>
+                  <th>Target Output/Day (ton)</th>
                   <th>Productivity</th>
                 </tr>
                 </thead>
@@ -257,8 +257,8 @@
                 <tfoot>
                 <tr>
                   <th>Date</th>
-                  <th>Output/Day (Ton/JO)</th>
-                  <th>Target Output/Day (Ton/JO)</th>
+                  <th>Output/Day (ton)</th>
+                  <th>Target Output/Day (ton)</th>
                   <th>Productivity</th>
                 </tr>
                 </tfoot>

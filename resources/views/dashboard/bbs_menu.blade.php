@@ -236,8 +236,8 @@
                 <thead>
                 <tr>
                   <th>Date</th>
-                  <th>Output/Day (Ton/JO)</th>
-                  <th>Target Output/Day (Ton/JO)</th>
+                  <th>Output/Day (ton)</th>
+                  <th>Target Output/Day (ton)</th>
                   <th>Productivity</th>
                   <th>Productivity Target</th>
                 </tr>
@@ -248,14 +248,14 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td>0.55 JO/ton</td>
+                  <td>0.55 JO/m<sup>2</sup></td>
                 </tr>
                 </tbody>
                 <tfoot>
                 <tr>
                   <th>Date</th>
-                  <th>Output/Day (Ton/JO)</th>
-                  <th>Target Output/Day (Ton/JO)</th>
+                  <th>Output/Day (ton)</th>
+                  <th>Target Output/Day (ton)</th>
                   <th>Productivity</th>
                   <th>Productivity Target</th>
                 </tr>
