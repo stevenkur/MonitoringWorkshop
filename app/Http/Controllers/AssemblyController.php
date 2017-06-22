@@ -8,6 +8,7 @@ use App\Block;
 use App\Panel;
 use App\Assembly;
 use App\Percentage;
+use App\Machine;
 use DB;
 
 class AssemblyController extends Controller
@@ -24,6 +25,7 @@ class AssemblyController extends Controller
         $progress=Panel::select('id_block', DB::raw('sum(FAIRING+FITTING+GRINDING+WELDING)/3 as sum'))->groupBy('id_block')->get();
         $panel=Panel::all();
         $ass=Assembly::all();  
+        $machine = Machine::where('WORKSHOP', 'Assembly')->get();
 
         $fitting=Percentage::where("WORKSHOP","ASSEMBLY")->where("ACTIVITY", "FITTING")->first();
         $welding=Percentage::where("WORKSHOP","ASSEMBLY")->where("ACTIVITY", "WELDING")->first();
@@ -37,7 +39,7 @@ class AssemblyController extends Controller
 
         $progr=DB::select(DB::raw("SELECT ID_BLOCK, BLOCK_NAME, ($fit*SUM(FITTING)/COUNT(ID))+($weld*SUM(WELDING)/COUNT(ID))+($grind*SUM(GRINDING)/COUNT(ID))+($fair*SUM(FAIRING)/COUNT(ID)) AS PROGRESS FROM `panels` GROUP BY ID_BLOCK, BLOCK_NAME"));
 
-        return view('dashboard/assembly_menu')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('progress', $progress)->with('ass', $ass)->with('progr', $progr);
+        return view('dashboard/assembly_menu')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('progress', $progress)->with('ass', $ass)->with('progr', $progr)->with('machine', $machine);
     }
 
     /**

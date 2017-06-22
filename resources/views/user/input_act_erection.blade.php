@@ -79,7 +79,7 @@
                 <tr>
                     <th>ID Blocks</th>
                     <th>Name</th>
-                    <th>Material Process</th>
+                    <th>Process</th>
                 </tr>
                 </thead>
                 <tbody>

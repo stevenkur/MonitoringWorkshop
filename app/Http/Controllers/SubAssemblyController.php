@@ -8,6 +8,7 @@ use App\Block;
 use App\Part;
 use App\SubAssembly;
 use App\Percentage;
+use App\Machine;
 use DB;
 
 class SubAssemblyController extends Controller
@@ -24,6 +25,7 @@ class SubAssemblyController extends Controller
         $progress=Part::select('id_block', DB::raw('sum(FAIRING+FITTING+GRINDING+WELDING)/3 as sum'))->groupBy('id_block')->get();
         $part=Part::all();
         $subass=SubAssembly::all();     
+        $machine = Machine::where('WORKSHOP', 'Sub Assembly')->get();
 
         $fitting=Percentage::where("WORKSHOP","SUBASSEMBLY")->where("ACTIVITY", "FITTING")->first();
         $welding=Percentage::where("WORKSHOP","SUBASSEMBLY")->where("ACTIVITY", "WELDING")->first();
@@ -37,7 +39,7 @@ class SubAssemblyController extends Controller
 
         $progr=DB::select(DB::raw("SELECT ID_BLOCK, BLOCK_NAME, ($fit*SUM(FITTING)/COUNT(ID))+($weld*SUM(WELDING)/COUNT(ID))+($grind*SUM(GRINDING)/COUNT(ID))+($fair*SUM(FAIRING)/COUNT(ID)) AS PROGRESS FROM `parts` GROUP BY ID_BLOCK, BLOCK_NAME"));
 
-        return view('dashboard/subassembly_menu')->with('ship', $ship)->with('block', $block)->with('part', $part)->with('progress', $progress)->with('progr', $progr)->with('subass', $subass);
+        return view('dashboard/subassembly_menu')->with('ship', $ship)->with('block', $block)->with('part', $part)->with('progress', $progress)->with('progr', $progr)->with('subass', $subass)->with('machine', $machine);
     }
     
     /**

@@ -244,11 +244,15 @@
                   <th>Output/Day (Ton/JO)</th>
                   <th>Target Output/Day (Ton/JO)</th>
                   <th>Productivity</th>
-                  <th>Productivity Target</th>
                 </tr>
                 </thead>
                 <tbody>
-                
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
                 </tbody>
                 <tfoot>
                 <tr>
@@ -256,7 +260,6 @@
                   <th>Output/Day (Ton/JO)</th>
                   <th>Target Output/Day (Ton/JO)</th>
                   <th>Productivity</th>
-                  <th>Productivity Target</th>
                 </tr>
                 </tfoot>
               </table>

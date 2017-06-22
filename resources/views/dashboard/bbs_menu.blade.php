@@ -243,7 +243,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>0.55 JO/ton</td>
+                </tr>
                 </tbody>
                 <tfoot>
                 <tr>

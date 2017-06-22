@@ -366,8 +366,14 @@
                   <th>Productivity Target</th>
                 </tr>
                 </thead>
-                <tbody>
-                
+                <tbody>                
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>16 JO/ton</td>
+                </tr>
                 </tbody>
                 <tfoot>
                 <tr>
@@ -439,30 +445,28 @@
                 <thead>
                 <tr>                 
                   <th>Date</th>
-                  <th>Fitting Machine</th>
-                  <th>Normal/Realization Hours</th>
-                  <th>Welding Machine</th>
-                  <th>Normal/Realization Hours</th>
-                  <th>Grinding Machine</th>
-                  <th>Normal/Realization Hours</th>
-                  <th>Fairing Machine</th>
-                  <th>Normal/Realization Hours</th>
+                  @foreach($machine as $machines)
+                    <th>Capacity Max<br>{{ $machines->NAME }}</th>
+                    <th>Normal/Realization Hours</th>
+                  @endforeach
                 </tr>
                 </thead>
                 <tbody>
-                
+                <tr>                                               
+                  <td>Date</td>
+                  @foreach($machine as $machines)
+                    <td>{{ $machines->OPERATIONAL_HOUR*60*$machines->CAPACITY.' ton' }}</td>
+                    <td>Normal/Realization Hours</td>
+                  @endforeach
+                </tr>
                 </tbody>
                 <tfoot>
                 <tr>                  
                   <th>Date</th>
-                  <th>Fitting Machine</th>
-                  <th>Normal/Realization Hours</th>
-                  <th>Welding Machine</th>
-                  <th>Normal/Realization Hours</th>
-                  <th>Grinding Machine</th>
-                  <th>Normal/Realization Hours</th>
-                  <th>Fairing Machine</th>
-                  <th>Normal/Realization Hours</th>
+                  @foreach($machine as $machines)
+                    <th>Capacity Max<br>{{ $machines->NAME }}</th>
+                    <th>Normal/Realization Hours</th>
+                  @endforeach
                 </tr>
                 </tfoot>
               </table>
