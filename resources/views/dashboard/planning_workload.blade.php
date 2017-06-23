@@ -114,8 +114,8 @@
             </tr>
           </thead>
             <?php
-                $workloadBlasting = ($ships['DISPLACEMENT']/$count[8]->COUNT)/$diff->days;
-                $workloadStraightening = ($ships['DISPLACEMENT']/$count[7]->COUNT)/$diff->days;
+                $workloadBlasting = ($ships['MATERIAL']/$count[8]->COUNT)/$diff->days;
+                $workloadStraightening = ($ships['MATERIAL']/$count[7]->COUNT)/$diff->days;
             ?>
           <tbody>
             @foreach($ssh as $sshs)
@@ -150,9 +150,9 @@
             </tr>
           </thead>
             <?php
-                $workloadMarking = ($ships['DISPLACEMENT']/$count[6]->COUNT)/$diff->days;
-                $workloadCutting = ($ships['DISPLACEMENT']/$count[5]->COUNT)/$diff->days;
-                $workloadBending = ($ships['DISPLACEMENT']/$count[4]->COUNT)/$diff->days;
+                $workloadMarking = ($ships['MATERIAL']/$count[6]->COUNT)/$diff->days;
+                $workloadCutting = ($ships['MATERIAL']/$count[5]->COUNT)/$diff->days;
+                $workloadBending = ($ships['MATERIAL']/$count[4]->COUNT)/$diff->days;
             ?>
           <tbody>
             @foreach($fabrication as $fab)

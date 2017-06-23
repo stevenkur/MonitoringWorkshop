@@ -111,9 +111,9 @@
                 <td>{{$sshs->OPERATIONAL_HOUR*60*$sshs->CAPACITY.' ton'}}</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($sshs->ACTIVITY=='Straightening')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[8]->COUNT.' ton'}}</td>
+                            <td>{{$ship[$i]->MATERIAL/$count[8]->COUNT.' ton'}}</td>
                         @elseif($sshs->ACTIVITY=='Blasting&ShopPrimer')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[7]->COUNT.' ton'}}</td>
+                            <td>{{$ship[$i]->MATERIAL/$count[7]->COUNT.' ton'}}</td>
                         @endif
                     @endfor
                 </tr>
@@ -145,11 +145,11 @@
                 <td>{{$fabrications->OPERATIONAL_HOUR*60*$fabrications->CAPACITY.' ton'}}</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($fabrications->ACTIVITY=='Bending')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[6]->COUNT.' ton'}}</td>
+                            <td>{{$ship[$i]->MATERIAL/$count[6]->COUNT.' ton'}}</td>
                         @elseif($fabrications->ACTIVITY=='Cutting')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[5]->COUNT.' ton'}}</td>
+                            <td>{{$ship[$i]->MATERIAL/$count[5]->COUNT.' ton'}}</td>
                         @elseif($fabrications->ACTIVITY=='Marking')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[4]->COUNT.' ton'}}</td>
+                            <td>{{$ship[$i]->MATERIAL/$count[4]->COUNT.' ton'}}</td>
                         @endif
                     @endfor
                 </tr>

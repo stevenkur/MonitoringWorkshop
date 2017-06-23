@@ -53,12 +53,27 @@
          
           <div class="form-group"><br><br>
             <label> <h3>Total Workload All Project :</h3> </label>
-            <label> <h3><b>{{$total_workload[0]->TOTAL}} ton</b></h3> </label><br><br>
+            <label> 
+                @if(isset($_GET['workshop']) && ($_GET['workshop']==1 || $_GET['workshop']==2))
+                <h3><b>{{$total_workload[0]->MAT}} ton</b></h3> </label><br><br>
+                @else
+                <h3><b>{{$total_workload[0]->TOTAL}} ton</b></h3> </label><br><br>
+                @endif
           </div>      
 
         </div>
         </div>
         </div>
+          
+          <?php
+            $productivity = 0;
+            $targetproduction = 0;
+            $capacity = 0;
+            $realcapacity = 0;
+            $normal = 0;
+            $realnormal = 0;
+            $works = 0;
+          ?>
 
         @if(isset($_GET['workshop']))        
         @if($_GET['workshop']==1)
@@ -72,29 +87,68 @@
                 <tr>                 
                   <th>Date</th>
                   <th>Machine</th>
-                  <th>Capacity Max</th>
+                  <th>Capacity Max/Realization</th>
                   <th>Normal/Realization Hours</th>
                 </tr>
                 </thead>
                 <tbody>  
-                @foreach($machineproductivity1 as $machprod)                
+                @foreach($machineproductivity1 as $machprod)     
+                <?php 
+//                    dd($machprod);
+                    $productivityBlast = $capacityBlast = $realcapacityBlast = $normalBlast = $realnormalBlast = $needsBlast = 0;
+                    $productivityStr = $capacityStr = $realcapacityStr = $normalStr = $realnormalStr = $needsStr = 0;
+                    if($machprod->ACTIVITY=="Blasting&ShopPrimer"){
+                        $productivityBlast += $machprod->WEIGHT;
+                        $capacityBlast += $machprod->WEIGHT;
+                        $realcapacityBlast += $machprod->WEIGHT;
+                        $normalBlast += $machprod->NORMAL;
+                        $realnormalBlast += $machprod->REALIZATION;
+                    }
+                    if($machprod->ACTIVITY=="Straightening"){
+                        $productivityStr += $machprod->WEIGHT;
+                        $capacityStr += $machprod->WEIGHT;
+                        $realcapacityStr += $machprod->WEIGHT;
+                        $normalStr += $machprod->NORMAL;
+                        $realnormalStr += $machprod->REALIZATION;
+                    }
+                    $capacity += $machprod->CAPACITY;
+                ?>
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
                   <td>{{ $machprod->MACHINE }}</td>
-                  <td>{{ $machprod->CAPACITY }}</td>
-                  <td>{{ $machprod->NORMAL/$machprod->REALIZATION }}</td>
+                  <td>{{ $machprod->CAPACITY.'/'.$machprod->WEIGHT.' ton' }}</td>
+                  <td>{{ $machprod->NORMAL.'/'.$machprod->REALIZATION.' hours' }}</td>
                 </tr>
                 @endforeach                
                 </tbody>
               </table>
             </div>            
             <div class="box-footer">
-            <h3><b>Productivity Per-Month:</b></h3>
+            <h3><b>Productivity Per-Month: {{$productivityBlast.' ton'}}</b></h3>
             <h3><b>Target Production Per-Month:</b></h3>
             <h3><b>Conclusion:</b>
-            <br>Unfinished: XXX ton or m<sup>2</sup>
-            <br>Add More JO: XXX
-            <br>or Add More Machine: XXX
+            <br>Unfinished: {{$total_workload[0]->MAT-$productivityBlast}} ton
+            
+            @if($realnormalStr>$normalStr || $realcapacityStr>$capacityStr)
+            <?php 
+                $capStr = (($realnormalStr-$normalStr)/count($normalStr))/($normalStr/count($normalStr));
+                $hoursStr = (($realcapacityStr-$capacityStr)/count($capacityStr))/($capacityStr/count($capacityStr));
+                $needsStr = max($capStr, $hoursStr);
+            ?>
+            <br>Add <strong>{{ceil($needsStr)}}</strong> More Straightening Machines
+            @endif
+            @if($realnormalBlast>$normalBlast || $realcapacityBlast>$capacityBlast)
+            <?php 
+                $capBlast = (($realnormalBlast-$normalBlast)/count($normalBlast))/($normalBlast/count($normalBlast));
+                $hoursBlast = (($realcapacityBlast-$capacityBlast)/count($capacityBlast))/($capacityBlast/count($capacityBlast));
+                $needsBlast = max($capBlast, $hoursBlast);
+            ?>
+            <br>Add <strong>{{ceil($needsBlast)}}</strong> More Blasting Machines
+            @endif
+            <?php $needsWorker = ceil(2*($needsStr+$needsBlast))-$worker[4]->COUNT;?>
+            @if($needsWorker>0)
+                <br>Add <strong>{{$needsWorker}}</strong> More Workers
+            @endif
             </h3>
             </div>
             <!-- /.box-body -->
@@ -112,25 +166,25 @@
                 <tr>                 
                   <th>Date</th>
                   <th>Machine</th>
-                  <th>Capacity Max</th>
+                  <th>Capacity Max/Realization</th>
                   <th>Normal/Realization Hours</th>
                 </tr>
                 </thead>
-                <tbody>   
+                <tbody>  
                 @foreach($machineproductivity2 as $machprod)                
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
                   <td>{{ $machprod->MACHINE }}</td>
-                  <td>{{ $machprod->CAPACITY }}</td>
-                  <td>{{ $machprod->NORMAL/$machprod->REALIZATION }}</td>
+                  <td>{{ $machprod->CAPACITY.'/'.$machprod->WEIGHT.' ton' }}</td>
+                  <td>{{ $machprod->NORMAL.'/'.$machprod->REALIZATION.' hours' }}</td>
                 </tr>
-                @endforeach                     
+                @endforeach                
                 </tbody>
               </table>
             </div>            
             <div class="box-footer">
             <h3><b>Productivity Per-Month:</b></h3>
-            <h3><b>Target Production Per-Month:</b></h3>
+            <h3><b>Target Production Per-Month: </b></h3>
             <h3><b>Conclusion:</b>
             <br>Unfinished: XXX ton or m<sup>2</sup>
             <br>Add More JO: XXX
@@ -152,19 +206,19 @@
                 <tr>                 
                   <th>Date</th>
                   <th>Machine</th>
-                  <th>Capacity Max</th>
+                  <th>Capacity Max/Realization</th>
                   <th>Normal/Realization Hours</th>
                 </tr>
                 </thead>
-                <tbody>                   
+                <tbody>  
                 @foreach($machineproductivity3 as $machprod)                
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
                   <td>{{ $machprod->MACHINE }}</td>
-                  <td>{{ $machprod->CAPACITY }}</td>
-                  <td>{{ $machprod->NORMAL/$machprod->REALIZATION }}</td>
+                  <td>{{ $machprod->CAPACITY.'/'.$machprod->WEIGHT.' ton' }}</td>
+                  <td>{{ $machprod->NORMAL.'/'.$machprod->REALIZATION.' hours' }}</td>
                 </tr>
-                @endforeach                    
+                @endforeach                
                 </tbody>
               </table>
             </div>            
@@ -192,19 +246,19 @@
                 <tr>                 
                   <th>Date</th>
                   <th>Machine</th>
-                  <th>Capacity Max</th>
+                  <th>Capacity Max/Realization</th>
                   <th>Normal/Realization Hours</th>
                 </tr>
                 </thead>
-                <tbody>   
+                <tbody>  
                 @foreach($machineproductivity4 as $machprod)                
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
                   <td>{{ $machprod->MACHINE }}</td>
-                  <td>{{ $machprod->CAPACITY }}</td>
-                  <td>{{ $machprod->NORMAL/$machprod->REALIZATION }}</td>
+                  <td>{{ $machprod->CAPACITY.'/'.$machprod->WEIGHT.' ton' }}</td>
+                  <td>{{ $machprod->NORMAL.'/'.$machprod->REALIZATION.' hours' }}</td>
                 </tr>
-                @endforeach                   
+                @endforeach                
                 </tbody>
               </table>
             </div>            
@@ -279,7 +333,7 @@
 <script>
 $(function() {
     $('#ssh').DataTable({
-          "paging": false,
+          "paging": true,
           "lengthChange": true,
           "searching": false,
           "ordering": true,
@@ -287,7 +341,7 @@ $(function() {
           "autoWidth": true
     });
     $('#fabrication').DataTable({
-          "paging": false,
+          "paging": true,
           "lengthChange": true,
           "searching": false,
           "ordering": true,
@@ -295,7 +349,7 @@ $(function() {
           "autoWidth": true
     });
     $('#subassembly').DataTable({
-          "paging": false,
+          "paging": true,
           "lengthChange": true,
           "searching": false,
           "ordering": true,
@@ -303,7 +357,7 @@ $(function() {
           "autoWidth": true
     });
     $('#assembly').DataTable({
-          "paging": false,
+          "paging": true,
           "lengthChange": true,
           "searching": false,
           "ordering": true,
@@ -311,7 +365,7 @@ $(function() {
           "autoWidth": true
     });
     $('#bbs').DataTable({
-          "paging": false,
+          "paging": true,
           "lengthChange": true,
           "searching": false,
           "ordering": true,

@@ -486,8 +486,8 @@
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
                   <td>{{ $machprod->MACHINE }}</td>
-                  <td>{{ $machprod->CAPACITY }}</td>
-                  <td>{{ $machprod->NORMAL/$machprod->REALIZATION }}</td>
+                  <td>{{ $machprod->CAPACITY}}</td>
+                  <td>{{ $machprod->NORMAL.'/'.$machprod->REALIZATION }}</td>
                 </tr>
                 @endforeach                
                 </tbody>
