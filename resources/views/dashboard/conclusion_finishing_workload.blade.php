@@ -69,22 +69,22 @@
               <h1>SSH Workshop</h1>
               <table id="ssh" class="table table-bordered table-striped">
                 <thead>
-                <tr>
+                <tr>                 
                   <th>Date</th>
-                  @foreach($ssh as $sshs)
-                    <th>Capacity Max Machine <br> {{ $sshs->NAME }}</th>
-                    <th>Target Output Machine <br> {{ $sshs->NAME }}</th>
-                  @endforeach
+                  <th>Machine</th>
+                  <th>Capacity Max</th>
+                  <th>Normal/Realization Hours</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>                  
-                <td>Tanggal</td>
-                  @foreach($ssh as $sshs)
-                  <td>{{ $sshs->CAPACITY.' ton' }}</td>
-                  <td>Realisasi</td>
-                  @endforeach
+                <tbody>  
+                @foreach($machineproductivity1 as $machprod)                
+                <tr> 
+                  <td>{{ $machprod->DATE }}</td>
+                  <td>{{ $machprod->MACHINE }}</td>
+                  <td>{{ $machprod->CAPACITY }}</td>
+                  <td>{{ $machprod->NORMAL/$machprod->REALIZATION }}</td>
                 </tr>
+                @endforeach                
                 </tbody>
               </table>
             </div>            
@@ -109,22 +109,22 @@
               <h1>Fabrication Workshop</h1>
               <table id="fabrication" class="table table-bordered table-striped">
                 <thead>
-                <tr>
+                <tr>                 
                   <th>Date</th>
-                  @foreach($fabrication as $fab)
-                    <th>Capacity Max Machine <br> {{ $fab->NAME }}</th>
-                    <th>Target Output Machine <br> {{ $fab->NAME }}</th>
-                  @endforeach
+                  <th>Machine</th>
+                  <th>Capacity Max</th>
+                  <th>Normal/Realization Hours</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>                  
-                <td>Tanggal</td>
-                  @foreach($fabrication as $fab)
-                  <td>{{ $fab->CAPACITY.' ton' }}</td>
-                  <td>Realisasi</td>
-                  @endforeach
+                <tbody>   
+                @foreach($machineproductivity2 as $machprod)                
+                <tr> 
+                  <td>{{ $machprod->DATE }}</td>
+                  <td>{{ $machprod->MACHINE }}</td>
+                  <td>{{ $machprod->CAPACITY }}</td>
+                  <td>{{ $machprod->NORMAL/$machprod->REALIZATION }}</td>
                 </tr>
+                @endforeach                     
                 </tbody>
               </table>
             </div>            
@@ -149,22 +149,22 @@
               <h1>Sub Assembly Workshop</h1>
               <table id="subassembly" class="table table-bordered table-striped">
                 <thead>
-                <tr>
+                <tr>                 
                   <th>Date</th>
-                  @foreach($subassembly as $subass)
-                    <th>Capacity Max Machine <br> {{ $subass->NAME }}</th>
-                    <th>Target Output Machine <br> {{ $subass->NAME }}</th>
-                  @endforeach
+                  <th>Machine</th>
+                  <th>Capacity Max</th>
+                  <th>Normal/Realization Hours</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>                  
-                <td>Tanggal</td>
-                  @foreach($subassembly as $subass)
-                  <td>{{ $subass->CAPACITY.' ton' }}</td>
-                  <td>Realisasi</td>
-                  @endforeach
+                <tbody>                   
+                @foreach($machineproductivity3 as $machprod)                
+                <tr> 
+                  <td>{{ $machprod->DATE }}</td>
+                  <td>{{ $machprod->MACHINE }}</td>
+                  <td>{{ $machprod->CAPACITY }}</td>
+                  <td>{{ $machprod->NORMAL/$machprod->REALIZATION }}</td>
                 </tr>
+                @endforeach                    
                 </tbody>
               </table>
             </div>            
@@ -189,22 +189,22 @@
               <h1>Assembly Workshop</h1>
               <table id="assembly" class="table table-bordered table-striped">
                 <thead>
-                <tr>
+                <tr>                 
                   <th>Date</th>
-                  @foreach($assembly as $ass)
-                    <th>Capacity Max Machine <br> {{ $ass->NAME }}</th>
-                    <th>Target Output Machine <br> {{ $ass->NAME }}</th>
-                  @endforeach
+                  <th>Machine</th>
+                  <th>Capacity Max</th>
+                  <th>Normal/Realization Hours</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                <td>Tanggal</td>
-                  @foreach($assembly as $ass)
-                  <td>{{ $ass->CAPACITY.' ton' }}</td>
-                  <td>Realisasi</td>
-                  @endforeach
+                <tbody>   
+                @foreach($machineproductivity4 as $machprod)                
+                <tr> 
+                  <td>{{ $machprod->DATE }}</td>
+                  <td>{{ $machprod->MACHINE }}</td>
+                  <td>{{ $machprod->CAPACITY }}</td>
+                  <td>{{ $machprod->NORMAL/$machprod->REALIZATION }}</td>
                 </tr>
+                @endforeach                   
                 </tbody>
               </table>
             </div>            

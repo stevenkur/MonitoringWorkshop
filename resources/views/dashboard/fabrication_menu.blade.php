@@ -354,13 +354,15 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($productivity as $prod)
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>{{ $prod->DATE }}</td>
+                  <td>???</td>
+                  <td>???</td>
+                  <td>{{ $prod->PRODUCTIVITY }}</td>
                   <td>4.2 JO/ton</td>
                 </tr>
+                @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
@@ -438,7 +440,14 @@
                 </tr>
                 </thead>
                 <tbody>      
-                
+                @foreach($machineproductivity as $machprod)
+                <tr> 
+                  <td>{{ $machprod->DATE }}</td>
+                  <td>{{ $machprod->MACHINE }}</td>
+                  <td>{{ $machprod->CAPACITY }}</td>
+                  <td>{{ $machprod->NORMAL/$machprod->REALIZATION }}</td>
+                </tr>
+                @endforeach                           
                 </tbody>
                 <tfoot>
                 <tr>        

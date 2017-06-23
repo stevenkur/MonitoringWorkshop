@@ -36,9 +36,13 @@ class FabricationController extends Controller
         $cut = $cutting->PERCENT;
         $bend = $bending->PERCENT;
 
+        $productivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, SUM(B.WEIGHT)/COUNT(A.ID) AS WEIGHT, SUM(A.WORKING_HOURS)/WEIGHT AS PRODUCTIVITY FROM fabrications A, PLATES B, machines C WHERE (A.ID_MATERIAL=B.ID AND C.NAME LIKE A.MACHINE AND C.ACTIVITY LIKE 'Bending') GROUP BY DATE, A.MACHINE"));
+        
+        $machineproductivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, B.CAPACITY, B.OPERATIONAL_HOUR AS NORMAL, SUM(A.MACHINE_WORKING+A.MACHINE_ADD_HOURS) AS REALIZATION FROM fabrications A, machines B WHERE A.MACHINE LIKE B.NAME GROUP BY DATE, A.MACHINE"));
+
         $progr=DB::select(DB::raw("SELECT ID_BLOCK, BLOCK_NAME, ($mark*SUM(MARKING)/COUNT(ID))+($cut*SUM(CUTTING)/COUNT(ID))+($bend*SUM(BLENDING)/COUNT(ID)) AS PROGRESS FROM `plates` GROUP BY ID_BLOCK, BLOCK_NAME"));
 
-        return view('dashboard/fabrication_menu')->with('ship', $ship)->with('block', $block)->with('profile', $profile)->with('plate', $plate)->with('fabrication', $fabrication)->with('progr', $progr)->with('machine', $machine);
+        return view('dashboard/fabrication_menu')->with('ship', $ship)->with('block', $block)->with('profile', $profile)->with('plate', $plate)->with('fabrication', $fabrication)->with('progr', $progr)->with('machine', $machine)->with('productivity',$productivity)->with('machineproductivity',$machineproductivity);
     }
 
     /**

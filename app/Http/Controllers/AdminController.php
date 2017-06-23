@@ -113,7 +113,15 @@ class AdminController extends Controller
         $assembly = Machine::where('WORKSHOP', 'Assembly')->get();
         $total_workload = DB::select(DB::raw("SELECT SUM(DISPLACEMENT) AS TOTAL FROM `ship_projects`"));
 
-        return view('dashboard/conclusion_finishing_workload')->with('ship', $ship)->with('ssh', $ssh)->with('fabrication', $fabrication)->with('subassembly', $subassembly)->with('assembly', $assembly)->with('total_workload', $total_workload);
+        $machineproductivity1 = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, B.CAPACITY, B.OPERATIONAL_HOUR AS NORMAL, SUM(A.MACHINE_WORKING+A.MACHINE_ADD_HOURS) AS REALIZATION FROM ssh A, machines B WHERE A.MACHINE LIKE B.NAME GROUP BY DATE, A.MACHINE"));
+
+        $machineproductivity2 = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, B.CAPACITY, B.OPERATIONAL_HOUR AS NORMAL, SUM(A.MACHINE_WORKING+A.MACHINE_ADD_HOURS) AS REALIZATION FROM fabrications A, machines B WHERE A.MACHINE LIKE B.NAME GROUP BY DATE, A.MACHINE"));
+
+        $machineproductivity3 = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, B.CAPACITY, B.OPERATIONAL_HOUR AS NORMAL, SUM(A.MACHINE_WORKING+A.MACHINE_ADD_HOURS) AS REALIZATION FROM sub_assembly A, machines B WHERE A.MACHINE LIKE B.NAME GROUP BY DATE, A.MACHINE"));
+
+        $machineproductivity4 = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, B.CAPACITY, B.OPERATIONAL_HOUR AS NORMAL, SUM(A.MACHINE_WORKING+A.MACHINE_ADD_HOURS) AS REALIZATION FROM assembly A, machines B WHERE A.MACHINE LIKE B.NAME GROUP BY DATE, A.MACHINE"));
+
+        return view('dashboard/conclusion_finishing_workload')->with('ship', $ship)->with('ssh', $ssh)->with('fabrication', $fabrication)->with('subassembly', $subassembly)->with('assembly', $assembly)->with('total_workload', $total_workload)->with('machineproductivity1',$machineproductivity1)->with('machineproductivity2',$machineproductivity2)->with('machineproductivity3',$machineproductivity3)->with('machineproductivity4',$machineproductivity4);
     }
 
     public function destroy()

@@ -243,13 +243,15 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($productivity as $prod)
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>{{ $prod->DATE }}</td>
+                  <td>???</td>
+                  <td>???</td>
+                  <td>{{ $prod->PRODUCTIVITY }}</td>
                   <td>0.55 JO/m<sup>2</sup></td>
                 </tr>
+                @endforeach
                 </tbody>
                 <tfoot>
                 <tr>

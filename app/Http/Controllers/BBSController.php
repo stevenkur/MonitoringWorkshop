@@ -30,9 +30,11 @@ class BBSController extends Controller
         $blast = $blasting->PERCENT;
         $paint = $painting->PERCENT;
 
+        $productivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, SUM(B.AREA)/COUNT(A.ID) AS WEIGHT, SUM(A.WORKING_HOURS)/SUM(B.AREA)/COUNT(A.ID) AS PRODUCTIVITY FROM bbs A, ROOMS B WHERE (A.ID_MATERIAL=B.ID AND A.PROCESS LIKE 'Painting') GROUP BY DATE"));
+
         $progr=DB::select(DB::raw("SELECT ID_BLOCK, BLOCK_NAME, ($blast*SUM(BLASTING)/COUNT(ID))+($paint*SUM(PAINTING)/COUNT(ID)) AS PROGRESS FROM `rooms` GROUP BY ID_BLOCK, BLOCK_NAME"));
         
-        return view('dashboard/bbs_menu')->with('ship', $ship)->with('bbs', $bbs)->with('block', $block)->with('progr',$progr)->with('room',$room);
+        return view('dashboard/bbs_menu')->with('ship', $ship)->with('bbs', $bbs)->with('block', $block)->with('progr',$progr)->with('room',$room)->with('productivity',$productivity);
     }
 
     /**
