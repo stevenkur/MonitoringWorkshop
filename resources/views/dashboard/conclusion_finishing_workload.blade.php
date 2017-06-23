@@ -111,7 +111,6 @@
                         $normalStr += $machprod->NORMAL;
                         $realnormalStr += $machprod->REALIZATION;
                     }
-                    $capacity += $machprod->CAPACITY;
                 ?>
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
