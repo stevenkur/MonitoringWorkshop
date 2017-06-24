@@ -95,7 +95,7 @@ class AdminController extends Controller
         $fabrication = Machine::where('WORKSHOP', 'Fabrication')->get();
         $subassembly = Machine::where('WORKSHOP', 'Sub Assembly')->get();
         $assembly = Machine::where('WORKSHOP', 'Assembly')->get();
-        $total_workload = DB::select(DB::raw("SELECT SUM(DISPLACEMENT) AS TOTAL FROM `ship_projects`"));
+        $total_workload = DB::select(DB::raw("SELECT SUM(DISPLACEMENT) AS TOTAL, SUM(MATERIAL) AS MAT FROM `ship_projects`"));
         $count = DB::select(DB::raw("SELECT WORKSHOP, ACTIVITY, COUNT(ID) AS COUNT FROM machines GROUP BY WORKSHOP, ACTIVITY"));
         $room = Room::all();
         

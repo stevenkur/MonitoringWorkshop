@@ -53,7 +53,13 @@
          
           <div class="form-group"><br><br>
             <label> <h3>Total Workload All Project :</h3> </label>
-            <label> <h3><b>{{$total_workload[0]->TOTAL}} ton</b></h3> </label><br><br>
+            <label> <h3><b>
+                @if(isset($_GET['workshop']) && ($_GET['workshop']==1 || $_GET['workshop']==2))
+                {{ $total_workload[0]->MAT.' ton' }}
+                @else
+                {{ $total_workload[0]->TOTAL.' ton' }}
+                @endif
+            </b></h3> </label><br><br>
           </div>      
 
         </div>
@@ -80,7 +86,13 @@
                 <td>{{ $ships->PROJECT_NAME }}</td>
                 <td>{{ date('d-m-Y', strtotime($ships->START)) }}</td>
                 <td>{{ date('d-m-Y', strtotime($ships->FINISH)) }}</td>
-                <td>{{ $ships->DISPLACEMENT.' ton' }}</td>
+                <td>
+                    @if(isset($_GET['workshop']) && ($_GET['workshop']==1 || $_GET['workshop']==2))
+                    {{ $ships->MATERIAL.' ton' }}
+                    @else
+                    {{ $ships->DISPLACEMENT.' ton' }}
+                    @endif
+                </td>
             </tr>
             @endforeach  
           </tbody>
