@@ -37,7 +37,7 @@ class AssemblyController extends Controller
         $grind = $grinding->PERCENT;
         $fair = $fairing->PERCENT;
 
-        $productivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, SUM(B.WEIGHT)/COUNT(A.ID) AS WEIGHT, SUM(A.WORKING_HOURS)/WEIGHT AS PRODUCTIVITY FROM assembly A, panels B, machines C WHERE (A.ID_PANEL=B.ID AND C.NAME LIKE A.MACHINE AND C.ACTIVITY LIKE 'Fairing') GROUP BY DATE, A.MACHINE"));
+        $productivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, SUM(D.DISPLACEMENT)/COUNT(A.ID) AS WEIGHT, SUM(A.WORKING_HOURS)/(SUM(D.DISPLACEMENT)/COUNT(A.ID)) AS PRODUCTIVITY FROM assembly A, panels B, machines C, ship_projects D WHERE (A.ID_PANEL=B.ID AND B.ID_PROJECT=D.ID AND C.NAME LIKE A.MACHINE AND C.ACTIVITY LIKE 'Fairing') GROUP BY DATE, A.MACHINE"));
         
         $machineproductivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, B.CAPACITY, B.OPERATIONAL_HOUR AS NORMAL, SUM(A.MACHINE_WORKING+A.MACHINE_ADD_HOURS) AS REALIZATION FROM assembly A, machines B WHERE A.MACHINE LIKE B.NAME GROUP BY DATE, A.MACHINE"));
 

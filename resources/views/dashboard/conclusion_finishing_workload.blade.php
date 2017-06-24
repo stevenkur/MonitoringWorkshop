@@ -64,17 +64,7 @@
         </div>
         </div>
         </div>
-          
-          <?php
-            $productivity = 0;
-            $targetproduction = 0;
-            $capacity = 0;
-            $realcapacity = 0;
-            $normal = 0;
-            $realnormal = 0;
-            $works = 0;
-          ?>
-
+         
         @if(isset($_GET['workshop']))        
         @if($_GET['workshop']==1)
         <div class="col-md-12">
@@ -92,25 +82,21 @@
                 </tr>
                 </thead>
                 <tbody>  
+                <?php
+                    for($i=0; $i<2; $i++){
+                        $productivity[$i] = $capacity[$i] = $realcapacity[$i] = $normal[$i] = $realnormal[$i] = $needs[$i] = 0;
+                    }
+                ?>
                 @foreach($machineproductivity1 as $machprod)     
                 <?php 
-//                    dd($machprod);
-                    $productivityBlast = $capacityBlast = $realcapacityBlast = $normalBlast = $realnormalBlast = $needsBlast = 0;
-                    $productivityStr = $capacityStr = $realcapacityStr = $normalStr = $realnormalStr = $needsStr = 0;
-                    if($machprod->ACTIVITY=="Blasting&ShopPrimer"){
-                        $productivityBlast += $machprod->WEIGHT;
-                        $capacityBlast += $machprod->WEIGHT;
-                        $realcapacityBlast += $machprod->WEIGHT;
-                        $normalBlast += $machprod->NORMAL;
-                        $realnormalBlast += $machprod->REALIZATION;
-                    }
-                    if($machprod->ACTIVITY=="Straightening"){
-                        $productivityStr += $machprod->WEIGHT;
-                        $capacityStr += $machprod->WEIGHT;
-                        $realcapacityStr += $machprod->WEIGHT;
-                        $normalStr += $machprod->NORMAL;
-                        $realnormalStr += $machprod->REALIZATION;
-                    }
+                    if($machprod->ACTIVITY=="Straightening") $i=0;
+                    else if($machprod->ACTIVITY=="Blasting & Shop Primer") $i=1;
+                    
+                    $productivity[$i] += $machprod->WEIGHT;
+                    $capacity[$i] += $machprod->CAPACITY;
+                    $realcapacity[$i] += $machprod->WEIGHT;
+                    $normal[$i] += $machprod->NORMAL;
+                    $realnormal[$i] += $machprod->REALIZATION;?>
                 ?>
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
@@ -118,36 +104,35 @@
                   <td>{{ $machprod->CAPACITY.'/'.$machprod->WEIGHT.' ton' }}</td>
                   <td>{{ $machprod->NORMAL.'/'.$machprod->REALIZATION.' hours' }}</td>
                 </tr>
-                @endforeach                
+                @endforeach
                 </tbody>
               </table>
             </div>            
             <div class="box-footer">
-            <h3><b>Productivity Per-Month: {{$productivityBlast.' ton'}}</b></h3>
+            <h3><b>Productivity Per-Month: {{$productivity[1].' ton'}}</b></h3>
             <h3><b>Target Production Per-Month:</b></h3>
             <h3><b>Conclusion:</b>
-            <br>Unfinished: {{$total_workload[0]->MAT-$productivityBlast}} ton
+            <br>Unfinished: {{$total_workload[0]->MAT-$productivity[1]}} ton
             
-            @if($realnormalStr>$normalStr || $realcapacityStr>$capacityStr)
+            @for($i=0; $i<2; $i++)
+                @if($realnormal[$i]>$normal[$i] || $realcapacity[$i]>$capacity[$i])
+                <?php 
+                    $hours[$i] = (($realnormal[$i]-$normal[$i])/count($normal[$i]))/($normal[$i]/count($normal[$i]));
+                    $cap[$i] = (($realcapacity[$i]-$capacity[$i])/count($capacity[$i]))/($capacity[$i]/count($capacity[$i]));
+//                    echo $cap[$i].' '.$hours[$i];
+                    $needs[$i] = max($cap[$i], $hours[$i]);
+                ?>
+                <br>Add <strong>{{ceil($needs[$i])}}</strong> More 
+                    @if($i==0) Straightening
+                    @elseif($i==1) Blasting & Shop Primer @endif
+                Machines
+                @endif
+            @endfor
             <?php 
-                $capStr = (($realnormalStr-$normalStr)/count($normalStr))/($normalStr/count($normalStr));
-                $hoursStr = (($realcapacityStr-$capacityStr)/count($capacityStr))/($capacityStr/count($capacityStr));
-                $needsStr = max($capStr, $hoursStr);
-            ?>
-            <br>Add <strong>{{ceil($needsStr)}}</strong> More Straightening Machines
-            @endif
-            @if($realnormalBlast>$normalBlast || $realcapacityBlast>$capacityBlast)
-            <?php 
-                $capBlast = (($realnormalBlast-$normalBlast)/count($normalBlast))/($normalBlast/count($normalBlast));
-                $hoursBlast = (($realcapacityBlast-$capacityBlast)/count($capacityBlast))/($capacityBlast/count($capacityBlast));
-                $needsBlast = max($capBlast, $hoursBlast);
-            ?>
-            <br>Add <strong>{{ceil($needsBlast)}}</strong> More Blasting Machines
-            @endif
-            <?php $needsWorker = ceil(2*($needsStr+$needsBlast))-$worker[4]->COUNT;?>
-            @if($needsWorker>0)
-                <br>Add <strong>{{$needsWorker}}</strong> More Workers
-            @endif
+                $needsWorker = ceil(2*($needs[0]+$needs[1]))-$worker[4]->COUNT;?>
+                @if($needsWorker>0)
+                    <br>Add <strong>{{$needsWorker}}</strong> More Workers
+                @endif
             </h3>
             </div>
             <!-- /.box-body -->
@@ -170,7 +155,22 @@
                 </tr>
                 </thead>
                 <tbody>  
-                @foreach($machineproductivity2 as $machprod)                
+                <?php
+                    for($i=0; $i<3; $i++){
+                        $productivity[$i] = $capacity[$i] = $realcapacity[$i] = $normal[$i] = $realnormal[$i] = $needs[$i] = 0;
+                    }
+                ?>
+                @foreach($machineproductivity2 as $machprod)
+                    <?php
+                    if($machprod->ACTIVITY=="Marking") $i=0;
+                    else if($machprod->ACTIVITY=="Cutting") $i=1;
+                    else if($machprod->ACTIVITY=="Bending") $i=2;
+                    
+                    $productivity[$i] += $machprod->WEIGHT;
+                    $capacity[$i] += $machprod->CAPACITY;
+                    $realcapacity[$i] += $machprod->WEIGHT;
+                    $normal[$i] += $machprod->NORMAL;
+                    $realnormal[$i] += $machprod->REALIZATION;?>
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
                   <td>{{ $machprod->MACHINE }}</td>
@@ -182,12 +182,30 @@
               </table>
             </div>            
             <div class="box-footer">
-            <h3><b>Productivity Per-Month:</b></h3>
-            <h3><b>Target Production Per-Month: </b></h3>
+            <h3><b>Productivity Per-Month: {{$productivity[2].' ton'}}</b></h3>
+            <h3><b>Target Production Per-Month:</b></h3>
             <h3><b>Conclusion:</b>
-            <br>Unfinished: XXX ton or m<sup>2</sup>
-            <br>Add More JO: XXX
-            <br>or Add More Machine: XXX
+            <br>Unfinished: {{$total_workload[0]->MAT-$productivity[2]}} ton
+            
+            @for($i=0; $i<3; $i++)
+                @if($realnormal[$i]>$normal[$i] || $realcapacity[$i]>$capacity[$i])
+                <?php 
+                    $cap[$i] = (($realnormal[$i]-$normal[$i])/count($normal[$i]))/($normal[$i]/count($normal[$i]));
+                    $hours[$i] = (($realcapacity[$i]-$capacity[$i])/count($capacity[$i]))/($capacity[$i]/count($capacity[$i]));
+                    $needs[$i] = max($cap[$i], $hours[$i]);
+                ?>
+                <br>Add <strong>{{ceil($needs[$i])}}</strong> More 
+                    @if($i==0) Marking
+                    @elseif($i==1) Cutting
+                    @elseif($i==2) Bending @endif
+                Machines
+                @endif
+            @endfor
+            <?php 
+                $needsWorker = ceil(2*($needs[0]+$needs[1]+$needs[2]))-$worker[3]->COUNT;?>
+                @if($needsWorker>0)
+                    <br>Add <strong>{{$needsWorker}}</strong> More Workers
+                @endif
             </h3>
             </div>
             <!-- /.box-body -->
@@ -210,7 +228,23 @@
                 </tr>
                 </thead>
                 <tbody>  
-                @foreach($machineproductivity3 as $machprod)                
+                <?php
+                    for($i=0; $i<4; $i++){
+                        $productivity[$i] = $capacity[$i] = $realcapacity[$i] = $normal[$i] = $realnormal[$i] = $needs[$i] = 0;
+                    }
+                ?>
+                @foreach($machineproductivity3 as $machprod)   
+                <?php
+                    if($machprod->ACTIVITY=="Fitting") $i=0;
+                    else if($machprod->ACTIVITY=="Welding") $i=1;
+                    else if($machprod->ACTIVITY=="Grinding") $i=2;
+                    else if($machprod->ACTIVITY=="Fairing") $i=3;
+                    
+                    $productivity[$i] += $machprod->WEIGHT;
+                    $capacity[$i] += $machprod->CAPACITY;
+                    $realcapacity[$i] += $machprod->WEIGHT;
+                    $normal[$i] += $machprod->NORMAL;
+                    $realnormal[$i] += $machprod->REALIZATION;?>
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
                   <td>{{ $machprod->MACHINE }}</td>
@@ -222,12 +256,31 @@
               </table>
             </div>            
             <div class="box-footer">
-            <h3><b>Productivity Per-Month:</b></h3>
+            <h3><b>Productivity Per-Month: {{$productivity[3].' ton'}}</b></h3>
             <h3><b>Target Production Per-Month:</b></h3>
             <h3><b>Conclusion:</b>
-            <br>Unfinished: XXX ton or m<sup>2</sup>
-            <br>Add More JO: XXX
-            <br>or Add More Machine: XXX
+            <br>Unfinished: {{$total_workload[0]->TOTAL-$productivity[3]}} ton
+            
+            @for($i=0; $i<3; $i++)
+                @if($realnormal[$i]>$normal[$i] || $realcapacity[$i]>$capacity[$i])
+                <?php 
+                    $cap[$i] = (($realnormal[$i]-$normal[$i])/count($normal[$i]))/($normal[$i]/count($normal[$i]));
+                    $hours[$i] = (($realcapacity[$i]-$capacity[$i])/count($capacity[$i]))/($capacity[$i]/count($capacity[$i]));
+                    $needs[$i] = max($cap[$i], $hours[$i]);
+                ?>
+                <br>Add <strong>{{ceil($needs[$i])}}</strong> More 
+                    @if($i==0) Fitting
+                    @elseif($i==1) Welding
+                    @elseif($i==2) Grinding
+                    @elseif($i==2) Fairing @endif
+                Machines
+                @endif
+            @endfor
+            <?php 
+                $needsWorker = ceil(2*($needs[0]+$needs[1]+$needs[2]+$needs[3]))-$worker[5]->COUNT;?>
+                @if($needsWorker>0)
+                    <br>Add <strong>{{$needsWorker}}</strong> More Workers
+                @endif
             </h3>
             </div>
             <!-- /.box-body -->
@@ -240,7 +293,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <h1>Assembly Workshop</h1>
-              <table id="assembly" class="table table-bordered table-striped">
+              <table id="subassembly" class="table table-bordered table-striped">
                 <thead>
                 <tr>                 
                   <th>Date</th>
@@ -250,7 +303,23 @@
                 </tr>
                 </thead>
                 <tbody>  
-                @foreach($machineproductivity4 as $machprod)                
+                <?php
+                    for($i=0; $i<4; $i++){
+                        $productivity[$i] = $capacity[$i] = $realcapacity[$i] = $normal[$i] = $realnormal[$i] = $needs[$i] = 0;
+                    }
+                ?>
+                @foreach($machineproductivity4 as $machprod)   
+                <?php
+                    if($machprod->ACTIVITY=="Fitting") $i=0;
+                    else if($machprod->ACTIVITY=="Welding") $i=1;
+                    else if($machprod->ACTIVITY=="Grinding") $i=2;
+                    else if($machprod->ACTIVITY=="Fairing") $i=3;
+                    
+                    $productivity[$i] += $machprod->WEIGHT;
+                    $capacity[$i] += $machprod->CAPACITY;
+                    $realcapacity[$i] += $machprod->WEIGHT;
+                    $normal[$i] += $machprod->NORMAL;
+                    $realnormal[$i] += $machprod->REALIZATION;?>
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
                   <td>{{ $machprod->MACHINE }}</td>
@@ -262,12 +331,31 @@
               </table>
             </div>            
             <div class="box-footer">
-            <h3><b>Productivity Per-Month:</b></h3>
+            <h3><b>Productivity Per-Month: {{$productivity[3].' ton'}}</b></h3>
             <h3><b>Target Production Per-Month:</b></h3>
             <h3><b>Conclusion:</b>
-            <br>Unfinished: XXX ton or m<sup>2</sup>
-            <br>Add More JO: XXX
-            <br>or Add More Machine: XXX
+            <br>Unfinished: {{$total_workload[0]->TOTAL-$productivity[3]}} ton
+            
+            @for($i=0; $i<3; $i++)
+                @if($realnormal[$i]>$normal[$i] || $realcapacity[$i]>$capacity[$i])
+                <?php 
+                    $cap[$i] = (($realnormal[$i]-$normal[$i])/count($normal[$i]))/($normal[$i]/count($normal[$i]));
+                    $hours[$i] = (($realcapacity[$i]-$capacity[$i])/count($capacity[$i]))/($capacity[$i]/count($capacity[$i]));
+                    $needs[$i] = max($cap[$i], $hours[$i]);
+                ?>
+                <br>Add <strong>{{ceil($needs[$i])}}</strong> More 
+                    @if($i==0) Fitting
+                    @elseif($i==1) Welding
+                    @elseif($i==2) Grinding
+                    @elseif($i==2) Fairing @endif
+                Machines
+                @endif
+            @endfor
+            <?php 
+                $needsWorker = ceil(2*($needs[0]+$needs[1]+$needs[2]+$needs[3]))-$worker[5]->COUNT;?>
+                @if($needsWorker>0)
+                    <br>Add <strong>{{$needsWorker}}</strong> More Workers
+                @endif
             </h3>
             </div>
             <!-- /.box-body -->
@@ -330,6 +418,11 @@
 <script src="public/adminlte/dist/js/demo.js"></script>
 
 <script>
+//    function findMax(realnormal, normal, realcapacity, capacity){
+//        var norm = ((realnormal-normal)/count(normal))/(normal/count(normal));
+//        var cap = ((realcapacity-capacity)/count(capacity))/(capacity/count(capacity));
+//        return max(norm,cap);
+//    }
 $(function() {
     $('#ssh').DataTable({
           "paging": true,
