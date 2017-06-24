@@ -9,7 +9,7 @@ use App\Plate;
 use App\Profile;
 use App\SSH;
 use App\Percentage;
-use App\machine;
+use App\Machine;
 use DB;
 
 class SSHController extends Controller
