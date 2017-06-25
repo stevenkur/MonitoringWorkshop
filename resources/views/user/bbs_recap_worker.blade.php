@@ -106,15 +106,20 @@
                 </thead>
                 <tbody>                
                 @foreach($bbs as $bbss)
+                    <?php   if ($bbss->OPERATOR=="ok") $ops=true;
+                                else $ops=false;?>
                 <tr>
-                  <td>{{$bbss->WORKER_NAME}}</td>
-                  <td>{{$bbss->ID_WORKER}}</td>
-                  <td>{{$bbss->SHIFT}}</td>
-                  <td>{{$bbss->PROCESS.' '.$bbss->ID_MATERIAL}}</td>
-                  <td>{{$bbss->PROBLEM}}</td>
-                  <td>{{$bbss->WORKING_HOURS}}</td>
-                  <td>{{$bbss->WORKING_HOURS+$bbss->ADD_WORKING_HOURS}}</td>
-                  <td>{{$bbss->created_at}}</td>
+                    <td>{{$bbss->WORKER_NAME}}</td>
+                    <td>{{$bbss->ID_WORKER}}</td>
+                    <td>{{$bbss->SHIFT}}</td>
+                    @if($ops)
+                    <td>{{$bbss->PROCESS.' '.$bbss->ID_MATERIAL.' - operator'}}</td>
+                    @else
+                    <td>{{$bbss->PROCESS.' '.$bbss->ID_MATERIAL}}</td>
+                    @endif
+                    <td>{{$bbss->PROBLEM}}</td>
+                    <td>{{$bbss->WORKING_HOURS+$bbss->ADD_WORKING_HOURS}}</td>
+                    <td>{{$bbss->created_at}}</td>
                 </tr>
                 @endforeach
                 </tbody>

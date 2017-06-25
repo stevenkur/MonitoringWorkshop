@@ -140,7 +140,7 @@ class AssemblyPartListController extends Controller
     {
         //
         $parts = Part::where('ID', $id);
-        $part = Part::find($id)->get();
+        $part = Part::find($id)->first();
         
         $panel= Panel::findOrFail($part->ID_PANEL);
         $block= Block::findOrFail($part->ID_BLOCK);

@@ -65,12 +65,12 @@
               <div class="box-body">
               <label for="inputActivity">Select BLock:</label>
                 <div class="form-group">
-                  <select class="form-control">
+                  <select class="form-control" name="block">
                     <option id="#">-- Block List --</option>
                     <?php $i=1;?>
-                    @foreach($block as $data)
-                        <?php $blockData[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->NAME}}</option>
+                    @foreach($block as $datas)
+                        <?php $blockData[$i] = $datas; $i++;?>
+                        <option value="{{$data->ID}}">{{$datas->NAME}}</option>
                     @endforeach
                   </select>
                 </div>
@@ -93,7 +93,7 @@
                 else if($proc[0]==2) $process = 'Painting';
                 $idMaterial = $proc[1];
 
-                for($j=1; $j<$count; $j++){
+                for($j=0; $j<$count; $j++){
                   if($room[$j]->ID == $idMaterial){
                       $data = $room[$j];
                       break;
@@ -129,7 +129,7 @@
                     if($rooms->PAINTING<$rooms->TOTAL_LAYER) $flagPaint = false;
                     else $flagPaint = true;
 
-                    if($flagBlock && $panels->ID_BLOCK == $_GET['block']){
+                    if($flagBlock && $rooms->ID_BLOCK == $_GET['block']){
                     echo '
                     <tr>
                         <td>'.$rooms['ID'].'</td>
@@ -159,7 +159,7 @@
                         </td>
                     <?php echo '</tr>';
                     }
-                    else if($flagProject && $panels->ID_PROJECT == $_GET['project']){
+                    else if($flagProject && $rooms->ID_PROJECT == $_GET['project']){
                     echo '
                     <tr>
                         <td>'.$rooms['ID'].'</td>
@@ -279,15 +279,14 @@
                 <div class="box box-primary">
                     <div class="box box-body">
                         <div class="form-group">
-                          <label style="font-size: 16px">Remaining Layer: 
                             @if($process == 'Blasting')
-                            {{ $data->TOTAL_LAYER-$data->BLASTING }}
+                            <input type="hidden" id="finishedlayer" name="finishedlayer" value="{{$data->TOTAL_LAYER}}"><br>
                             @else
-                            {{ $data->TOTAL_LAYER-$data->PAINTING }}
+                            <label style="font-size: 16px">Remaining Layer: {{ $data->TOTAL_LAYER-$data->PAINTING }}</label><br>
+                            <label style="font-size: 16px">Finished Layer: </label><br>
+                            <input type="text" id="finishedlayer" name="finishedlayer" placeholder="" value="0"><br>
                             @endif
-                          </label><br>
-                          <label style="font-size: 16px">Finished Layer: </label><br>
-                          <input type="text" id="finishedlayer" name="finishedlayer" placeholder="" value="0"><br>
+                          
                           <label style="font-size: 16px">Input Working Hours: </label><br>
                           <input type="text" id="machinehours" name="workinghours" placeholder="" value="0">
                           <label>hours</label>              

@@ -105,14 +105,20 @@
                 </thead>
                 <tbody>
                 @foreach($ssh as $sshs)
+                    <?php   if ($sshs->OPERATOR=="ok") $ops=true;
+                                else $ops=false;?>
                 <tr>
-                  <td>{{$sshs->WORKER_NAME}}</td>
-                  <td>{{$sshs->SHIFT}}</td>
-                  <td>{{$sshs->PROCESS.' '.$sshs->ID_MATERIAL}}</td>
-                  <td>{{$sshs->PROBLEM}}</td>
-                  <td>{{$sshs->MACHINE_WORKING}}</td>
-                  <td>{{$sshs->MACHINE_WORKING+$sshs->MACHINE_ADD_HOURS}}</td>
-                  <td>{{$sshs->created_at}}</td>
+                    <td>{{$sshs->WORKER_NAME}}</td>
+                    <td>{{$sshs->SHIFT}}</td>
+                    @if($ops)
+                    <td>{{$sshs->PROCESS.' '.$sshs->ID_MATERIAL.' - operator'}}</td>
+                    @else
+                    <td>{{$sshs->PROCESS.' '.$sshs->ID_MATERIAL}}</td>
+                    @endif
+                    <td>{{$sshs->PROBLEM}}</td>
+                    <td>{{$sshs->MACHINE_WORKING}}</td>
+                    <td>{{$sshs->MACHINE_WORKING+$sshs->MACHINE_ADD_HOURS}}</td>
+                    <td>{{$sshs->created_at}}</td>
                 </tr>
                 @endforeach
                 </tbody>

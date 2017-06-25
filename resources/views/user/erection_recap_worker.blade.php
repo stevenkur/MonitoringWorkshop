@@ -104,14 +104,20 @@
                 </thead>
                 <tbody>
                 @foreach($erection as $erections)
+                    <?php   if ($erections->OPERATOR=="ok") $ops=true;
+                                else $ops=false;?>
                 <tr>
-                  <td>{{$erections->WORKER_NAME}}</td>
-                  <td>{{$erections->ID_WORKER}}</td>
-                  <td>{{$erections->SHIFT}}</td>
-                  <td>{{$erections->PROCESS.' '.$erections->ID_MATERIAL}}</td>
-                  <td>{{$erections->PROBLEM}}</td>
-                  <td>{{$erections->WORKING_HOURS+$erections->ADD_WORKING_HOURS}}</td>
-                  <td>{{$erections->created_at}}</td>
+                    <td>{{$erections->WORKER_NAME}}</td>
+                    <td>{{$erections->ID_WORKER}}</td>
+                    <td>{{$erections->SHIFT}}</td>
+                    @if($ops)
+                    <td>{{$erections->PROCESS.' '.$erections->ID_MATERIAL.' - operator'}}</td>
+                    @else
+                    <td>{{$erections->PROCESS.' '.$erections->ID_MATERIAL}}</td>
+                    @endif
+                    <td>{{$erections->PROBLEM}}</td>
+                    <td>{{$erections->WORKING_HOURS+$erections->ADD_WORKING_HOURS}}</td>
+                    <td>{{$erections->created_at}}</td>
                 </tr>
                 @endforeach
                 </tbody>

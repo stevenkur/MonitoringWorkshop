@@ -105,14 +105,19 @@
                 </thead>
                 <tbody>
                 @foreach($fabrication as $fabrications)
+                    <?php   if ($fabrications->OPERATOR=="ok") $ops=true;
+                                else $ops=false;?>
                 <tr>
-                  <td>{{$fabrications->WORKER_NAME}}</td>
-                  <td>{{$fabrications->SHIFT}}</td>
-                  <td>{{$fabrications->PROCESS.' '.$fabrications->ID_MATERIAL}}</td>
-                  <td>{{$fabrications->PROBLEM}}</td>
-                  <td>{{$fabrications->MACHINE_WORKING}}</td>
-                  <td>{{$fabrications->MACHINE_WORKING+$fabrications->MACHINE_ADD_HOURS}}</td>
-                  <td>{{$fabrications->created_at}}</td>
+                    <td>{{$fabrications->WORKER_NAME}}</td>
+                    <td>{{$fabrications->ID_WORKER}}</td>
+                    <td>{{$fabrications->SHIFT}}</td>
+                    @if($ops)
+                    <td>{{$fabrications->PROCESS.' '.$fabrications->ID_MATERIAL.' - operator'}}</td>
+                    @else
+                    <td>{{$fabrications->PROCESS.' '.$fabrications->ID_MATERIAL}}</td>
+                    @endif<td>{{$fabrications->PROBLEM}}</td>
+                    <td>{{$fabrications->MACHINE_WORKING+$fabrications->MACHINE_ADD_HOURS}}</td>
+                    <td>{{$fabrications->created_at}}</td>
                 </tr>
                 @endforeach
                 </tbody>

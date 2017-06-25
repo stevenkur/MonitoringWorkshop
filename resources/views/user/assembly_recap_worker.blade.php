@@ -96,14 +96,20 @@
                 </thead>
                 <tbody>
                 @foreach($ass as $asss)
+                    <?php   if ($asss->OPERATOR=="ok") $ops=true;
+                                else $ops=false;?>
                 <tr>
-                  <td>{{$asss->WORKER_NAME}}</td>
-                  <td>{{$asss->SHIFT}}</td>
-                  <td>{{$asss->PROCESS.' '.$asss->ID_PART}}</td>
-                  <td>{{$asss->PROBLEM}}</td>
-                  <td>{{$asss->MACHINE_WORKING}}</td>
-                  <td>{{$asss->MACHINE_WORKING+$asss->MACHINE_ADD_HOURS}}</td>
-                  <td>{{$asss->created_at}}</td>
+                    <td>{{$asss->WORKER_NAME}}</td>
+                    <td>{{$asss->ID_WORKER}}</td>
+                    <td>{{$asss->SHIFT}}</td>
+                    @if($ops)
+                    <td>{{$asss->PROCESS.' '.$asss->ID_PART.' - operator'}}</td>
+                    @else
+                    <td>{{$asss->PROCESS.' '.$asss->ID_PART}}</td>
+                    @endif
+                    <td>{{$asss->PROBLEM}}</td>
+                    <td>{{$asss->MACHINE_WORKING+$asss->MACHINE_ADD_HOURS}}</td>
+                    <td>{{$asss->created_at}}</td>
                 </tr>
                 @endforeach
                 </tbody>

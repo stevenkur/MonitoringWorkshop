@@ -107,21 +107,21 @@
                                     <option value="1|<?php echo $blocks['ID'].'|'.$blocks['LOADING'];?>">Loading</option>
                                 </select>
                             </form>
-                            @elseif(!$flagWeld)
+                            @elseif(!$flagAdjust)
                             <form action="./input_act_erection" class="form" method="get">
                                 <select class="form-control" name="process" onChange="this.form.submit();">
                                     <option value="#">-- Material Process List --</option>
                                     <option value="2|<?php echo $blocks['ID'].'|'.$blocks['ADJUSTING'];?>">Adjusting</option>
                                 </select>
                             </form>
-                            @elseif(!$flagGrind)
+                            @elseif(!$flagFit)
                             <form action="./input_act_erection" class="form" method="get">
                                 <select class="form-control" name="process" onChange="this.form.submit();">
                                     <option value="#">-- Material Process List --</option>
                                     <option value="3|<?php echo $blocks['ID'].'|'.$blocks['FITTING'];?>">Fitting</option>
                                 </select>
                             </form>
-                            @elseif(!$flagFair)
+                            @elseif(!$flagWeld)
                             <form action="./input_act_erection" class="form" method="get">
                                 <select class="form-control" name="process" onChange="this.form.submit();">
                                     <option value="#">-- Material Process List --</option>
@@ -147,21 +147,21 @@
                                     <option value="1|<?php echo $blocks['ID'].'|'.$blocks['LOADING'];?>">Loading</option>
                                 </select>
                             </form>
-                            @elseif(!$flagWeld)
+                            @elseif(!$flagAdjust)
                             <form action="./input_act_erection" class="form" method="get">
                                 <select class="form-control" name="process" onChange="this.form.submit();">
                                     <option value="#">-- Material Process List --</option>
                                     <option value="2|<?php echo $blocks['ID'].'|'.$blocks['ADJUSTING'];?>">Adjusting</option>
                                 </select>
                             </form>
-                            @elseif(!$flagGrind)
+                            @elseif(!$flagFit)
                             <form action="./input_act_erection" class="form" method="get">
                                 <select class="form-control" name="process" onChange="this.form.submit();">
                                     <option value="#">-- Material Process List --</option>
                                     <option value="3|<?php echo $blocks['ID'].'|'.$blocks['FITTING'];?>">Fitting</option>
                                 </select>
                             </form>
-                            @elseif(!$flagFair)
+                            @elseif(!$flagWeld)
                             <form action="./input_act_erection" class="form" method="get">
                                 <select class="form-control" name="process" onChange="this.form.submit();">
                                     <option value="#">-- Material Process List --</option>

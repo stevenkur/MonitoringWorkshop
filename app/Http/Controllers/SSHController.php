@@ -34,7 +34,7 @@ class SSHController extends Controller
         $str = $straightening->PERCENT;
         $blast = $blasting->PERCENT;
         
-        $productivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, SUM(B.WEIGHT)/COUNT(A.ID) AS WEIGHT, SUM(A.WORKING_HOURS)/WEIGHT AS PRODUCTIVITY FROM SSH A, PLATES B, machines C WHERE (A.ID_MATERIAL=B.ID AND C.NAME LIKE A.MACHINE AND C.ACTIVITY LIKE 'Blasting&ShopPrimer') GROUP BY DATE, A.MACHINE"));
+        $productivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, SUM(B.WEIGHT)/COUNT(A.ID) AS WEIGHT, SUM(A.WORKING_HOURS)/WEIGHT AS PRODUCTIVITY FROM ssh A, plates B, machines C WHERE (A.ID_MATERIAL=B.ID AND C.NAME LIKE A.MACHINE AND C.ACTIVITY LIKE 'Blasting&ShopPrimer') GROUP BY DATE, A.MACHINE"));
         
         $machineproductivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, B.CAPACITY, B.OPERATIONAL_HOUR AS NORMAL, SUM(A.MACHINE_WORKING+A.MACHINE_ADD_HOURS) AS REALIZATION FROM ssh A, machines B WHERE A.MACHINE LIKE B.NAME GROUP BY DATE, A.MACHINE"));
 

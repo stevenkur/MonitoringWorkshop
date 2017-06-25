@@ -568,14 +568,20 @@
                 </thead>
                 <tbody>
                 @foreach($subass as $subasss)
+                    <?php   if ($subasss->OPERATOR=="ok") $ops=true;
+                                else $ops=false;?>
                 <tr>
-                  <td>{{$subasss->WORKER_NAME}}</td>
-                  <td>{{$subasss->ID_WORKER}}</td>
-                  <td>{{$subasss->SHIFT}}</td>
-                  <td>{{$subasss->PROCESS.' '.$subasss->ID_PANEL}}</td>
-                  <td>{{$subasss->PROBLEM}}</td>
-                  <td>{{$subasss->MACHINE_WORKING+$subasss->MACHINE_ADD_HOURS}}</td>
-                  <td>{{$subasss->created_at}}</td>
+                    <td>{{$subasss->WORKER_NAME}}</td>
+                    <td>{{$subasss->ID_WORKER}}</td>
+                    <td>{{$subasss->SHIFT}}</td>
+                    @if($ops)
+                    <td>{{$subasss->PROCESS.' '.$subasss->ID_PANEL.' - operator'}}</td>
+                    @else
+                    <td>{{$subasss->PROCESS.' '.$subasss->ID_PANEL}}</td>
+                    @endif
+                    <td>{{$subasss->PROBLEM}}</td>
+                    <td>{{$subasss->MACHINE_WORKING+$subasss->MACHINE_ADD_HOURS}}</td>
+                    <td>{{$subasss->created_at}}</td>
                 </tr>
                 @endforeach
                 </tbody>

@@ -99,7 +99,7 @@ class AdminController extends Controller
         $count = DB::select(DB::raw("SELECT WORKSHOP, ACTIVITY, COUNT(ID) AS COUNT FROM machines GROUP BY WORKSHOP, ACTIVITY"));
         $room = Room::all();
         
-        $sshday = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, A.ID_MATERIAL, SUM(A.MACHINE_WORKING+A.MACHINE_ADD_HOURS)/COUNT(A.ID) AS MACHINE_WORKS, SUM(B.WEIGHT)/COUNT(A.ID) AS WEIGHT FROM SSH A, PLATES B WHERE (A.ID_MATERIAL=B.ID) GROUP BY DATE, A.MACHINE, A.ID_MATERIAL"));
+        $sshday = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, A.ID_MATERIAL, SUM(A.MACHINE_WORKING+A.MACHINE_ADD_HOURS)/COUNT(A.ID) AS MACHINE_WORKS, SUM(B.WEIGHT)/COUNT(A.ID) AS WEIGHT FROM ssh A, plates B WHERE (A.ID_MATERIAL=B.ID) GROUP BY DATE, A.MACHINE, A.ID_MATERIAL"));
         
         return view('dashboard/conclusion_all_project')->with('ship', $ship)->with('ssh', $ssh)->with('fabrication', $fabrication)->with('subassembly', $subassembly)->with('assembly', $assembly)->with('total_workload', $total_workload)->with('count', $count)->with('room', $room)->with('sshday', $sshday);
     }
