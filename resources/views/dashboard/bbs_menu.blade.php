@@ -246,7 +246,7 @@
                 @foreach($productivity as $prod)
                 <tr>
                   <td>{{ $prod->DATE }}</td>
-                  <td>???</td>
+                  <td>{{ $prod->WEIGHT }}</td>
                   <td>???</td>
                   <td>{{ $prod->PRODUCTIVITY }}</td>
                   <td>0.55 JO/m<sup>2</sup></td>

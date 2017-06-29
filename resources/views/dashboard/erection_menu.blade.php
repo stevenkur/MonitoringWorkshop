@@ -248,10 +248,10 @@
                 </thead>
                 <tbody>
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>{{ $prod->DATE }}</td>
+                  <td>{{ $prod->WEIGHT }}</td>
+                  <td>???</td>
+                  <td>{{ $prod->PRODUCTIVITY }}</td>
                 </tr>
                 </tbody>
                 <tfoot>

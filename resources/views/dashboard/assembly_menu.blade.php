@@ -103,32 +103,25 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <?php $i=0;?>
-                    @foreach($block as $index => $blocks)
-                    <?php
-                    if($i++<$counts) $progs = $progress[$index]['sum'];
-                    else $progs = 0;
-                    
-                    if($flagProject && $blocks->ID_PROJECT == $_GET['project']){
-                    echo '
+                    @foreach($progr as $progs) 
+                    @php $ids=$progs->ID_BLOCK; @endphp
+                    @if($flagProject && $progs->ID_PROJECT == $_GET['project']){
                     <tr>
-                        <td>'.$blocks['NAME'].'</td>
-                        <td>'.$progs.'% </td>';?>
+                        <td>{{$progs->BLOCK_NAME}}</td>
+                        <td>{{$progs->PROGRESS.'%'}} </td>
                         <td>
-                            <a href="./assembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
+                            <a href="./assembly_menu?block=<?php echo $ids;?> " class="btn btn-primary">View Detail</a>
                         </td>
-                    <?php echo '</tr>';
-                    }
-                    else if(!$flagProject){
-                    echo '
+                    </tr>
+                    @elseif(!$flagProject)
                     <tr>
-                        <td>'.$blocks['NAME'].'</td>
-                        <td>'.$progs.'% </td>';?>
+                        <td>{{$progs->BLOCK_NAME}}</td>
+                        <td>{{$progs->PROGRESS.'%'}} </td>
                         <td>
-                            <a href="./assembly_menu?block=<?php echo $blocks['ID'];?> " class="btn btn-primary">View Detail</a>
+                            <a href="./assembly_menu?block=<?php echo $ids;?> " class="btn btn-primary">View Detail</a>
                         </td>
-                    <?php echo '</tr>';
-                    }?>
+                    </tr>
+                    @endif
                     @endforeach
                 </tbody>
                 <tfoot>
@@ -143,73 +136,6 @@
              </div>
            </div>
           </div>
-            
-          <section class="col-lg-6">
-            <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" name="ShipProject">
-              <div class="box-body">
-              <label for="inputActivity">Select Project of Ship:</label>
-                <div class="form-group">
-                  <select class="form-control" name="project">
-                    <option value="#">-- Ship Project List --</option>
-                    <?php $i=1;?>
-                    @foreach($ship as $data)
-                        <?php $shipData[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->PROJECT_NAME}}</option>
-                    @endforeach
-                  </select>
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Choose</button>
-              </div>
-            </form>
-            </div>
-            </section>
-
-            <?php 
-                if(isset($_GET['project']) && $_GET['project']!='#') 
-                   $flagProject=true;
-                else $flagProject=false;
-                if(isset($_GET['block']) && $_GET['block']!='#') 
-                   $flagBlock=true;
-                else $flagBlock=false;
-            ?>
-        
-            <section class="col-lg-6">
-            <div class="box box-primary">
-            
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" name="ShipBlock">
-              <div class="box-body">
-              <label for="inputActivity">Select BLock:</label>
-                <div class="form-group">
-                  <select class="form-control" name="block">
-                    <option value="#">-- Block List --</option>
-                    <?php $i=1;?>
-                    @foreach($block as $data)
-                        <?php $blockData[$i] = $data; $i++;?>
-                        <option value="{{$data->ID}}">{{$data->NAME}}</option>
-                    @endforeach
-                  </select>
-                </div>
-               
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Choose</button>
-              </div>
-            </form>
-            </div>
-            </section>  
 
           <div class="col-md-12">
             <div class="box box-primary">
@@ -427,7 +353,7 @@
                 @foreach($productivity as $prod)
                 <tr>
                   <td>{{ $prod->DATE }}</td>
-                  <td>???</td>
+                  <td>{{ $prod->WEIGHT }}</td>
                   <td>???</td>
                   <td>{{ $prod->PRODUCTIVITY }}</td>
                   <td>16.98 JO/ton</td>
@@ -507,6 +433,7 @@
                   <th>Machine</th>
                   <th>Capacity Max</th>
                   <th>Normal/Realization Hours</th>
+                  <th>Waste Time</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -514,8 +441,9 @@
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
                   <td>{{ $machprod->MACHINE }}</td>
-                  <td>{{ $machprod->CAPACITY }}</td>
+                  <td>{{ $machprod->CAPACITY*60*$machprod->NORMAL}}</td>
                   <td>{{ $machprod->NORMAL.'/'.$machprod->REALIZATION }}</td>
+                  <td>{{ $machprod->WASTE_TIME }}</td>
                 </tr>
                 @endforeach                  
                 </tbody>
@@ -525,6 +453,7 @@
                   <th>Machine</th>
                   <th>Capacity Max</th>
                   <th>Normal/Realization Hours</th>
+                  <th>Waste Time</th>
                 </tr>
                 </tfoot>
               </table>

@@ -34,11 +34,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                    {{$i=0}}
                     @foreach($ship as $ships)
                 <tr>
                     <td>{{$ships->PROJECT_NAME}}</td>
-                    <td>{{$progress[$i++]}}</td>
+                    <td>{{number_format($ships->PROGRESS,'2','.','')}}</td>
                     <td>{{$ships->START}}</td>
                     <td>{{$ships->FINISH}}</td>
                     <td>---</td>

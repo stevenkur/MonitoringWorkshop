@@ -357,7 +357,7 @@
                 @foreach($productivity as $prod)
                 <tr>
                   <td>{{ $prod->DATE }}</td>
-                  <td>???</td>
+                  <td>{{ $prod->WEIGHT }}</td>
                   <td>???</td>
                   <td>{{ $prod->PRODUCTIVITY }}</td>
                   <td>4.2 JO/ton</td>
@@ -437,6 +437,8 @@
                   <th>Machine</th>
                   <th>Capacity Max</th>
                   <th>Normal/Realization Hours</th>
+                  <th>Waste Time</th>
+                  <th>Output (ton)</th>
                 </tr>
                 </thead>
                 <tbody>      
@@ -444,8 +446,10 @@
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
                   <td>{{ $machprod->MACHINE }}</td>
-                  <td>{{ $machprod->CAPACITY }}</td>
+                  <td>{{ $machprod->CAPACITY*60*$machprod->NORMAL}}</td>
                   <td>{{ $machprod->NORMAL.'/'.$machprod->REALIZATION }}</td>
+                  <td>{{ $machprod->WASTE_TIME }}</td>
+                  <td>{{ $machprod->OUTPUT }}</td>
                 </tr>
                 @endforeach                           
                 </tbody>
@@ -455,6 +459,8 @@
                   <th>Machine</th>
                   <th>Capacity Max</th>
                   <th>Normal/Realization Hours</th>
+                  <th>Waste Time</th>
+                  <th>Output (ton)</th>
                 </tr>
                 </tfoot>
               </table>
