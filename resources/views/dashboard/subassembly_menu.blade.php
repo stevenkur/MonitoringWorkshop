@@ -362,8 +362,8 @@
                   <th>Date</th>
                   <th>Output/Day (ton)</th>
                   <th>Target Output/Day (ton)</th>
-                  <th>Productivity</th>
-                  <th>Productivity Target</th>
+                  <th>Productivity (JO/ton)</th>
+                  <th>Productivity Target (JO/ton)</th>
                 </tr>
                 </thead>
                 <tbody>                
@@ -562,7 +562,8 @@
                     <th>Shift</th>
                     <th>Activity</th>
                     <th>Problem</th>
-                    <th>Many Hours Realitation</th>
+                    <th>Realitation Hours</th>
+                    <th>Waste Time</th>
                     <th>Time</th>
                 </tr>
                 </thead>
@@ -572,7 +573,6 @@
                                 else $ops=false;?>
                 <tr>
                     <td>{{$subasss->WORKER_NAME}}</td>
-                    <td>{{$subasss->ID_WORKER}}</td>
                     <td>{{$subasss->SHIFT}}</td>
                     @if($ops)
                     <td>{{$subasss->PROCESS.' '.$subasss->ID_PANEL.' - operator'}}</td>
@@ -580,7 +580,8 @@
                     <td>{{$subasss->PROCESS.' '.$subasss->ID_PANEL}}</td>
                     @endif
                     <td>{{$subasss->PROBLEM}}</td>
-                    <td>{{$subasss->MACHINE_WORKING+$subasss->MACHINE_ADD_HOURS}}</td>
+                    <td>{{$subasss->MACHINE_WORKING+$subasss->MACHINE_ADD_HOURS.' hours'}}</td>
+                    <td>{{$subasss->WASTE_TIME.' hours'}}</td>
                     <td>{{$subasss->created_at}}</td>
                 </tr>
                 @endforeach

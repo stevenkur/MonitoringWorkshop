@@ -419,8 +419,8 @@
                   <th>Date</th>
                   <th>Output/Day (ton)</th>
                   <th>Target Output/Day (ton)</th>
-                  <th>Productivity</th>
-                  <th>Productivity Target</th>
+                  <th>Productivity (JO/ton)</th>
+                  <th>Productivity Target (JO/ton)</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -603,11 +603,11 @@
                 <thead>
                 <tr>
                     <th>Name of Worker</th>
-                    <th>NIK</th>
                     <th>Shift</th>
                     <th>Activity</th>
                     <th>Problem</th>
-                    <th>Many Hours Realitation</th>
+                    <th>Realitation Hours</th>
+                    <th>Waste Time</th>
                     <th>Time</th>
                 </tr>
                 </thead>
@@ -617,7 +617,6 @@
                                 else $ops=false;?>
                 <tr>
                     <td>{{$asss->WORKER_NAME}}</td>
-                    <td>{{$asss->ID_WORKER}}</td>
                     <td>{{$asss->SHIFT}}</td>
                     @if($ops)
                     <td>{{$asss->PROCESS.' '.$asss->ID_PART.' - operator'}}</td>
@@ -625,7 +624,8 @@
                     <td>{{$asss->PROCESS.' '.$asss->ID_PART}}</td>
                     @endif
                     <td>{{$asss->PROBLEM}}</td>
-                    <td>{{$asss->MACHINE_WORKING+$asss->MACHINE_ADD_HOURS}}</td>
+                    <td>{{$asss->MACHINE_WORKING+$asss->MACHINE_ADD_HOURS.' hours'}}</td>
+                    <td>{{$asss->WASTE_TIME.' hours'}}</td>
                     <td>{{$asss->created_at}}</td>
                 </tr>
                 @endforeach

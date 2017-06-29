@@ -73,6 +73,12 @@
                   <input type="text" id="blasting" name="blasting" value="{{$blasting->PERCENT}}">
                   <label> % </label>
                 </div>
+                <div class="form-group">
+                  <label class="col-md-2"> Material Coming </label>
+                  <label> : </label>
+                  <input type="text" id="coming" name="coming" value="{{$coming->PERCENT}}">
+                  <label> % </label>
+                </div>
                 
             <div class="box-footer">
               <button type="reset" class="btn btn-ok">Reset</button>
@@ -108,7 +114,7 @@
                       <td>{{$prog->STR}}</td>
                       <td>{{($prog->NUM-$prog->BLAST)}}</td>
                       <td>{{$prog->BLAST}}</td>
-                      <td>{{(((($prog->STR/$prog->NUM)*($straightening->PERCENT/100))+(($prog->BLAST/$prog->NUM)*($blasting->PERCENT/100)))*100).'%'}}</td>
+                      <td>{{$prog->PROGRESS.'%'}}</td>
                     </tr>
                     @elseif(!$flagProject)
                     <tr>
@@ -117,7 +123,7 @@
                       <td>{{$prog->STR}}</td>
                       <td>{{($prog->NUM-$prog->BLAST)}}</td>
                       <td>{{$prog->BLAST}}</td>
-                      <td>{{(((($prog->STR/$prog->NUM)*($straightening->PERCENT/100))+(($prog->BLAST/$prog->NUM)*($blasting->PERCENT/100)))*100).'%'}}</td>
+                      <td>{{$prog->PROGRESS.'%'}}</td>
                     </tr>
                     @endif
                 @endforeach

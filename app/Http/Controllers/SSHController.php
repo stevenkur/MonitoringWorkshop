@@ -30,17 +30,23 @@ class SSHController extends Controller
 
         $straightening=Percentage::where("WORKSHOP","SSH")->where("ACTIVITY", "STRAIGHTENING")->first();
         $blasting=Percentage::where("WORKSHOP","SSH")->where("ACTIVITY", "BLASTING")->first();
+        $material_coming=Percentage::where("WORKSHOP","SSH")->where("ACTIVITY", "MATERIAL_COMING")->first();
 
+        $coming=$material_coming->PERCENT;
         $str = $straightening->PERCENT;
         $blast = $blasting->PERCENT;
+        
+        $donecoming = DB::select(DB::raw("SELECT ID_BLOCK, count(DATE_COMING) as DONE from `plates` where DATE_COMING!='NULL' GROUP BY ID_BLOCK"));
+        
+//        dd($donecoming);
         
         $productivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, SUM(B.WEIGHT)/COUNT(A.ID) AS WEIGHT, SUM(A.WORKING_HOURS)/WEIGHT AS PRODUCTIVITY FROM ssh A, plates B, machines C WHERE (A.ID_MATERIAL=B.ID AND C.NAME LIKE A.MACHINE AND C.ACTIVITY LIKE 'Blasting&ShopPrimer') GROUP BY DATE, A.MACHINE"));
         
         $machineproductivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, B.CAPACITY, B.OPERATIONAL_HOUR AS NORMAL, SUM(A.MACHINE_WORKING+A.MACHINE_ADD_HOURS) AS REALIZATION FROM ssh A, machines B WHERE A.MACHINE LIKE B.NAME GROUP BY DATE, A.MACHINE"));
-
-        $progr=DB::select(DB::raw("SELECT ID_BLOCK, BLOCK_NAME, ($str*SUM(STRAIGHTENING)/COUNT(ID))+($blast*SUM(BLASTING)/COUNT(ID)) AS PROGRESS FROM `plates` GROUP BY ID_BLOCK, BLOCK_NAME"));
         
-        return view('dashboard/ssh_menu')->with('ship', $ship)->with('block', $block)->with('plate', $plate)->with('profile', $profile)->with('ssh', $ssh)->with('progr',$progr)->with('machine',$machine)->with('productivity',$productivity)->with('machineproductivity',$machineproductivity);
+        $progr=DB::select(DB::raw("SELECT P.ID_BLOCK, P.BLOCK_NAME, (($str*SUM(STRAIGHTENING)/COUNT(ID))+($blast*SUM(BLASTING)/COUNT(ID))+($coming* C.DONE/count(DATE_COMING))) AS PROGRESS FROM `plates` P, (SELECT ID_BLOCK, count(DATE_COMING) as DONE from `plates` where DATE_COMING!='NULL' GROUP BY ID_BLOCK) C WHERE P.ID_BLOCK=C.ID_BLOCK GROUP BY P.ID_BLOCK, P.BLOCK_NAME"));
+        
+        return view('dashboard/ssh_menu')->with('ship', $ship)->with('block', $block)->with('plate', $plate)->with('profile', $profile)->with('ssh', $ssh)->with('progr',$progr)->with('machine',$machine)->with('productivity',$productivity)->with('machineproductivity',$machineproductivity)->with('coming',$coming);
     }
 
     /**

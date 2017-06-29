@@ -349,8 +349,8 @@
                   <th>Date</th>
                   <th>Output/Day (ton)</th>
                   <th>Target Output/Day (ton)</th>
-                  <th>Productivity</th>
-                  <th>Productivity Target</th>
+                  <th>Productivity (JO/ton)</th>
+                  <th>Productivity Target (JO/ton)</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -542,11 +542,11 @@
                 <thead>
                 <tr>
                     <th>Name of Worker</th>
-                    <th>NIK</th>
                     <th>Shift</th>
                     <th>Activity</th>
                     <th>Problem</th>
-                    <th>Many Hours Realitation</th>
+                    <th>Realitation Hours</th>
+                    <th>Waste Time</th>
                     <th>Time</th>
                 </tr>
                 </thead>
@@ -556,14 +556,14 @@
                                 else $ops=false;?>
                 <tr>
                     <td>{{$fabrications->WORKER_NAME}}</td>
-                    <td>{{$fabrications->ID_WORKER}}</td>
                     <td>{{$fabrications->SHIFT}}</td>
                     @if($ops)
                     <td>{{$fabrications->PROCESS.' '.$fabrications->ID_MATERIAL.' - operator'}}</td>
                     @else
                     <td>{{$fabrications->PROCESS.' '.$fabrications->ID_MATERIAL}}</td>
                     @endif<td>{{$fabrications->PROBLEM}}</td>
-                    <td>{{$fabrications->MACHINE_WORKING+$fabrications->MACHINE_ADD_HOURS}}</td>
+                    <td>{{$fabrications->MACHINE_WORKING+$fabrications->MACHINE_ADD_HOURS.' hours'}}</td>
+                    <td>{{$fabrications->WASTE_TIME.' hours'}}</td>
                     <td>{{$fabrications->created_at}}</td>
                 </tr>
                 @endforeach

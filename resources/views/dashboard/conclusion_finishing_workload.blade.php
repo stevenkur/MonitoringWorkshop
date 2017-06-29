@@ -96,7 +96,7 @@
                     $capacity[$i] += $machprod->CAPACITY;
                     $realcapacity[$i] += $machprod->WEIGHT;
                     $normal[$i] += $machprod->NORMAL;
-                    $realnormal[$i] += $machprod->REALIZATION;?>
+                    $realnormal[$i] += $machprod->REALIZATION;
                 ?>
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>

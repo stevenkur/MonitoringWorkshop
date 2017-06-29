@@ -243,7 +243,7 @@
                   <th>Date</th>
                   <th>Output/Day (ton)</th>
                   <th>Target Output/Day (ton)</th>
-                  <th>Productivity</th>
+                  <th>Productivity (JO/ton)</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -345,12 +345,12 @@
               <table id="tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>Name of Worker</th>
-                    <th>NIK</th>
+                    <th>Name of Worker</th> 
                     <th>Shift</th>
                     <th>Activity</th>
                     <th>Problem</th>
-                    <th>Many hours Realitation</th>
+                    <th>Realitation Hours</th>
+                    <th>Waste Time</th>
                     <th>Time</th>
                 </tr>
                 </thead>
@@ -360,7 +360,6 @@
                                 else $ops=false;?>
                 <tr>
                     <td>{{$erections->WORKER_NAME}}</td>
-                    <td>{{$erections->ID_WORKER}}</td>
                     <td>{{$erections->SHIFT}}</td>
                     @if($ops)
                     <td>{{$erections->PROCESS.' '.$erections->ID_MATERIAL.' - operator'}}</td>
@@ -368,7 +367,8 @@
                     <td>{{$erections->PROCESS.' '.$erections->ID_MATERIAL}}</td>
                     @endif
                     <td>{{$erections->PROBLEM}}</td>
-                    <td>{{$erections->WORKING_HOURS+$erections->ADD_WORKING_HOURS}}</td>
+                    <td>{{$erections->WORKING_HOURS+$erections->ADD_WORKING_HOURS.' hours'}}</td>
+                    <td>{{$erections->WASTE_TIME.' hours'}}</td>
                     <td>{{$erections->created_at}}</td>
                 </tr>
                 @endforeach

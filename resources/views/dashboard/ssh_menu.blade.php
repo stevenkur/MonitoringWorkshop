@@ -394,7 +394,7 @@
                   <th>Date</th>
                   <th>Output/Day (ton)</th>
                   <th>Target Output/Day (ton)</th>
-                  <th>Productivity</th>
+                  <th>Productivity (JO/ton)</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -584,11 +584,11 @@
                     <thead>
                     <tr>
                         <th>Name of Worker</th>
-                        <th>NIK</th>
                         <th>Shift</th>
                         <th>Activity</th>
                         <th>Problem</th>
-                        <th>Many Hours Realitation</th>
+                        <th>Realitation Hours</th>
+                        <th>Waste Time</th>
                         <th>Time</th>
                     </tr>
                     </thead>
@@ -598,7 +598,6 @@
                                 else $ops=false;?>
                     <tr>
                         <td>{{$sshs->WORKER_NAME}}</td>
-                        <td>{{$sshs->ID_WORKER}}</td>
                         <td>{{$sshs->SHIFT}}</td>
                         @if($ops)
                         <td>{{$sshs->PROCESS.' '.$sshs->ID_MATERIAL.' - operator'}}</td>
@@ -606,7 +605,8 @@
                         <td>{{$sshs->PROCESS.' '.$sshs->ID_MATERIAL}}</td>
                         @endif
                         <td>{{$sshs->PROBLEM}}</td>
-                        <td>{{$sshs->MACHINE_WORKING+$sshs->MACHINE_ADD_HOURS}}</td>
+                        <td>{{$sshs->MACHINE_WORKING+$sshs->MACHINE_ADD_HOURS.' hours'}}</td>
+                        <td>{{$sshs->WASTE_TIME.' hours'}}</td>
                         <td>{{$sshs->created_at}}</td>
                     </tr>
                     @endforeach

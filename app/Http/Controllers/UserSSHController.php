@@ -82,22 +82,33 @@ class UserSSHController extends Controller
     public function ssh_recap_progress_activity()
     {
         $ship=ShipProject::all();
-        $progress=Plate::select('ID_BLOCK', 'BLOCK_NAME', 'ID_PROJECT', DB::raw('sum(STRAIGHTENING) as STR'), DB::raw('count(ID) as NUM'), DB::raw('sum(BLASTING) as BLAST'))->groupBy('ID_BLOCK', 'BLOCK_NAME', 'ID_PROJECT')->get();
-        $straightening=Percentage::where('WORKSHOP', 'SSH')->where('ACTIVITY', 'STRAIGHTENING')->first();
-        $blasting=Percentage::where('WORKSHOP', 'SSH')->where('ACTIVITY', 'BLASTING')->first();
         
-        return view('user/ssh_recap_progress_activity')->with('ship', $ship)->with('progress', $progress)->with('straightening', $straightening)->with('blasting', $blasting);
+        $straightening=Percentage::where("WORKSHOP","SSH")->where("ACTIVITY", "STRAIGHTENING")->first();
+        $blasting=Percentage::where("WORKSHOP","SSH")->where("ACTIVITY", "BLASTING")->first();
+        $material_coming=Percentage::where("WORKSHOP","SSH")->where("ACTIVITY", "MATERIAL_COMING")->first();
+
+        $coming=$material_coming->PERCENT;
+        $str = $straightening->PERCENT;
+        $blast = $blasting->PERCENT;
+        
+        $progress=DB::select(DB::raw("SELECT P.ID_BLOCK, P.BLOCK_NAME, SUM(STRAIGHTENING) as STR, count(ID) as NUM, sum(BLASTING) as BLAST, (($str*SUM(STRAIGHTENING)/COUNT(ID))+($blast*SUM(BLASTING)/COUNT(ID))+($coming* C.DONE/count(DATE_COMING))) AS PROGRESS FROM `plates` P, (SELECT ID_BLOCK, count(DATE_COMING) as DONE from `plates` where DATE_COMING!='NULL' GROUP BY ID_BLOCK) C WHERE P.ID_BLOCK=C.ID_BLOCK GROUP BY P.ID_BLOCK, P.BLOCK_NAME"));
+        
+        return view('user/ssh_recap_progress_activity')->with('ship', $ship)->with('progress', $progress)->with('straightening', $straightening)->with('blasting', $blasting)->with('coming', $material_coming);
     }
 
     public function update(Request $request)
     {
         $straightening=Percentage::where('WORKSHOP', 'SSH')->where('ACTIVITY', 'STRAIGHTENING')->first();
         $blasting=Percentage::where('WORKSHOP', 'SSH')->where('ACTIVITY', 'BLASTING')->first();
+        $material_coming=Percentage::where("WORKSHOP","SSH")->where("ACTIVITY", "MATERIAL_COMING")->first();
         $straightening->update([
             'PERCENT' => $request->straightening
         ]);
         $blasting->update([
             'PERCENT' => $request->blasting
+        ]);
+        $material_coming->update([
+            'PERCENT' => $request->coming
         ]);
         
         return redirect()->route('ssh_recap_progress_activity')
