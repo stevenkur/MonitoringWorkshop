@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.6
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 22 Jun 2017 pada 11.31
--- Versi Server: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+-- Host: localhost:3306
+-- Generation Time: Jul 03, 2017 at 01:19 AM
+-- Server version: 5.6.35-log
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `monitoringworkshop`
+-- Database: `mworksho_MonitoringWorkshop`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `assembly`
+-- Table structure for table `assembly`
 --
 
 CREATE TABLE `assembly` (
@@ -48,21 +48,27 @@ CREATE TABLE `assembly` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `assembly`
+-- Dumping data for table `assembly`
 --
 
 INSERT INTO `assembly` (`ID`, `ID_PANEL`, `PROGRESS`, `ID_WORKER`, `WORKER_NAME`, `ATTENDANCE`, `PROCESS`, `OPERATOR`, `MACHINE`, `MACHINE_WORKING`, `MACHINE_ADD_HOURS`, `WORKING_HOURS`, `PROBLEM`, `WASTE_TIME`, `SHIFT`, `USER`, `created_at`, `updated_at`) VALUES
-(1, '1', 0.00, 3, 'Abc', 'Present', 'Fitting', 'no', 'Machine Fitting', 0.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-15 07:51:12', '2017-06-15 07:51:12'),
-(2, '1', 0.00, 4, 'Def', 'Present', 'Fitting', 'no', 'Machine Fitting', 0.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-15 07:51:12', '2017-06-15 07:51:12'),
-(3, '1', 0.00, 5, 'Ghi', 'Present', 'Fitting', 'no', 'Machine Fitting', 0.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-15 07:51:12', '2017-06-15 07:51:12'),
-(4, '1', 0.00, 3, 'Abc', 'Present', 'Fitting', 'no', 'Machine Fitting', 0.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-15 07:51:20', '2017-06-15 07:51:20'),
-(5, '1', 0.00, 4, 'Def', 'Present', 'Fitting', 'no', 'Machine Fitting', 0.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-15 07:51:20', '2017-06-15 07:51:20'),
-(6, '1', 0.00, 5, 'Ghi', 'Present', 'Fitting', 'no', 'Machine Fitting', 0.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-15 07:51:20', '2017-06-15 07:51:20');
+(1, '1', 100.00, 7, 'Afandi', 'Present', 'Fitting', 'ok', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:27:27', '2017-06-24 22:27:27'),
+(2, '1', 100.00, 8, 'Khoirul Alam', 'Present', 'Fitting', 'ok', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:27:27', '2017-06-24 22:27:27'),
+(3, '1', 50.00, 7, 'Afandi', 'Present', 'Welding', 'ok', 'FCAW Welding', 0.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:26:23', '2017-06-29 09:26:23'),
+(4, '1', 50.00, 8, 'Khoirul Alam', 'Present', 'Welding', 'no', 'FCAW Welding', 0.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:26:23', '2017-06-29 09:26:23'),
+(5, '1', 100.00, 7, 'Afandi', 'Present', 'Welding', 'no', 'FCAW Welding', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:26:38', '2017-06-29 09:26:38'),
+(6, '1', 100.00, 8, 'Khoirul Alam', 'Present', 'Welding', 'no', 'FCAW Welding', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:26:38', '2017-06-29 09:26:38'),
+(7, '1', 50.00, 7, 'Afandi', 'Present', 'Grinding', 'ok', 'Ass_Grinding', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:27:00', '2017-06-29 09:27:00'),
+(8, '1', 50.00, 8, 'Khoirul Alam', 'Present', 'Grinding', 'no', 'Ass_Grinding', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:27:00', '2017-06-29 09:27:00'),
+(9, '1', 100.00, 7, 'Afandi', 'Present', 'Grinding', 'ok', 'Ass_Grinding', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:27:29', '2017-06-29 09:27:29'),
+(10, '1', 100.00, 8, 'Khoirul Alam', 'Present', 'Grinding', 'no', 'Ass_Grinding', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:27:29', '2017-06-29 09:27:29'),
+(11, '1', 100.00, 7, 'Afandi', 'Present', 'Fairing', 'no', 'Fairing Heating', 6.00, 0.00, 6.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:27:43', '2017-06-29 09:27:43'),
+(12, '1', 100.00, 8, 'Khoirul Alam', 'Present', 'Fairing', 'no', 'Fairing Heating', 6.00, 0.00, 6.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:27:43', '2017-06-29 09:27:43');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `bbs`
+-- Table structure for table `bbs`
 --
 
 CREATE TABLE `bbs` (
@@ -83,10 +89,32 @@ CREATE TABLE `bbs` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `bbs`
+--
+
+INSERT INTO `bbs` (`ID`, `ID_MATERIAL`, `PROGRESS`, `ID_WORKER`, `WORKER_NAME`, `ATTENDANCE`, `PROCESS`, `WORKING_HOURS`, `ADD_WORKING_HOURS`, `PROBLEM`, `WASTE_TIME`, `SHIFT`, `USER`, `created_at`, `updated_at`) VALUES
+(1, '2', 1.00, 9, 'M.Sholeh', 'Present', 'Blasting', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:32:29', '2017-06-24 22:32:29'),
+(2, '2', 1.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:32:29', '2017-06-24 22:32:29'),
+(3, '2', 1.00, 9, 'M.Sholeh', 'Present', 'Blasting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:27:16', '2017-06-25 07:27:16'),
+(4, '2', 1.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:27:16', '2017-06-25 07:27:16'),
+(5, '2', 1.00, 9, 'M.Sholeh', 'Present', 'Blasting', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:27:31', '2017-06-25 07:27:31'),
+(6, '2', 1.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:27:31', '2017-06-25 07:27:31'),
+(7, '2', 2.00, 9, 'M.Sholeh', 'Present', 'Blasting', 4.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:35:03', '2017-06-25 07:35:03'),
+(8, '2', 2.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 4.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:35:03', '2017-06-25 07:35:03'),
+(9, '2', 2.00, 9, 'M.Sholeh', 'Present', 'Painting', 6.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:36:20', '2017-06-25 07:36:20'),
+(10, '2', 2.00, 10, 'Azis Siswanto', 'Present', 'Painting', 6.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:36:20', '2017-06-25 07:36:20'),
+(11, '1', 1.00, 9, 'M.Sholeh', 'Present', 'Blasting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:43:14', '2017-06-25 07:43:14'),
+(12, '1', 1.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:43:14', '2017-06-25 07:43:14'),
+(13, '3', 2.00, 9, 'M.Sholeh', 'Present', 'Blasting', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-07-02 01:48:09', '2017-07-02 01:48:09'),
+(14, '3', 2.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-07-02 01:48:09', '2017-07-02 01:48:09'),
+(15, '4', 2.00, 9, 'M.Sholeh', 'Present', 'Blasting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-07-02 01:50:17', '2017-07-02 01:50:17'),
+(16, '4', 2.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-07-02 01:50:17', '2017-07-02 01:50:17');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `blocks`
+-- Table structure for table `blocks`
 --
 
 CREATE TABLE `blocks` (
@@ -117,20 +145,22 @@ CREATE TABLE `blocks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `blocks`
+-- Dumping data for table `blocks`
 --
 
 INSERT INTO `blocks` (`ID`, `ID_PROJECT`, `PROJECT_NAME`, `NAME`, `MATERIAL`, `MATERIAL_COMING`, `PART`, `PART_COMING`, `PANEL`, `PANEL_DONE`, `LOADING`, `LOADING_DATE`, `ADJUSTING`, `ADJUSTING_DATE`, `FITTING`, `FITTING_DATE`, `WELDING`, `WELDING_LENGTH`, `WELDING_FINISH`, `WELDING_DATE`, `ERECTION_START`, `ERECTION_FINISH`, `created_at`, `updated_at`) VALUES
 (1, 2, 'Strategic Sealift Vessel 293', 'NV1', 0.00, 0.00, 0.00, 0.00, 0, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-06-06 20:15:28', '2017-06-06 20:15:28'),
-(2, 2, 'Strategic Sealift Vessel 293', 'DH', 0.00, 0.00, 0.00, 0.00, 0, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-06-06 20:15:38', '2017-06-06 20:15:38'),
+(2, 2, 'Strategic Sealift Vessel 293', 'DH', 12386.46, 0.00, 0.00, 0.00, 0, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-06-06 20:15:38', '2017-06-14 22:00:30'),
 (3, 2, 'Strategic Sealift Vessel 293', 'FU-(P/S)', 0.00, 0.00, 0.00, 0.00, 0, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-06-06 20:15:45', '2017-06-06 20:15:45'),
 (4, 2, 'Strategic Sealift Vessel 293', 'RD-(P/S)', 0.00, 0.00, 0.00, 0.00, 0, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-06-06 20:15:53', '2017-06-06 20:15:53'),
-(5, 2, 'Strategic Sealift Vessel 293', 'BR2-(P/S)', 8438.31, 0.00, 996.58, 0.00, 2, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-06-06 20:21:33', '2017-06-15 02:07:32');
+(5, 2, 'Strategic Sealift Vessel 293', 'BR2-(P/S)', 19836.78, 0.00, 1660.89, 0.00, 2, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-06-06 20:21:33', '2017-06-29 07:56:06'),
+(6, 2, 'Strategic Sealift Vessel 293', '122', 0.00, 0.00, 0.00, 0.00, 0, 0, 1.00, '2017-06-25', 1.00, '2017-06-25', 1.00, '2017-06-25', 1.00, 0.00, 0.00, '2017-06-25', NULL, NULL, '2017-06-24 22:46:12', '2017-06-25 07:57:26'),
+(7, 2, 'Strategic Sealift Vessel 293', 'dde', 0.00, 0.00, 0.00, 0.00, 0, 0, 1.00, '2017-06-29', 1.00, '2017-06-29', 1.00, '2017-06-29', 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-06-28 22:54:21', '2017-06-28 22:55:27');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `erections`
+-- Table structure for table `erections`
 --
 
 CREATE TABLE `erections` (
@@ -151,10 +181,38 @@ CREATE TABLE `erections` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `erections`
+--
+
+INSERT INTO `erections` (`ID`, `ID_BLOCK`, `PROGRESS`, `ID_WORKER`, `WORKER_NAME`, `ATTENDANCE`, `PROCESS`, `WORKING_HOURS`, `ADD_WORKING_HOURS`, `PROBLEM`, `WASTE_TIME`, `SHIFT`, `USER`, `created_at`, `updated_at`) VALUES
+(1, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Loading', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:47:48', '2017-06-24 22:47:48'),
+(2, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Loading', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:47:48', '2017-06-24 22:47:48'),
+(3, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Adjusting', 4.00, 0.00, 'Worker Sick/Acident', 1.00, 1, 'admin', '2017-06-24 22:48:36', '2017-06-24 22:48:36'),
+(4, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Adjusting', 4.00, 0.00, 'Worker Sick/Acident', 1.00, 1, 'admin', '2017-06-24 22:48:36', '2017-06-24 22:48:36'),
+(5, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Adjusting', 4.00, 0.00, 'Worker Sick/Acident', 1.00, 1, 'admin', '2017-06-24 22:49:33', '2017-06-24 22:49:33'),
+(6, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Adjusting', 4.00, 0.00, 'Worker Sick/Acident', 1.00, 1, 'admin', '2017-06-24 22:49:33', '2017-06-24 22:49:33'),
+(7, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Adjusting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:49:53', '2017-06-24 22:49:53'),
+(8, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Adjusting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:49:53', '2017-06-24 22:49:53'),
+(9, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Adjusting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:52:44', '2017-06-24 22:52:44'),
+(10, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Adjusting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:52:44', '2017-06-24 22:52:44'),
+(11, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Adjusting', 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:54:10', '2017-06-25 07:54:10'),
+(12, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Adjusting', 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:54:10', '2017-06-25 07:54:10'),
+(13, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Fitting', 0.00, 0.00, 'Broken Machine', 0.00, 1, 'admin', '2017-06-25 07:57:15', '2017-06-25 07:57:15'),
+(14, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Fitting', 0.00, 0.00, 'Broken Machine', 0.00, 1, 'admin', '2017-06-25 07:57:15', '2017-06-25 07:57:15'),
+(15, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Welding', 0.00, 0.00, 'Worker Sick/Acident', 0.00, 1, 'admin', '2017-06-25 07:57:26', '2017-06-25 07:57:26'),
+(16, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Welding', 0.00, 0.00, 'Worker Sick/Acident', 0.00, 1, 'admin', '2017-06-25 07:57:26', '2017-06-25 07:57:26'),
+(17, '7', 100.00, 11, 'Agus Puryono', 'Present', 'Loading', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-28 22:54:56', '2017-06-28 22:54:56'),
+(18, '7', 100.00, 12, 'Sugeng Riono', 'Present', 'Loading', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-28 22:54:56', '2017-06-28 22:54:56'),
+(19, '7', 100.00, 11, 'Agus Puryono', 'Present', 'Adjusting', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-28 22:55:12', '2017-06-28 22:55:12'),
+(20, '7', 100.00, 12, 'Sugeng Riono', 'Present', 'Adjusting', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-28 22:55:12', '2017-06-28 22:55:12'),
+(21, '7', 100.00, 11, 'Agus Puryono', 'Present', 'Fitting', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-28 22:55:27', '2017-06-28 22:55:27'),
+(22, '7', 100.00, 12, 'Sugeng Riono', 'Present', 'Fitting', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-28 22:55:27', '2017-06-28 22:55:27');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `fabrications`
+-- Table structure for table `fabrications`
 --
 
 CREATE TABLE `fabrications` (
@@ -177,10 +235,24 @@ CREATE TABLE `fabrications` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `fabrications`
+--
+
+INSERT INTO `fabrications` (`ID`, `ID_MATERIAL`, `ID_WORKER`, `WORKER_NAME`, `ATTENDANCE`, `PROCESS`, `OPERATOR`, `MACHINE`, `MACHINE_WORKING`, `MACHINE_ADD_HOURS`, `WORKING_HOURS`, `PROBLEM`, `WASTE_TIME`, `SHIFT`, `USER`, `created_at`, `updated_at`) VALUES
+(1, 'BR2-3', 3, 'Susilo Winasis', 'Present', 'Marking', 'no', 'CNC Gas', 5.00, 0.00, 5.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:06:27', '2017-06-24 22:06:27'),
+(2, 'BR2-3', 4, 'Handoyo', 'Present', 'Marking', 'ok', 'CNC Gas', 5.00, 0.00, 5.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:06:27', '2017-06-24 22:06:27'),
+(3, 'BR2-1', 3, 'Susilo Winasis', 'Present', 'Marking', 'no', 'Saffro Cutting', 4.00, 0.00, 4.00, 'Worker Sick/Acident', 1.00, 1, 'admin', '2017-06-28 22:52:43', '2017-06-28 22:52:43'),
+(4, 'BR2-1', 4, 'Handoyo', 'Present', 'Marking', 'ok', 'Saffro Cutting', 4.00, 0.00, 4.00, 'Worker Sick/Acident', 1.00, 1, 'admin', '2017-06-28 22:52:43', '2017-06-28 22:52:43'),
+(5, 'BR2-1', 3, 'Susilo Winasis', 'Present', 'Cutting', 'no', 'Saffro Cutting', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:24:27', '2017-06-29 09:24:27'),
+(6, 'BR2-1', 4, 'Handoyo', 'Present', 'Cutting', 'no', 'Saffro Cutting', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:24:27', '2017-06-29 09:24:27'),
+(7, 'BR2-1', 3, 'Susilo Winasis', 'Present', 'Bending', 'no', 'CNC Gas', 0.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:24:37', '2017-06-29 09:24:37'),
+(8, 'BR2-1', 4, 'Handoyo', 'Present', 'Bending', 'no', 'CNC Gas', 0.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:24:37', '2017-06-29 09:24:37');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `machines`
+-- Table structure for table `machines`
 --
 
 CREATE TABLE `machines` (
@@ -195,7 +267,7 @@ CREATE TABLE `machines` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT;
 
 --
--- Dumping data untuk tabel `machines`
+-- Dumping data for table `machines`
 --
 
 INSERT INTO `machines` (`ID`, `NAME`, `ACTIVITY`, `WORKSHOP`, `OPERATIONAL_HOUR`, `CAPACITY`, `created_at`, `updated_at`) VALUES
@@ -207,18 +279,18 @@ INSERT INTO `machines` (`ID`, `NAME`, `ACTIVITY`, `WORKSHOP`, `OPERATIONAL_HOUR`
 (6, 'Bending Machine', 'Bending', 'Fabrication', 6, 25.92, '2017-05-26 01:08:40', '2017-05-26 01:08:40'),
 (7, 'Flame Cutting', 'Cutting', 'Fabrication', 6, 3.7, '2017-05-26 01:09:42', '2017-05-26 01:09:42'),
 (8, 'FCAW Welding', 'Fitting', 'Sub Assembly', 5, 0, '2017-05-26 01:12:56', '2017-05-26 01:12:56'),
-(9, 'Fairing Heating', 'Welding', 'Sub Assembly', 6, 64, '2017-05-26 01:14:55', '2017-05-26 01:14:55'),
-(10, 'FCAW Grinding', 'Grinding', 'Sub Assembly', 5, 0, '2017-05-26 01:21:48', '2017-05-26 01:21:48'),
-(11, 'FCAW Fairing', 'Fairing', 'Sub Assembly', 5, 0, '2017-05-26 01:21:48', '2017-05-26 01:21:48'),
-(12, 'FCAW Fitting', 'Fitting', 'Assembly', 5, 0, '2017-05-26 01:21:48', '2017-05-26 01:21:48'),
+(9, 'Fairing Heating', 'Fairing', 'Sub Assembly', 6, 64, '2017-05-26 01:14:55', '2017-06-23 08:55:05'),
+(11, 'FCAW Welding', 'Welding', 'Sub Assembly', 5, 0, '2017-05-26 01:21:48', '2017-06-23 08:55:30'),
 (13, 'FCAW Welding', 'Welding', 'Assembly', 5, 0, '2017-05-26 01:21:48', '2017-05-26 01:21:48'),
-(14, 'FCAW Grinding', 'Grinding', 'Assembly', 5, 0, '2017-05-26 01:21:48', '2017-05-26 01:21:48'),
-(15, 'Fairing Heating', 'Fairing', 'Assembly', 6, 64, '2017-05-26 01:22:17', '2017-05-26 01:22:17');
+(15, 'Fairing Heating', 'Fairing', 'Assembly', 6, 64, '2017-05-26 01:22:17', '2017-05-26 01:22:17'),
+(18, 'Grinding', 'Grinding', 'Sub Assembly', 5, 0, '2017-06-25 07:19:09', '2017-06-25 07:19:09'),
+(19, 'Ass_Fit', 'Fitting', 'Assembly', 5, 0, '2017-06-25 07:19:47', '2017-06-25 07:19:47'),
+(20, 'Ass_Grinding', 'Grinding', 'Assembly', 5, 0, '2017-06-25 07:20:04', '2017-06-25 07:20:16');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -228,7 +300,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -254,7 +326,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `panels`
+-- Table structure for table `panels`
 --
 
 CREATE TABLE `panels` (
@@ -284,17 +356,17 @@ CREATE TABLE `panels` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `panels`
+-- Dumping data for table `panels`
 --
 
 INSERT INTO `panels` (`ID`, `ID_PROJECT`, `PROJECT_NAME`, `ID_BLOCK`, `BLOCK_NAME`, `NAME`, `PART`, `PART_COMING`, `PART_DONE`, `FITTING`, `FITTING_DATE`, `FITTING_MACHINE`, `WELDING`, `WELDING_DATE`, `WELDING_MACHINE`, `GRINDING`, `GRINDING_DATE`, `GRINDING_MACHINE`, `FAIRING`, `FAIRING_DATE`, `FAIRING_MACHINE`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 'K13-0-101', 996.58, 0.00, 0.00, 0.00, '2017-06-15', NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, '2017-06-06 20:29:59', '2017-06-15 07:51:20'),
-(2, 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 'K14-0-101', 0.00, 0.00, 0.00, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, '2017-06-06 20:30:23', '2017-06-06 20:30:23');
+(1, 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 'K13-0-101', 1659.89, 0.00, 0.00, 1.00, '2017-06-25', NULL, 1.00, '2017-06-29', NULL, 1.00, '2017-06-29', NULL, 1.00, '2017-06-29', NULL, '2017-06-06 20:29:59', '2017-06-29 09:27:43'),
+(2, 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 'K14-0-101', 1.00, 0.00, 0.00, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, '2017-06-06 20:30:23', '2017-06-28 21:54:33');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `parts`
+-- Table structure for table `parts`
 --
 
 CREATE TABLE `parts` (
@@ -332,16 +404,16 @@ CREATE TABLE `parts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `parts`
+-- Dumping data for table `parts`
 --
 
 INSERT INTO `parts` (`ID`, `ID_PROJECT`, `PROJECT_NAME`, `ID_BLOCK`, `BLOCK_NAME`, `ID_PANEL`, `PANEL_NAME`, `NAME`, `LENGTH`, `BREADTH`, `THICKNESS`, `PORT`, `CENTER`, `STARBOARD`, `WEIGHT`, `STAGE`, `DATE_COMING`, `FITTING`, `FITTING_DATE`, `FITTING_MACHINE`, `WELDING`, `WELDING_DATE`, `WELDING_MACHINE`, `GRINDING`, `GRINDING_DATE`, `GRINDING_MACHINE`, `FAIRING`, `FAIRING_DATE`, `FAIRING_MACHINE`, `created_at`, `updated_at`) VALUES
-('343', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 1, 'K13-0-101', 'K13-0-101 P101', 0.00, 0.00, 6.00, 1.00, 0.00, 0.00, 996.58, 'S', NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, '2017-06-06 21:09:12', '2017-06-06 21:09:12');
+('P01', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 1, 'K13-0-101', 'PART 001', 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 'T', NULL, 1.00, '2017-07-02', NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, '2017-06-29 07:56:06', '2017-07-02 02:04:24');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -353,7 +425,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `percentages`
+-- Table structure for table `percentages`
 --
 
 CREATE TABLE `percentages` (
@@ -366,34 +438,35 @@ CREATE TABLE `percentages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `percentages`
+-- Dumping data for table `percentages`
 --
 
 INSERT INTO `percentages` (`id`, `WORKSHOP`, `ACTIVITY`, `PERCENT`, `created_at`, `updated_at`) VALUES
-(1, 'SSH', 'STRAIGHTENING', 50, NULL, '2017-06-02 23:35:53'),
-(2, 'SSH', 'BLASTING', 50, NULL, '2017-06-02 23:35:53'),
+(0, 'SSH', 'MATERIAL_COMING', 0, NULL, '2017-07-02 00:35:15'),
+(1, 'SSH', 'STRAIGHTENING', 50, NULL, '2017-07-02 00:35:15'),
+(2, 'SSH', 'BLASTING', 50, NULL, '2017-07-02 00:35:15'),
 (3, 'FABRICATION', 'MARKING', 40, NULL, '2017-06-02 23:38:53'),
 (4, 'FABRICATION', 'CUTTING', 40, NULL, NULL),
 (5, 'FABRICATION', 'BENDING', 20, NULL, '2017-06-02 23:38:53'),
-(6, 'SUBASSEMBLY', 'FITTING', 30, NULL, '2017-06-02 23:46:10'),
-(7, 'SUBASSEMBLY', 'WELDING', 30, NULL, '2017-06-02 23:46:10'),
-(8, 'SUBASSEMBLY', 'GRINDING', 30, NULL, '2017-06-02 23:46:11'),
+(6, 'SUBASSEMBLY', 'FITTING', 40, NULL, '2017-06-02 23:46:10'),
+(7, 'SUBASSEMBLY', 'WELDING', 40, NULL, '2017-06-02 23:46:10'),
+(8, 'SUBASSEMBLY', 'GRINDING', 10, NULL, '2017-06-02 23:46:11'),
 (9, 'SUBASSEMBLY', 'FAIRING', 10, NULL, '2017-06-02 23:46:11'),
-(10, 'ASSEMBLY', 'FITTING', 30, NULL, '2017-06-02 23:46:27'),
-(11, 'ASSEMBLY', 'WELDING', 30, NULL, '2017-06-02 23:46:27'),
-(12, 'ASSEMBLY', 'GRINDING', 30, NULL, '2017-06-02 23:46:27'),
+(10, 'ASSEMBLY', 'FITTING', 40, NULL, '2017-06-02 23:46:27'),
+(11, 'ASSEMBLY', 'WELDING', 40, NULL, '2017-06-02 23:46:27'),
+(12, 'ASSEMBLY', 'GRINDING', 10, NULL, '2017-06-02 23:46:27'),
 (13, 'ASSEMBLY', 'FAIRING', 10, NULL, '2017-06-02 23:46:27'),
 (14, 'BBS', 'BLASTING', 50, NULL, NULL),
 (15, 'BBS', 'PAINTING', 50, NULL, NULL),
-(16, 'ERECTION', 'LOADING', 25, NULL, NULL),
-(17, 'ERECTION', 'ADJUSTING', 25, NULL, NULL),
-(18, 'ERECTION', 'FITTING', 25, NULL, NULL),
-(19, 'ERECTION', 'WELDING', 25, NULL, NULL);
+(16, 'ERECTION', 'LOADING', 10, NULL, NULL),
+(17, 'ERECTION', 'ADJUSTING', 15, NULL, NULL),
+(18, 'ERECTION', 'FITTING', 30, NULL, NULL),
+(19, 'ERECTION', 'WELDING', 45, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `plates`
+-- Table structure for table `plates`
 --
 
 CREATE TABLE `plates` (
@@ -430,19 +503,36 @@ CREATE TABLE `plates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `plates`
+-- Dumping data for table `plates`
 --
 
 INSERT INTO `plates` (`ID`, `ID_PROJECT`, `PROJECT_NAME`, `ID_BLOCK`, `BLOCK_NAME`, `LENGTH`, `BREADTH`, `THICKNESS`, `PORT`, `CENTER`, `STARBOARD`, `WEIGHT`, `DATE_COMING`, `STRAIGHTENING`, `STRAIGHTENING_DATE`, `STRAIGHTENING_MACHINE`, `BLASTING`, `BLASTING_DATE`, `BLASTING_MACHINE`, `MARKING`, `MARKING_DATE`, `MARKING_MACHINE`, `CUTTING`, `CUTTING_DATE`, `CUTTING_MACHINE`, `BLENDING`, `BLENDING_DATE`, `BLENDING_MACHINE`, `created_at`, `updated_at`) VALUES
-('BR2-1', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 12192.00, 1829.00, 6.00, 1.00, 0.00, 1.00, 2100.58, '2017-06-07', 1, '2017-06-07', 'Straightening Roller', 1, '2017-06-08', 'Straightening Roller', 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-06 20:33:40', '2017-06-08 00:09:05'),
-('BR2-2', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 12192.00, 1524.00, 6.00, 1.00, 0.00, 1.00, 1750.29, '2017-06-07', 1, '2017-06-15', 'Straightening Roller', 1, '2017-06-15', 'Straightening Roller', 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-06 20:36:25', '2017-06-14 22:29:06'),
-('BR2-3', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, NULL, 1, '2017-06-15', 'Straightening Roller', 1, '2017-06-15', 'Straightening Roller', 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-14 22:31:11', '2017-06-14 22:35:40'),
-('BR2-3', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-15 02:07:32', '2017-06-15 02:07:32');
+('BR2-1', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 12192.00, 1829.00, 6.00, 1.00, 0.00, 1.00, 2100.58, '2017-06-07', 1, '2017-06-07', 'Straightening Roller', 1, '2017-06-15', 'Straightening Roller', 1, '2017-06-29', 'Saffro Cutting', 1, '2017-06-29', 'Saffro Cutting', 1, '2017-06-29', 'CNC Gas', '2017-06-06 20:33:40', '2017-06-29 09:24:37'),
+('BR2-10', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 12192.00, 1524.00, 6.00, 1.00, 0.00, 0.00, 875.15, '2017-07-01', 1, '2017-06-25', 'Straightening Roller', 1, '2017-06-25', 'Shot Blasting&Painting', 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-15 00:31:37', '2017-07-01 02:29:46'),
+('BR2-2', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 12192.00, 1524.00, 6.00, 1.00, 0.00, 1.00, 1750.29, '2017-06-07', 1, '2017-06-11', 'Straightening Roller', 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-06 20:36:25', '2017-06-10 23:43:27'),
+('BR2-3', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 12192.00, 1524.00, 6.00, 1.00, 0.00, 0.00, 875.15, '2017-06-25', 1, '2017-06-25', 'Straightening Roller', 1, '2017-06-25', 'Shot Blasting&Painting', 1, '2017-06-25', 'CNC Gas', 0, NULL, NULL, 0, NULL, NULL, '2017-06-14 21:20:13', '2017-06-24 22:06:27'),
+('BR2-4', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 12192.00, 1829.00, 6.00, 1.00, 0.00, 1.00, 2100.58, '2017-06-25', 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-14 21:21:02', '2017-06-24 21:52:34'),
+('BR2-5', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 12192.00, 1524.00, 6.00, 1.00, 0.00, 1.00, 1750.29, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-14 21:21:50', '2017-06-14 21:21:50'),
+('BR2-6', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 12192.00, 1524.00, 6.00, 1.00, 0.00, 1.00, 1750.29, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-14 21:23:30', '2017-06-14 21:23:30'),
+('BR2-7', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 12192.00, 1524.00, 6.00, 1.00, 0.00, 1.00, 1750.29, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-14 21:24:04', '2017-06-14 21:24:04'),
+('BR2-8', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 12192.00, 1524.00, 6.00, 1.00, 0.00, 0.00, 875.15, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-15 00:29:32', '2017-06-15 00:29:32'),
+('BR2-9', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 9144.00, 1829.00, 6.00, 1.00, 0.00, 0.00, 787.72, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-15 00:30:38', '2017-06-15 00:30:38'),
+('DH-1', 2, 'Strategic Sealift Vessel 293', 2, 'DH', 9144.00, 1524.00, 6.00, 1.00, 0.00, 1.00, 1312.72, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-14 21:29:16', '2017-06-14 21:29:16'),
+('DH-10', 2, 'Strategic Sealift Vessel 293', 2, 'DH', 9144.00, 1524.00, 8.00, 1.00, 0.00, 1.00, 875.15, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-14 21:55:10', '2017-06-14 21:55:10'),
+('DH-11', 2, 'Strategic Sealift Vessel 293', 2, 'DH', 850.00, 1524.00, 10.00, 1.00, 0.00, 0.00, 101.69, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-14 21:55:50', '2017-06-14 21:55:50'),
+('DH-2', 2, 'Strategic Sealift Vessel 293', 2, 'DH', 9144.00, 1524.00, 6.00, 1.00, 0.00, 1.00, 1312.72, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-14 21:35:29', '2017-06-14 21:35:29'),
+('DH-3', 2, 'Strategic Sealift Vessel 293', 2, 'DH', 12192.00, 1829.00, 6.00, 1.00, 0.00, 0.00, 1050.29, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-14 21:36:54', '2017-06-14 21:36:54'),
+('DH-4', 2, 'Strategic Sealift Vessel 293', 2, 'DH', 9144.00, 1829.00, 6.00, 1.00, 0.00, 0.00, 787.72, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-14 21:37:34', '2017-06-14 21:37:34'),
+('DH-5', 2, 'Strategic Sealift Vessel 293', 2, 'DH', 9144.00, 1829.00, 6.00, 1.00, 0.00, 0.00, 787.72, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-14 21:50:47', '2017-06-14 21:50:47'),
+('DH-6', 2, 'Strategic Sealift Vessel 293', 2, 'DH', 9144.00, 1829.00, 6.00, 1.00, 0.00, 0.00, 787.72, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-14 21:51:50', '2017-06-14 21:51:50'),
+('DH-7', 2, 'Strategic Sealift Vessel 293', 2, 'DH', 9144.00, 1524.00, 7.00, 1.00, 0.00, 0.00, 765.75, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-14 21:52:43', '2017-06-14 21:52:43'),
+('DH-8', 2, 'Strategic Sealift Vessel 293', 2, 'DH', 9144.00, 1524.00, 7.00, 1.00, 0.00, 1.00, 1531.51, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-14 21:53:27', '2017-06-14 21:53:27'),
+('DH-9', 2, 'Strategic Sealift Vessel 293', 2, 'DH', 9144.00, 1524.00, 7.00, 1.00, 0.00, 0.00, 765.75, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-14 21:54:41', '2017-06-14 21:54:41');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `profiles`
+-- Table structure for table `profiles`
 --
 
 CREATE TABLE `profiles` (
@@ -466,16 +556,23 @@ CREATE TABLE `profiles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `profiles`
+-- Dumping data for table `profiles`
 --
 
 INSERT INTO `profiles` (`ID`, `ID_PROJECT`, `PROJECT_NAME`, `ID_BLOCK`, `BLOCK_NAME`, `LENGTH`, `BREADTH`, `THICKNESS`, `HEIGHT`, `PORT`, `CENTER`, `STARBOARD`, `WEIGHT`, `FORM`, `DATE_COMING`, `created_at`, `updated_at`) VALUES
-('BR2-Pro1', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 6000.00, 75.00, 7.00, 100.00, 54.00, 0.00, 28.00, 4585.44, 'Profil L', NULL, '2017-06-06 20:35:19', '2017-06-06 20:35:19');
+('BR2-Pro1', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 6000.00, 75.00, 7.00, 100.00, 54.00, 0.00, 28.00, 4585.44, 'Profil L', '2017-06-25', '2017-06-06 20:35:19', '2017-06-24 21:57:06'),
+('BR2-Pro2', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 12000.00, 150.00, 15.00, 0.00, 3.00, 0.00, 0.00, 635.85, 'Flat Bar', NULL, '2017-06-14 21:27:55', '2017-06-14 21:27:55'),
+('DH-Pro1', 2, 'Strategic Sealift Vessel 293', 2, 'DH', 6000.00, 90.00, 14.00, 200.00, 2.00, 0.00, 0.00, 294.00, 'Profil L', NULL, '2017-06-14 21:31:44', '2017-06-14 21:31:44'),
+('DH-Pro2', 2, 'Strategic Sealift Vessel 293', 2, 'DH', 6000.00, 75.00, 7.00, 100.00, 5.00, 0.00, 4.00, 503.28, 'Profil L', NULL, '2017-06-14 21:57:05', '2017-06-14 21:57:05'),
+('DH-Pro3', 2, 'Strategic Sealift Vessel 293', 2, 'DH', 6000.00, 75.00, 6.00, 75.00, 19.00, 0.00, 12.00, 1209.00, 'Profil L', NULL, '2017-06-14 21:58:00', '2017-06-14 21:58:00'),
+('DH-Pro4', 2, 'Strategic Sealift Vessel 293', 2, 'DH', 6000.00, 150.00, 10.00, 0.00, 1.00, 0.00, 0.00, 70.65, 'Flat Bar', NULL, '2017-06-14 21:58:56', '2017-06-14 21:58:56'),
+('DH-Pro5', 2, 'Strategic Sealift Vessel 293', 2, 'DH', 6000.00, 125.00, 10.00, 0.00, 2.00, 0.00, 0.00, 117.75, 'Flat Bar', NULL, '2017-06-14 21:59:43', '2017-06-14 21:59:43'),
+('DH-Pro6', 2, 'Strategic Sealift Vessel 293', 2, 'DH', 6000.00, 75.00, 8.00, 0.00, 3.00, 0.00, 1.00, 113.04, 'Flat Bar', NULL, '2017-06-14 22:00:30', '2017-06-14 22:00:30');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `rooms`
+-- Table structure for table `rooms`
 --
 
 CREATE TABLE `rooms` (
@@ -490,8 +587,8 @@ CREATE TABLE `rooms` (
   `DECK` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `AREA` int(11) NOT NULL,
   `TOTAL_LAYER` int(11) NOT NULL,
+  `VOLUME_SOLID` int(11) NOT NULL,
   `PAINT_TYPE` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `VOLUME_SOLID` double(6,2) NOT NULL,
   `PAINT_NEEDS` double(8,2) NOT NULL,
   `BLASTING` double(6,2) NOT NULL DEFAULT '0.00',
   `BLASTING_DATE` date DEFAULT NULL,
@@ -502,17 +599,19 @@ CREATE TABLE `rooms` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `rooms`
+-- Dumping data for table `rooms`
 --
 
-INSERT INTO `rooms` (`ID`, `ID_PROJECT`, `PROJECT_NAME`, `ID_BLOCK`, `BLOCK_NAME`, `ROOM`, `SIDE`, `FRAME`, `DECK`, `AREA`, `TOTAL_LAYER`, `PAINT_TYPE`, `VOLUME_SOLID`, `PAINT_NEEDS`, `BLASTING`, `BLASTING_DATE`, `PAINTING`, `PAINTING_DATE`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Kapal Api', 1, 'NV1', '1', '1', '1', '1', 1, 1, '1', 0.00, 1.00, 0.00, NULL, 0.00, NULL, '2017-06-15 02:13:09', '2017-06-15 02:13:09'),
-(2, 1, 'Kapal Api', 1, 'NV1', '2', '1', '1', '1', 12, 20, '1', 34.00, 405.88, 0.00, NULL, 0.00, NULL, '2017-06-15 07:56:29', '2017-06-15 07:56:29');
+INSERT INTO `rooms` (`ID`, `ID_PROJECT`, `PROJECT_NAME`, `ID_BLOCK`, `BLOCK_NAME`, `ROOM`, `SIDE`, `FRAME`, `DECK`, `AREA`, `TOTAL_LAYER`, `VOLUME_SOLID`, `PAINT_TYPE`, `PAINT_NEEDS`, `BLASTING`, `BLASTING_DATE`, `PAINTING`, `PAINTING_DATE`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Kapal Api', 3, 'FU-(P/S)', '1', '1', '1', '1', 1, 1, 0, '1', 1.00, 1.00, '2017-06-25', 0.00, NULL, '2017-06-14 22:47:00', '2017-06-25 07:43:14'),
+(2, 2, 'Strategic Sealift Vessel 293', 1, 'NV1', 'sds', 'fdf', 'sdddd', 'sd', 150, 2, 0, 'dsdf', 8653.85, 2.00, '2017-06-25', 2.00, '2017-06-25', '2017-06-15 00:35:26', '2017-06-25 07:36:20'),
+(3, 1, 'Kapal Api', 6, '122', 're', '1', '1', '1', 150, 2, 65, 'fr', 8653.85, 2.00, '2017-07-02', 0.00, NULL, '2017-07-02 01:44:54', '2017-07-02 01:48:09'),
+(4, 1, 'Kapal Api', 6, '122', 'tet', 'sds', 'dsd', 'dsd', 150, 2, 65, 'dsdfdffd', 8653.85, 2.00, '2017-07-02', 0.00, NULL, '2017-07-02 01:49:51', '2017-07-02 01:50:17');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ship_projects`
+-- Table structure for table `ship_projects`
 --
 
 CREATE TABLE `ship_projects` (
@@ -543,17 +642,17 @@ CREATE TABLE `ship_projects` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `ship_projects`
+-- Dumping data for table `ship_projects`
 --
 
 INSERT INTO `ship_projects` (`ID`, `PROJECT_NAME`, `OWNER`, `SHIP_TYPE`, `LWL`, `LPP`, `BREADTH`, `DEPTH`, `DRAFT`, `DISPLACEMENT`, `DESIGNED_SPEED`, `MATERIAL`, `MATERIAL_COMING`, `PART`, `PART_COMING`, `PANEL`, `PANEL_DONE`, `BLOCK`, `BLOCK_DONE`, `START`, `FINISH`, `FINISHED`, `created_at`, `updated_at`) VALUES
 (1, 'Kapal Api', 'Steven Kurniawan', 'Kopi', 12.00, 12.00, 1.00, 2.00, 3.00, 100.00, 100.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, '2017-06-06', '2017-06-30', NULL, '2017-06-06 19:50:19', '2017-06-06 19:50:19'),
-(2, 'Strategic Sealift Vessel 293', 'Philippines Goverment', 'Development of LPD', 114.64, 107.49, 21.80, 11.30, 5.00, 4516.00, 16.00, 8438.31, 0.00, 996.58, 0.00, 2, 0, 5, 0, '2017-06-20', '2018-12-19', NULL, '2017-06-06 19:50:36', '2017-06-15 02:07:32');
+(2, 'Strategic Sealift Vessel 293', 'Philippines Goverment', 'Development of LPD', 114.64, 107.49, 21.80, 11.30, 5.00, 4516.00, 16.00, 32223.24, 0.00, 1660.89, 0.00, 2, 0, 7, 0, '2017-06-20', '2018-12-19', NULL, '2017-06-06 19:50:36', '2017-06-29 07:56:06');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ssh`
+-- Table structure for table `ssh`
 --
 
 CREATE TABLE `ssh` (
@@ -577,27 +676,29 @@ CREATE TABLE `ssh` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `ssh`
+-- Dumping data for table `ssh`
 --
 
 INSERT INTO `ssh` (`ID`, `ID_MATERIAL`, `ID_WORKER`, `WORKER_NAME`, `ATTENDANCE`, `PROCESS`, `OPERATOR`, `MACHINE`, `MACHINE_WORKING`, `MACHINE_ADD_HOURS`, `WORKING_HOURS`, `PROBLEM`, `WASTE_TIME`, `SHIFT`, `USER`, `created_at`, `updated_at`) VALUES
 (1, 'BR2-1', 1, 'Bambang Pamungkas', 'Present', 'Straightening', 'ok', 'Straightening Roller', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-06 20:41:26', '2017-06-06 20:41:26'),
 (2, 'BR2-1', 2, 'Evandi Dwi K.', 'Present', 'Straightening', 'no', 'Straightening Roller', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-06 20:41:26', '2017-06-06 20:41:26'),
-(3, 'BR2-1', 1, 'Bambang Pamungkas', 'Present', 'Blasting & Shop Primer', 'no', 'Straightening Roller', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-08 00:09:05', '2017-06-08 00:09:05'),
-(4, 'BR2-1', 2, 'Evandi Dwi K.', 'Present', 'Blasting & Shop Primer', 'ok', 'Straightening Roller', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-08 00:09:05', '2017-06-08 00:09:05'),
-(5, 'BR2-2', 1, 'Bambang Pamungkas', 'Present', 'Straightening', 'no', 'Straightening Roller', 0.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-14 22:27:57', '2017-06-14 22:27:57'),
-(6, 'BR2-2', 2, 'Evandi Dwi K.', 'Present', 'Straightening', 'no', 'Straightening Roller', 0.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-14 22:27:57', '2017-06-14 22:27:57'),
-(7, 'BR2-2', 1, 'Bambang Pamungkas', 'Present', 'Blasting & Shop Primer', 'ok', 'Straightening Roller', 0.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-14 22:29:06', '2017-06-14 22:29:06'),
-(8, 'BR2-2', 2, 'Evandi Dwi K.', 'Present', 'Blasting & Shop Primer', 'no', 'Straightening Roller', 0.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-14 22:29:06', '2017-06-14 22:29:06'),
-(9, 'BR2-3', 1, 'Bambang Pamungkas', 'Present', 'Straightening', 'no', 'Straightening Roller', 0.00, 0.00, 8.00, 'No Problem', 0.00, 1, 'admin', '2017-06-14 22:35:19', '2017-06-14 22:35:19'),
-(10, 'BR2-3', 2, 'Evandi Dwi K.', 'Present', 'Straightening', 'no', 'Straightening Roller', 0.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-14 22:35:19', '2017-06-14 22:35:19'),
-(11, 'BR2-3', 1, 'Bambang Pamungkas', 'Present', 'Blasting & Shop Primer', 'ok', 'Straightening Roller', 8.00, 0.00, 8.00, 'No Problem', 0.00, 1, 'admin', '2017-06-14 22:35:39', '2017-06-14 22:35:39'),
-(12, 'BR2-3', 2, 'Evandi Dwi K.', 'Present', 'Blasting & Shop Primer', 'no', 'Straightening Roller', 8.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-14 22:35:39', '2017-06-14 22:35:39');
+(3, 'BR2-2', 1, 'Bambang Pamungkas', 'Present', 'Straightening', 'ok', 'Straightening Roller', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-10 23:43:27', '2017-06-10 23:43:27'),
+(4, 'BR2-2', 2, 'Evandi Dwi K.', 'Present', 'Straightening', 'no', 'Straightening Roller', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-10 23:43:27', '2017-06-10 23:43:27'),
+(5, 'BR2-1', 1, 'Bambang Pamungkas', 'Present', 'Blasting & Shop Primer', 'ok', 'Straightening Roller', 6.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-14 21:54:23', '2017-06-14 21:54:23'),
+(6, 'BR2-1', 2, 'Evandi Dwi K.', 'Present', 'Blasting & Shop Primer', 'no', 'Straightening Roller', 6.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-14 21:54:23', '2017-06-14 21:54:23'),
+(7, 'BR2-3', 1, 'Bambang Pamungkas', 'Present', 'Straightening', 'ok', 'Straightening Roller', 5.00, 0.00, 5.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 21:59:07', '2017-06-24 21:59:07'),
+(8, 'BR2-3', 2, 'Evandi Dwi K.', 'Present', 'Straightening', 'no', 'Straightening Roller', 5.00, 0.00, 5.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 21:59:07', '2017-06-24 21:59:07'),
+(9, 'BR2-3', 1, 'Bambang Pamungkas', 'Present', 'Blasting & Shop Primer', 'ok', 'Shot Blasting&Painti', 5.00, 0.00, 5.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:00:11', '2017-06-24 22:00:11'),
+(10, 'BR2-3', 2, 'Evandi Dwi K.', 'Present', 'Blasting & Shop Primer', 'no', 'Shot Blasting&Painti', 5.00, 0.00, 5.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:00:11', '2017-06-24 22:00:11'),
+(11, 'BR2-10', 1, 'Bambang Pamungkas', 'Present', 'Straightening', 'no', 'Straightening Roller', 4.00, 0.00, 4.00, 'Power Failure', 0.00, 1, 'admin', '2017-06-25 07:57:58', '2017-06-25 07:57:58'),
+(12, 'BR2-10', 2, 'Evandi Dwi K.', 'Present', 'Straightening', 'no', 'Straightening Roller', 4.00, 0.00, 4.00, 'Power Failure', 0.00, 1, 'admin', '2017-06-25 07:57:58', '2017-06-25 07:57:58'),
+(13, 'BR2-10', 1, 'Bambang Pamungkas', 'Present', 'Blasting & Shop Primer', 'ok', 'Shot Blasting&Painti', 4.00, 2.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:58:13', '2017-06-25 07:58:13'),
+(14, 'BR2-10', 2, 'Evandi Dwi K.', 'Present', 'Blasting & Shop Primer', 'no', 'Shot Blasting&Painti', 4.00, 2.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:58:13', '2017-06-25 07:58:13');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sub_assembly`
+-- Table structure for table `sub_assembly`
 --
 
 CREATE TABLE `sub_assembly` (
@@ -621,10 +722,24 @@ CREATE TABLE `sub_assembly` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `sub_assembly`
+--
+
+INSERT INTO `sub_assembly` (`ID`, `ID_PART`, `PROGRESS`, `ID_WORKER`, `WORKER_NAME`, `ATTENDANCE`, `PROCESS`, `OPERATOR`, `MACHINE`, `MACHINE_WORKING`, `MACHINE_ADD_HOURS`, `WORKING_HOURS`, `PROBLEM`, `WASTE_TIME`, `SHIFT`, `USER`, `created_at`, `updated_at`) VALUES
+(1, 'br2', 0.00, 5, 'M.Sugianto', 'Present', 'Fitting', 'no', 'FCAW Welding', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:20:25', '2017-06-24 22:20:25'),
+(2, 'br2', 0.00, 6, 'Eko Fendy S.', 'Present', 'Fitting', 'ok', 'FCAW Welding', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:20:25', '2017-06-24 22:20:25'),
+(3, 'br2', 0.00, 5, 'M.Sugianto', 'Present', 'Fitting', 'no', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:25:44', '2017-06-24 22:25:44'),
+(4, 'br2', 0.00, 6, 'Eko Fendy S.', 'Present', 'Fitting', 'ok', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:25:44', '2017-06-24 22:25:44'),
+(5, 'br2', 100.00, 5, 'M.Sugianto', 'Present', 'Fitting', 'no', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:26:13', '2017-06-24 22:26:13'),
+(6, 'br2', 100.00, 6, 'Eko Fendy S.', 'Present', 'Fitting', 'ok', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:26:13', '2017-06-24 22:26:13'),
+(7, 'P01', 100.00, 5, 'M.Sugianto', 'Present', 'Fitting', 'no', 'FCAW Welding', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-07-02 02:04:23', '2017-07-02 02:04:23'),
+(8, 'P01', 100.00, 6, 'Eko Fendy S.', 'Present', 'Fitting', 'ok', 'FCAW Welding', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-07-02 02:04:24', '2017-07-02 02:04:24');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -641,7 +756,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`USERNAME`, `PASSWORD`, `FULL_NAME`, `PHONE_NUMBER`, `DIVISION`, `POSITION`, `NIK`, `remember_token`, `created_at`, `updated_at`) VALUES
@@ -652,12 +767,13 @@ INSERT INTO `user` (`USERNAME`, `PASSWORD`, `FULL_NAME`, `PHONE_NUMBER`, `DIVISI
 ('assembly', 'qwe123', 'ASSEMBLY', '0000000000', 'Assembly', 'Manager', '44444', NULL, '2017-06-03 01:15:44', '2017-06-03 01:16:33'),
 ('bbs', 'qwe123', 'BBS', '0000000000', 'Block Blasting Structure', 'Manager', '55555', NULL, '2017-06-03 01:16:09', '2017-06-03 01:16:09'),
 ('erection', 'qwe123', 'ERECTION', '0000000000', 'Erection', 'Manager', '66666', NULL, '2017-06-03 01:16:25', '2017-06-03 01:16:25'),
-('panduaudityap', 'kapal', 'Pandu Auditya P', '08123456789', 'PPC/Admin', 'Manager', '4112100075', NULL, '2017-06-06 19:44:14', '2017-06-06 19:44:14');
+('panduaudityap', 'kapal', 'Pandu Auditya P', '08123456789', 'PPC/Admin', 'Manager', '4112100075', NULL, '2017-06-06 19:44:14', '2017-06-06 19:44:14'),
+('kurniawan', 'kurkur', 'kurniawan dwi', '0929293', 'Steel Stock House', 'PKWT', '32323', NULL, '2017-06-10 23:35:02', '2017-06-10 23:35:02');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `workers`
+-- Table structure for table `workers`
 --
 
 CREATE TABLE `workers` (
@@ -671,15 +787,22 @@ CREATE TABLE `workers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `workers`
+-- Dumping data for table `workers`
 --
 
 INSERT INTO `workers` (`ID`, `NAME`, `DIVISION`, `POSITION`, `NIK`, `created_at`, `updated_at`) VALUES
 (1, 'Bambang Pamungkas', 'SSH', 'Staf', '21231219', '2017-06-06 20:39:07', '2017-06-06 20:39:07'),
 (2, 'Evandi Dwi K.', 'SSH', 'Staf', '21231217', '2017-06-06 20:39:30', '2017-06-06 20:39:30'),
-(3, 'Abc', 'Assembly', 'Staf', '123', '2017-06-15 07:44:16', '2017-06-15 07:44:16'),
-(4, 'Def', 'Assembly', 'Staf', '456', '2017-06-15 07:44:26', '2017-06-15 07:44:26'),
-(5, 'Ghi', 'Assembly', 'Staf', '789', '2017-06-15 07:44:43', '2017-06-15 07:44:43');
+(3, 'Susilo Winasis', 'Fabrication', 'PKWT', '21231217', '2017-06-19 06:54:55', '2017-06-19 06:54:55'),
+(4, 'Handoyo', 'Fabrication', 'Staf', '103953837', '2017-06-23 08:59:28', '2017-06-23 08:59:28'),
+(5, 'M.Sugianto', 'Sub Assembly', 'Staf', '103964058', '2017-06-23 08:59:59', '2017-06-23 08:59:59'),
+(6, 'Eko Fendy S.', 'Sub Assembly', 'Staf', '103154385', '2017-06-23 09:01:02', '2017-06-23 09:01:02'),
+(7, 'Afandi', 'Assembly', 'PKWT', '015065277', '2017-06-23 09:02:18', '2017-06-23 09:02:18'),
+(8, 'Khoirul Alam', 'Assembly', 'PKWT', '015065275', '2017-06-23 09:02:44', '2017-06-23 09:02:44'),
+(9, 'M.Sholeh', 'BBS', 'Staf', '103154364', '2017-06-23 09:03:26', '2017-06-23 09:03:26'),
+(10, 'Azis Siswanto', 'BBS', 'Staf', '103154389', '2017-06-23 09:04:04', '2017-06-23 09:04:04'),
+(11, 'Agus Puryono', 'Erection Process', 'Staf', '103963983', '2017-06-23 09:04:45', '2017-06-23 09:04:45'),
+(12, 'Sugeng Riono', 'Erection Process', 'Staf', '103902863', '2017-06-23 09:05:04', '2017-06-23 09:05:04');
 
 --
 -- Indexes for dumped tables
@@ -749,7 +872,20 @@ ALTER TABLE `password_resets`
 -- Indexes for table `percentages`
 --
 ALTER TABLE `percentages`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `id` (`id`);
+
+--
+-- Indexes for table `plates`
+--
+ALTER TABLE `plates`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `profiles`
+--
+ALTER TABLE `profiles`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `rooms`
@@ -789,32 +925,32 @@ ALTER TABLE `workers`
 -- AUTO_INCREMENT for table `assembly`
 --
 ALTER TABLE `assembly`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `bbs`
 --
 ALTER TABLE `bbs`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `blocks`
 --
 ALTER TABLE `blocks`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `erections`
 --
 ALTER TABLE `erections`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `fabrications`
 --
 ALTER TABLE `fabrications`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `machines`
 --
 ALTER TABLE `machines`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
@@ -829,7 +965,7 @@ ALTER TABLE `panels`
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `ship_projects`
 --
@@ -839,17 +975,17 @@ ALTER TABLE `ship_projects`
 -- AUTO_INCREMENT for table `ssh`
 --
 ALTER TABLE `ssh`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `sub_assembly`
 --
 ALTER TABLE `sub_assembly`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `workers`
 --
 ALTER TABLE `workers`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

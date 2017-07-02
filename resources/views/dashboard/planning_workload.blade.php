@@ -56,7 +56,6 @@
           $flagProject=true;
           }
           else $flagProject=false;
-
         ?>
 
         @if($flagProject)
@@ -260,7 +259,7 @@
         </div>
         </div>
 
-        <div class="col-lg-6">
+        <!-- <div class="col-lg-6">
         <div class="box box-primary">
         <div class="box-body">
         <h3>BBS Workshop</h3>
@@ -284,7 +283,7 @@
         </table>
         </div>            
         </div>
-        </div>
+        </div> -->
 
         <!-- <div class="col-lg-6">
         <div class="box box-primary">

@@ -354,7 +354,7 @@
                 <tr>
                   <td>{{ $prod->DATE }}</td>
                   <td>{{ $prod->WEIGHT }}</td>
-                  <td>???</td>
+                  <td>{{ $target[0]->TARGET }}</td>
                   <td>{{ $prod->PRODUCTIVITY }}</td>
                   <td>16.98 JO/ton</td>
                 </tr>

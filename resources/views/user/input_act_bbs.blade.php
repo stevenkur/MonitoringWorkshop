@@ -132,7 +132,7 @@
                     if($flagBlock && $rooms->ID_BLOCK == $_GET['block']){
                     echo '
                     <tr>
-                        <td>'.$rooms['ID'].'</td>
+                        <td>'.$rooms['ROOM'].'</td>
                         <td>'.$rooms['SIDE'].'</td>
                         <td>'.$rooms['FRAME'].'</td>
                         <td>'.$rooms['DECK'].'</td>
@@ -162,7 +162,7 @@
                     else if($flagProject && $rooms->ID_PROJECT == $_GET['project']){
                     echo '
                     <tr>
-                        <td>'.$rooms['ID'].'</td>
+                        <td>'.$rooms['ROOM'].'</td>
                         <td>'.$rooms['SIDE'].'</td>
                         <td>'.$rooms['FRAME'].'</td>
                         <td>'.$rooms['DECK'].'</td>
@@ -192,7 +192,7 @@
                     else if(!$flagBlock && !$flagProject){
                     echo '
                     <tr>
-                        <td>'.$rooms['ID'].'</td>
+                        <td>'.$rooms['ROOM'].'</td>
                         <td>'.$rooms['SIDE'].'</td>
                         <td>'.$rooms['FRAME'].'</td>
                         <td>'.$rooms['DECK'].'</td>

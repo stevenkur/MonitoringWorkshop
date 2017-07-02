@@ -8,6 +8,7 @@ use App\ShipProject;
 use App\Block;
 use App\Worker;
 use App\BBS;
+use App\Panel;
 use App\Room;
 use App\Percentage;
 use Carbon\Carbon;
@@ -66,7 +67,7 @@ class UserBBSController extends Controller
         $block=Block::all();
         $worker=Worker::where('DIVISION', 'BBS')->get();
         $room=Room::all();
-        $panel=Panel:all();
+        $panel=Panel::all();
         $count=Room::count();
         return view('user/input_act_bbs')->with('ship', $ship)->with('block', $block)->with('worker', $worker)->with('room', $room)->with('count', $count)->with('panel', $panel);
     }   

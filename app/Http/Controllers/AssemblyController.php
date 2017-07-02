@@ -36,6 +36,8 @@ class AssemblyController extends Controller
         $weld = $welding->PERCENT;
         $grind = $grinding->PERCENT;
         $fair = $fairing->PERCENT;
+        
+        $target = DB::select(DB::raw("SELECT SUM(DISPLACEMENT) as TARGET FROM ship_projects"));
 
         $productivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, SUM(D.DISPLACEMENT)/COUNT(A.ID) AS WEIGHT, SUM(A.WORKING_HOURS)/(SUM(D.DISPLACEMENT)/COUNT(A.ID)) AS PRODUCTIVITY FROM assembly A, panels B, machines C, ship_projects D WHERE (A.ID_PANEL=B.ID AND B.ID_PROJECT=D.ID AND C.NAME LIKE A.MACHINE AND C.ACTIVITY LIKE 'Fairing') GROUP BY DATE, A.MACHINE"));
         
@@ -43,7 +45,7 @@ class AssemblyController extends Controller
 
         $progr=DB::select(DB::raw("SELECT ID_BLOCK, BLOCK_NAME, ID_PROJECT, ($fit*SUM(FITTING)/COUNT(ID))+($weld*SUM(WELDING)/COUNT(ID))+($grind*SUM(GRINDING)/COUNT(ID))+($fair*SUM(FAIRING)/COUNT(ID)) AS PROGRESS FROM `panels` GROUP BY ID_BLOCK, BLOCK_NAME"));
         
-        return view('dashboard/assembly_menu')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('progress', $progress)->with('ass', $ass)->with('progr', $progr)->with('machine', $machine)->with('productivity',$productivity)->with('machineproductivity',$machineproductivity);
+        return view('dashboard/assembly_menu')->with('ship', $ship)->with('block', $block)->with('panel', $panel)->with('progress', $progress)->with('ass', $ass)->with('progr', $progr)->with('machine', $machine)->with('productivity',$productivity)->with('machineproductivity',$machineproductivity)->with('target',$target);
     }
 
     /**

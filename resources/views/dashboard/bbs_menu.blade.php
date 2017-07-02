@@ -236,10 +236,9 @@
                 <thead>
                 <tr>
                   <th>Date</th>
-                  <th>Output/Day (ton)</th>
-                  <th>Target Output/Day (ton)</th>
-                  <th>Productivity (JO/ton)</th>
-                  <th>Productivity Target (JO/ton)</th>
+                  <th>Output/Day (m<sup>2</sup>)</th>
+                  <th>Productivity (JO/m<sup>2</sup>)</th>
+                  <th>Productivity Target (JO/m<sup>2</sup>)</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -247,7 +246,6 @@
                 <tr>
                   <td>{{ $prod->DATE }}</td>
                   <td>{{ $prod->WEIGHT }}</td>
-                  <td>???</td>
                   <td>{{ $prod->PRODUCTIVITY }}</td>
                   <td>0.55 JO/m<sup>2</sup></td>
                 </tr>
@@ -256,8 +254,7 @@
                 <tfoot>
                 <tr>
                   <th>Date</th>
-                  <th>Output/Day (ton)</th>
-                  <th>Target Output/Day (ton)</th>
+                  <th>Output/Day (m<sup>2</sup>)</th>
                   <th>Productivity</th>
                   <th>Productivity Target</th>
                 </tr>

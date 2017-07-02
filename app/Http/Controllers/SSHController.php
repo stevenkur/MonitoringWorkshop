@@ -39,14 +39,15 @@ class SSHController extends Controller
         $donecoming = DB::select(DB::raw("SELECT ID_BLOCK, count(DATE_COMING) as DONE from `plates` where DATE_COMING!='NULL' GROUP BY ID_BLOCK"));
         
 //        dd($donecoming);
-        
+        $target = DB::select(DB::raw("SELECT SUM(DISPLACEMENT) as TARGET FROM ship_projects"));
+
         $productivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, SUM(B.WEIGHT)/COUNT(A.ID) AS WEIGHT, SUM(A.WORKING_HOURS)/WEIGHT AS PRODUCTIVITY FROM ssh A, plates B WHERE (A.ID_MATERIAL=B.ID AND A.PROCESS LIKE 'Blasting & Shop Primer') GROUP BY DATE, A.MACHINE"));
         
         $machineproductivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, B.CAPACITY, SUM(C.WEIGHT)/COUNT(A.ID) AS OUTPUT, B.OPERATIONAL_HOUR AS NORMAL, MAX(A.MACHINE_WORKING+A.MACHINE_ADD_HOURS) AS REALIZATION, A.WASTE_TIME FROM ssh A, machines B, plates C WHERE (A.MACHINE LIKE B.NAME AND C.ID LIKE A.ID_MATERIAL) GROUP BY DATE, A.MACHINE"));
         
         $progr=DB::select(DB::raw("SELECT P.ID_BLOCK, P.BLOCK_NAME, (($str*SUM(STRAIGHTENING)/COUNT(ID))+($blast*SUM(BLASTING)/COUNT(ID))+($coming* C.DONE/count(DATE_COMING))) AS PROGRESS FROM `plates` P, (SELECT ID_BLOCK, count(DATE_COMING) as DONE from `plates` where DATE_COMING!='NULL' GROUP BY ID_BLOCK) C WHERE P.ID_BLOCK=C.ID_BLOCK GROUP BY P.ID_BLOCK, P.BLOCK_NAME"));
         
-        return view('dashboard/ssh_menu')->with('ship', $ship)->with('block', $block)->with('plate', $plate)->with('profile', $profile)->with('ssh', $ssh)->with('progr',$progr)->with('machine',$machine)->with('productivity',$productivity)->with('machineproductivity',$machineproductivity)->with('coming',$coming);
+        return view('dashboard/ssh_menu')->with('ship', $ship)->with('block', $block)->with('plate', $plate)->with('profile', $profile)->with('ssh', $ssh)->with('progr',$progr)->with('machine',$machine)->with('productivity',$productivity)->with('machineproductivity',$machineproductivity)->with('coming',$coming)->with('target',$target);
     }
 
     /**

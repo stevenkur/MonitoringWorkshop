@@ -30,17 +30,17 @@
                   <th>PROGRESS</th>
                   <th>START PROJECT</th>
                   <th>TARGET FINISH</th>
-                  <th>LAST DATE WORKED</th>
+                  <!-- <th>LAST DATE WORKED</th> -->
                 </tr>
                 </thead>
                 <tbody>
                     @foreach($ship as $ships)
                 <tr>
                     <td>{{$ships->PROJECT_NAME}}</td>
-                    <td>{{number_format($ships->PROGRESS,'2','.','')}}</td>
-                    <td>{{$ships->START}}</td>
-                    <td>{{$ships->FINISH}}</td>
-                    <td>---</td>
+                    <td>{{number_format($ships->PROGRESS,'2','.','')}} %</td>
+                    <td>{{date('d-m-Y', strtotime($ships->START))}}</td>
+                    <td>{{date('d-m-Y', strtotime($ships->FINISH))}}</td>
+                    <!-- <td>---</td> -->
                 </tr>
                     @endforeach
                 </tbody>
@@ -50,7 +50,7 @@
                   <th>PROGRESS</th>
                   <th>START PROJECT</th>
                   <th>TARGET FINISH</th>
-                  <th>LAST DATE WORKED</th>
+                  <!-- <th>LAST DATE WORKED</th> -->
                 </tr>
                 </tfoot>
               </table>

@@ -36,6 +36,8 @@ class SubAssemblyController extends Controller
         $weld = $welding->PERCENT;
         $grind = $grinding->PERCENT;
         $fair = $fairing->PERCENT;
+        
+        $target = DB::select(DB::raw("SELECT SUM(DISPLACEMENT) as TARGET FROM ship_projects"));
 
         $productivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, SUM(B.WEIGHT)/COUNT(A.ID) AS WEIGHT, SUM(A.WORKING_HOURS)/WEIGHT AS PRODUCTIVITY FROM sub_assembly A, parts B, machines C WHERE (A.ID_PART=B.ID AND C.NAME LIKE A.MACHINE AND C.ACTIVITY LIKE 'Fairing') GROUP BY DATE, A.MACHINE"));
         
@@ -43,7 +45,7 @@ class SubAssemblyController extends Controller
         
         $progr=DB::select(DB::raw("SELECT ID_BLOCK, BLOCK_NAME, ($fit*SUM(FITTING)/COUNT(ID))+($weld*SUM(WELDING)/COUNT(ID))+($grind*SUM(GRINDING)/COUNT(ID))+($fair*SUM(FAIRING)/COUNT(ID)) AS PROGRESS FROM `parts` GROUP BY ID_BLOCK, BLOCK_NAME"));
 
-        return view('dashboard/subassembly_menu')->with('ship', $ship)->with('block', $block)->with('part', $part)->with('progress', $progress)->with('progr', $progr)->with('subass', $subass)->with('machine', $machine)->with('productivity',$productivity)->with('machineproductivity',$machineproductivity);
+        return view('dashboard/subassembly_menu')->with('ship', $ship)->with('block', $block)->with('part', $part)->with('progress', $progress)->with('progr', $progr)->with('subass', $subass)->with('machine', $machine)->with('productivity',$productivity)->with('machineproductivity',$machineproductivity)->with('target',$target);
     }
     
     /**
