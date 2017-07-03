@@ -97,40 +97,8 @@
                   <th>Total Progress</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                  <td>Block 1</td>
-                  <td>Block 2</td>
-                  <td>Loading</td>
-                  <td>Adjusting</td>
-                  <td>Fitting</td>
-                  <td>Welding Finish/Total (m)</td>
-                  <td>Date of Start</td>
-                  <td>Date of Finish</td>
-                  <td>Total Progress</td>
-                </tr>
-                <tr>
-                  <td>Block 1</td>
-                  <td>Block 2</td>
-                  <td>Loading</td>
-                  <td>Adjusting</td>
-                  <td>Fitting</td>
-                  <td>Welding Finish/Total (m)</td>
-                  <td>Date of Start</td>
-                  <td>Date of Finish</td>
-                  <td>Total Progress</td>
-                </tr>
-                <tr>
-                  <td>Block 1</td>
-                  <td>Block 2</td>
-                  <td>Loading</td>
-                  <td>Adjusting</td>
-                  <td>Fitting</td>
-                  <td>Welding Finish/Total (m)</td>
-                  <td>Date of Start</td>
-                  <td>Date of Finish</td>
-                  <td>Total Progress</td>
-                </tr>
+                <tbody>                
+
                 </tbody>
                 <tfoot>
                 <tr>
@@ -188,11 +156,9 @@
         </div>
 
           @elseif($_GET['activity']==3)  
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
             <div class="box box-primary">
                 
-                <!-- /.box-header -->
-                <!-- form start -->
                 <form role="form">
                   <div class="box-body">
                   <label for="MonthOutputWorkshop">View Month Output:</label>
@@ -215,7 +181,6 @@
                     </div>
                    
                   </div>
-                  <!-- /.box-body -->
 
                   <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Choose</button>
@@ -223,7 +188,8 @@
                 </form>
             
             </div>
-            </div>
+            </div> -->
+
 
             <?php 
                 if(isset($_GET['MonthOutputWorkshop'])!='#') 

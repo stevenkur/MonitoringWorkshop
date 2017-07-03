@@ -183,11 +183,9 @@
         </div>
 
           @elseif($_GET['activity']==3)  
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
             <div class="box box-primary">
                 
-                <!-- /.box-header -->
-                <!-- form start -->
                 <form role="form">
                   <div class="box-body">
                   <label for="MonthOutputWorkshop">View Month Output:</label>
@@ -210,7 +208,6 @@
                     </div>
                    
                   </div>
-                  <!-- /.box-body -->
 
                   <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Choose</button>
@@ -218,7 +215,8 @@
                 </form>
             
             </div>
-            </div>
+            </div> -->
+
 
             <?php 
                 if(isset($_GET['MonthOutputWorkshop'])!='#') 
@@ -239,6 +237,7 @@
                   <th>Output/Day (m<sup>2</sup>)</th>
                   <th>Productivity (JO/m<sup>2</sup>)</th>
                   <th>Productivity Target (JO/m<sup>2</sup>)</th>
+                  <th>Problem</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -248,6 +247,7 @@
                   <td>{{ $prod->WEIGHT }}</td>
                   <td>{{ $prod->PRODUCTIVITY }}</td>
                   <td>0.55 JO/m<sup>2</sup></td>
+                  <td>{{ $prod->PROBLEM }}</td>
                 </tr>
                 @endforeach
                 </tbody>
@@ -257,6 +257,7 @@
                   <th>Output/Day (m<sup>2</sup>)</th>
                   <th>Productivity</th>
                   <th>Productivity Target</th>
+                  <th>Problem</th>
                 </tr>
                 </tfoot>
               </table>

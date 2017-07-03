@@ -16,7 +16,7 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
+    <!-- <section class="content">
       <div class="row">
 
         <div class="col-lg-3 col-xs-6">
@@ -72,8 +72,7 @@
         </div>
         
         </div>
-      </div>
-    </section>
+    </section> -->
   </div>
 
 @stop

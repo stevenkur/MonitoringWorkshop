@@ -307,11 +307,9 @@
         </div>
 
           @elseif($_GET['activity']==3)  
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
             <div class="box box-primary">
                 
-                <!-- /.box-header -->
-                <!-- form start -->
                 <form role="form">
                   <div class="box-body">
                   <label for="MonthOutputWorkshop">View Month Output:</label>
@@ -334,7 +332,6 @@
                     </div>
                    
                   </div>
-                  <!-- /.box-body -->
 
                   <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Choose</button>
@@ -342,7 +339,8 @@
                 </form>
             
             </div>
-            </div>
+            </div> -->
+
 
             <?php 
                 if(isset($_GET['MonthOutputWorkshop'])!='#') 
@@ -364,6 +362,7 @@
                   <th>Target Output/Day (ton)</th>
                   <th>Productivity (JO/ton)</th>
                   <th>Productivity Target (JO/ton)</th>
+                  <th>Problem</th>
                 </tr>
                 </thead>
                 <tbody>                
@@ -374,6 +373,7 @@
                   <td>{{ $target[0]->TARGET }}</td>
                   <td>{{ $prod->PRODUCTIVITY }}</td>
                   <td>16 JO/ton</td>
+                  <td>{{ $prod->PROBLEM }}</td>
                 </tr>
                 @endforeach
                 </tbody>
@@ -384,6 +384,7 @@
                   <th>Target Output/Day (ton)</th>
                   <th>Productivity</th>
                   <th>Productivity Target</th>
+                  <th>Problem</th>
                 </tr>
                 </tfoot>
               </table>
@@ -394,16 +395,14 @@
             </div>
 
             @elseif($_GET['activity']==4)  
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
             <div class="box box-primary">
                 
-                <!-- /.box-header -->
-                <!-- form start -->
                 <form role="form">
                   <div class="box-body">
-                  <label for="MonthOutputMachine">View Month Output:</label>
+                  <label for="MonthOutputWorkshop">View Month Output:</label>
                     <div class="form-group">
-                      <select class="form-control" name="MonthOutputMachine">
+                      <select class="form-control" name="MonthOutputWorkshop">
                         <option value="#">-- Month List --</option>
                         <option value="1">January</option>
                         <option value="2">February</option>
@@ -421,7 +420,6 @@
                     </div>
                    
                   </div>
-                  <!-- /.box-body -->
 
                   <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Choose</button>
@@ -429,7 +427,8 @@
                 </form>
             
             </div>
-            </div>
+            </div> -->
+
 
             <?php 
                 if(isset($_GET['MonthOutputMachine'])!='#') 

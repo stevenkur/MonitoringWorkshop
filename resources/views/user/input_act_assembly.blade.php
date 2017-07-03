@@ -103,7 +103,7 @@
         <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
-            <h4 align="right"><b>Target Quantity per Day: [TARGET] Ton</b></h4>
+            <!-- <h4 align="right"><b>Target Quantity per Day: [TARGET] Ton</b></h4> -->
             <h3>Panels</h3>
               <div class="table-responsive" style="overflow: auto">
               <table id="tabel" class="table table-bordered table-striped">

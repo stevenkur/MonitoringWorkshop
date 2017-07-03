@@ -99,7 +99,6 @@
                     <th>Shift</th>
                     <th>Activity</th>
                     <th>Problem</th>
-                    <th>Many Hours Work</th>
                     <th>Many Hours Work Realitation</th>
                     <th>Time</th>
                 </tr>

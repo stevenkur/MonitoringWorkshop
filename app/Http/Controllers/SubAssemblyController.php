@@ -39,7 +39,7 @@ class SubAssemblyController extends Controller
         
         $target = DB::select(DB::raw("SELECT SUM(DISPLACEMENT) as TARGET FROM ship_projects"));
 
-        $productivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, SUM(B.WEIGHT)/COUNT(A.ID) AS WEIGHT, SUM(A.WORKING_HOURS)/WEIGHT AS PRODUCTIVITY FROM sub_assembly A, parts B, machines C WHERE (A.ID_PART=B.ID AND C.NAME LIKE A.MACHINE AND C.ACTIVITY LIKE 'Fairing') GROUP BY DATE, A.MACHINE"));
+        $productivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, SUM(B.WEIGHT)/COUNT(A.ID) AS WEIGHT, SUM(A.WORKING_HOURS)/WEIGHT AS PRODUCTIVITY, A.PROBLEM AS PROBLEM FROM sub_assembly A, parts B, machines C WHERE (A.ID_PART=B.ID AND C.NAME LIKE A.MACHINE AND C.ACTIVITY LIKE 'Fairing') GROUP BY DATE, A.MACHINE"));
         
         $machineproductivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, B.CAPACITY, B.OPERATIONAL_HOUR AS NORMAL, MAX(A.MACHINE_WORKING+A.MACHINE_ADD_HOURS) AS REALIZATION, A.WASTE_TIME FROM sub_assembly A, machines B WHERE (A.MACHINE LIKE B.NAME) GROUP BY DATE, A.MACHINE"));
         

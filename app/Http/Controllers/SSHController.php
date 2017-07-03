@@ -41,7 +41,7 @@ class SSHController extends Controller
 //        dd($donecoming);
         $target = DB::select(DB::raw("SELECT SUM(DISPLACEMENT) as TARGET FROM ship_projects"));
 
-        $productivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, SUM(B.WEIGHT)/COUNT(A.ID) AS WEIGHT, SUM(A.WORKING_HOURS)/WEIGHT AS PRODUCTIVITY FROM ssh A, plates B WHERE (A.ID_MATERIAL=B.ID AND A.PROCESS LIKE 'Blasting & Shop Primer') GROUP BY DATE, A.MACHINE"));
+        $productivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, SUM(B.WEIGHT)/COUNT(A.ID) AS WEIGHT, SUM(A.WORKING_HOURS)/WEIGHT AS PRODUCTIVITY, A.PROBLEM AS PROBLEM FROM ssh A, plates B WHERE (A.ID_MATERIAL=B.ID AND A.PROCESS LIKE 'Blasting & Shop Primer') GROUP BY DATE, A.MACHINE"));
         
         $machineproductivity = DB::select(DB::raw("SELECT DATE(A.created_at) AS DATE, A.MACHINE, B.CAPACITY, SUM(C.WEIGHT)/COUNT(A.ID) AS OUTPUT, B.OPERATIONAL_HOUR AS NORMAL, MAX(A.MACHINE_WORKING+A.MACHINE_ADD_HOURS) AS REALIZATION, A.WASTE_TIME FROM ssh A, machines B, plates C WHERE (A.MACHINE LIKE B.NAME AND C.ID LIKE A.ID_MATERIAL) GROUP BY DATE, A.MACHINE"));
         
