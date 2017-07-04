@@ -197,7 +197,11 @@
             @foreach($subassembly as $subass)
             <tr>
                 <td>{{ $subass->NAME }}</td>
+                @if($subass->CAPACITY==0)
+                <td>{{ '0 ton' }}</td>
+                @else
                 <td>{{ $subass->OPERATIONAL_HOUR*(60/$subass->CAPACITY).' ton' }}</td>
+                @endif
                 <td>            
                     @if($subass->ACTIVITY=="Fitting")
                         {{$workloadFitting.' ton'}}
@@ -239,7 +243,11 @@
             @foreach($assembly as $assemblys)
             <tr>
                 <td>{{ $assemblys->NAME }}</td>
+                @if($assemblys->CAPACITY==0)
+                <td>{{ '0 ton' }}</td>
+                @else
                 <td>{{ $assemblys->OPERATIONAL_HOUR*(60/$assemblys->CAPACITY).' ton' }}</td>
+                @endif
                 <td>           
                     @if($assemblys->ACTIVITY=="Fitting")
                         {{$workloadFitting.' ton'}}
