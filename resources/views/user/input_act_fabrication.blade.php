@@ -351,6 +351,8 @@
                                 <option id="1">Shift 1</option>
                                 <option id="2">Shift 2</option>
                               </select>
+                              <label for="name" style="font-size: 16px">Photo: </label>
+                              <input type="file" id="photo" class="form-control" name="photo">
                             </div>
                         </div>
                     </div>

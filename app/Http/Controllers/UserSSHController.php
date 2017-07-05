@@ -138,6 +138,16 @@ class UserSSHController extends Controller
             $ssh->WASTE_TIME = $input['wastetime']; 
             $ssh->SHIFT = substr($input['shift'], 6); 
             $ssh->USER = 'admin'; 
+
+            // if(Input::hasFile('photo')) {
+                // dd(Input::all());
+                $photo=$input['photo'];
+                $destinationPath = storage_path() . '/img' . '/';
+                $photo->move($destinationPath, $photo->getClientOriginalName());
+
+                $ssh->PHOTO = $photo->getClientOriginalName();
+            // }
+
             $ssh->save();
         }
         

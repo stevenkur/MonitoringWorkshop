@@ -324,6 +324,8 @@
                                 <option id="1">Shift 1</option>
                                 <option id="2">Shift 2</option>
                               </select>
+                              <label style="font-size: 16px">Photo: </label>
+                              <input type="file" id="photo" name="photo">
                             </div>
                         </div>
                     </div>
