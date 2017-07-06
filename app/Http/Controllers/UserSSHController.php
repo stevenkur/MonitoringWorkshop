@@ -120,6 +120,12 @@ class UserSSHController extends Controller
        // dd(Input::all());
         $input = Input::all();
         $count = $input['num'];
+
+        $photo=$input['photo'];
+        $destinationPath = 'uploads';
+        $extension = $photo->getClientOriginalExtension();
+        $fileName = $photo->getClientOriginalName();
+        $photo->move($destinationPath, $fileName);
         
         for($i=0; $i<$count; $i++)
         {
@@ -137,16 +143,8 @@ class UserSSHController extends Controller
             $ssh->PROBLEM = $input['problem']; 
             $ssh->WASTE_TIME = $input['wastetime']; 
             $ssh->SHIFT = substr($input['shift'], 6); 
-            $ssh->USER = 'admin'; 
-
-            // if(Input::hasFile('photo')) {
-                // dd(Input::all());
-                $photo=$input['photo'];
-                $destinationPath = storage_path() . '/img' . '/';
-                $photo->move($destinationPath, $photo->getClientOriginalName());
-
-                $ssh->PHOTO = $photo->getClientOriginalName();
-            // }
+            $ssh->USER = 'admin';
+            $ssh->PHOTO = $fileName;
 
             $ssh->save();
         }

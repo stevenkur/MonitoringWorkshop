@@ -58,6 +58,12 @@ class UserErectionController extends Controller
 //        dd(Input::all());
         $input = Input::all();
         $count = $input['num'];
+
+        $photo=$input['photo'];
+        $destinationPath = 'uploads';
+        $extension = $photo->getClientOriginalExtension();
+        $fileName = $photo->getClientOriginalName();
+        $photo->move($destinationPath, $fileName);
         
         for($i=0; $i<$count; $i++)
         {
@@ -74,6 +80,7 @@ class UserErectionController extends Controller
             $erection->WASTE_TIME = $input['wastetime']; 
             $erection->SHIFT = substr($input['shift'], 6); 
             $erection->USER = 'admin'; 
+            $erection->PHOTO = $fileName;
             $erection->save();
         }
         

@@ -30,6 +30,7 @@ class CreateAssembliesTable extends Migration
             $table->double('WASTE_TIME', 6,2);
             $table->integer('SHIFT');
             $table->string('USER', 25);
+            $table->string('PHOTO', 50);
             $table->timestamps();
         });
     }

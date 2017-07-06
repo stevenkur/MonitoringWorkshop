@@ -107,16 +107,8 @@
             </section>
 -->
 
-        <section class="col-md-6">
-        <div class="box box-primary">
-            <div class="box-body">
-              <h3>Target Quantity per-Day: <br> [XX] Plate per Workshop</h3>
-              <br>  
-            </div>
-        </div>
-        </section>
 
-        <section class="col-md-6">
+        <section class="col-md-12">
         <div class="box box-primary">
             <div class="box-body">
                 <?php $countStr=0; $countBlast=0; $totalz=0; ?>

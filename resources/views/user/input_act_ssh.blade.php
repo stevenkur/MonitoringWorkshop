@@ -216,8 +216,8 @@
 
         @if($flagProcess)
         <div class="col-md-12">
-            <form action="{{route('input_works_ssh')}}" role="form" method="post">
-            {{csrf_field()}}
+        <form action="{{route('input_works_ssh')}}" role="form" method="post" enctype="multipart/form-data">
+        {{csrf_field()}}
         <div class="box box-primary">
             <!-- /.box-header -->
             <div class="box-body">
@@ -335,7 +335,7 @@
                   <button type="submit" class="btn btn-primary">Input</button>
                 </div>
             </div>
-            </form>
+        </form>
         </div>
         @endif
         

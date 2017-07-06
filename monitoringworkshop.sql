@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 03, 2017 at 01:19 AM
+-- Generation Time: Jul 06, 2017 at 01:42 PM
 -- Server version: 5.6.35-log
 -- PHP Version: 5.6.30
 
@@ -43,6 +43,7 @@ CREATE TABLE `assembly` (
   `WASTE_TIME` double(6,2) NOT NULL,
   `SHIFT` int(11) NOT NULL,
   `USER` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `PHOTO` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -51,19 +52,19 @@ CREATE TABLE `assembly` (
 -- Dumping data for table `assembly`
 --
 
-INSERT INTO `assembly` (`ID`, `ID_PANEL`, `PROGRESS`, `ID_WORKER`, `WORKER_NAME`, `ATTENDANCE`, `PROCESS`, `OPERATOR`, `MACHINE`, `MACHINE_WORKING`, `MACHINE_ADD_HOURS`, `WORKING_HOURS`, `PROBLEM`, `WASTE_TIME`, `SHIFT`, `USER`, `created_at`, `updated_at`) VALUES
-(1, '1', 100.00, 7, 'Afandi', 'Present', 'Fitting', 'ok', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:27:27', '2017-06-24 22:27:27'),
-(2, '1', 100.00, 8, 'Khoirul Alam', 'Present', 'Fitting', 'ok', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:27:27', '2017-06-24 22:27:27'),
-(3, '1', 50.00, 7, 'Afandi', 'Present', 'Welding', 'ok', 'FCAW Welding', 0.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:26:23', '2017-06-29 09:26:23'),
-(4, '1', 50.00, 8, 'Khoirul Alam', 'Present', 'Welding', 'no', 'FCAW Welding', 0.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:26:23', '2017-06-29 09:26:23'),
-(5, '1', 100.00, 7, 'Afandi', 'Present', 'Welding', 'no', 'FCAW Welding', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:26:38', '2017-06-29 09:26:38'),
-(6, '1', 100.00, 8, 'Khoirul Alam', 'Present', 'Welding', 'no', 'FCAW Welding', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:26:38', '2017-06-29 09:26:38'),
-(7, '1', 50.00, 7, 'Afandi', 'Present', 'Grinding', 'ok', 'Ass_Grinding', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:27:00', '2017-06-29 09:27:00'),
-(8, '1', 50.00, 8, 'Khoirul Alam', 'Present', 'Grinding', 'no', 'Ass_Grinding', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:27:00', '2017-06-29 09:27:00'),
-(9, '1', 100.00, 7, 'Afandi', 'Present', 'Grinding', 'ok', 'Ass_Grinding', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:27:29', '2017-06-29 09:27:29'),
-(10, '1', 100.00, 8, 'Khoirul Alam', 'Present', 'Grinding', 'no', 'Ass_Grinding', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:27:29', '2017-06-29 09:27:29'),
-(11, '1', 100.00, 7, 'Afandi', 'Present', 'Fairing', 'no', 'Fairing Heating', 6.00, 0.00, 6.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:27:43', '2017-06-29 09:27:43'),
-(12, '1', 100.00, 8, 'Khoirul Alam', 'Present', 'Fairing', 'no', 'Fairing Heating', 6.00, 0.00, 6.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:27:43', '2017-06-29 09:27:43');
+INSERT INTO `assembly` (`ID`, `ID_PANEL`, `PROGRESS`, `ID_WORKER`, `WORKER_NAME`, `ATTENDANCE`, `PROCESS`, `OPERATOR`, `MACHINE`, `MACHINE_WORKING`, `MACHINE_ADD_HOURS`, `WORKING_HOURS`, `PROBLEM`, `WASTE_TIME`, `SHIFT`, `USER`, `PHOTO`, `created_at`, `updated_at`) VALUES
+(1, '1', 100.00, 7, 'Afandi', 'Present', 'Fitting', 'ok', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:27:27', '2017-06-24 22:27:27'),
+(2, '1', 100.00, 8, 'Khoirul Alam', 'Present', 'Fitting', 'ok', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:27:27', '2017-06-24 22:27:27'),
+(3, '1', 50.00, 7, 'Afandi', 'Present', 'Welding', 'ok', 'FCAW Welding', 0.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-29 09:26:23', '2017-06-29 09:26:23'),
+(4, '1', 50.00, 8, 'Khoirul Alam', 'Present', 'Welding', 'no', 'FCAW Welding', 0.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-29 09:26:23', '2017-06-29 09:26:23'),
+(5, '1', 100.00, 7, 'Afandi', 'Present', 'Welding', 'no', 'FCAW Welding', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-29 09:26:38', '2017-06-29 09:26:38'),
+(6, '1', 100.00, 8, 'Khoirul Alam', 'Present', 'Welding', 'no', 'FCAW Welding', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-29 09:26:38', '2017-06-29 09:26:38'),
+(7, '1', 50.00, 7, 'Afandi', 'Present', 'Grinding', 'ok', 'Ass_Grinding', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-29 09:27:00', '2017-06-29 09:27:00'),
+(8, '1', 50.00, 8, 'Khoirul Alam', 'Present', 'Grinding', 'no', 'Ass_Grinding', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-29 09:27:00', '2017-06-29 09:27:00'),
+(9, '1', 100.00, 7, 'Afandi', 'Present', 'Grinding', 'ok', 'Ass_Grinding', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-29 09:27:29', '2017-06-29 09:27:29'),
+(10, '1', 100.00, 8, 'Khoirul Alam', 'Present', 'Grinding', 'no', 'Ass_Grinding', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-29 09:27:29', '2017-06-29 09:27:29'),
+(11, '1', 100.00, 7, 'Afandi', 'Present', 'Fairing', 'no', 'Fairing Heating', 6.00, 0.00, 6.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-29 09:27:43', '2017-06-29 09:27:43'),
+(12, '1', 100.00, 8, 'Khoirul Alam', 'Present', 'Fairing', 'no', 'Fairing Heating', 6.00, 0.00, 6.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-29 09:27:43', '2017-06-29 09:27:43');
 
 -- --------------------------------------------------------
 
@@ -85,6 +86,7 @@ CREATE TABLE `bbs` (
   `WASTE_TIME` double(6,2) NOT NULL,
   `SHIFT` int(11) NOT NULL,
   `USER` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `PHOTO` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -93,23 +95,33 @@ CREATE TABLE `bbs` (
 -- Dumping data for table `bbs`
 --
 
-INSERT INTO `bbs` (`ID`, `ID_MATERIAL`, `PROGRESS`, `ID_WORKER`, `WORKER_NAME`, `ATTENDANCE`, `PROCESS`, `WORKING_HOURS`, `ADD_WORKING_HOURS`, `PROBLEM`, `WASTE_TIME`, `SHIFT`, `USER`, `created_at`, `updated_at`) VALUES
-(1, '2', 1.00, 9, 'M.Sholeh', 'Present', 'Blasting', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:32:29', '2017-06-24 22:32:29'),
-(2, '2', 1.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:32:29', '2017-06-24 22:32:29'),
-(3, '2', 1.00, 9, 'M.Sholeh', 'Present', 'Blasting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:27:16', '2017-06-25 07:27:16'),
-(4, '2', 1.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:27:16', '2017-06-25 07:27:16'),
-(5, '2', 1.00, 9, 'M.Sholeh', 'Present', 'Blasting', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:27:31', '2017-06-25 07:27:31'),
-(6, '2', 1.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:27:31', '2017-06-25 07:27:31'),
-(7, '2', 2.00, 9, 'M.Sholeh', 'Present', 'Blasting', 4.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:35:03', '2017-06-25 07:35:03'),
-(8, '2', 2.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 4.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:35:03', '2017-06-25 07:35:03'),
-(9, '2', 2.00, 9, 'M.Sholeh', 'Present', 'Painting', 6.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:36:20', '2017-06-25 07:36:20'),
-(10, '2', 2.00, 10, 'Azis Siswanto', 'Present', 'Painting', 6.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:36:20', '2017-06-25 07:36:20'),
-(11, '1', 1.00, 9, 'M.Sholeh', 'Present', 'Blasting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:43:14', '2017-06-25 07:43:14'),
-(12, '1', 1.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:43:14', '2017-06-25 07:43:14'),
-(13, '3', 2.00, 9, 'M.Sholeh', 'Present', 'Blasting', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-07-02 01:48:09', '2017-07-02 01:48:09'),
-(14, '3', 2.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-07-02 01:48:09', '2017-07-02 01:48:09'),
-(15, '4', 2.00, 9, 'M.Sholeh', 'Present', 'Blasting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-07-02 01:50:17', '2017-07-02 01:50:17'),
-(16, '4', 2.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-07-02 01:50:17', '2017-07-02 01:50:17');
+INSERT INTO `bbs` (`ID`, `ID_MATERIAL`, `PROGRESS`, `ID_WORKER`, `WORKER_NAME`, `ATTENDANCE`, `PROCESS`, `WORKING_HOURS`, `ADD_WORKING_HOURS`, `PROBLEM`, `WASTE_TIME`, `SHIFT`, `USER`, `PHOTO`, `created_at`, `updated_at`) VALUES
+(1, '2', 1.00, 9, 'M.Sholeh', 'Present', 'Blasting', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:32:29', '2017-06-24 22:32:29'),
+(2, '2', 1.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:32:29', '2017-06-24 22:32:29'),
+(3, '2', 1.00, 9, 'M.Sholeh', 'Present', 'Blasting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-25 07:27:16', '2017-06-25 07:27:16'),
+(4, '2', 1.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-25 07:27:16', '2017-06-25 07:27:16'),
+(5, '2', 1.00, 9, 'M.Sholeh', 'Present', 'Blasting', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-25 07:27:31', '2017-06-25 07:27:31'),
+(6, '2', 1.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-25 07:27:31', '2017-06-25 07:27:31'),
+(7, '2', 2.00, 9, 'M.Sholeh', 'Present', 'Blasting', 4.00, 4.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-25 07:35:03', '2017-06-25 07:35:03'),
+(8, '2', 2.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 4.00, 4.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-25 07:35:03', '2017-06-25 07:35:03'),
+(9, '2', 2.00, 9, 'M.Sholeh', 'Present', 'Painting', 6.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-25 07:36:20', '2017-06-25 07:36:20'),
+(10, '2', 2.00, 10, 'Azis Siswanto', 'Present', 'Painting', 6.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-25 07:36:20', '2017-06-25 07:36:20'),
+(11, '1', 1.00, 9, 'M.Sholeh', 'Present', 'Blasting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-25 07:43:14', '2017-06-25 07:43:14'),
+(12, '1', 1.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-25 07:43:14', '2017-06-25 07:43:14'),
+(13, '3', 2.00, 9, 'M.Sholeh', 'Present', 'Blasting', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-02 01:48:09', '2017-07-02 01:48:09'),
+(14, '3', 2.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-02 01:48:09', '2017-07-02 01:48:09'),
+(15, '4', 2.00, 9, 'M.Sholeh', 'Present', 'Blasting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-02 01:50:17', '2017-07-02 01:50:17'),
+(16, '4', 2.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-02 01:50:17', '2017-07-02 01:50:17'),
+(17, '12', 5.00, 9, 'M.Sholeh', 'Present', 'Blasting', 4.00, 0.00, 'Power Failure', 1.00, 1, 'admin', '', '2017-07-03 07:14:20', '2017-07-03 07:14:20'),
+(18, '12', 5.00, 10, 'Azis Siswanto', 'Present', 'Blasting', 4.00, 0.00, 'Power Failure', 1.00, 1, 'admin', '', '2017-07-03 07:14:20', '2017-07-03 07:14:20'),
+(19, '12', 5.00, 25, 'Supriono', 'Present', 'Blasting', 4.00, 0.00, 'Power Failure', 1.00, 1, 'admin', '', '2017-07-03 07:14:20', '2017-07-03 07:14:20'),
+(20, '12', 5.00, 26, 'Sunaryo', 'Present', 'Blasting', 4.00, 0.00, 'Power Failure', 1.00, 1, 'admin', '', '2017-07-03 07:14:20', '2017-07-03 07:14:20'),
+(21, '12', 5.00, 28, 'Ginanjar Basuki', 'Present', 'Blasting', 4.00, 0.00, 'Power Failure', 1.00, 1, 'admin', '', '2017-07-03 07:14:20', '2017-07-03 07:14:20'),
+(22, '12', 2.00, 9, 'M.Sholeh', 'Present', 'Painting', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:16:26', '2017-07-03 07:16:26'),
+(23, '12', 2.00, 10, 'Azis Siswanto', 'Present', 'Painting', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:16:26', '2017-07-03 07:16:26'),
+(24, '12', 2.00, 25, 'Supriono', 'Present', 'Painting', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:16:26', '2017-07-03 07:16:26'),
+(25, '12', 2.00, 26, 'Sunaryo', 'Present', 'Painting', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:16:26', '2017-07-03 07:16:26'),
+(26, '12', 2.00, 28, 'Ginanjar Basuki', 'Present', 'Painting', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:16:26', '2017-07-03 07:16:26');
 
 -- --------------------------------------------------------
 
@@ -153,9 +165,12 @@ INSERT INTO `blocks` (`ID`, `ID_PROJECT`, `PROJECT_NAME`, `NAME`, `MATERIAL`, `M
 (2, 2, 'Strategic Sealift Vessel 293', 'DH', 12386.46, 0.00, 0.00, 0.00, 0, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-06-06 20:15:38', '2017-06-14 22:00:30'),
 (3, 2, 'Strategic Sealift Vessel 293', 'FU-(P/S)', 0.00, 0.00, 0.00, 0.00, 0, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-06-06 20:15:45', '2017-06-06 20:15:45'),
 (4, 2, 'Strategic Sealift Vessel 293', 'RD-(P/S)', 0.00, 0.00, 0.00, 0.00, 0, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-06-06 20:15:53', '2017-06-06 20:15:53'),
-(5, 2, 'Strategic Sealift Vessel 293', 'BR2-(P/S)', 19836.78, 0.00, 1660.89, 0.00, 2, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-06-06 20:21:33', '2017-06-29 07:56:06'),
-(6, 2, 'Strategic Sealift Vessel 293', '122', 0.00, 0.00, 0.00, 0.00, 0, 0, 1.00, '2017-06-25', 1.00, '2017-06-25', 1.00, '2017-06-25', 1.00, 0.00, 0.00, '2017-06-25', NULL, NULL, '2017-06-24 22:46:12', '2017-06-25 07:57:26'),
-(7, 2, 'Strategic Sealift Vessel 293', 'dde', 0.00, 0.00, 0.00, 0.00, 0, 0, 1.00, '2017-06-29', 1.00, '2017-06-29', 1.00, '2017-06-29', 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-06-28 22:54:21', '2017-06-28 22:55:27');
+(5, 2, 'Strategic Sealift Vessel 293', 'BR2-(P/S)', 19836.78, 0.00, 6692.55, 0.00, 2, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-06-06 20:21:33', '2017-07-03 15:08:36'),
+(8, 2, 'Strategic Sealift Vessel 293', 'DB 1 P', 0.00, 0.00, 0.00, 0.00, 0, 0, 1.00, '2017-07-03', 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-07-03 06:43:43', '2017-07-03 15:48:49'),
+(9, 2, 'Strategic Sealift Vessel 293', 'DB 1 S', 0.00, 0.00, 0.00, 0.00, 0, 0, 1.00, '2017-07-04', 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-07-03 06:43:57', '2017-07-03 19:46:24'),
+(10, 2, 'Strategic Sealift Vessel 293', 'DB 2 P', 0.00, 0.00, 0.00, 0.00, 0, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-07-03 06:44:06', '2017-07-03 06:44:06'),
+(11, 2, 'Strategic Sealift Vessel 293', 'DB 2 S', 0.00, 0.00, 0.00, 0.00, 0, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-07-03 06:44:17', '2017-07-03 06:44:17'),
+(12, 3, 'KIP Block 120', 'Block 120', 612.70, 0.00, 0.00, 0.00, 0, 0, 0.00, NULL, 0.00, NULL, 0.00, NULL, 0.00, 0.00, 0.00, NULL, NULL, NULL, '2017-07-03 19:41:49', '2017-07-03 19:43:32');
 
 -- --------------------------------------------------------
 
@@ -177,6 +192,7 @@ CREATE TABLE `erections` (
   `WASTE_TIME` double(6,2) NOT NULL,
   `SHIFT` int(11) NOT NULL,
   `USER` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `PHOTO` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -185,29 +201,35 @@ CREATE TABLE `erections` (
 -- Dumping data for table `erections`
 --
 
-INSERT INTO `erections` (`ID`, `ID_BLOCK`, `PROGRESS`, `ID_WORKER`, `WORKER_NAME`, `ATTENDANCE`, `PROCESS`, `WORKING_HOURS`, `ADD_WORKING_HOURS`, `PROBLEM`, `WASTE_TIME`, `SHIFT`, `USER`, `created_at`, `updated_at`) VALUES
-(1, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Loading', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:47:48', '2017-06-24 22:47:48'),
-(2, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Loading', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:47:48', '2017-06-24 22:47:48'),
-(3, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Adjusting', 4.00, 0.00, 'Worker Sick/Acident', 1.00, 1, 'admin', '2017-06-24 22:48:36', '2017-06-24 22:48:36'),
-(4, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Adjusting', 4.00, 0.00, 'Worker Sick/Acident', 1.00, 1, 'admin', '2017-06-24 22:48:36', '2017-06-24 22:48:36'),
-(5, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Adjusting', 4.00, 0.00, 'Worker Sick/Acident', 1.00, 1, 'admin', '2017-06-24 22:49:33', '2017-06-24 22:49:33'),
-(6, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Adjusting', 4.00, 0.00, 'Worker Sick/Acident', 1.00, 1, 'admin', '2017-06-24 22:49:33', '2017-06-24 22:49:33'),
-(7, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Adjusting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:49:53', '2017-06-24 22:49:53'),
-(8, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Adjusting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:49:53', '2017-06-24 22:49:53'),
-(9, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Adjusting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:52:44', '2017-06-24 22:52:44'),
-(10, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Adjusting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:52:44', '2017-06-24 22:52:44'),
-(11, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Adjusting', 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:54:10', '2017-06-25 07:54:10'),
-(12, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Adjusting', 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:54:10', '2017-06-25 07:54:10'),
-(13, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Fitting', 0.00, 0.00, 'Broken Machine', 0.00, 1, 'admin', '2017-06-25 07:57:15', '2017-06-25 07:57:15'),
-(14, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Fitting', 0.00, 0.00, 'Broken Machine', 0.00, 1, 'admin', '2017-06-25 07:57:15', '2017-06-25 07:57:15'),
-(15, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Welding', 0.00, 0.00, 'Worker Sick/Acident', 0.00, 1, 'admin', '2017-06-25 07:57:26', '2017-06-25 07:57:26'),
-(16, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Welding', 0.00, 0.00, 'Worker Sick/Acident', 0.00, 1, 'admin', '2017-06-25 07:57:26', '2017-06-25 07:57:26'),
-(17, '7', 100.00, 11, 'Agus Puryono', 'Present', 'Loading', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-28 22:54:56', '2017-06-28 22:54:56'),
-(18, '7', 100.00, 12, 'Sugeng Riono', 'Present', 'Loading', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-28 22:54:56', '2017-06-28 22:54:56'),
-(19, '7', 100.00, 11, 'Agus Puryono', 'Present', 'Adjusting', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-28 22:55:12', '2017-06-28 22:55:12'),
-(20, '7', 100.00, 12, 'Sugeng Riono', 'Present', 'Adjusting', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-28 22:55:12', '2017-06-28 22:55:12'),
-(21, '7', 100.00, 11, 'Agus Puryono', 'Present', 'Fitting', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-28 22:55:27', '2017-06-28 22:55:27'),
-(22, '7', 100.00, 12, 'Sugeng Riono', 'Present', 'Fitting', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-28 22:55:27', '2017-06-28 22:55:27');
+INSERT INTO `erections` (`ID`, `ID_BLOCK`, `PROGRESS`, `ID_WORKER`, `WORKER_NAME`, `ATTENDANCE`, `PROCESS`, `WORKING_HOURS`, `ADD_WORKING_HOURS`, `PROBLEM`, `WASTE_TIME`, `SHIFT`, `USER`, `PHOTO`, `created_at`, `updated_at`) VALUES
+(1, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Loading', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:47:48', '2017-06-24 22:47:48'),
+(2, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Loading', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:47:48', '2017-06-24 22:47:48'),
+(3, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Adjusting', 4.00, 0.00, 'Worker Sick/Acident', 1.00, 1, 'admin', '', '2017-06-24 22:48:36', '2017-06-24 22:48:36'),
+(4, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Adjusting', 4.00, 0.00, 'Worker Sick/Acident', 1.00, 1, 'admin', '', '2017-06-24 22:48:36', '2017-06-24 22:48:36'),
+(5, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Adjusting', 4.00, 0.00, 'Worker Sick/Acident', 1.00, 1, 'admin', '', '2017-06-24 22:49:33', '2017-06-24 22:49:33'),
+(6, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Adjusting', 4.00, 0.00, 'Worker Sick/Acident', 1.00, 1, 'admin', '', '2017-06-24 22:49:33', '2017-06-24 22:49:33'),
+(7, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Adjusting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:49:53', '2017-06-24 22:49:53'),
+(8, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Adjusting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:49:53', '2017-06-24 22:49:53'),
+(9, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Adjusting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:52:44', '2017-06-24 22:52:44'),
+(10, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Adjusting', 4.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:52:44', '2017-06-24 22:52:44'),
+(11, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Adjusting', 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-25 07:54:10', '2017-06-25 07:54:10'),
+(12, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Adjusting', 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-25 07:54:10', '2017-06-25 07:54:10'),
+(13, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Fitting', 0.00, 0.00, 'Broken Machine', 0.00, 1, 'admin', '', '2017-06-25 07:57:15', '2017-06-25 07:57:15'),
+(14, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Fitting', 0.00, 0.00, 'Broken Machine', 0.00, 1, 'admin', '', '2017-06-25 07:57:15', '2017-06-25 07:57:15'),
+(15, '6', 100.00, 11, 'Agus Puryono', 'Present', 'Welding', 0.00, 0.00, 'Worker Sick/Acident', 0.00, 1, 'admin', '', '2017-06-25 07:57:26', '2017-06-25 07:57:26'),
+(16, '6', 100.00, 12, 'Sugeng Riono', 'Present', 'Welding', 0.00, 0.00, 'Worker Sick/Acident', 0.00, 1, 'admin', '', '2017-06-25 07:57:26', '2017-06-25 07:57:26'),
+(17, '7', 100.00, 11, 'Agus Puryono', 'Present', 'Loading', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-28 22:54:56', '2017-06-28 22:54:56'),
+(18, '7', 100.00, 12, 'Sugeng Riono', 'Present', 'Loading', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-28 22:54:56', '2017-06-28 22:54:56'),
+(19, '7', 100.00, 11, 'Agus Puryono', 'Present', 'Adjusting', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-28 22:55:12', '2017-06-28 22:55:12'),
+(20, '7', 100.00, 12, 'Sugeng Riono', 'Present', 'Adjusting', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-28 22:55:12', '2017-06-28 22:55:12'),
+(21, '7', 100.00, 11, 'Agus Puryono', 'Present', 'Fitting', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-28 22:55:27', '2017-06-28 22:55:27'),
+(22, '7', 100.00, 12, 'Sugeng Riono', 'Present', 'Fitting', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-28 22:55:27', '2017-06-28 22:55:27'),
+(23, '8', 100.00, 11, 'Agus Puryono', 'Present', 'Loading', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 15:48:49', '2017-07-03 15:48:49'),
+(24, '8', 100.00, 12, 'Sugeng Riono', 'Present', 'Loading', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 15:48:49', '2017-07-03 15:48:49'),
+(25, '8', 100.00, 27, 'Tryawan', 'Present', 'Loading', 5.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 15:48:49', '2017-07-03 15:48:49'),
+(26, '9', 100.00, 11, 'Agus Puryono', 'Present', 'Loading', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 19:46:24', '2017-07-03 19:46:24'),
+(27, '9', 100.00, 12, 'Sugeng Riono', 'Present', 'Loading', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 19:46:24', '2017-07-03 19:46:24'),
+(28, '9', 100.00, 27, 'Tryawan', 'Present', 'Loading', 3.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 19:46:24', '2017-07-03 19:46:24');
 
 -- --------------------------------------------------------
 
@@ -231,6 +253,7 @@ CREATE TABLE `fabrications` (
   `WASTE_TIME` double(6,2) NOT NULL,
   `SHIFT` int(11) NOT NULL,
   `USER` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `PHOTO` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -239,15 +262,30 @@ CREATE TABLE `fabrications` (
 -- Dumping data for table `fabrications`
 --
 
-INSERT INTO `fabrications` (`ID`, `ID_MATERIAL`, `ID_WORKER`, `WORKER_NAME`, `ATTENDANCE`, `PROCESS`, `OPERATOR`, `MACHINE`, `MACHINE_WORKING`, `MACHINE_ADD_HOURS`, `WORKING_HOURS`, `PROBLEM`, `WASTE_TIME`, `SHIFT`, `USER`, `created_at`, `updated_at`) VALUES
-(1, 'BR2-3', 3, 'Susilo Winasis', 'Present', 'Marking', 'no', 'CNC Gas', 5.00, 0.00, 5.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:06:27', '2017-06-24 22:06:27'),
-(2, 'BR2-3', 4, 'Handoyo', 'Present', 'Marking', 'ok', 'CNC Gas', 5.00, 0.00, 5.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:06:27', '2017-06-24 22:06:27'),
-(3, 'BR2-1', 3, 'Susilo Winasis', 'Present', 'Marking', 'no', 'Saffro Cutting', 4.00, 0.00, 4.00, 'Worker Sick/Acident', 1.00, 1, 'admin', '2017-06-28 22:52:43', '2017-06-28 22:52:43'),
-(4, 'BR2-1', 4, 'Handoyo', 'Present', 'Marking', 'ok', 'Saffro Cutting', 4.00, 0.00, 4.00, 'Worker Sick/Acident', 1.00, 1, 'admin', '2017-06-28 22:52:43', '2017-06-28 22:52:43'),
-(5, 'BR2-1', 3, 'Susilo Winasis', 'Present', 'Cutting', 'no', 'Saffro Cutting', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:24:27', '2017-06-29 09:24:27'),
-(6, 'BR2-1', 4, 'Handoyo', 'Present', 'Cutting', 'no', 'Saffro Cutting', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:24:27', '2017-06-29 09:24:27'),
-(7, 'BR2-1', 3, 'Susilo Winasis', 'Present', 'Bending', 'no', 'CNC Gas', 0.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:24:37', '2017-06-29 09:24:37'),
-(8, 'BR2-1', 4, 'Handoyo', 'Present', 'Bending', 'no', 'CNC Gas', 0.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-29 09:24:37', '2017-06-29 09:24:37');
+INSERT INTO `fabrications` (`ID`, `ID_MATERIAL`, `ID_WORKER`, `WORKER_NAME`, `ATTENDANCE`, `PROCESS`, `OPERATOR`, `MACHINE`, `MACHINE_WORKING`, `MACHINE_ADD_HOURS`, `WORKING_HOURS`, `PROBLEM`, `WASTE_TIME`, `SHIFT`, `USER`, `PHOTO`, `created_at`, `updated_at`) VALUES
+(1, 'BR2-3', 3, 'Susilo Winasis', 'Present', 'Marking', 'no', 'CNC Gas', 5.00, 0.00, 5.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:06:27', '2017-06-24 22:06:27'),
+(2, 'BR2-3', 4, 'Handoyo', 'Present', 'Marking', 'ok', 'CNC Gas', 5.00, 0.00, 5.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:06:27', '2017-06-24 22:06:27'),
+(3, 'BR2-1', 3, 'Susilo Winasis', 'Present', 'Marking', 'no', 'Saffro Cutting', 4.00, 0.00, 4.00, 'Worker Sick/Acident', 1.00, 1, 'admin', '', '2017-06-28 22:52:43', '2017-06-28 22:52:43'),
+(4, 'BR2-1', 4, 'Handoyo', 'Present', 'Marking', 'ok', 'Saffro Cutting', 4.00, 0.00, 4.00, 'Worker Sick/Acident', 1.00, 1, 'admin', '', '2017-06-28 22:52:43', '2017-06-28 22:52:43'),
+(5, 'BR2-1', 3, 'Susilo Winasis', 'Present', 'Cutting', 'no', 'Saffro Cutting', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-29 09:24:27', '2017-06-29 09:24:27'),
+(6, 'BR2-1', 4, 'Handoyo', 'Present', 'Cutting', 'no', 'Saffro Cutting', 4.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-29 09:24:27', '2017-06-29 09:24:27'),
+(7, 'BR2-1', 3, 'Susilo Winasis', 'Present', 'Bending', 'no', 'CNC Gas', 0.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-29 09:24:37', '2017-06-29 09:24:37'),
+(8, 'BR2-1', 4, 'Handoyo', 'Present', 'Bending', 'no', 'CNC Gas', 0.00, 0.00, 4.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-29 09:24:37', '2017-06-29 09:24:37'),
+(9, 'BR2-10', 3, 'Susilo Winasis', 'Present', 'Marking', 'no', 'CNC Cutting Plasma', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 19:51:40', '2017-07-03 19:51:40'),
+(10, 'BR2-10', 4, 'Handoyo', 'Present', 'Marking', 'no', 'CNC Cutting Plasma', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 19:51:40', '2017-07-03 19:51:40'),
+(11, 'BR2-10', 16, 'Abdur Kholiq', 'Present', 'Marking', 'ok', 'CNC Cutting Plasma', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 19:51:40', '2017-07-03 19:51:40'),
+(12, 'BR2-10', 17, 'Muhammad Arsetyawan', 'Present', 'Marking', 'no', 'CNC Cutting Plasma', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 19:51:40', '2017-07-03 19:51:40'),
+(13, 'BR2-10', 18, 'Hasbi Ade S.', 'Present', 'Marking', 'no', 'CNC Cutting Plasma', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 19:51:40', '2017-07-03 19:51:40'),
+(14, 'BR2-10', 3, 'Susilo Winasis', 'Present', 'Cutting', 'no', 'Saffro Cutting', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 19:52:41', '2017-07-03 19:52:41'),
+(15, 'BR2-10', 4, 'Handoyo', 'Present', 'Cutting', 'ok', 'Saffro Cutting', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 19:52:41', '2017-07-03 19:52:41'),
+(16, 'BR2-10', 16, 'Abdur Kholiq', 'Present', 'Cutting', 'no', 'Saffro Cutting', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 19:52:41', '2017-07-03 19:52:41'),
+(17, 'BR2-10', 17, 'Muhammad Arsetyawan', 'Present', 'Cutting', 'no', 'Saffro Cutting', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 19:52:41', '2017-07-03 19:52:41'),
+(18, 'BR2-10', 18, 'Hasbi Ade S.', 'Present', 'Cutting', 'no', 'Saffro Cutting', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 19:52:41', '2017-07-03 19:52:41'),
+(19, 'BR2-10', 3, 'Susilo Winasis', 'Present', 'Bending', 'no', 'Bending Machine', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 19:53:09', '2017-07-03 19:53:09'),
+(20, 'BR2-10', 4, 'Handoyo', 'Present', 'Bending', 'no', 'Bending Machine', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 19:53:09', '2017-07-03 19:53:09'),
+(21, 'BR2-10', 16, 'Abdur Kholiq', 'Present', 'Bending', 'no', 'Bending Machine', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 19:53:09', '2017-07-03 19:53:09'),
+(22, 'BR2-10', 17, 'Muhammad Arsetyawan', 'Present', 'Bending', 'ok', 'Bending Machine', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 19:53:09', '2017-07-03 19:53:09'),
+(23, 'BR2-10', 18, 'Hasbi Ade S.', 'Present', 'Bending', 'no', 'Bending Machine', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 19:53:09', '2017-07-03 19:53:09');
 
 -- --------------------------------------------------------
 
@@ -360,8 +398,8 @@ CREATE TABLE `panels` (
 --
 
 INSERT INTO `panels` (`ID`, `ID_PROJECT`, `PROJECT_NAME`, `ID_BLOCK`, `BLOCK_NAME`, `NAME`, `PART`, `PART_COMING`, `PART_DONE`, `FITTING`, `FITTING_DATE`, `FITTING_MACHINE`, `WELDING`, `WELDING_DATE`, `WELDING_MACHINE`, `GRINDING`, `GRINDING_DATE`, `GRINDING_MACHINE`, `FAIRING`, `FAIRING_DATE`, `FAIRING_MACHINE`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 'K13-0-101', 1659.89, 0.00, 0.00, 1.00, '2017-06-25', NULL, 1.00, '2017-06-29', NULL, 1.00, '2017-06-29', NULL, 1.00, '2017-06-29', NULL, '2017-06-06 20:29:59', '2017-06-29 09:27:43'),
-(2, 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 'K14-0-101', 1.00, 0.00, 0.00, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, '2017-06-06 20:30:23', '2017-06-28 21:54:33');
+(1, 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 'K13-0-101', 4687.81, 0.00, 0.00, 1.00, '2017-06-25', NULL, 1.00, '2017-06-29', NULL, 1.00, '2017-06-29', NULL, 1.00, '2017-06-29', NULL, '2017-06-06 20:29:59', '2017-07-03 15:08:36'),
+(2, 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 'K14-0-101', 2004.74, 0.00, 0.00, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, '2017-06-06 20:30:23', '2017-07-03 07:33:04');
 
 -- --------------------------------------------------------
 
@@ -408,7 +446,14 @@ CREATE TABLE `parts` (
 --
 
 INSERT INTO `parts` (`ID`, `ID_PROJECT`, `PROJECT_NAME`, `ID_BLOCK`, `BLOCK_NAME`, `ID_PANEL`, `PANEL_NAME`, `NAME`, `LENGTH`, `BREADTH`, `THICKNESS`, `PORT`, `CENTER`, `STARBOARD`, `WEIGHT`, `STAGE`, `DATE_COMING`, `FITTING`, `FITTING_DATE`, `FITTING_MACHINE`, `WELDING`, `WELDING_DATE`, `WELDING_MACHINE`, `GRINDING`, `GRINDING_DATE`, `GRINDING_MACHINE`, `FAIRING`, `FAIRING_DATE`, `FAIRING_MACHINE`, `created_at`, `updated_at`) VALUES
-('P01', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 1, 'K13-0-101', 'PART 001', 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 'T', NULL, 1.00, '2017-07-02', NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, '2017-06-29 07:56:06', '2017-07-02 02:04:24');
+('Part 1 K13', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 1, 'K13-0-101', 'P101', 0.00, 0.00, 6.00, 1.00, 0.00, 0.00, 996.58, 'S', NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, '2017-07-03 15:05:27', '2017-07-03 15:05:27'),
+('Part 1 K14', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 2, 'K14-0-101', 'P101', 0.00, 0.00, 6.00, 0.00, 0.00, 1.00, 996.58, 'S', NULL, 1.00, '2017-07-03', NULL, 1.00, '2017-07-04', NULL, 1.00, '2017-07-04', NULL, 0.00, '2017-07-04', NULL, '2017-07-03 07:29:40', '2017-07-03 21:03:07'),
+('Part 2 K13', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 1, 'K13-0-101', 'P102', 0.00, 0.00, 6.00, 0.00, 0.00, 1.00, 653.31, 'S', NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, '2017-07-03 15:06:33', '2017-07-03 15:06:33'),
+('Part 2 K14', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 2, 'K14-0-101', 'P102', 0.00, 0.00, 6.00, 0.00, 0.00, 1.00, 653.31, 'S', NULL, 1.00, '2017-07-03', NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, '2017-07-03 07:31:07', '2017-07-03 07:37:51'),
+('Part 3 K13', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 1, 'K13-0-101', 'S201 (L)', 100.00, 75.00, 7.00, 14.00, 0.00, 0.00, 367.45, 'S', NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, '2017-07-03 15:07:39', '2017-07-03 15:07:39'),
+('Part 3 K14', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 2, 'K14-0-101', 'S201 (L)', 100.00, 75.00, 7.00, 0.00, 0.00, 11.00, 342.85, 'S', NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, '2017-07-03 07:32:02', '2017-07-03 07:32:02'),
+('Part 4 K13', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 1, 'K13-0-101', 'B301', 0.00, 0.00, 8.00, 14.00, 0.00, 0.00, 14.00, 'A', NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, '2017-07-03 15:08:36', '2017-07-03 15:08:36'),
+('Part 4 K14', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 2, 'K14-0-101', 'B301', 0.00, 0.00, 8.00, 0.00, 0.00, 12.00, 11.00, 'A', NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, 0.00, NULL, NULL, '2017-07-03 07:33:04', '2017-07-03 07:33:04');
 
 -- --------------------------------------------------------
 
@@ -507,8 +552,9 @@ CREATE TABLE `plates` (
 --
 
 INSERT INTO `plates` (`ID`, `ID_PROJECT`, `PROJECT_NAME`, `ID_BLOCK`, `BLOCK_NAME`, `LENGTH`, `BREADTH`, `THICKNESS`, `PORT`, `CENTER`, `STARBOARD`, `WEIGHT`, `DATE_COMING`, `STRAIGHTENING`, `STRAIGHTENING_DATE`, `STRAIGHTENING_MACHINE`, `BLASTING`, `BLASTING_DATE`, `BLASTING_MACHINE`, `MARKING`, `MARKING_DATE`, `MARKING_MACHINE`, `CUTTING`, `CUTTING_DATE`, `CUTTING_MACHINE`, `BLENDING`, `BLENDING_DATE`, `BLENDING_MACHINE`, `created_at`, `updated_at`) VALUES
+('120 - 1', 3, 'KIP Block 120', 12, 'Block 120', 6096.00, 1829.00, 7.00, 0.00, 1.00, 0.00, 612.70, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-07-03 19:43:32', '2017-07-03 19:43:32'),
 ('BR2-1', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 12192.00, 1829.00, 6.00, 1.00, 0.00, 1.00, 2100.58, '2017-06-07', 1, '2017-06-07', 'Straightening Roller', 1, '2017-06-15', 'Straightening Roller', 1, '2017-06-29', 'Saffro Cutting', 1, '2017-06-29', 'Saffro Cutting', 1, '2017-06-29', 'CNC Gas', '2017-06-06 20:33:40', '2017-06-29 09:24:37'),
-('BR2-10', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 12192.00, 1524.00, 6.00, 1.00, 0.00, 0.00, 875.15, '2017-07-01', 1, '2017-06-25', 'Straightening Roller', 1, '2017-06-25', 'Shot Blasting&Painting', 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-15 00:31:37', '2017-07-01 02:29:46'),
+('BR2-10', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 12192.00, 1524.00, 6.00, 1.00, 0.00, 0.00, 875.15, '2017-07-01', 1, '2017-06-25', 'Straightening Roller', 1, '2017-06-25', 'Shot Blasting&Painting', 1, '2017-07-04', 'CNC Cutting Plasma', 1, '2017-07-04', 'Saffro Cutting', 1, '2017-07-04', 'Bending Machine', '2017-06-15 00:31:37', '2017-07-03 19:53:09'),
 ('BR2-2', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 12192.00, 1524.00, 6.00, 1.00, 0.00, 1.00, 1750.29, '2017-06-07', 1, '2017-06-11', 'Straightening Roller', 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-06 20:36:25', '2017-06-10 23:43:27'),
 ('BR2-3', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 12192.00, 1524.00, 6.00, 1.00, 0.00, 0.00, 875.15, '2017-06-25', 1, '2017-06-25', 'Straightening Roller', 1, '2017-06-25', 'Shot Blasting&Painting', 1, '2017-06-25', 'CNC Gas', 0, NULL, NULL, 0, NULL, NULL, '2017-06-14 21:20:13', '2017-06-24 22:06:27'),
 ('BR2-4', 2, 'Strategic Sealift Vessel 293', 5, 'BR2-(P/S)', 12192.00, 1829.00, 6.00, 1.00, 0.00, 1.00, 2100.58, '2017-06-25', 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, '2017-06-14 21:21:02', '2017-06-24 21:52:34'),
@@ -603,10 +649,9 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`ID`, `ID_PROJECT`, `PROJECT_NAME`, `ID_BLOCK`, `BLOCK_NAME`, `ROOM`, `SIDE`, `FRAME`, `DECK`, `AREA`, `TOTAL_LAYER`, `VOLUME_SOLID`, `PAINT_TYPE`, `PAINT_NEEDS`, `BLASTING`, `BLASTING_DATE`, `PAINTING`, `PAINTING_DATE`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Kapal Api', 3, 'FU-(P/S)', '1', '1', '1', '1', 1, 1, 0, '1', 1.00, 1.00, '2017-06-25', 0.00, NULL, '2017-06-14 22:47:00', '2017-06-25 07:43:14'),
-(2, 2, 'Strategic Sealift Vessel 293', 1, 'NV1', 'sds', 'fdf', 'sdddd', 'sd', 150, 2, 0, 'dsdf', 8653.85, 2.00, '2017-06-25', 2.00, '2017-06-25', '2017-06-15 00:35:26', '2017-06-25 07:36:20'),
-(3, 1, 'Kapal Api', 6, '122', 're', '1', '1', '1', 150, 2, 65, 'fr', 8653.85, 2.00, '2017-07-02', 0.00, NULL, '2017-07-02 01:44:54', '2017-07-02 01:48:09'),
-(4, 1, 'Kapal Api', 6, '122', 'tet', 'sds', 'dsd', 'dsd', 150, 2, 65, 'dsdfdffd', 8653.85, 2.00, '2017-07-02', 0.00, NULL, '2017-07-02 01:49:51', '2017-07-02 01:50:17');
+(11, 2, 'Strategic Sealift Vessel 293', 9, 'DB 1 S', 'DB 1 S - Bottom Zone', 'P-S', '97+300 - 116+100', 'BL-B', 105, 5, 73, 'Intertuf 262', 5390.75, 0.00, NULL, 0.00, NULL, '2017-07-03 06:58:29', '2017-07-03 06:58:29'),
+(12, 2, 'Strategic Sealift Vessel 293', 8, 'DB 1 P', 'Db 1 P - Bottom Zone', 'P-S', '97+300 - 116+100', 'BL-B', 119, 5, 73, 'Intertuf 262', 6116.61, 5.00, '2017-07-03', 2.00, '2017-07-03', '2017-07-03 07:00:24', '2017-07-03 07:16:26'),
+(13, 2, 'Strategic Sealift Vessel 293', 8, 'DB 1 P', 'DB 1 P - No.2 Void', 'P-S(C)', '113-116+100', 'BL', 169, 2, 68, 'Intergard 403', 9306.62, 0.00, NULL, 0.00, NULL, '2017-07-03 07:03:02', '2017-07-03 07:03:02');
 
 -- --------------------------------------------------------
 
@@ -647,7 +692,8 @@ CREATE TABLE `ship_projects` (
 
 INSERT INTO `ship_projects` (`ID`, `PROJECT_NAME`, `OWNER`, `SHIP_TYPE`, `LWL`, `LPP`, `BREADTH`, `DEPTH`, `DRAFT`, `DISPLACEMENT`, `DESIGNED_SPEED`, `MATERIAL`, `MATERIAL_COMING`, `PART`, `PART_COMING`, `PANEL`, `PANEL_DONE`, `BLOCK`, `BLOCK_DONE`, `START`, `FINISH`, `FINISHED`, `created_at`, `updated_at`) VALUES
 (1, 'Kapal Api', 'Steven Kurniawan', 'Kopi', 12.00, 12.00, 1.00, 2.00, 3.00, 100.00, 100.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, '2017-06-06', '2017-06-30', NULL, '2017-06-06 19:50:19', '2017-06-06 19:50:19'),
-(2, 'Strategic Sealift Vessel 293', 'Philippines Goverment', 'Development of LPD', 114.64, 107.49, 21.80, 11.30, 5.00, 4516.00, 16.00, 32223.24, 0.00, 1660.89, 0.00, 2, 0, 7, 0, '2017-06-20', '2018-12-19', NULL, '2017-06-06 19:50:36', '2017-06-29 07:56:06');
+(2, 'Strategic Sealift Vessel 293', 'Philippines Goverment', 'Development of LPD', 114.64, 107.49, 21.80, 11.30, 5.00, 4516.00, 16.00, 32223.24, 0.00, 5031.66, 0.00, -1, 0, 3, 0, '2017-06-20', '2018-12-19', NULL, '2017-06-06 19:50:36', '2017-07-03 15:08:36'),
+(3, 'KIP Block 120', 'Dumas', '-', 0.00, 60.00, 0.00, 0.00, 0.00, 9999.99, 0.00, 612.70, 0.00, 0.00, 0.00, 0, 0, 1, 0, '2017-06-21', '2017-08-07', NULL, '2017-07-03 19:35:51', '2017-07-03 19:43:32');
 
 -- --------------------------------------------------------
 
@@ -671,6 +717,7 @@ CREATE TABLE `ssh` (
   `WASTE_TIME` double(6,2) NOT NULL,
   `SHIFT` int(11) NOT NULL,
   `USER` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `PHOTO` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -679,21 +726,21 @@ CREATE TABLE `ssh` (
 -- Dumping data for table `ssh`
 --
 
-INSERT INTO `ssh` (`ID`, `ID_MATERIAL`, `ID_WORKER`, `WORKER_NAME`, `ATTENDANCE`, `PROCESS`, `OPERATOR`, `MACHINE`, `MACHINE_WORKING`, `MACHINE_ADD_HOURS`, `WORKING_HOURS`, `PROBLEM`, `WASTE_TIME`, `SHIFT`, `USER`, `created_at`, `updated_at`) VALUES
-(1, 'BR2-1', 1, 'Bambang Pamungkas', 'Present', 'Straightening', 'ok', 'Straightening Roller', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-06 20:41:26', '2017-06-06 20:41:26'),
-(2, 'BR2-1', 2, 'Evandi Dwi K.', 'Present', 'Straightening', 'no', 'Straightening Roller', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-06 20:41:26', '2017-06-06 20:41:26'),
-(3, 'BR2-2', 1, 'Bambang Pamungkas', 'Present', 'Straightening', 'ok', 'Straightening Roller', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-10 23:43:27', '2017-06-10 23:43:27'),
-(4, 'BR2-2', 2, 'Evandi Dwi K.', 'Present', 'Straightening', 'no', 'Straightening Roller', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-10 23:43:27', '2017-06-10 23:43:27'),
-(5, 'BR2-1', 1, 'Bambang Pamungkas', 'Present', 'Blasting & Shop Primer', 'ok', 'Straightening Roller', 6.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-14 21:54:23', '2017-06-14 21:54:23'),
-(6, 'BR2-1', 2, 'Evandi Dwi K.', 'Present', 'Blasting & Shop Primer', 'no', 'Straightening Roller', 6.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-06-14 21:54:23', '2017-06-14 21:54:23'),
-(7, 'BR2-3', 1, 'Bambang Pamungkas', 'Present', 'Straightening', 'ok', 'Straightening Roller', 5.00, 0.00, 5.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 21:59:07', '2017-06-24 21:59:07'),
-(8, 'BR2-3', 2, 'Evandi Dwi K.', 'Present', 'Straightening', 'no', 'Straightening Roller', 5.00, 0.00, 5.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 21:59:07', '2017-06-24 21:59:07'),
-(9, 'BR2-3', 1, 'Bambang Pamungkas', 'Present', 'Blasting & Shop Primer', 'ok', 'Shot Blasting&Painti', 5.00, 0.00, 5.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:00:11', '2017-06-24 22:00:11'),
-(10, 'BR2-3', 2, 'Evandi Dwi K.', 'Present', 'Blasting & Shop Primer', 'no', 'Shot Blasting&Painti', 5.00, 0.00, 5.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:00:11', '2017-06-24 22:00:11'),
-(11, 'BR2-10', 1, 'Bambang Pamungkas', 'Present', 'Straightening', 'no', 'Straightening Roller', 4.00, 0.00, 4.00, 'Power Failure', 0.00, 1, 'admin', '2017-06-25 07:57:58', '2017-06-25 07:57:58'),
-(12, 'BR2-10', 2, 'Evandi Dwi K.', 'Present', 'Straightening', 'no', 'Straightening Roller', 4.00, 0.00, 4.00, 'Power Failure', 0.00, 1, 'admin', '2017-06-25 07:57:58', '2017-06-25 07:57:58'),
-(13, 'BR2-10', 1, 'Bambang Pamungkas', 'Present', 'Blasting & Shop Primer', 'ok', 'Shot Blasting&Painti', 4.00, 2.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:58:13', '2017-06-25 07:58:13'),
-(14, 'BR2-10', 2, 'Evandi Dwi K.', 'Present', 'Blasting & Shop Primer', 'no', 'Shot Blasting&Painti', 4.00, 2.00, 4.00, 'No Problem', 0.00, 1, 'admin', '2017-06-25 07:58:13', '2017-06-25 07:58:13');
+INSERT INTO `ssh` (`ID`, `ID_MATERIAL`, `ID_WORKER`, `WORKER_NAME`, `ATTENDANCE`, `PROCESS`, `OPERATOR`, `MACHINE`, `MACHINE_WORKING`, `MACHINE_ADD_HOURS`, `WORKING_HOURS`, `PROBLEM`, `WASTE_TIME`, `SHIFT`, `USER`, `PHOTO`, `created_at`, `updated_at`) VALUES
+(1, 'BR2-1', 1, 'Bambang Pamungkas', 'Present', 'Straightening', 'ok', 'Straightening Roller', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-06 20:41:26', '2017-06-06 20:41:26'),
+(2, 'BR2-1', 2, 'Evandi Dwi K.', 'Present', 'Straightening', 'no', 'Straightening Roller', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-06 20:41:26', '2017-06-06 20:41:26'),
+(3, 'BR2-2', 1, 'Bambang Pamungkas', 'Present', 'Straightening', 'ok', 'Straightening Roller', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-10 23:43:27', '2017-06-10 23:43:27'),
+(4, 'BR2-2', 2, 'Evandi Dwi K.', 'Present', 'Straightening', 'no', 'Straightening Roller', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-10 23:43:27', '2017-06-10 23:43:27'),
+(5, 'BR2-1', 1, 'Bambang Pamungkas', 'Present', 'Blasting & Shop Primer', 'ok', 'Straightening Roller', 6.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-14 21:54:23', '2017-06-14 21:54:23'),
+(6, 'BR2-1', 2, 'Evandi Dwi K.', 'Present', 'Blasting & Shop Primer', 'no', 'Straightening Roller', 6.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-14 21:54:23', '2017-06-14 21:54:23'),
+(7, 'BR2-3', 1, 'Bambang Pamungkas', 'Present', 'Straightening', 'ok', 'Straightening Roller', 5.00, 0.00, 5.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 21:59:07', '2017-06-24 21:59:07'),
+(8, 'BR2-3', 2, 'Evandi Dwi K.', 'Present', 'Straightening', 'no', 'Straightening Roller', 5.00, 0.00, 5.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 21:59:07', '2017-06-24 21:59:07'),
+(9, 'BR2-3', 1, 'Bambang Pamungkas', 'Present', 'Blasting & Shop Primer', 'ok', 'Shot Blasting&Painti', 5.00, 0.00, 5.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:00:11', '2017-06-24 22:00:11'),
+(10, 'BR2-3', 2, 'Evandi Dwi K.', 'Present', 'Blasting & Shop Primer', 'no', 'Shot Blasting&Painti', 5.00, 0.00, 5.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:00:11', '2017-06-24 22:00:11'),
+(11, 'BR2-10', 1, 'Bambang Pamungkas', 'Present', 'Straightening', 'no', 'Straightening Roller', 4.00, 0.00, 4.00, 'Power Failure', 0.00, 1, 'admin', '', '2017-06-25 07:57:58', '2017-06-25 07:57:58'),
+(12, 'BR2-10', 2, 'Evandi Dwi K.', 'Present', 'Straightening', 'no', 'Straightening Roller', 4.00, 0.00, 4.00, 'Power Failure', 0.00, 1, 'admin', '', '2017-06-25 07:57:58', '2017-06-25 07:57:58'),
+(13, 'BR2-10', 1, 'Bambang Pamungkas', 'Present', 'Blasting & Shop Primer', 'ok', 'Shot Blasting&Painti', 4.00, 2.00, 4.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-25 07:58:13', '2017-06-25 07:58:13'),
+(14, 'BR2-10', 2, 'Evandi Dwi K.', 'Present', 'Blasting & Shop Primer', 'no', 'Shot Blasting&Painti', 4.00, 2.00, 4.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-25 07:58:13', '2017-06-25 07:58:13');
 
 -- --------------------------------------------------------
 
@@ -718,6 +765,7 @@ CREATE TABLE `sub_assembly` (
   `WASTE_TIME` double(6,2) NOT NULL,
   `SHIFT` int(11) NOT NULL,
   `USER` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `PHOTO` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -726,15 +774,46 @@ CREATE TABLE `sub_assembly` (
 -- Dumping data for table `sub_assembly`
 --
 
-INSERT INTO `sub_assembly` (`ID`, `ID_PART`, `PROGRESS`, `ID_WORKER`, `WORKER_NAME`, `ATTENDANCE`, `PROCESS`, `OPERATOR`, `MACHINE`, `MACHINE_WORKING`, `MACHINE_ADD_HOURS`, `WORKING_HOURS`, `PROBLEM`, `WASTE_TIME`, `SHIFT`, `USER`, `created_at`, `updated_at`) VALUES
-(1, 'br2', 0.00, 5, 'M.Sugianto', 'Present', 'Fitting', 'no', 'FCAW Welding', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:20:25', '2017-06-24 22:20:25'),
-(2, 'br2', 0.00, 6, 'Eko Fendy S.', 'Present', 'Fitting', 'ok', 'FCAW Welding', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:20:25', '2017-06-24 22:20:25'),
-(3, 'br2', 0.00, 5, 'M.Sugianto', 'Present', 'Fitting', 'no', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:25:44', '2017-06-24 22:25:44'),
-(4, 'br2', 0.00, 6, 'Eko Fendy S.', 'Present', 'Fitting', 'ok', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:25:44', '2017-06-24 22:25:44'),
-(5, 'br2', 100.00, 5, 'M.Sugianto', 'Present', 'Fitting', 'no', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:26:13', '2017-06-24 22:26:13'),
-(6, 'br2', 100.00, 6, 'Eko Fendy S.', 'Present', 'Fitting', 'ok', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '2017-06-24 22:26:13', '2017-06-24 22:26:13'),
-(7, 'P01', 100.00, 5, 'M.Sugianto', 'Present', 'Fitting', 'no', 'FCAW Welding', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-07-02 02:04:23', '2017-07-02 02:04:23'),
-(8, 'P01', 100.00, 6, 'Eko Fendy S.', 'Present', 'Fitting', 'ok', 'FCAW Welding', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '2017-07-02 02:04:24', '2017-07-02 02:04:24');
+INSERT INTO `sub_assembly` (`ID`, `ID_PART`, `PROGRESS`, `ID_WORKER`, `WORKER_NAME`, `ATTENDANCE`, `PROCESS`, `OPERATOR`, `MACHINE`, `MACHINE_WORKING`, `MACHINE_ADD_HOURS`, `WORKING_HOURS`, `PROBLEM`, `WASTE_TIME`, `SHIFT`, `USER`, `PHOTO`, `created_at`, `updated_at`) VALUES
+(1, 'br2', 0.00, 5, 'M.Sugianto', 'Present', 'Fitting', 'no', 'FCAW Welding', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:20:25', '2017-06-24 22:20:25'),
+(2, 'br2', 0.00, 6, 'Eko Fendy S.', 'Present', 'Fitting', 'ok', 'FCAW Welding', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:20:25', '2017-06-24 22:20:25'),
+(3, 'br2', 0.00, 5, 'M.Sugianto', 'Present', 'Fitting', 'no', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:25:44', '2017-06-24 22:25:44'),
+(4, 'br2', 0.00, 6, 'Eko Fendy S.', 'Present', 'Fitting', 'ok', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:25:44', '2017-06-24 22:25:44'),
+(5, 'br2', 100.00, 5, 'M.Sugianto', 'Present', 'Fitting', 'no', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:26:13', '2017-06-24 22:26:13'),
+(6, 'br2', 100.00, 6, 'Eko Fendy S.', 'Present', 'Fitting', 'ok', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '', '2017-06-24 22:26:13', '2017-06-24 22:26:13'),
+(7, 'P01', 100.00, 5, 'M.Sugianto', 'Present', 'Fitting', 'no', 'FCAW Welding', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-02 02:04:23', '2017-07-02 02:04:23'),
+(8, 'P01', 100.00, 6, 'Eko Fendy S.', 'Present', 'Fitting', 'ok', 'FCAW Welding', 4.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-02 02:04:24', '2017-07-02 02:04:24'),
+(9, 'Part 1 K14', 0.00, 5, 'M.Sugianto', 'Present', 'Fitting', 'no', 'FCAW Welding', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:34:42', '2017-07-03 07:34:42'),
+(10, 'Part 1 K14', 0.00, 6, 'Eko Fendy S.', 'Present', 'Fitting', 'no', 'FCAW Welding', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:34:42', '2017-07-03 07:34:42'),
+(11, 'Part 1 K14', 0.00, 19, 'Ilham Jaya Kusuma', 'Present', 'Fitting', 'no', 'FCAW Welding', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:34:42', '2017-07-03 07:34:42'),
+(12, 'Part 1 K14', 0.00, 5, 'M.Sugianto', 'Present', 'Fitting', 'no', 'FCAW Welding', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:34:46', '2017-07-03 07:34:46'),
+(13, 'Part 1 K14', 0.00, 6, 'Eko Fendy S.', 'Present', 'Fitting', 'no', 'FCAW Welding', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:34:46', '2017-07-03 07:34:46'),
+(14, 'Part 1 K14', 0.00, 19, 'Ilham Jaya Kusuma', 'Present', 'Fitting', 'no', 'FCAW Welding', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:34:46', '2017-07-03 07:34:46'),
+(15, 'Part 1 K14', 100.00, 5, 'M.Sugianto', 'Present', 'Fitting', 'no', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:35:46', '2017-07-03 07:35:46'),
+(16, 'Part 1 K14', 100.00, 6, 'Eko Fendy S.', 'Present', 'Fitting', 'no', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:35:46', '2017-07-03 07:35:46'),
+(17, 'Part 1 K14', 100.00, 19, 'Ilham Jaya Kusuma', 'Present', 'Fitting', 'no', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:35:46', '2017-07-03 07:35:46'),
+(18, 'Part 1 K14', 100.00, 20, 'Kateno', 'Present', 'Fitting', 'no', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:35:46', '2017-07-03 07:35:46'),
+(19, 'Part 1 K14', 100.00, 21, 'Dudi Hartanto', 'Present', 'Fitting', 'ok', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:35:46', '2017-07-03 07:35:46'),
+(20, 'Part 2 K14', 100.00, 5, 'M.Sugianto', 'Present', 'Fitting', 'no', 'FCAW Welding', 1.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:37:51', '2017-07-03 07:37:51'),
+(21, 'Part 2 K14', 100.00, 6, 'Eko Fendy S.', 'Present', 'Fitting', 'no', 'FCAW Welding', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:37:51', '2017-07-03 07:37:51'),
+(22, 'Part 2 K14', 100.00, 19, 'Ilham Jaya Kusuma', 'Present', 'Fitting', 'no', 'FCAW Welding', 1.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:37:51', '2017-07-03 07:37:51'),
+(23, 'Part 2 K14', 100.00, 20, 'Kateno', 'Present', 'Fitting', 'no', 'FCAW Welding', 1.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:37:51', '2017-07-03 07:37:51'),
+(24, 'Part 2 K14', 100.00, 21, 'Dudi Hartanto', 'Present', 'Fitting', 'ok', 'FCAW Welding', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 07:37:51', '2017-07-03 07:37:51'),
+(25, 'Part 1 K14', 100.00, 5, 'M.Sugianto', 'Present', 'Welding', 'no', 'FCAW Welding', 2.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 21:02:06', '2017-07-03 21:02:06'),
+(26, 'Part 1 K14', 100.00, 6, 'Eko Fendy S.', 'Present', 'Welding', 'no', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 21:02:06', '2017-07-03 21:02:06'),
+(27, 'Part 1 K14', 100.00, 19, 'Ilham Jaya Kusuma', 'Present', 'Welding', 'no', 'FCAW Welding', 2.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 21:02:06', '2017-07-03 21:02:06'),
+(28, 'Part 1 K14', 100.00, 20, 'Kateno', 'Present', 'Welding', 'no', 'FCAW Welding', 2.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 21:02:06', '2017-07-03 21:02:06'),
+(29, 'Part 1 K14', 100.00, 21, 'Dudi Hartanto', 'Present', 'Welding', 'ok', 'FCAW Welding', 2.00, 0.00, 2.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 21:02:06', '2017-07-03 21:02:06'),
+(30, 'Part 1 K14', 100.00, 5, 'M.Sugianto', 'Present', 'Grinding', 'no', 'Grinding', 1.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 21:02:42', '2017-07-03 21:02:42'),
+(31, 'Part 1 K14', 100.00, 6, 'Eko Fendy S.', 'Present', 'Grinding', 'no', 'Grinding', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 21:02:42', '2017-07-03 21:02:42'),
+(32, 'Part 1 K14', 100.00, 19, 'Ilham Jaya Kusuma', 'Present', 'Grinding', 'no', 'Grinding', 1.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 21:02:42', '2017-07-03 21:02:42'),
+(33, 'Part 1 K14', 100.00, 20, 'Kateno', 'Present', 'Grinding', 'no', 'Grinding', 1.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 21:02:42', '2017-07-03 21:02:42'),
+(34, 'Part 1 K14', 100.00, 21, 'Dudi Hartanto', 'Present', 'Grinding', 'ok', 'Grinding', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 21:02:42', '2017-07-03 21:02:42'),
+(35, 'Part 1 K14', 0.00, 5, 'M.Sugianto', 'Present', 'Fairing', 'no', 'Fairing Heating', 1.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 21:03:07', '2017-07-03 21:03:07'),
+(36, 'Part 1 K14', 0.00, 6, 'Eko Fendy S.', 'Present', 'Fairing', 'no', 'Fairing Heating', 1.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 21:03:07', '2017-07-03 21:03:07'),
+(37, 'Part 1 K14', 0.00, 19, 'Ilham Jaya Kusuma', 'Present', 'Fairing', 'no', 'Fairing Heating', 1.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 21:03:07', '2017-07-03 21:03:07'),
+(38, 'Part 1 K14', 0.00, 20, 'Kateno', 'Present', 'Fairing', 'no', 'Fairing Heating', 1.00, 0.00, 0.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 21:03:07', '2017-07-03 21:03:07'),
+(39, 'Part 1 K14', 0.00, 21, 'Dudi Hartanto', 'Present', 'Fairing', 'ok', 'Fairing Heating', 1.00, 0.00, 1.00, 'No Problem', 0.00, 1, 'admin', '', '2017-07-03 21:03:07', '2017-07-03 21:03:07');
 
 -- --------------------------------------------------------
 
@@ -802,7 +881,23 @@ INSERT INTO `workers` (`ID`, `NAME`, `DIVISION`, `POSITION`, `NIK`, `created_at`
 (9, 'M.Sholeh', 'BBS', 'Staf', '103154364', '2017-06-23 09:03:26', '2017-06-23 09:03:26'),
 (10, 'Azis Siswanto', 'BBS', 'Staf', '103154389', '2017-06-23 09:04:04', '2017-06-23 09:04:04'),
 (11, 'Agus Puryono', 'Erection Process', 'Staf', '103963983', '2017-06-23 09:04:45', '2017-06-23 09:04:45'),
-(12, 'Sugeng Riono', 'Erection Process', 'Staf', '103902863', '2017-06-23 09:05:04', '2017-06-23 09:05:04');
+(12, 'Sugeng Riono', 'Erection Process', 'Staf', '103902863', '2017-06-23 09:05:04', '2017-06-23 09:05:04'),
+(13, 'Joko Pramono', 'SSH', 'Staf', '12123343', '2017-07-03 07:03:53', '2017-07-03 07:03:53'),
+(14, 'Budi Sannita', 'SSH', 'Staf', '12343434', '2017-07-03 07:04:15', '2017-07-03 07:04:15'),
+(15, 'Fendy Bagus', 'SSH', 'PKWT', '344442', '2017-07-03 07:04:49', '2017-07-03 07:04:49'),
+(16, 'Abdur Kholiq', 'Fabrication', 'Kepala Bengkel', '23323', '2017-07-03 07:05:23', '2017-07-03 07:05:23'),
+(17, 'Muhammad Arsetyawan', 'Fabrication', 'PKWT', '133434', '2017-07-03 07:06:04', '2017-07-03 07:06:04'),
+(18, 'Hasbi Ade S.', 'Fabrication', 'Staf', '422133', '2017-07-03 07:06:31', '2017-07-03 07:06:31'),
+(19, 'Ilham Jaya Kusuma', 'Sub Assembly', 'PKWT', '112323', '2017-07-03 07:07:06', '2017-07-03 07:07:06'),
+(20, 'Kateno', 'Sub Assembly', 'Kepala Bengkel', '292302', '2017-07-03 07:07:34', '2017-07-03 07:07:34'),
+(21, 'Dudi Hartanto', 'Sub Assembly', 'PKWT', '23355', '2017-07-03 07:08:04', '2017-07-03 07:08:04'),
+(22, 'Ferry Huda', 'Assembly', 'Staf', '12344', '2017-07-03 07:08:47', '2017-07-03 07:08:47'),
+(23, 'Tulus', 'Assembly', 'Kepala Bengkel', '233922', '2017-07-03 07:09:07', '2017-07-03 07:09:07'),
+(24, 'Hardy Pratama', 'Assembly', 'Staf', '782824', '2017-07-03 07:09:54', '2017-07-03 07:09:54'),
+(25, 'Supriono', 'BBS', 'Kepala Bengkel', '21919', '2017-07-03 07:10:22', '2017-07-03 07:10:22'),
+(26, 'Sunaryo', 'BBS', 'Staf', '918133', '2017-07-03 07:11:24', '2017-07-03 07:11:24'),
+(27, 'Tryawan', 'Erection Process', 'Staf', '1123127', '2017-07-03 07:12:20', '2017-07-03 07:12:20'),
+(28, 'Ginanjar Basuki', 'BBS', 'Staf', '56678', '2017-07-03 07:12:54', '2017-07-03 07:12:54');
 
 --
 -- Indexes for dumped tables
@@ -930,22 +1025,22 @@ ALTER TABLE `assembly`
 -- AUTO_INCREMENT for table `bbs`
 --
 ALTER TABLE `bbs`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `blocks`
 --
 ALTER TABLE `blocks`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `erections`
 --
 ALTER TABLE `erections`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `fabrications`
 --
 ALTER TABLE `fabrications`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `machines`
 --
@@ -965,12 +1060,12 @@ ALTER TABLE `panels`
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `ship_projects`
 --
 ALTER TABLE `ship_projects`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `ssh`
 --
@@ -980,12 +1075,12 @@ ALTER TABLE `ssh`
 -- AUTO_INCREMENT for table `sub_assembly`
 --
 ALTER TABLE `sub_assembly`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT for table `workers`
 --
 ALTER TABLE `workers`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

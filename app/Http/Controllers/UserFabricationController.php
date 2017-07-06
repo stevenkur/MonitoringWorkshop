@@ -81,6 +81,12 @@ class UserFabricationController extends Controller
 //        dd(Input::all());
         $input = Input::all();
         $count = $input['num'];
+
+        $photo=$input['photo'];
+        $destinationPath = 'uploads';
+        $extension = $photo->getClientOriginalExtension();
+        $fileName = $photo->getClientOriginalName();
+        $photo->move($destinationPath, $fileName);
         
         for($i=0; $i<$count; $i++)
         {
@@ -99,6 +105,7 @@ class UserFabricationController extends Controller
             $fab->WASTE_TIME = $input['wastetime']; 
             $fab->SHIFT = substr($input['shift'], 6); 
             $fab->USER = 'admin'; 
+            $fab->PHOTO = $fileName;
             $fab->save();
         }
         

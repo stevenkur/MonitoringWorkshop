@@ -94,6 +94,12 @@ class UserAssemblyController extends Controller
        // dd(Input::all());
         $input = Input::all();
         $count = $input['num'];
+
+        $photo=$input['photo'];
+        $destinationPath = 'uploads';
+        $extension = $photo->getClientOriginalExtension();
+        $fileName = $photo->getClientOriginalName();
+        $photo->move($destinationPath, $fileName);
         
         for($i=0; $i<$count; $i++)
         {
@@ -113,6 +119,7 @@ class UserAssemblyController extends Controller
             $assembly->WASTE_TIME = $input['wastetime']; 
             $assembly->SHIFT = substr($input['shift'], 6); 
             $assembly->USER = 'admin'; 
+            $assembly->PHOTO = $fileName;
             $assembly->save();
         }
         

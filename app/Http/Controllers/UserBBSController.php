@@ -103,6 +103,12 @@ class UserBBSController extends Controller
 //        dd(Input::all());
         $input = Input::all();
         $count = $input['num'];
+
+        $photo=$input['photo'];
+        $destinationPath = 'uploads';
+        $extension = $photo->getClientOriginalExtension();
+        $fileName = $photo->getClientOriginalName();
+        $photo->move($destinationPath, $fileName);
         
         for($i=0; $i<$count; $i++)
         {
@@ -119,6 +125,7 @@ class UserBBSController extends Controller
             $bbs->WASTE_TIME = $input['wastetime']; 
             $bbs->SHIFT = substr($input['shift'], 6); 
             $bbs->USER = 'admin'; 
+            $bbs->PHOTO = $fileName;
             $bbs->save();
         }
         

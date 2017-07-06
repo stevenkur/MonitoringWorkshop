@@ -261,7 +261,7 @@
 
         @if($flagProcess)
         <div class="col-md-12">
-            <form action="{{route('input_works_assembly')}}" role="form" method="post">
+            <form action="{{route('input_works_assembly')}}" role="form" method="post" enctype="multipart/form-data">
             {{csrf_field()}}
         <div class="box box-primary">
             <!-- /.box-header -->
