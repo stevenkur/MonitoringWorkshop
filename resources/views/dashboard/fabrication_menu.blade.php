@@ -166,10 +166,13 @@
                   <th>Weight</th>
                   <th>Marking</th>
                   <th>Marking Machine</th>
+                  <th>Photo</th>
                   <th>Cutting</th>
                   <th>Cutting Machine</th>
+                  <th>Photo</th>
                   <th>Bending</th>
                   <th>Bending Machine</th>
+                  <th>Photo</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -179,16 +182,19 @@
                     else{
                         $marking='unfinished';
                         $plates['MARKING_MACHINE'] = "-";
+                        $plates['MARKING_PHOTO'] = "-";
                     }
                     if($plates['CUTTING']==1) $cut= 'finished '.$plates['CUTTING_DATE'];
                     else{
                         $cut='unfinished';
                         $plates['CUTTING_MACHINE'] = "-";
+                        $plates['CUTTING_PHOTO'] = "-";
                     }
                     if($plates['BENDING']==1) $blend= 'finished '.$plates['BENDING_DATE'];
                     else{
                         $blend='unfinished';
                         $plates['BENDING_MACHINE'] = "-";
+                        $plates['BENDING_PHOTO'] = "-";
                     }
                     if($flagBlock && $plates->ID_BLOCK == $_GET['block']){
                     echo '
@@ -199,10 +205,13 @@
                         <td>'.$plates['WEIGHT'].'</td>
                         <td>'.$marking.'</td>
                         <td>'.$plates['MARKING_MACHINE'].'</td>
+                        <td>'.$plates['MARKING_PHOTO'].'</td>
                         <td>'.$cut.'</td>
                         <td>'.$plates['CUTTING_MACHINE'].'</td>
+                        <td>'.$plates['CUTTING_PHOTO'].'</td>
                         <td>'.$blend.'</td>
                         <td>'.$plates['BENDING_MACHINE'].'</td>
+                        <td>'.$plates['BENDING_PHOTO'].'</td>
                     </tr>';
                     }
                     else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
@@ -214,10 +223,13 @@
                         <td>'.$plates['WEIGHT'].'</td>
                         <td>'.$marking.'</td>
                         <td>'.$plates['MARKING_MACHINE'].'</td>
+                        <td>'.$plates['MARKING_PHOTO'].'</td>
                         <td>'.$cut.'</td>
                         <td>'.$plates['CUTTING_MACHINE'].'</td>
+                        <td>'.$plates['CUTTING_PHOTO'].'</td>
                         <td>'.$blend.'</td>
                         <td>'.$plates['BENDING_MACHINE'].'</td>
+                        <td>'.$plates['BENDING_PHOTO'].'</td>
                     </tr>';
                     }
                     else if(!$flagBlock && !$flagProject){
@@ -229,10 +241,13 @@
                         <td>'.$plates['WEIGHT'].'</td>
                         <td>'.$marking.'</td>
                         <td>'.$plates['MARKING_MACHINE'].'</td>
+                        <td>'.$plates['MARKING_PHOTO'].'</td>
                         <td>'.$cut.'</td>
                         <td>'.$plates['CUTTING_MACHINE'].'</td>
+                        <td>'.$plates['CUTTING_PHOTO'].'</td>
                         <td>'.$blend.'</td>
                         <td>'.$plates['BENDING_MACHINE'].'</td>
+                        <td>'.$plates['BENDING_PHOTO'].'</td>
                     </tr>';
                         }?>
                     @endforeach
@@ -245,10 +260,13 @@
                   <th>Weight</th>
                   <th>Marking</th>
                   <th>Marking Machine</th>
+                  <th>Photo</th>
                   <th>Cutting</th>
                   <th>Cutting Machine</th>
+                  <th>Photo</th>
                   <th>Bending</th>
                   <th>Bending Machine</th>
+                  <th>Photo</th>
                 </tr>
                 </tfoot>
               </table>
@@ -335,7 +353,7 @@
                 else $flagMonthWorkshop=false;
             ?>
 
-            <div class="col-md-9">
+            <div class="col-md-12">
             <div class="box box-primary">
   
               <div class="box-body">
@@ -356,8 +374,8 @@
                 @foreach($productivity as $prod)
                 <tr>
                   <td>{{ $prod->DATE }}</td>
-                  <td>{{ $prod->WEIGHT }}</td>
-                  <td>{{ $target[0]->TARGET }}</td>
+                  <td>{{ $prod->WEIGHT/1000 }}</td>
+                  <td>{{ $target[0]->TARGET/1000 }}</td>
                   <td>{{ $prod->PRODUCTIVITY }}</td>
                   <td>4.2 JO/ton</td>
                   <td>{{ $prod->PROBLEM }}</td>

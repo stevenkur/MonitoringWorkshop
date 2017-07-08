@@ -105,7 +105,7 @@ class UserBBSController extends Controller
         $count = $input['num'];
 
         $photo=$input['photo'];
-        $destinationPath = 'uploads';
+        $destinationPath = public_path() . '/uploads';
         $extension = $photo->getClientOriginalExtension();
         $fileName = $photo->getClientOriginalName();
         $photo->move($destinationPath, $fileName);
@@ -125,15 +125,14 @@ class UserBBSController extends Controller
             $bbs->WASTE_TIME = $input['wastetime']; 
             $bbs->SHIFT = substr($input['shift'], 6); 
             $bbs->USER = 'admin'; 
-            $bbs->PHOTO = $fileName;
             $bbs->save();
         }
         
         if($input['process']=='Blasting'){
-            $room = Room::where('ID', $input['id_material'])->update(['BLASTING'=>$input['finishedlayer'], 'BLASTING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $room = Room::where('ID', $input['id_material'])->update(['BLASTING'=>$input['finishedlayer'], 'BLASTING_DATE'=>Carbon::today()->format('Y-m-d'), 'BLASTING_PHOTO'=>$fileName]);
         }
         else {
-            $room = Room::where('ID', $input['id_material'])->update(['PAINTING'=>$input['finishedlayer'], 'PAINTING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $room = Room::where('ID', $input['id_material'])->update(['PAINTING'=>$input['finishedlayer'], 'PAINTING_DATE'=>Carbon::today()->format('Y-m-d'), 'PAINTING_PHOTO'=>$fileName]);
         }
         
         $ship=ShipProject::all();

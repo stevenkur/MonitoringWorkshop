@@ -83,7 +83,7 @@ class UserFabricationController extends Controller
         $count = $input['num'];
 
         $photo=$input['photo'];
-        $destinationPath = 'uploads';
+        $destinationPath = public_path() . '/uploads';
         $extension = $photo->getClientOriginalExtension();
         $fileName = $photo->getClientOriginalName();
         $photo->move($destinationPath, $fileName);
@@ -105,18 +105,17 @@ class UserFabricationController extends Controller
             $fab->WASTE_TIME = $input['wastetime']; 
             $fab->SHIFT = substr($input['shift'], 6); 
             $fab->USER = 'admin'; 
-            $fab->PHOTO = $fileName;
             $fab->save();
         }
         
         if($input['process']=='Marking'){
-            $plate = Plate::where('ID', $input['id_material'])->update(['MARKING'=>1, 'MARKING_DATE'=>Carbon::today()->format('Y-m-d'), 'MARKING_MACHINE'=>$input['machine']]);
+            $plate = Plate::where('ID', $input['id_material'])->update(['MARKING'=>1, 'MARKING_DATE'=>Carbon::today()->format('Y-m-d'), 'MARKING_MACHINE'=>$input['machine'], 'MARKING_PHOTO'=>$fileName]);
         }
         else if($input['process']=='Cutting'){
-            $plate = Plate::where('ID', $input['id_material'])->update(['CUTTING'=>1, 'CUTTING_DATE'=>Carbon::today()->format('Y-m-d'), 'CUTTING_MACHINE'=>$input['machine']]);
+            $plate = Plate::where('ID', $input['id_material'])->update(['CUTTING'=>1, 'CUTTING_DATE'=>Carbon::today()->format('Y-m-d'), 'CUTTING_MACHINE'=>$input['machine'], 'CUTTING_PHOTO'=>$fileName]);
         }
         else{
-            $plate = Plate::where('ID', $input['id_material'])->update(['BLENDING'=>1, 'BLENDING_DATE'=>Carbon::today()->format('Y-m-d'), 'BLENDING_MACHINE'=>$input['machine']]);
+            $plate = Plate::where('ID', $input['id_material'])->update(['BLENDING'=>1, 'BLENDING_DATE'=>Carbon::today()->format('Y-m-d'), 'BLENDING_MACHINE'=>$input['machine'], 'BLENDING_PHOTO'=>$fileName]);
         }
         
         $ship=ShipProject::all();

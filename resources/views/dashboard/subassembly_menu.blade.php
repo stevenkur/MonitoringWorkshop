@@ -160,12 +160,16 @@
                   <th>Weight</th>
                   <th>Fitting</th>
                   <th>Fitting Machine</th>
+                  <th>Photo</th>
                   <th>Welding</th>
                   <th>Welding Machine</th>
+                  <th>Photo</th>
                   <th>Grinding</th>
                   <th>Grinding Machine</th>
+                  <th>Photo</th>
                   <th>Fairing</th>
                   <th>Fairing Machine</th>
+                  <th>Photo</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -175,21 +179,25 @@
                     else{
                         $fitting=$parts['FITTING'];
                         $parts['FITTING_MACHINE'] = "-";
+                        $parts['FITTING_PHOTO'] = "-";
                     }
                     if($parts['WELDING']==1) $welding= 'finished '.$parts['WELDING_DATE'];
                     else{
                         $welding=$parts['WELDING'];
                         $parts['WELDING_MACHINE'] = "-";
+                        $parts['WELDING_PHOTO'] = "-";
                     }
                     if($parts['GRINDING']==1) $grinding= 'finished '.$parts['GRINDING_DATE'];
                     else{
                         $grinding=$parts['GRINDING'];
                         $parts['GRINDING_MACHINE'] = "-";
+                        $parts['GRINDING_PHOTO'] = "-";
                     }
                     if($parts['FAIRING']==1) $fairing= 'finished '.$parts['FAIRING_DATE'];
                     else{
                         $fairing=$parts['FAIRING'];
                         $parts['FAIRING_MACHINE'] = "-";
+                        $parts['FAIRING_PHOTO'] = "-";
                     }
                     if($flagBlock && $parts->ID_BLOCK == $_GET['block']){
                     echo '
@@ -201,12 +209,16 @@
                         <td>'.$parts['WEIGHT'].'</td>
                         <td>'.$fitting.'</td>
                         <td>'.$parts['FITTING_MACHINE'].'</td>
+                        <td>'.$parts['FITTING_PHOTO'].'</td>
                         <td>'.$welding.'</td>
                         <td>'.$parts['WELDING_MACHINE'].'</td>
+                        <td>'.$parts['WELDING_PHOTO'].'</td>
                         <td>'.$grinding.'</td>
                         <td>'.$parts['GRINDING_MACHINE'].'</td>
+                        <td>'.$parts['GRINDING_PHOTO'].'</td>
                         <td>'.$fairing.'</td>
                         <td>'.$parts['FAIRING_MACHINE'].'</td>
+                        <td>'.$parts['FAIRING_PHOTO'].'</td>
                     </tr>';
                     }
                     else if($flagProject && $parts->ID_PROJECT == $_GET['project']){
@@ -219,12 +231,16 @@
                         <td>'.$parts['WEIGHT'].'</td>
                         <td>'.$fitting.'</td>
                         <td>'.$parts['FITTING_MACHINE'].'</td>
+                        <td>'.$parts['FITTING_PHOTO'].'</td>
                         <td>'.$welding.'</td>
                         <td>'.$parts['WELDING_MACHINE'].'</td>
+                        <td>'.$parts['WELDING_PHOTO'].'</td>
                         <td>'.$grinding.'</td>
                         <td>'.$parts['GRINDING_MACHINE'].'</td>
+                        <td>'.$parts['GRINDING_PHOTO'].'</td>
                         <td>'.$fairing.'</td>
                         <td>'.$parts['FAIRING_MACHINE'].'</td>
+                        <td>'.$parts['FAIRING_PHOTO'].'</td>
                     </tr>';
                     }
                     else if(!$flagBlock && !$flagProject){
@@ -237,12 +253,16 @@
                         <td>'.$parts['WEIGHT'].'</td>
                         <td>'.$fitting.'</td>
                         <td>'.$parts['FITTING_MACHINE'].'</td>
+                        <td>'.$parts['FITTING_PHOTO'].'</td>
                         <td>'.$welding.'</td>
                         <td>'.$parts['WELDING_MACHINE'].'</td>
+                        <td>'.$parts['WELDING_PHOTO'].'</td>
                         <td>'.$grinding.'</td>
                         <td>'.$parts['GRINDING_MACHINE'].'</td>
+                        <td>'.$parts['GRINDING_PHOTO'].'</td>
                         <td>'.$fairing.'</td>
                         <td>'.$parts['FAIRING_MACHINE'].'</td>
+                        <td>'.$parts['FAIRING_PHOTO'].'</td>
                     </tr>';
                         }?>
                     @endforeach
@@ -256,12 +276,16 @@
                   <th>Weight</th>
                   <th>Fitting</th>
                   <th>Fitting Machine</th>
+                  <th>Photo</th>
                   <th>Welding</th>
                   <th>Welding Machine</th>
+                  <th>Photo</th>
                   <th>Grinding</th>
                   <th>Grinding Machine</th>
+                  <th>Photo</th>
                   <th>Fairing</th>
                   <th>Fairing Machine</th>
+                  <th>Photo</th>
                 </tr>
                 </tfoot>
               </table>
@@ -348,7 +372,7 @@
                 else $flagMonthWorkshop=false;
             ?>
 
-            <div class="col-md-9">
+            <div class="col-md-12">
             <div class="box box-primary">
   
               <div class="box-body">
@@ -369,8 +393,8 @@
                 @foreach($productivity as $prod)
                 <tr>
                   <td>{{ $prod->DATE }}</td>
-                  <td>{{ $prod->WEIGHT }}</td>
-                  <td>{{ $target[0]->TARGET }}</td>
+                  <td>{{ $prod->WEIGHT/1000 }}</td>
+                  <td>{{ $target[0]->TARGET/1000 }}</td>
                   <td>{{ $prod->PRODUCTIVITY }}</td>
                   <td>16 JO/ton</td>
                   <td>{{ $prod->PROBLEM }}</td>

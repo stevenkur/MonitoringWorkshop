@@ -94,8 +94,10 @@
                   <th>Total Layer</th>
                   <th>Blasting</th>
                   <th>Blasting Date</th>
+                  <th>Photo</th>
                   <th>Painting</th>
                   <th>Painting Date</th>
+                  <th>Photo</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -115,12 +117,26 @@
                     {{$rooms->BLASTING_DATE}}
                     @endif
                   </td>
+                  <td>
+                    @if(empty($rooms->BLASTING_PHOTO))
+                    -----
+                    @else
+                    {{$rooms->BLASTING_PHOTO}}
+                    @endif
+                  </td>
                   <td>{{$rooms->PAINTING}}</td>
                   <td>
                     @if(empty($rooms->PAINTING_DATE))
                     -----
                     @else
                     {{$rooms->PAINTING_DATE}}
+                    @endif
+                  </td>
+                  <td>
+                    @if(empty($rooms->PAINTING_PHOTO))
+                    -----
+                    @else
+                    {{$rooms->PAINTING_PHOTO}}
                     @endif
                   </td>
                 </tr>   
@@ -136,8 +152,10 @@
                   <th>Total Layer</th>
                   <th>Blasting</th>
                   <th>Blasting Date</th>
+                  <th>Photo</th>
                   <th>Painting</th>
                   <th>Painting Date</th>
+                  <th>Photo</th>
                 </tr>
                 </tfoot>
               </table>
@@ -224,7 +242,7 @@
                 else $flagMonthWorkshop=false;
             ?>
 
-            <div class="col-md-9">
+            <div class="col-md-12">
             <div class="box box-primary">
   
               <div class="box-body">
@@ -244,8 +262,8 @@
                 @foreach($productivity as $prod)
                 <tr>
                   <td>{{ $prod->DATE }}</td>
-                  <td>{{ $prod->WEIGHT }}</td>
-                  <td>{{ $prod->PRODUCTIVITY }}</td>
+                  <td>{{ $prod->WEIGHT/1000 }}</td>
+                  <td>{{ $prod->PRODUCTIVITY/1000 }}</td>
                   <td>0.55 JO/m<sup>2</sup></td>
                   <td>{{ $prod->PROBLEM }}</td>
                 </tr>

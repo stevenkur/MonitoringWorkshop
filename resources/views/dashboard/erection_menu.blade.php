@@ -94,6 +94,7 @@
                   <th>Welding Finish/Total (m)</th>
                   <th>Date of Start</th>
                   <th>Date of Finish</th>
+                  <th>Photo</th>
                   <th>Total Progress</th>
                 </tr>
                 </thead>
@@ -110,6 +111,7 @@
                   <th>Welding Finish/Total (m)</th>
                   <th>Date of Start</th>
                   <th>Date of Finish</th>
+                  <th>Photo</th>
                   <th>Total Progress</th>
                 </tr>
                 </tfoot>
@@ -197,7 +199,7 @@
                 else $flagMonthWorkshop=false;
             ?>
 
-            <div class="col-md-9">
+            <div class="col-md-12">
             <div class="box box-primary">
   
               <div class="box-body">
@@ -208,15 +210,13 @@
                 <tr>
                   <th>Date</th>
                   <th>Output/Day (ton)</th>
-                  <th>Target Output/Day (ton)</th>
                   <th>Productivity (JO/ton)</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                   <td>{{ $prod->DATE }}</td>
-                  <td>{{ $prod->WEIGHT }}</td>
-                  <td>???</td>
+                  <td>{{ $prod->WEIGHT/1000 }}</td>
                   <td>{{ $prod->PRODUCTIVITY }}</td>
                 </tr>
                 </tbody>

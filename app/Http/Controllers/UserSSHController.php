@@ -122,7 +122,7 @@ class UserSSHController extends Controller
         $count = $input['num'];
 
         $photo=$input['photo'];
-        $destinationPath = 'uploads';
+        $destinationPath = public_path() . '/uploads';
         $extension = $photo->getClientOriginalExtension();
         $fileName = $photo->getClientOriginalName();
         $photo->move($destinationPath, $fileName);
@@ -144,16 +144,14 @@ class UserSSHController extends Controller
             $ssh->WASTE_TIME = $input['wastetime']; 
             $ssh->SHIFT = substr($input['shift'], 6); 
             $ssh->USER = 'admin';
-            $ssh->PHOTO = $fileName;
-
             $ssh->save();
         }
         
         if($input['process']=='Straightening'){
-            $plate = Plate::where('ID', $input['id_material'])->update(['STRAIGHTENING'=>1, 'STRAIGHTENING_DATE'=>Carbon::today()->format('Y-m-d'), 'STRAIGHTENING_MACHINE'=>$input['machine']]);
+            $plate = Plate::where('ID', $input['id_material'])->update(['STRAIGHTENING'=>1, 'STRAIGHTENING_DATE'=>Carbon::today()->format('Y-m-d'), 'STRAIGHTENING_MACHINE'=>$input['machine'], 'STRAIGHTENING_PHOTO'=>$fileName]);
         }
         else{
-            $plate = Plate::where('ID', $input['id_material'])->update(['BLASTING'=>1, 'BLASTING_DATE'=>Carbon::today()->format('Y-m-d'), 'BLASTING_MACHINE'=>$input['machine']]);
+            $plate = Plate::where('ID', $input['id_material'])->update(['BLASTING'=>1, 'BLASTING_DATE'=>Carbon::today()->format('Y-m-d'), 'BLASTING_MACHINE'=>$input['machine'], 'BLASTING_PHOTO'=>$fileName]);
         }
         
         $ship=ShipProject::all();

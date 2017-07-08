@@ -96,7 +96,7 @@ class UserSubAssemblyController extends Controller
         $count = $input['num'];
 
         $photo=$input['photo'];
-        $destinationPath = 'uploads';
+        $destinationPath = public_path() . '/uploads';
         $extension = $photo->getClientOriginalExtension();
         $fileName = $photo->getClientOriginalName();
         $photo->move($destinationPath, $fileName);
@@ -119,21 +119,20 @@ class UserSubAssemblyController extends Controller
             $subassembly->WASTE_TIME = $input['wastetime']; 
             $subassembly->SHIFT = substr($input['shift'], 6); 
             $subassembly->USER = 'admin'; 
-            $subassembly->PHOTO = $fileName;
             $subassembly->save();
         }
         
         if($input['process']=='Fitting'){
-            $part = Part::where('ID', $input['id_material'])->update(['FITTING'=>$input['progress']/100, 'FITTING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $part = Part::where('ID', $input['id_material'])->update(['FITTING'=>$input['progress']/100, 'FITTING_DATE'=>Carbon::today()->format('Y-m-d'), 'FITTING_PHOTO'=>$fileName]);
         }
         else if($input['process']=='Welding'){
-            $part = Part::where('ID', $input['id_material'])->update(['WELDING'=>$input['progress']/100, 'WELDING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $part = Part::where('ID', $input['id_material'])->update(['WELDING'=>$input['progress']/100, 'WELDING_DATE'=>Carbon::today()->format('Y-m-d'), 'WELDING_PHOTO'=>$fileName]);
         }
         else if($input['process']=='Grinding'){
-            $part = Part::where('ID', $input['id_material'])->update(['GRINDING'=>$input['progress']/100, 'GRINDING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $part = Part::where('ID', $input['id_material'])->update(['GRINDING'=>$input['progress']/100, 'GRINDING_DATE'=>Carbon::today()->format('Y-m-d'), 'GRINDING_PHOTO'=>$fileName]);
         }
         else {
-            $part = Part::where('ID', $input['id_material'])->update(['FAIRING'=>$input['progress']/100, 'FAIRING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $part = Part::where('ID', $input['id_material'])->update(['FAIRING'=>$input['progress']/100, 'FAIRING_DATE'=>Carbon::today()->format('Y-m-d'), 'FAIRING_PHOTO'=>$fileName]);
         }
         
         $ship=ShipProject::all();

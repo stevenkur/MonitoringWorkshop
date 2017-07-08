@@ -60,7 +60,7 @@ class UserErectionController extends Controller
         $count = $input['num'];
 
         $photo=$input['photo'];
-        $destinationPath = 'uploads';
+        $destinationPath = public_path() . '/uploads';
         $extension = $photo->getClientOriginalExtension();
         $fileName = $photo->getClientOriginalName();
         $photo->move($destinationPath, $fileName);
@@ -80,21 +80,20 @@ class UserErectionController extends Controller
             $erection->WASTE_TIME = $input['wastetime']; 
             $erection->SHIFT = substr($input['shift'], 6); 
             $erection->USER = 'admin'; 
-            $erection->PHOTO = $fileName;
             $erection->save();
         }
         
         if($input['process']=='Loading'){
-            $panel = Block::where('ID', $input['id_material'])->update(['LOADING'=>$input['progress']/100, 'LOADING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $panel = Block::where('ID', $input['id_material'])->update(['LOADING'=>$input['progress']/100, 'LOADING_DATE'=>Carbon::today()->format('Y-m-d'), 'LOADING_PHOTO'=>$fileName]);
         }
         else if($input['process']=='Adjusting'){
-            $panel = Block::where('ID', $input['id_material'])->update(['ADJUSTING'=>$input['progress']/100, 'ADJUSTING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $panel = Block::where('ID', $input['id_material'])->update(['ADJUSTING'=>$input['progress']/100, 'ADJUSTING_DATE'=>Carbon::today()->format('Y-m-d'), 'ADJUSTING_PHOTO'=>$fileName]);
         }
         else if($input['process']=='Fitting'){
-            $panel = Block::where('ID', $input['id_material'])->update(['FITTING'=>$input['progress']/100, 'FITTING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $panel = Block::where('ID', $input['id_material'])->update(['FITTING'=>$input['progress']/100, 'FITTING_DATE'=>Carbon::today()->format('Y-m-d'), 'FITTING_PHOTO'=>$fileName]);
         }
         else {
-            $panel = Block::where('ID', $input['id_material'])->update(['WELDING'=>$input['progress']/100, 'WELDING_DATE'=>Carbon::today()->format('Y-m-d')]);
+            $panel = Block::where('ID', $input['id_material'])->update(['WELDING'=>$input['progress']/100, 'WELDING_DATE'=>Carbon::today()->format('Y-m-d'), 'WELDING_PHOTO'=>$fileName]);
         }
         
         $ship=ShipProject::all();

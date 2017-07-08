@@ -295,17 +295,36 @@
                   <th>Weight</th>
                   <th>Straightening</th>
                   <th>Date Finished</th>
+                  <th>Photo</th>
                   <th>Blasting & Shop Primer</th>
                   <th>Date Finished</th>
+                  <th>Photo</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($plate as $plates)
                     <?php
-                    if($plates['STRAIGHTENING']==1) $str= 'finished '.$plates['STRAIGHTENING_DATE'];
-                    else $str='unfinished';
-                    if($plates['BLASTING']==1) $blast= 'finished '.$plates['BLASTING_DATE'];
-                    else $blast='unfinished';
+                    // $uploads='uploads/';
+                    if($plates['STRAIGHTENING']==1)
+                    {
+                      $str= 'finished';
+                    }
+                    else
+                    {
+                      $str='unfinished';
+                      $plates['STRAIGHTENING_DATE'] = "-";
+                      $plates['STRAIGHTENING_PHOTO'] = "-";
+                    }
+                    if($plates['BLASTING']==1) 
+                    {
+                      $blast= 'finished';
+                    }
+                    else 
+                    {
+                      $blast='unfinished';
+                      $plates['BLASTING_DATE'] = "-";
+                      $plates['BLASTING_PHOTO'] = "-";
+                    }
                     
                     echo '
                     <tr>
@@ -313,10 +332,29 @@
                         <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
                         <td>'.$str.'</td>
-                        <td>'.$plates['STRAIGHTENING_DATE'].'</td>
+                        <td>'.$plates['STRAIGHTENING_DATE'].'</td>';?>
+                        @if($plates->STRAIGHTENING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($plates->STRAIGHTENING!=1)
+                        <td>-</td>
+                        @else                        
+                        <td><img src="{{ asset('uploads/' . '$plates->STRAIGHTENING_PHOTO') }}" /></td>
+                        @endif
+                    <?php
+                    // <td>'.$plates['STRAIGHTENING_PHOTO'].'</td>
+                    echo '
+                        
                         <td>'.$blast.'</td>
-                        <td>'.$plates['BLASTING_DATE'].'</td>
-                    </tr>';?>
+                        <td>'.$plates['BLASTING_DATE'].'</td>';?>
+                        <!-- <td>{{ $plates->BLASTING_PHOTO}}</td> -->
+                        @if($plates->BLASTING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($plates->BLASTING!=1)
+                        <td>-</td>
+                        @else                        
+                        <td><img src="{{ asset('uploads/' . '$plates->BLASTING_PHOTO') }}" /></td>
+                        @endif
+                    </tr>
                 @endforeach
                 </tbody>
                 <tfoot>
@@ -327,8 +365,10 @@
                   <th>Weight</th>
                   <th>Straightening</th>
                   <th>Date Finished</th>
+                  <th>Photo</th>
                   <th>Blasting & Shop Primer</th>
                   <th>Date Finished</th>
+                  <th>Photo</th>
                 </tr>
                 </tfoot>
               </table>
@@ -379,7 +419,7 @@
                 else $flagMonthWorkshop=false;
             ?>
 
-            <div class="col-md-9">
+            <div class="col-md-12">
             <div class="box box-primary">
   
               <div class="box-body">
@@ -399,8 +439,8 @@
                 @foreach($productivity as $prod)
                 <tr>
                   <td>{{ $prod->DATE }}</td>
-                  <td>{{ $prod->WEIGHT }}</td>
-                  <td>{{ $target[0]->TARGET }}</td>
+                  <td>{{ $prod->WEIGHT/1000 }}</td>
+                  <td>{{ $target[0]->TARGET/1000 }}</td>
                   <td>{{ $prod->PRODUCTIVITY }}</td>
                   <td>{{ $prod->PROBLEM }}</td>
                 </tr>
