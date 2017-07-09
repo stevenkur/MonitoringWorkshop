@@ -337,7 +337,7 @@
                         @elseif($plates->STRAIGHTENING!=1)
                         <td>-</td>
                         @else                        
-                        <td><img src="{{ asset('uploads/' . '$plates->STRAIGHTENING_PHOTO') }}" /></td>
+                        <td><img width="50px" src="{{ asset('public/uploads/'.$plates->STRAIGHTENING_PHOTO) }}" /></td>
                         @endif
                     <?php
                     // <td>'.$plates['STRAIGHTENING_PHOTO'].'</td>
@@ -351,7 +351,7 @@
                         @elseif($plates->BLASTING!=1)
                         <td>-</td>
                         @else                        
-                        <td><img src="{{ asset('uploads/' . '$plates->BLASTING_PHOTO') }}" /></td>
+                        <td><img src="{{ asset('public/uploads/'.$plates->BLASTING_PHOTO) }}" /></td>
                         @endif
                     </tr>
                 @endforeach
