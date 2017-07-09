@@ -304,7 +304,6 @@
                 <tbody>
                 @foreach($plate as $plates)
                     <?php
-                    // $uploads='uploads/';
                     if($plates['STRAIGHTENING']==1)
                     {
                       $str= 'finished';
