@@ -117,13 +117,19 @@
                     {{$rooms->BLASTING_DATE}}
                     @endif
                   </td>
+                  @if($rooms->BLASTING_PHOTO==NULL)
+                  <td>-----</td>
+                  @else                       
                   <td>
-                    @if(empty($rooms->BLASTING_PHOTO))
-                    -----
-                    @else
-                    {{$rooms->BLASTING_PHOTO}}
-                    @endif
-                  </td>
+                    <div class="item">
+                      <a href="{{ asset('public/uploads/'.$rooms->BLASTING_PHOTO) }}" target="_blank">
+                          <img width="50px" src="{{ asset('public/uploads/'.$rooms->BLASTING_PHOTO) }}" attributes="#"\>
+                      </a>
+                      <div class="popup" attributes="#">
+                      </div>
+                    </div>
+                  </td> 
+                  @endif
                   <td>{{$rooms->PAINTING}}</td>
                   <td>
                     @if(empty($rooms->PAINTING_DATE))
@@ -132,13 +138,19 @@
                     {{$rooms->PAINTING_DATE}}
                     @endif
                   </td>
+                  @if($rooms->PAINTING_PHOTO==NULL)
+                  <td>-----</td>
+                  @else                       
                   <td>
-                    @if(empty($rooms->PAINTING_PHOTO))
-                    -----
-                    @else
-                    {{$rooms->PAINTING_PHOTO}}
-                    @endif
-                  </td>
+                    <div class="item">
+                      <a href="{{ asset('public/uploads/'.$rooms->PAINTING_PHOTO) }}" target="_blank">
+                          <img width="50px" src="{{ asset('public/uploads/'.$rooms->PAINTING_PHOTO) }}" attributes="#"\>
+                      </a>
+                      <div class="popup" attributes="#">
+                      </div>
+                    </div>
+                  </td> 
+                  @endif
                 </tr>   
                 @endforeach
                 </tbody>

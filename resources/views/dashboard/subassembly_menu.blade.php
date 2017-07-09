@@ -208,18 +208,81 @@
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
                         <td>'.$fitting.'</td>
-                        <td>'.$parts['FITTING_MACHINE'].'</td>
-                        <td>'.$parts['FITTING_PHOTO'].'</td>
+                        <td>'.$parts['FITTING_MACHINE'].'</td>';?>
+                        @if($parts->FITTING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($parts->FITTING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$parts->FITTING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$parts->FITTING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php
+                    echo '
                         <td>'.$welding.'</td>
-                        <td>'.$parts['WELDING_MACHINE'].'</td>
-                        <td>'.$parts['WELDING_PHOTO'].'</td>
+                        <td>'.$parts['WELDING_MACHINE'].'</td>';?>
+                        @if($parts->WELDING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($parts->WELDING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$parts->WELDING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$parts->WELDING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php
+                    echo '
                         <td>'.$grinding.'</td>
-                        <td>'.$parts['GRINDING_MACHINE'].'</td>
-                        <td>'.$parts['GRINDING_PHOTO'].'</td>
+                        <td>'.$parts['GRINDING_MACHINE'].'</td>';?>
+                        @if($parts->GRINDING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($parts->GRINDING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$parts->GRINDING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$parts->GRINDING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php
+                    echo '
                         <td>'.$fairing.'</td>
-                        <td>'.$parts['FAIRING_MACHINE'].'</td>
-                        <td>'.$parts['FAIRING_PHOTO'].'</td>
-                    </tr>';
+                        <td>'.$parts['FAIRING_MACHINE'].'</td>';?>
+                        @if($parts->FAIRING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($parts->FAIRING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$parts->FAIRING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$parts->FAIRING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php
+                    echo '</tr>';
                     }
                     else if($flagProject && $parts->ID_PROJECT == $_GET['project']){
                     echo '
@@ -230,18 +293,81 @@
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
                         <td>'.$fitting.'</td>
-                        <td>'.$parts['FITTING_MACHINE'].'</td>
-                        <td>'.$parts['FITTING_PHOTO'].'</td>
+                        <td>'.$parts['FITTING_MACHINE'].'</td>';?>
+                        @if($parts->FITTING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($parts->FITTING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$parts->FITTING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$parts->FITTING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php
+                    echo '
                         <td>'.$welding.'</td>
-                        <td>'.$parts['WELDING_MACHINE'].'</td>
-                        <td>'.$parts['WELDING_PHOTO'].'</td>
+                        <td>'.$parts['WELDING_MACHINE'].'</td>';?>
+                        @if($parts->WELDING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($parts->WELDING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$parts->WELDING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$parts->WELDING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php
+                    echo '
                         <td>'.$grinding.'</td>
-                        <td>'.$parts['GRINDING_MACHINE'].'</td>
-                        <td>'.$parts['GRINDING_PHOTO'].'</td>
+                        <td>'.$parts['GRINDING_MACHINE'].'</td>';?>
+                        @if($parts->GRINDING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($parts->GRINDING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$parts->GRINDING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$parts->GRINDING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php
+                    echo '
                         <td>'.$fairing.'</td>
-                        <td>'.$parts['FAIRING_MACHINE'].'</td>
-                        <td>'.$parts['FAIRING_PHOTO'].'</td>
-                    </tr>';
+                        <td>'.$parts['FAIRING_MACHINE'].'</td>';?>
+                        @if($parts->FAIRING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($parts->FAIRING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$parts->FAIRING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$parts->FAIRING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php
+                    echo '</tr>';
                     }
                     else if(!$flagBlock && !$flagProject){
                     echo '
@@ -252,19 +378,82 @@
                         <td>'.$parts['PORT'].','.$parts['CENTER'].','.$parts['STARBOARD'].'</td>
                         <td>'.$parts['WEIGHT'].'</td>
                         <td>'.$fitting.'</td>
-                        <td>'.$parts['FITTING_MACHINE'].'</td>
-                        <td>'.$parts['FITTING_PHOTO'].'</td>
+                        <td>'.$parts['FITTING_MACHINE'].'</td>';?>
+                        @if($parts->FITTING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($parts->FITTING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$parts->FITTING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$parts->FITTING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php
+                    echo '
                         <td>'.$welding.'</td>
-                        <td>'.$parts['WELDING_MACHINE'].'</td>
-                        <td>'.$parts['WELDING_PHOTO'].'</td>
+                        <td>'.$parts['WELDING_MACHINE'].'</td>';?>
+                        @if($parts->WELDING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($parts->WELDING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$parts->WELDING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$parts->WELDING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php
+                    echo '
                         <td>'.$grinding.'</td>
-                        <td>'.$parts['GRINDING_MACHINE'].'</td>
-                        <td>'.$parts['GRINDING_PHOTO'].'</td>
+                        <td>'.$parts['GRINDING_MACHINE'].'</td>';?>
+                        @if($parts->GRINDING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($parts->GRINDING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$parts->GRINDING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$parts->GRINDING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php
+                    echo '
                         <td>'.$fairing.'</td>
-                        <td>'.$parts['FAIRING_MACHINE'].'</td>
-                        <td>'.$parts['FAIRING_PHOTO'].'</td>
-                    </tr>';
-                        }?>
+                        <td>'.$parts['FAIRING_MACHINE'].'</td>';?>
+                        @if($parts->FAIRING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($parts->FAIRING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$parts->FAIRING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$parts->FAIRING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php
+                    echo '</tr>';
+                    }?>
                     @endforeach
                 </tbody>
                 <tfoot>

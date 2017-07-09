@@ -195,7 +195,8 @@
                         $blend='unfinished';
                         $plates['BENDING_MACHINE'] = "-";
                         $plates['BENDING_PHOTO'] = "-";
-                    }
+                    }?>
+                    <?php                    
                     if($flagBlock && $plates->ID_BLOCK == $_GET['block']){
                     echo '
                     <tr>
@@ -204,17 +205,62 @@
                         <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
                         <td>'.$marking.'</td>
-                        <td>'.$plates['MARKING_MACHINE'].'</td>
-                        <td>'.$plates['MARKING_PHOTO'].'
-
-                        </td>
+                        <td>'.$plates['MARKING_MACHINE'].'</td>';?>
+                        @if($plates->MARKING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($plates->MARKING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$plates->MARKING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$plates->MARKING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php  
+                    echo '
                         <td>'.$cut.'</td>
-                        <td>'.$plates['CUTTING_MACHINE'].'</td>
-                        <td>'.$plates['CUTTING_PHOTO'].'</td>
+                        <td>'.$plates['CUTTING_MACHINE'].'</td>';?>
+                        @if($plates->CUTTING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($plates->CUTTING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$plates->CUTTING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$plates->CUTTING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php  
+                    echo '                    
                         <td>'.$blend.'</td>
-                        <td>'.$plates['BENDING_MACHINE'].'</td>
-                        <td>'.$plates['BENDING_PHOTO'].'</td>
-                    </tr>';
+                        <td>'.$plates['BENDING_MACHINE'].'</td>';?>
+                        @if($plates->BENDING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($plates->BENDING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$plates->BENDING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$plates->BENDING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php
+                    echo '</tr>';
                     }
                     else if($flagProject && $plates->ID_PROJECT == $_GET['project']){
                     echo '
@@ -224,15 +270,62 @@
                         <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
                         <td>'.$marking.'</td>
-                        <td>'.$plates['MARKING_MACHINE'].'</td>
-                        <td>'.$plates['MARKING_PHOTO'].'</td>
+                        <td>'.$plates['MARKING_MACHINE'].'</td>';?>
+                        @if($plates->MARKING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($plates->MARKING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$plates->MARKING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$plates->MARKING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php  
+                    echo '
                         <td>'.$cut.'</td>
-                        <td>'.$plates['CUTTING_MACHINE'].'</td>
-                        <td>'.$plates['CUTTING_PHOTO'].'</td>
+                        <td>'.$plates['CUTTING_MACHINE'].'</td>';?>
+                        @if($plates->CUTTING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($plates->CUTTING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$plates->CUTTING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$plates->CUTTING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php  
+                    echo '                    
                         <td>'.$blend.'</td>
-                        <td>'.$plates['BENDING_MACHINE'].'</td>
-                        <td>'.$plates['BENDING_PHOTO'].'</td>
-                    </tr>';
+                        <td>'.$plates['BENDING_MACHINE'].'</td>';?>
+                        @if($plates->BENDING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($plates->BENDING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$plates->BENDING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$plates->BENDING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php
+                    echo '</tr>';
                     }
                     else if(!$flagBlock && !$flagProject){
                     echo '
@@ -242,16 +335,64 @@
                         <td>'.$plates['PORT'].','.$plates['CENTER'].','.$plates['STARBOARD'].'</td>
                         <td>'.$plates['WEIGHT'].'</td>
                         <td>'.$marking.'</td>
-                        <td>'.$plates['MARKING_MACHINE'].'</td>
-                        <td>'.$plates['MARKING_PHOTO'].'</td>
+                        <td>'.$plates['MARKING_MACHINE'].'</td>';?>
+                        @if($plates->MARKING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($plates->MARKING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$plates->MARKING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$plates->MARKING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php  
+                    echo '
                         <td>'.$cut.'</td>
-                        <td>'.$plates['CUTTING_MACHINE'].'</td>
-                        <td>'.$plates['CUTTING_PHOTO'].'</td>
+                        <td>'.$plates['CUTTING_MACHINE'].'</td>';?>
+                        @if($plates->CUTTING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($plates->CUTTING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$plates->CUTTING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$plates->CUTTING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php  
+                    echo '                    
                         <td>'.$blend.'</td>
-                        <td>'.$plates['BENDING_MACHINE'].'</td>
-                        <td>'.$plates['BENDING_PHOTO'].'</td>
+                        <td>'.$plates['BENDING_MACHINE'].'</td>';?>
+                        @if($plates->BENDING_PHOTO==NULL)
+                        <td>-</td>
+                        @elseif($plates->BENDING!=1)
+                        <td>-</td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$plates->BENDING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$plates->BENDING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
+                        @endif
+                    <?php  
+                    echo ' 
                     </tr>';
-                        }?>
+                    }?>
                     @endforeach
                 </tbody>
                 <tfoot>
