@@ -205,7 +205,9 @@
                         <td>'.$plates['WEIGHT'].'</td>
                         <td>'.$marking.'</td>
                         <td>'.$plates['MARKING_MACHINE'].'</td>
-                        <td>'.$plates['MARKING_PHOTO'].'</td>
+                        <td>'.$plates['MARKING_PHOTO'].'
+
+                        </td>
                         <td>'.$cut.'</td>
                         <td>'.$plates['CUTTING_MACHINE'].'</td>
                         <td>'.$plates['CUTTING_PHOTO'].'</td>

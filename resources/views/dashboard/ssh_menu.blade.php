@@ -336,22 +336,36 @@
                         <td>-</td>
                         @elseif($plates->STRAIGHTENING!=1)
                         <td>-</td>
-                        @else                        
-                        <td><img width="50px" src="{{ asset('public/uploads/'.$plates->STRAIGHTENING_PHOTO) }}" /></td>
+                        @else                       
+                        <td>
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$plates->STRAIGHTENING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$plates->STRAIGHTENING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td> 
                         @endif
                     <?php
-                    // <td>'.$plates['STRAIGHTENING_PHOTO'].'</td>
                     echo '
                         
                         <td>'.$blast.'</td>
                         <td>'.$plates['BLASTING_DATE'].'</td>';?>
-                        <!-- <td>{{ $plates->BLASTING_PHOTO}}</td> -->
                         @if($plates->BLASTING_PHOTO==NULL)
                         <td>-</td>
                         @elseif($plates->BLASTING!=1)
                         <td>-</td>
                         @else                        
-                        <td><img src="{{ asset('public/uploads/'.$plates->BLASTING_PHOTO) }}" /></td>
+                        <td>                          
+                          <div class="item">
+                            <a href="{{ asset('public/uploads/'.$plates->BLASTING_PHOTO) }}" target="_blank">
+                                <img width="50px" src="{{ asset('public/uploads/'.$plates->BLASTING_PHOTO) }}" attributes="#"\>
+                            </a>
+                            <div class="popup" attributes="#">
+                            </div>
+                          </div>
+                        </td>
                         @endif
                     </tr>
                 @endforeach
