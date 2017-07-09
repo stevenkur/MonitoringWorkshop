@@ -272,7 +272,15 @@
                 </thead>
                 <tbody>
                 @foreach($productivity as $prod)
-                <tr>
+                    @if($prod->WEIGHT/1000<$prod->PRODUCTIVITY/1000 && $prod->PROBLEM!="No Problem")
+                    <tr style="color:red">
+                    @elseif($prod->WEIGHT/1000<$prod->PRODUCTIVITY/1000)
+                    <tr style="color:orange">
+                    @elseif($prod->PROBLEM!="No Problem")
+                    <tr style="color:yellow">
+                    @else
+                    <tr>
+                    @endif
                   <td>{{ $prod->DATE }}</td>
                   <td>{{ $prod->WEIGHT/1000 }}</td>
                   <td>{{ $prod->PRODUCTIVITY/1000 }}</td>
@@ -290,6 +298,9 @@
                   <th>Problem</th>
                 </tr>
                 </tfoot>
+                <p><strong style="color:red">Red</strong> : Output less than target and there's a problem</p>
+                <p><strong style="color:orange">Orange</strong> : Output less than target</p>
+                <p><strong style="color:yellow">Yellow</strong> : There's a problem</p>
               </table>
               </div>
              </div>  
