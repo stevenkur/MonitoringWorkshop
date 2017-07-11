@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+use App\Block;
 use App\ShipProject;
+use App\Panel;
+use App\Part;
+use App\Plate;
+use App\Profile;
+use App\Room;
 
 class ShipProjectController extends Controller
 {
@@ -118,6 +124,12 @@ class ShipProjectController extends Controller
         //
         $ship = ShipProject::find($id);
         $ship->delete();
+        $panel = Panel::where('ID_PROJECT', $id)->delete();
+        $block = Block::where('ID_PROJECT', $id)->delete();
+        $part = Part::where('ID_PROJECT', $id)->delete();
+        $plate = Plate::where('ID_PROJECT', $id)->delete();
+        $profile = Profile::where('ID_PROJECT', $id)->delete();
+        $room = Room::where('ID_PROJECT', $id)->delete();
         return redirect()->route('ship_project.index')->with('alert-success', 'Data Berhasil Diubah.');
     }
 }

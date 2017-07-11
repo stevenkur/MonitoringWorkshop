@@ -185,6 +185,12 @@
               <div class="box-footer">
                 <button type="reset" class="btn btn-default">Reset</button>
                 <button type="submit" class="btn btn-primary"><?php if($flag && $flag2) echo 'Update'; else echo 'Create';?></button>
+                @if($flag && $flag2) 
+                    {{ Form::open(array('url' => 'ship_project/' . $_GET['id'])) }}
+                    {{ Form::hidden('_method', 'DELETE') }}
+                    {{ Form::submit('Delete', array('onclick'=>"return confirm('Anda yakin akan menghapus data ?');", 'class' => 'btn btn-danger')) }}
+                    {{ Form::close() }}
+                @endif
               </div>
             </form>
           </div>
