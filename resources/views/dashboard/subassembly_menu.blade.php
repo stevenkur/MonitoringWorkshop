@@ -592,7 +592,7 @@
                   <td>{{ $prod->DATE }}</td>
                   <td>{{ $prod->WEIGHT/1000 }}</td>
                   <td>{{ $target[0]->TARGET/1000 }}</td>
-                  <td>{{ $prod->PRODUCTIVITY }}</td>
+                  <td>{{ $prod->PRODUCTIVITY*1000 }}</td>
                   <td>16 JO/ton</td>
                   <td>{{ $prod->PROBLEM }}</td>
                 </tr>

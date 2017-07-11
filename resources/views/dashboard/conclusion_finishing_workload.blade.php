@@ -33,7 +33,7 @@
                     <option value="2">Fabrication Workshop</option>
                     <option value="3">Sub Assembly Workshop</option>
                     <option value="4">Assembly Workshop</option>
-                    <option value="5">BBS Workshop</option>
+                    <!-- <option value="5">BBS Workshop</option> -->
                     <!-- <option value="6">Erection Process</option> -->                    
                   </select>
                 </div>
@@ -55,9 +55,9 @@
             <label> <h3>Total Workload All Project :</h3> </label>
             <label> 
                 @if(isset($_GET['workshop']) && ($_GET['workshop']==1 || $_GET['workshop']==2))
-                <h3><b>{{$total_workload[0]->MAT}} ton</b></h3> </label><br><br>
+                <h3><b>{{$total_workload[0]->MAT/1000}} ton</b></h3> </label><br><br>
                 @else
-                <h3><b>{{$total_workload[0]->TOTAL}} ton</b></h3> </label><br><br>
+                <h3><b>{{$total_workload[0]->TOTAL/1000}} ton</b></h3> </label><br><br>
                 @endif
           </div>      
 
@@ -112,7 +112,7 @@
             <h3><b>Productivity Per-Month: {{$productivity[1].' ton'}}</b></h3>
             <h3><b>Target Production Per-Month:</b></h3>
             <h3><b>Conclusion:</b>
-            <br>Unfinished: {{$total_workload[0]->MAT-$productivity[1]}} ton
+            <br>Unfinished: {{$total_workload[0]->MAT-$productivity[1]/1000}} ton
             
             @for($i=0; $i<2; $i++)
                 @if($realnormal[$i]>$normal[$i] || $realcapacity[$i]>$capacity[$i])
@@ -185,7 +185,7 @@
             <h3><b>Productivity Per-Month: {{$productivity[2].' ton'}}</b></h3>
             <h3><b>Target Production Per-Month:</b></h3>
             <h3><b>Conclusion:</b>
-            <br>Unfinished: {{$total_workload[0]->MAT-$productivity[2]}} ton
+            <br>Unfinished: {{$total_workload[0]->MAT-$productivity[2]/1000}} ton
             
             @for($i=0; $i<3; $i++)
                 @if($realnormal[$i]>$normal[$i] || $realcapacity[$i]>$capacity[$i])
@@ -259,7 +259,7 @@
             <h3><b>Productivity Per-Month: {{$productivity[3].' ton'}}</b></h3>
             <h3><b>Target Production Per-Month:</b></h3>
             <h3><b>Conclusion:</b>
-            <br>Unfinished: {{$total_workload[0]->TOTAL-$productivity[3]}} ton
+            <br>Unfinished: {{$total_workload[0]->TOTAL-$productivity[3]/1000}} ton
             
             @for($i=0; $i<3; $i++)
                 @if($realnormal[$i]>$normal[$i] || $realcapacity[$i]>$capacity[$i])
@@ -334,7 +334,7 @@
             <h3><b>Productivity Per-Month: {{$productivity[3].' ton'}}</b></h3>
             <h3><b>Target Production Per-Month:</b></h3>
             <h3><b>Conclusion:</b>
-            <br>Unfinished: {{$total_workload[0]->TOTAL-$productivity[3]}} ton
+            <br>Unfinished: {{$total_workload[0]->TOTAL-$productivity[3]/1000}} ton
             
             @for($i=0; $i<3; $i++)
                 @if($realnormal[$i]>$normal[$i] || $realcapacity[$i]>$capacity[$i])
@@ -365,7 +365,6 @@
         
         <div class="col-md-12">
         <div class="box box-primary">
-            <!-- /.box-header -->
             <div class="box-body">
               <h1>BBS Workshop</h1>
               <table id="bbs" class="table table-bordered table-striped">
@@ -390,7 +389,6 @@
             <br>or Add More Machine: XXX
             </h3>
             </div>
-            <!-- /.box-body -->
         </div>
         </div>
         @endif

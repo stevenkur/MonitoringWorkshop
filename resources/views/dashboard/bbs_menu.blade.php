@@ -283,7 +283,7 @@
                     @endif
                   <td>{{ $prod->DATE }}</td>
                   <td>{{ $prod->WEIGHT/1000 }}</td>
-                  <td>{{ $prod->PRODUCTIVITY/1000 }}</td>
+                  <td>{{ $prod->PRODUCTIVITY*1000 }}</td>
                   <td>0.55 JO/m<sup>2</sup></td>
                   <td>{{ $prod->PROBLEM }}</td>
                 </tr>

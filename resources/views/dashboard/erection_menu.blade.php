@@ -217,7 +217,7 @@
                 <tr>
                   <td>{{ $prod->DATE }}</td>
                   <td>{{ $prod->WEIGHT/1000 }}</td>
-                  <td>{{ $prod->PRODUCTIVITY }}</td>
+                  <td>{{ $prod->PRODUCTIVITY*1000 }}</td>
                 </tr>
                 </tbody>
                 <tfoot>
