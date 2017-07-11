@@ -109,10 +109,10 @@
               </table>
             </div>            
             <div class="box-footer">
-            <h3><b>Productivity Per-Month: {{$productivity[1].' ton'}}</b></h3>
+            <h3><b>Productivity Per-Month: {{$productivity[1]/1000}} ton</b></h3>
             <h3><b>Target Production Per-Month:</b></h3>
             <h3><b>Conclusion:</b>
-            <br>Unfinished: {{$total_workload[0]->MAT-$productivity[1]/1000}} ton
+            <br>Unfinished: {{($total_workload[0]->MAT-$productivity[1])/1000}} ton
             
             @for($i=0; $i<2; $i++)
                 @if($realnormal[$i]>$normal[$i] || $realcapacity[$i]>$capacity[$i])
@@ -182,10 +182,10 @@
               </table>
             </div>            
             <div class="box-footer">
-            <h3><b>Productivity Per-Month: {{$productivity[2].' ton'}}</b></h3>
+            <h3><b>Productivity Per-Month: {{$productivity[2]/1000}} ton</b></h3>
             <h3><b>Target Production Per-Month:</b></h3>
             <h3><b>Conclusion:</b>
-            <br>Unfinished: {{$total_workload[0]->MAT-$productivity[2]/1000}} ton
+            <br>Unfinished: {{($total_workload[0]->MAT-$productivity[2])/1000}} ton
             
             @for($i=0; $i<3; $i++)
                 @if($realnormal[$i]>$normal[$i] || $realcapacity[$i]>$capacity[$i])
@@ -256,10 +256,10 @@
               </table>
             </div>            
             <div class="box-footer">
-            <h3><b>Productivity Per-Month: {{$productivity[3].' ton'}}</b></h3>
+            <h3><b>Productivity Per-Month: {{$productivity[3]/1000}} ton</b></h3>
             <h3><b>Target Production Per-Month:</b></h3>
             <h3><b>Conclusion:</b>
-            <br>Unfinished: {{$total_workload[0]->TOTAL-$productivity[3]/1000}} ton
+            <br>Unfinished: {{($total_workload[0]->TOTAL-$productivity[3])/1000}} ton
             
             @for($i=0; $i<3; $i++)
                 @if($realnormal[$i]>$normal[$i] || $realcapacity[$i]>$capacity[$i])
@@ -331,10 +331,10 @@
               </table>
             </div>            
             <div class="box-footer">
-            <h3><b>Productivity Per-Month: {{$productivity[3].' ton'}}</b></h3>
+            <h3><b>Productivity Per-Month: {{$productivity[3]/1000}} ton</b></h3>
             <h3><b>Target Production Per-Month:</b></h3>
             <h3><b>Conclusion:</b>
-            <br>Unfinished: {{$total_workload[0]->TOTAL-$productivity[3]/1000}} ton
+            <br>Unfinished: {{($total_workload[0]->TOTAL-$productivity[3])/1000}} ton
             
             @for($i=0; $i<3; $i++)
                 @if($realnormal[$i]>$normal[$i] || $realcapacity[$i]>$capacity[$i])
