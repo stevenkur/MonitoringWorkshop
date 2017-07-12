@@ -101,7 +101,7 @@
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
                   <td>{{ $machprod->MACHINE }}</td>
-                  <td>{{ $machprod->CAPACITY/1000 }} / {{ $machprod->WEIGHT/1000 }} ton</td>
+                  <td>{{ $machprod->CAPACITY }} / {{ $machprod->WEIGHT/1000 }} ton</td>
                   <td>{{ $machprod->NORMAL.'/'.$machprod->REALIZATION.' hours' }}</td>
                 </tr>
                 @endforeach
@@ -174,7 +174,7 @@
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
                   <td>{{ $machprod->MACHINE }}</td>
-                  <td>{{ $machprod->CAPACITY/1000 }} / {{ $machprod->WEIGHT/1000 }} ton</td>
+                  <td>{{ $machprod->CAPACITY }} / {{ $machprod->WEIGHT/1000 }} ton</td>
                   <td>{{ $machprod->NORMAL.'/'.$machprod->REALIZATION.' hours' }}</td>
                 </tr>
                 @endforeach                
@@ -248,7 +248,7 @@
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
                   <td>{{ $machprod->MACHINE }}</td>
-                  <td>{{ $machprod->CAPACITY/1000 }} / {{ $machprod->WEIGHT/1000 }} ton</td>
+                  <td>{{ $machprod->CAPACITY }} / {{ $machprod->WEIGHT/1000 }} ton</td>
                   <td>{{ $machprod->NORMAL.'/'.$machprod->REALIZATION.' hours' }}</td>
                 </tr>
                 @endforeach                
@@ -323,7 +323,7 @@
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
                   <td>{{ $machprod->MACHINE }}</td>
-                  <td>{{ $machprod->CAPACITY/1000 }} / {{ $machprod->WEIGHT/1000 }} ton</td>
+                  <td>{{ $machprod->CAPACITY }} / {{ $machprod->WEIGHT/1000 }} ton</td>
                   <td>{{ $machprod->NORMAL.'/'.$machprod->REALIZATION.' hours' }}</td>
                 </tr>
                 @endforeach                

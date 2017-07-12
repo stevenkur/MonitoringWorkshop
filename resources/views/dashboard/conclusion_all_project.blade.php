@@ -120,7 +120,7 @@
                 @foreach($ssh as $sshs)
                 <tr>
                 <td>{{$sshs->NAME}}</td>
-                <td>{{$sshs->OPERATIONAL_HOUR*60*$sshs->CAPACITY.' ton'}}</td>
+                <td>{{$sshs->OPERATIONAL_HOUR*(60/$sshs->CAPACITY).' ton'}}</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($sshs->ACTIVITY=='Straightening')
                             <td>{{$ship[$i]->MATERIAL/$count[8]->COUNT/1000}} ton</td>
@@ -154,7 +154,7 @@
                 @foreach($fabrication as $fabrications)
                 <tr>    
                 <td>{{$fabrications->NAME}}</td>
-                <td>{{$fabrications->OPERATIONAL_HOUR*60*$fabrications->CAPACITY.' ton'}}</td>
+                <td>{{$fabrications->OPERATIONAL_HOUR*(60/$fabrications->CAPACITY).' ton'}}</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($fabrications->ACTIVITY=='Bending')
                             <td>{{$ship[$i]->MATERIAL/$count[6]->COUNT/1000}} ton</td>
@@ -190,7 +190,7 @@
                 @foreach($subassembly as $subasss)
                 <tr>    
                 <td>{{$subasss->NAME}}</td>
-                <td>{{$subasss->OPERATIONAL_HOUR*60*$subasss->CAPACITY.' ton'}}</td>
+                <td>{{$subasss->OPERATIONAL_HOUR*(60/$subasss->CAPACITY).' ton'}}</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($subasss->ACTIVITY=='Fairing')
                             <td>{{$ship[$i]->DISPLACEMENT/$count[10]->COUNT/1000}} ton</td>
@@ -228,7 +228,7 @@
                 @foreach($assembly as $asss)
                 <tr>    
                 <td>{{$asss->NAME}}</td>
-                <td>{{$asss->OPERATIONAL_HOUR*60*$asss->CAPACITY.' ton'}}</td>
+                <td>{{$asss->OPERATIONAL_HOUR*(60/$asss->CAPACITY).' ton'}}</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($asss->ACTIVITY=='Fairing')
                             <td>{{$ship[$i]->DISPLACEMENT/$count[1]->COUNT/1000}} ton</td>
