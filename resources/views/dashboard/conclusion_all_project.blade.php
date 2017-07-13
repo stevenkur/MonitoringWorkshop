@@ -55,9 +55,9 @@
             <label> <h3>Total Workload All Project :</h3> </label>
             <label> <h3><b>
                 @if(isset($_GET['workshop']) && ($_GET['workshop']==1 || $_GET['workshop']==2))
-                {{ $total_workload[0]->MAT/1000 }} ton
+                {{number_format((float) $total_workload[0]->MAT/1000, 2, '.', '')}} ton
                 @else
-                {{ $total_workload[0]->TOTAL/1000 }} ton
+                {{number_format((float) $total_workload[0]->TOTAL/1000, 2, '.', '')}} ton
                 @endif
             </b></h3> </label><br><br>
           </div>      
@@ -88,9 +88,9 @@
                 <td>{{ date('d-m-Y', strtotime($ships->FINISH)) }}</td>
                 <td>
                     @if(isset($_GET['workshop']) && ($_GET['workshop']==1 || $_GET['workshop']==2))
-                    {{ $ships->MATERIAL/1000 }} ton
+                    {{number_format((float) $ships->MATERIAL/1000, 2, '.', '')}} ton
                     @else
-                    {{ $ships->DISPLACEMENT/1000 }} ton
+                    {{number_format((float) $ships->DISPLACEMENT/1000, 2, '.', '')}} ton
                     @endif
                 </td>
             </tr>
@@ -120,12 +120,12 @@
                 @foreach($ssh as $sshs)
                 <tr>
                 <td>{{$sshs->NAME}}</td>
-                <td>{{$sshs->OPERATIONAL_HOUR*(60/$sshs->CAPACITY).' ton'}}</td>
+                <td>{{ number_format((float) $sshs->OPERATIONAL_HOUR*(60/$sshs->CAPACITY), 2, '.', '') }} ton</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($sshs->ACTIVITY=='Straightening')
-                            <td>{{$ship[$i]->MATERIAL/$count[8]->COUNT/1000}} ton</td>
+                            <td>{{number_format((float) $ship[$i]->MATERIAL/$count[8]->COUNT/1000, 2, '.', '')}} ton</td>
                         @elseif($sshs->ACTIVITY=='Blasting&ShopPrimer')
-                            <td>{{$ship[$i]->MATERIAL/$count[7]->COUNT/1000}} ton</td>
+                            <td>{{number_format((float) $ship[$i]->MATERIAL/$count[7]->COUNT/1000, 2, '.', '')}} ton</td>
                         @endif
                     @endfor
                 </tr>
@@ -154,14 +154,14 @@
                 @foreach($fabrication as $fabrications)
                 <tr>    
                 <td>{{$fabrications->NAME}}</td>
-                <td>{{$fabrications->OPERATIONAL_HOUR*(60/$fabrications->CAPACITY).' ton'}}</td>
+                <td>{{ number_format((float) $fabrications->OPERATIONAL_HOUR*(60/$fabrications->CAPACITY), 2, '.', '') }} ton</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($fabrications->ACTIVITY=='Bending')
-                            <td>{{$ship[$i]->MATERIAL/$count[6]->COUNT/1000}} ton</td>
+                            <td>{{number_format((float) $ship[$i]->MATERIAL/$count[6]->COUNT/1000, 2, '.', '')}} ton</td>
                         @elseif($fabrications->ACTIVITY=='Cutting')
-                            <td>{{$ship[$i]->MATERIAL/$count[5]->COUNT/1000}} ton</td>
+                            <td>{{number_format((float) $ship[$i]->MATERIAL/$count[5]->COUNT/1000, 2, '.', '')}} ton</td>
                         @elseif($fabrications->ACTIVITY=='Marking')
-                            <td>{{$ship[$i]->MATERIAL/$count[4]->COUNT/1000}} ton</td>
+                            <td>{{number_format((float) $ship[$i]->MATERIAL/$count[4]->COUNT/1000, 2, '.', '')}} ton</td>
                         @endif
                     @endfor
                 </tr>
@@ -190,16 +190,16 @@
                 @foreach($subassembly as $subasss)
                 <tr>    
                 <td>{{$subasss->NAME}}</td>
-                <td>{{$subasss->OPERATIONAL_HOUR*(60/$subasss->CAPACITY).' ton'}}</td>
+                <td>{{ number_format((float) $subasss->OPERATIONAL_HOUR*(60/$subasss->CAPACITY), 2, '.', '') }} ton</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($subasss->ACTIVITY=='Fairing')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[10]->COUNT/1000}} ton</td>
+                            <td>{{number_format((float) $ship[$i]->MATERIAL/$count[10]->COUNT/1000, 2, '.', '')}} ton</td>
                         @elseif($subasss->ACTIVITY=='Fitting')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[12]->COUNT/1000}} ton</td>
+                            <td>{{number_format((float) $ship[$i]->MATERIAL/$count[12]->COUNT/1000, 2, '.', '')}} ton</td>
                         @elseif($subasss->ACTIVITY=='Grinding')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[9]->COUNT/1000}} ton</td>
+                            <td>{{number_format((float) $ship[$i]->MATERIAL/$count[9]->COUNT/1000, 2, '.', '')}} ton</td>
                         @elseif($subasss->ACTIVITY=='Welding')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[11]->COUNT/1000}} ton</td>
+                            <td>{{number_format((float) $ship[$i]->MATERIAL/$count[11]->COUNT/1000, 2, '.', '')}} ton</td>
                         @endif
                     @endfor
                 </tr>
@@ -228,16 +228,16 @@
                 @foreach($assembly as $asss)
                 <tr>    
                 <td>{{$asss->NAME}}</td>
-                <td>{{$asss->OPERATIONAL_HOUR*(60/$asss->CAPACITY).' ton'}}</td>
+                <td>{{ number_format((float) $asss->OPERATIONAL_HOUR*(60/$asss->CAPACITY), 2, '.', '') }} ton</td>
                     @for($i=0; $i<count($ship);$i++)
                         @if($asss->ACTIVITY=='Fairing')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[1]->COUNT/1000}} ton</td>
+                            <td>{{number_format((float) $ship[$i]->MATERIAL/$count[1]->COUNT/1000, 2, '.', '')}} ton</td>
                         @elseif($asss->ACTIVITY=='Fitting')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[3]->COUNT/1000}} ton</td>
+                            <td>{{number_format((float) $ship[$i]->MATERIAL/$count[3]->COUNT/1000, 2, '.', '')}} ton</td>
                         @elseif($asss->ACTIVITY=='Grinding')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[2]->COUNT/1000}} ton</td>
+                            <td>{{number_format((float) $ship[$i]->MATERIAL/$count[2]->COUNT/1000, 2, '.', '')}} ton</td>
                         @elseif($asss->ACTIVITY=='Welding')
-                            <td>{{$ship[$i]->DISPLACEMENT/$count[10]->COUNT/1000}} ton</td>
+                            <td>{{number_format((float) $ship[$i]->MATERIAL/$count[10]->COUNT/1000, 2, '.', '')}} ton</td>
                         @endif
                     @endfor
                 </tr>

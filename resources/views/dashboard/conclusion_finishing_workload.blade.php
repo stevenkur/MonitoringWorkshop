@@ -53,13 +53,14 @@
          
           <div class="form-group"><br><br>
             <label> <h3>Total Workload All Project :</h3> </label>
-            <label> 
+            <label> <h3><b>
                 @if(isset($_GET['workshop']) && ($_GET['workshop']==1 || $_GET['workshop']==2))
-                <h3><b>{{$total_workload[0]->MAT/1000}} ton</b></h3> </label><br><br>
+                {{number_format((float) $total_workload[0]->MAT/1000, 2, '.', '')}} ton
                 @else
-                <h3><b>{{$total_workload[0]->TOTAL/1000}} ton</b></h3> </label><br><br>
+                {{number_format((float) $total_workload[0]->TOTAL/1000, 2, '.', '')}} ton
                 @endif
-          </div>      
+            </b></h3> </label><br><br>
+          </div>     
 
         </div>
         </div>
@@ -101,7 +102,7 @@
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
                   <td>{{ $machprod->MACHINE }}</td>
-                  <td>{{ $machprod->CAPACITY }} / {{ $machprod->WEIGHT/1000 }} ton</td>
+                  <td>{{ number_format((float) $machprod->CAPACITY, 2, '.', '') }} ton / {{ number_format((float) $machprod->WEIGHT/1000, 2, '.', '') }} ton</td>
                   <td>{{ $machprod->NORMAL.'/'.$machprod->REALIZATION.' hours' }}</td>
                 </tr>
                 @endforeach
@@ -174,7 +175,7 @@
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
                   <td>{{ $machprod->MACHINE }}</td>
-                  <td>{{ $machprod->CAPACITY }} / {{ $machprod->WEIGHT/1000 }} ton</td>
+                  <td>{{ number_format((float) $machprod->CAPACITY, 2, '.', '') }} ton / {{ number_format((float) $machprod->WEIGHT/1000, 2, '.', '') }} ton</td>
                   <td>{{ $machprod->NORMAL.'/'.$machprod->REALIZATION.' hours' }}</td>
                 </tr>
                 @endforeach                
@@ -248,7 +249,7 @@
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
                   <td>{{ $machprod->MACHINE }}</td>
-                  <td>{{ $machprod->CAPACITY }} / {{ $machprod->WEIGHT/1000 }} ton</td>
+                  <td>{{ number_format((float) $machprod->CAPACITY, 2, '.', '') }} ton / {{ number_format((float) $machprod->WEIGHT/1000, 2, '.', '') }} ton</td>
                   <td>{{ $machprod->NORMAL.'/'.$machprod->REALIZATION.' hours' }}</td>
                 </tr>
                 @endforeach                
@@ -323,7 +324,7 @@
                 <tr> 
                   <td>{{ $machprod->DATE }}</td>
                   <td>{{ $machprod->MACHINE }}</td>
-                  <td>{{ $machprod->CAPACITY }} / {{ $machprod->WEIGHT/1000 }} ton</td>
+                  <td>{{ number_format((float) $machprod->CAPACITY, 2, '.', '') }} ton / {{ number_format((float) $machprod->WEIGHT/1000, 2, '.', '') }} ton</td>
                   <td>{{ $machprod->NORMAL.'/'.$machprod->REALIZATION.' hours' }}</td>
                 </tr>
                 @endforeach                

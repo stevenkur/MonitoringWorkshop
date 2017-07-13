@@ -120,12 +120,12 @@
             @foreach($ssh as $sshs)
             <tr>
                 <td>{{ $sshs->NAME }}</td>
-                <td>{{ $sshs->OPERATIONAL_HOUR*(60/$sshs->CAPACITY).' ton' }}</td>
+                <td>{{ number_format((float) $sshs->OPERATIONAL_HOUR*(60/$sshs->CAPACITY), 2, '.', '') }} ton</td>
                 <td>
                     @if($sshs->ACTIVITY=="Blasting&ShopPrimer")
-                        {{$workloadBlasting.' ton'}}
+                        {{number_format((float) $workloadBlasting, 2, '.', '')}} ton
                     @elseif($sshs->ACTIVITY=="Straightening")
-                        {{$workloadStraightening.' ton'}}
+                        {{number_format((float) $workloadStraightening, 2, '.', '')}} ton
                     @endif
                 </td>
             </tr>
@@ -157,14 +157,14 @@
             @foreach($fabrication as $fab)
             <tr>
                 <td>{{ $fab->NAME }}</td>
-                <td>{{ $fab->OPERATIONAL_HOUR*(60/$fab->CAPACITY).' ton' }}</td>
+                <td>{{ number_format((float) $fab->OPERATIONAL_HOUR*(60/$fab->CAPACITY), 2, '.', '') }} ton</td>
                 <td>                  
                     @if($fab->ACTIVITY=="Marking")
-                        {{$workloadMarking.' ton'}}
+                        {{number_format((float) $workloadMarking, 2, '.', '')}} ton
                     @elseif($fab->ACTIVITY=="Cutting")
-                        {{$workloadCutting.' ton'}}
+                        {{number_format((float) $workloadCutting, 2, '.', '')}} ton
                     @elseif($fab->ACTIVITY=="Bending")
-                        {{$workloadBending.' ton'}}
+                        {{number_format((float) $workloadBending, 2, '.', '')}} ton
                     @endif
                 </td>
             </tr>
@@ -200,17 +200,17 @@
                 @if($subass->CAPACITY==0)
                 <td>{{ '0 ton' }}</td>
                 @else
-                <td>{{ $subass->OPERATIONAL_HOUR*(60/$subass->CAPACITY).' ton' }}</td>
+                <td>{{ number_format((float) $subass->OPERATIONAL_HOUR*(60/$subass->CAPACITY), 2, '.', '') }} ton</td>
                 @endif
                 <td>            
                     @if($subass->ACTIVITY=="Fitting")
-                        {{$workloadFitting.' ton'}}
+                        {{number_format((float) $workloadFitting, 2, '.', '')}} ton
                     @elseif($subass->ACTIVITY=="Welding")
-                        {{$workloadWelding.' ton'}}
+                        {{number_format((float) $workloadWelding, 2, '.', '')}} ton
                     @elseif($subass->ACTIVITY=="Grinding")
-                        {{$workloadGrinding.' ton'}}
+                        {{number_format((float) $workloadGrinding, 2, '.', '')}} ton
                     @elseif($subass->ACTIVITY=="Fairing")
-                        {{$workloadFairing.' ton'}}
+                        {{number_format((float) $workloadFairing, 2, '.', '')}} ton
                     @endif                  
                 </td>
             </tr>
@@ -246,17 +246,17 @@
                 @if($assemblys->CAPACITY==0)
                 <td>{{ '0 ton' }}</td>
                 @else
-                <td>{{ $assemblys->OPERATIONAL_HOUR*(60/$assemblys->CAPACITY).' ton' }}</td>
+                <td>{{ number_format((float) $assemblys->OPERATIONAL_HOUR*(60/$assemblys->CAPACITY), 2, '.', '') }} ton</td>
                 @endif
                 <td>           
                     @if($assemblys->ACTIVITY=="Fitting")
-                        {{$workloadFitting.' ton'}}
+                        {{number_format((float) $workloadFitting, 2, '.', '')}} ton
                     @elseif($assemblys->ACTIVITY=="Welding")
-                        {{$workloadWelding.' ton'}}
+                        {{number_format((float) $workloadWelding, 2, '.', '')}} ton
                     @elseif($assemblys->ACTIVITY=="Grinding")
-                        {{$workloadGrinding.' ton'}}
+                        {{number_format((float) $workloadGrinding, 2, '.', '')}} ton
                     @elseif($assemblys->ACTIVITY=="Fairing")
-                        {{$workloadFairing.' ton'}}
+                        {{number_format((float) $workloadFairing, 2, '.', '')}} ton
                     @endif                     
                 </td>
             </tr>

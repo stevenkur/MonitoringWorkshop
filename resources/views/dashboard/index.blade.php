@@ -48,7 +48,7 @@
             <div class="inner">
               <h3>
                 @if($ssh[0]->WEIGHT!=NULL)
-                {{$ssh[0]->WEIGHT}} ton
+                {{number_format((float) $ssh[0]->WEIGHT/1000, 2, '.', '')}} ton
                 @else
                 0 ton
                 @endif
@@ -66,7 +66,7 @@
             <div class="inner">
               <h3>                
                 @if($fabrication[0]->WEIGHT!=NULL)
-                {{$fabrication[0]->WEIGHT}} ton
+                {{number_format((float) $fabrication[0]->WEIGHT/1000, 2, '.', '')}} ton
                 @else
                 0 ton
                 @endif
@@ -84,7 +84,7 @@
             <div class="inner">
               <h3>
                 @if($subassembly[0]->WEIGHT!=NULL)
-                {{$subassembly[0]->WEIGHT}} ton
+                {{number_format((float) $subassembly[0]->WEIGHT/1000, 2, '.', '')}} ton
                 @else
                 0 ton
                 @endif
@@ -102,7 +102,7 @@
             <div class="inner">
               <h3>
                 @if($assembly[0]->WEIGHT!=NULL)                
-                {{$assembly[0]->WEIGHT}} ton
+                {{number_format((float) $assembly[0]->WEIGHT/1000, 2, '.', '')}} ton
                 @else
                 0 ton
                 @endif
@@ -120,7 +120,7 @@
             <div class="inner">
               <h3>
                 @if($bbs[0]->WEIGHT!=NULL) 
-                {{$bbs[0]->WEIGHT}} ton
+                {{number_format((float) $bbs[0]->WEIGHT/1000, 2, '.', '')}} ton
                 @else
                 0 ton
                 @endif
@@ -138,7 +138,7 @@
             <div class="inner">
               <h3>
                 @if($erection[0]->WEIGHT!=NULL) 
-                {{$erection[0]->WEIGHT}} ton
+                {{number_format((float) $erection[0]->WEIGHT/1000, 2, '.', '')}} ton
                 @else
                 0 ton
                 @endif

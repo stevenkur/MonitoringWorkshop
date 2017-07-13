@@ -262,7 +262,7 @@
                 @foreach($progr as $prog)
                 <tr>
                   <td>{{$prog->BLOCK_NAME}}</td>
-                  <td>{{$prog->PROGRESS.'%'}}</td>
+                  <td>{{number_format((float) $prog->PROGRESS, 2, '.', '')}} %</td>
                 </tr>  
                 @endforeach          
                 </tbody>
